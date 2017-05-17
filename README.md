@@ -1,1 +1,1 @@
-# ProteoRE2_ex
+# ProteoRE2
