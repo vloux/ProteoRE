@@ -1,0 +1,1 @@
+Majority protein IDs	Protein names	Gene names	iBAQ LYOP2 / iBAQ TNEG2	iBAQ LYOP3 / iBAQ TNEG3	Razor + unique peptides	Filtered

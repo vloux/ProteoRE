@@ -1,0 +1,21 @@
+<tool id="contamin_filter" name="CONFILT" version="0.1.0">
+    <description>Filter technical contaminants</description>
+    <requirements>
+    </requirements>
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+    <command interpreter="python"><![CDATA[
+        contamin.py $input1 $input2 $output  
+    ]]></command>
+    <inputs>
+        <param type="data" name="input1" format="txt" label="MaxQuant output file" />
+        <param type="data" name="input2" format="txt" label="Contaminants file" />
+    </inputs>
+    <outputs>
+        <data name="output" format="txt" label="contamin_filtered.txt" />
+    </outputs>
+    <help><![CDATA[
+        TODO: Fill in help.
+    ]]></help>
+</tool>

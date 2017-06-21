@@ -1,0 +1,23 @@
+<tool id="get_data_HPA" name="Filter your data with HPA information" version="0.1.0">
+    <requirements>
+    </requirements>
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+    <command><![CDATA[
+        Rscript --vanilla get_data_HPA_v2.R "$input1" "$input2" "$input3" "$input4" "$input4" output.txt  
+    ]]></command>
+    <inputs>
+        <param type="data" name="input1" format="csv" />
+        <param type="data" name="input2" format="txt" />
+        <param type="data" name="input3" format="" />
+        <param type="data" name="input4" format="" />
+        <param type="data" name="input5" format="" />
+        <param type="data" name="input6" format="txt" />
+    </inputs>
+    <outputs>
+    </outputs>
+    <help><![CDATA[
+        TODO: Fill in help.
+    ]]></help>
+</tool>

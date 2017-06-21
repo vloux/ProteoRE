@@ -1,0 +1,209 @@
+#!/usr/bin/env python2.7
+#
+# Copyright (C) 2015 INRA
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+__author__ = 'Katia Vidal - Team NED Toulouse AND Frederic Escudie - Plateforme bioinformatique Toulouse'
+__copyright__ = 'Copyright (C) 2015 INRA'
+__license__ = 'GNU General Public License'
+__version__ = '1.3.2'
+__email__ = 'frogs@toulouse.inra.fr'
+__status__ = 'prod'
+
+
+import os
+import sys
+import json
+import operator
+import argparse
+from itertools import combinations
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+# PATH
+BIN_DIR = os.path.abspath(os.path.join(os.path.dirname(CURRENT_DIR), "libexec"))
+os.environ['PATH'] = BIN_DIR + os.pathsep + os.environ['PATH']
+# PYTHONPATH
+LIB_DIR = os.path.abspath(os.path.join(os.path.dirname(CURRENT_DIR), "lib"))
+sys.path.append(LIB_DIR)
+if os.getenv('PYTHONPATH') is None: os.environ['PYTHONPATH'] = LIB_DIR
+else: os.environ['PYTHONPATH'] = os.environ['PYTHONPATH'] + os.pathsep + LIB_DIR
+
+
+
+##################################################################################################################################################
+#
+# COMMAND LINES
+#
+##################################################################################################################################################
+
+
+
+##################################################################################################################################################
+#
+# FUNCTIONS
+#
+##################################################################################################################################################
+
+def write_summary( summary_file, mqfile, input, names):
+    """
+    @summary: Writes the process summary.
+    @param summary_file: [str] The path to the output file.
+    @param input_biom: [str] The path to the BIOM before program execution.
+    @param output_biom: [str] The path to the BIOM after program execution.
+    @param discards: [dict] By filter the path of the file that contains the list of the removed observations.
+    """
+    global_results = {
+        'nb_clstr_kept': 0,
+        'nb_clstr_ini': 0,
+        'nb_seq_kept': 0,
+        'nb_seq_ini': 0
+    }
+    samples_results = dict()
+    filters_results = dict()
+
+    a, b = input_to_dict(input, names)
+    data = diagram(mqfile, a, b)
+
+    to_replace = {
+    	"series": [data],
+    }
+    #print(to_replace)
+
+    # Global before filters
+    FH_summary_tpl = open( os.path.join(CURRENT_DIR, "jvenn_tpl.html") )
+    FH_summary_out = open( summary_file, "w" )
+    for line in FH_summary_tpl:
+        if "###JVENN_DATA###" in line:
+            line = line.replace("###JVENN_DATA###", json.dumps(to_replace))
+        #if "###PORCESSED_FILTERS###" in line:
+        #    line = line.replace( "###PORCESSED_FILTERS###", json.dumps([filter for filter in discards]) )
+        #elif "###GLOBAL_RESULTS###" in line:
+        #    line = line.replace( "###GLOBAL_RESULTS###", json.dumps(global_results) )
+        #elif "###SAMPLES_RESULTS###" in line:
+        #    line = line.replace( "###SAMPLES_RESULTS###", json.dumps(samples_results) )
+        #elif "###FILTERS_RESULTS###" in line:
+        #    line = line.replace( "###FILTERS_RESULTS###", json.dumps(filters_results.values()) )
+        FH_summary_out.write( line )
+    
+    FH_summary_out.close()
+    FH_summary_tpl.close()
+
+def input_to_dict(comp_files, names):
+    comp_dict = {}
+    title_dict = {}
+    #print(len(comp_files), comp_files[0])
+    c = ["B", "C", "D", "E"]  # "A" is for MQ file
+    for i in range(len(comp_files)):
+	file = comp_files[i]
+	#print(file)
+        name = names[i].replace(".txt", "") #file.split("/")[-1].replace(".txt", "")
+	title = c[i]
+	title_dict[title] = name
+        ids = set()
+        file_content = open(file, "r").readlines()
+        file_content = [x.replace("\n", "") for x in file_content]
+	file_content = [x.replace("\r", "") for x in file_content]
+        ids.update(file_content)
+        comp_dict[title] = ids
+    return comp_dict, title_dict
+
+def intersect(comp_dict):
+    # Calculate elements frequencies
+    names = set(comp_dict)
+    for i in range(1, len(comp_dict) + 1):
+        for group in combinations(sorted(comp_dict), i):
+	    difference = ""
+	    #print(group)
+            intersected = set.intersection(*(comp_dict[k] for k in group))
+	    if len(group)==len(comp_dict):
+		difference = {}
+		for j in range(len(group)):
+		    #print(j)
+		    n = group[j]
+		    g = group[:j] + group[j+1:]
+		    #print("comp", comp_dict[n])
+	    	    dif = set(comp_dict[n]).difference(set.union(*(comp_dict[k] for k in g)))
+	    	    #print("dif", dif)
+		    difference[n] = dif
+            yield group, list(intersected), difference
+
+def diagram(MQfile, comp_dict, title_dict):
+    # Extract protein IDs in MQfile
+    prot_ids = set()
+    if MQfile[2] == "mq_file":
+        mq = open(MQfile[0], "r").readlines()
+        mq = [x for x in [line.split("\t")[0] for line in mq[1:]]]
+    else if MQfile[2] == "list_file":
+        mq = open(MQfile[0], "r").readlines()
+        mq = [x for x in [line.strip() for line in mq[1:]]]
+    else if MQfile[2] == "list":
+        mq = MQfile[0].split()
+    prot_ids.update(mq)
+    #print(prot_ids)
+
+    # Add MQfile into dictionary
+    mqlist = {"name": MQfile[1].replace(".txt", ""), "ids": prot_ids}
+    comp_dict["A"] = mqlist["ids"]
+    title_dict["A"] = mqlist["name"]
+    #print(title_dict)
+
+    result = {}
+    result["name"] = {}
+    #print(comp_dict.keys())
+    for k in comp_dict.keys():
+	#print(k)
+        result["name"][k] = title_dict[k]
+        
+    result["data"] = {}
+    result["values"] = {}    
+    for group, intersected, difference in intersect(comp_dict):
+        #print(group)
+	if len(group) > 1 and len(group) != len(comp_dict):
+            result["data"]["".join(group)] = intersected
+            result["values"]["".join(group)] = len(intersected)
+	if len(group)== len(comp_dict):
+	    result["data"]["".join(group)] = intersected
+            result["values"]["".join(group)] = len(intersected)
+	    for k in comp_dict.keys():
+		result["data"][k] = list(difference[k])
+		result["values"][k] = len(difference[k])
+    return result
+
+
+def process( args ):
+	
+        write_summary( args.summary, args.mq, args.input, args.names)
+
+
+##################################################################################################################################################
+#
+# MAIN
+#
+##################################################################################################################################################
+if __name__ == '__main__':
+    # Parameters
+    parser = argparse.ArgumentParser(description='Filters an abundance file')
+    group_input = parser.add_argument_group( 'Inputs' )
+    group_input.add_argument('--mq', nargs=3, required=True)
+    group_input.add_argument('--input', nargs="+", required=True, help="The input tabular file.")
+    group_input.add_argument('--names', nargs="+")
+    group_output = parser.add_argument_group( 'Outputs' )
+    group_output.add_argument('--summary', default="summary.html", help="The HTML file containing the graphs. [Default: %(default)s]")
+    args = parser.parse_args()
+    #print(args.input[1:])
+
+    # Process
+    process( args )

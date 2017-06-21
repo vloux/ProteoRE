@@ -1,0 +1,187 @@
+# Load necessary libraries
+source("http://bioconductor.org/biocLite.R")
+biocLite("goProfiles")
+library("org.Hs.eg.db", quietly=TRUE)
+library("goProfiles", quietly=TRUE)
+
+readfile = function(filename) {
+  file = read.table(filename, header = TRUE, sep = "\t")
+  return(file)
+}
+
+#filename = "/Users/LinCun/Documents/ProteoRE/usecase1/Check/HPA.Selection.134.txt"
+#test = readfile(filename)
+#str(test)
+#str(test$Gene.names)
+getprofile = function(filename) {
+  # Get file content
+  file = readfile(filename)
+  # Extract gene names (gene symbols) list
+  genes = as.factor(file$Gene.names)
+
+  # Convert gene symbols into entrez ids
+  genes_ids = c()
+  for (gene in genes) {
+    id = as.character(mget(gene, org.Hs.egALIAS2EG, ifnotfound = NA))
+    genes_ids = append(genes_ids, id)
+  }
+
+  # Create basic profiles
+  profile.CC = basicProfile(genes_ids, onto='CC', level=2, orgPackage="org.Hs.eg.db")
+  profile.BP = basicProfile(genes_ids, onto='BP', level=2, orgPackage="org.Hs.eg.db")
+  profile.MF = basicProfile(genes_ids, onto='MF', level=2, orgPackage="org.Hs.eg.db")
+  profile.ALL = basicProfile(genes_ids, onto='ANY', level=2, orgPackage="org.Hs.eg.db")
+
+  # Print profile
+  # printProfiles(profile)
+
+  return(c(profile.CC, profile.MF, profile.BP, profile.ALL))
+}
+
+# Plot profiles to PNG
+plotPNG = function(profile.CC = NULL, profile.BP = NULL, profile.MF = NULL, profile.ALL = NULL) {
+  if (!is.null(profile.CC)) {
+    png("profile.CC.png")
+    plotProfiles(profile.CC, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.BP)) {
+    png("profile.BP.png")
+    plotProfiles(profile.BP, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.MF)) {
+    png("profile.MF.png")
+    plotProfiles(profile.MF, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.ALL)) {
+    png("profile.ALL.png")
+    plotProfiles(profile.ALL, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+}
+
+# Plot profiles to JPEG
+plotJPEG = function(profile.CC = NULL, profile.BP = NULL, profile.MF = NULL, profile.ALL = NULL) {
+  if (!is.null(profile.CC)) {
+    jpeg("profile.CC.jpeg")
+    plotProfiles(profile.CC, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.BP)) {
+    jpeg("profile.BP.jpeg")
+    plotProfiles(profile.BP, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.MF)) {
+    jpeg("profile.MF.jpeg")
+    plotProfiles(profile.MF, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.ALL)) {
+    jpeg("profile.ALL.jpeg")
+    plotProfiles(profile.ALL, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+}
+
+# Plot profiles to PDF
+plotPDF = function(profile.CC = NULL, profile.BP = NULL, profile.MF = NULL, profile.ALL = NULL) {
+  if (!is.null(profile.CC)) {
+    pdf("profile.CC.pdf")
+    plotProfiles(profile.CC, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.BP)) {
+    pdf("profile.BP.pdf")
+    plotProfiles(profile.BP, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.MF)) {
+    pdf("profile.MF.pdf")
+    plotProfiles(profile.MF, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+  if (!is.null(profile.ALL)) {
+    #print("all")
+    pdf("profile.ALL.pdf")
+    plotProfiles(profile.ALL, percentage=TRUE, multiplePlots=TRUE, labelWidth=100)
+    dev.off()
+  }
+}
+
+goooo = function() {
+  args = commandArgs(trailingOnly = TRUE)
+  print(args)
+  # arguments: filename.R inputfile "CC,MF,BP,ALL" "PNG,JPEG,PDF"
+  if (length(args) != 3) {
+    stop("Not enough/Too many arguments", call. = FALSE)
+  }
+  else {
+    input = args[1]
+    ontoopt = args[2]
+    plotopt = strsplit(args[3], " ")
+    #print(x = c(input, ontoopt, plotopt))
+    profiles = getprofile(input)
+    profile.CC = profiles[1]
+    #print(profile.CC)
+    profile.MF = profiles[2]
+    #print(profile.MF)
+    profile.BP = profiles[3]
+    #print(profile.BP)
+    profile.ALL = profiles[-3:-1]
+    #print(profile.ALL)
+    #c(profile.ALL, profile.CC, profile.MF, profile.BP)
+    if (ontoopt=="CC") {
+      if (grepl("PNG", plotopt)) {
+        plotPNG(profile.CC=profile.CC)
+      }
+      if (grepl("JPEG", plotopt)) {
+        plotJPEG(profile.CC = profile.CC)
+      }
+      if (grepl("PDF", plotopt)) {
+        plotPDF(profile.CC = profile.CC)
+      }
+    }
+    else if (ontoopt=="MF") {
+      if (grepl("PNG", plotopt)) {
+        plotPNG(profile.MF = profile.MF)
+      }
+      if (grepl("JPEG", plotopt)) {
+        plotJPEG(profile.MF = profile.MF)
+      }
+      if (grepl("PDF", plotopt)) {
+        plotPDF(profile.MF = profile.MF)
+      }
+    }
+    else if (ontoopt=="BP") {
+      if (grepl("PNG", plotopt)) {
+        #print("yes")
+        plotPNG(profile.BP = profile.BP)
+      }
+      if (grepl("JPEG", plotopt)) {
+        plotJPEG(profile.BP = profile.BP)
+      }
+      if (grepl("PDF", plotopt)) {
+        #print("yes")
+        plotPDF(profile.BP = profile.BP)
+      }
+    }
+    else if (ontoopt=="ALL") {
+      if (grepl("PNG", plotopt)) {
+        plotPNG(profile.ALL = profile.ALL)
+      }
+      if (grepl("JPEG", plotopt)) {
+        plotJPEG(profile.ALL = profile.ALL)
+      }
+      if (grepl("PDF", plotopt)) {
+        plotPDF(profile.ALL = profile.ALL)
+      }
+   }
+  }
+}
+
+goooo()
+
+#Rscript /Users/LinCun/Documents/ProteoRE/usecase1/goP/go.R  "/Users/LinCun/Documents/ProteoRE/usecase1/Check/HPA.Selection.134.txt" "CC" "PDF"

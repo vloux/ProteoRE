@@ -1,0 +1,35 @@
+package:
+  name: goprofiles
+  version: "1.36.0"
+
+source:
+  fn: goProfiles_1.36.0.tar.gz
+  url: https://www.bioconductor.org/packages/release/bioc/src/contrib/goProfiles_1.36.0.tar.gz
+  md5: c4527712d8440b349bdf7aef10075e1b
+
+build:
+  number: 0
+  rpaths:
+    - /usr/local/public/R/bin/R
+
+requirements:
+  build:
+    - bioconductor-biobase 
+    - bioconductor-annotationdbi 
+    - bioconductor-go.db 
+    - r 3.3.1
+
+  run:
+    - bioconductor-biobase 
+    - bioconductor-annotationdbi 
+    - bioconductor-go.db 
+    - r 3.3.1
+
+test:
+  commands:
+    - '$R -e "library(''goProfiles'')"'
+
+about:
+  home: https://www.bioconductor.org/packages/release/bioc/html/goProfiles.html
+  license: 'GPL-2'
+  summary: 'an R package for the statistical analysis of functional profiles'

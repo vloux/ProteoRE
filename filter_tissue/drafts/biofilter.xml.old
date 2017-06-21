@@ -1,0 +1,74 @@
+<tool id="biofilter" name="BIOFILTER" version="0.1.0">
+    <description>Discard genes in salivary gland but not in lung from technical filtered MaxQuant output file.
+    </description>
+    <requirements>
+    </requirements>
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+    <command><![CDATA[
+        python /projet/galaxydev/galaxy/tools/proteore_uc1/component2/biofilter.py --mq "$input1" --hpa $proteinatlas.value -o "$output1"
+	#if $trash_file:
+        ##if $opt.trash_file:
+	    #if $trash_file_detail=="trashdetail":
+	    ##if $opt.trash_file_detail=="trashdetail":
+		--trash_file_detail "$trash_detail_output"
+	    #else if $trash_file_detail=="trashonly":
+	    ##else if $opt.trash_file_detail=="trashonly":
+                --trash_file "$output2"
+	    #end if
+        #end if
+
+	#if $salivary=="salivary_file":
+	    --salivary_file "$salivary_output"
+	#end if
+
+	#if $lung=="lung_file":
+	    --lung_file "$lung_output"
+	#end if
+    ]]></command>
+    <inputs>
+        <param type="data" name="input1" format="txt" label="Post Selection Input" />
+        <param name="proteinatlas" type="select" label="Human Protein Atlas" >
+            <options from_file="proteinatlas.loc" selected="True" >
+		<column name="name" index="1" />
+		<column name="value" index="2" />
+	    </options>
+	</param>
+	<param type="boolean" name="salivary" checked="false" truevalue="salivary_file" label="Produce a file containing all genes in salivary gland" />
+	<param type="boolean" name="lung" checked="false" truevalue="lung_file" label="Produce a file containing all genes in lung" />
+	<!--conditional name="opt" -->
+            <param type="boolean" name="trash_file" checked="false" truevalue="true" label="Produce a file containing discarded gene names" />
+	    <!--when value="true" >
+		<param type="boolean" name="trash_file_detail" checked="false" truevalue="trashdetail" falsevalue="trashonly" label="Includes detailed information" />
+	    </when>
+        </conditional-->
+    </inputs>
+    <outputs>
+        <data name="output1" format="txt" label="HPAselection" />
+        <data name="output2" format="txt" label="Trash" >
+            <!--filter>opt["trash_file"] and opt["trash_file_detail"]=="trashonly"</filter-->
+	    <filter>trash_file</filter>
+        </data>
+	<!--data name="trash_detail_output" format="txt" label="Trash in detail" >
+	    <filter>opt["trash_file"] and opt["trash_file_detail"]=="trashdetail"</filter>
+	</data-->
+	<data name="salivary_output" format="txt" label="Salivary" >
+	    <filter>salivary</filter>
+	</data>
+	<data name="lung_output" format="txt" label="Lung" >
+	    <filter>lung</filter>
+	</data>
+    </outputs>
+    <help><![CDATA[
+This tool discards the genes that are in salivary gland but not in lung, according to Human Protein Atlas.
+
+**Input**
+Output of **"MaxQuant Output Filter"**
+
+**Option**
+You can choose to generate a file containing the discarded gene names
+    ]]></help>
+    <citations>
+    </citations>
+</tool>

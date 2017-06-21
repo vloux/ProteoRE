@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+# Copyright (C) 2015 INRA
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<tool id="Jvenn" name="Jvenn" version="1.0">
+	<description>Draw Jvenn from files.</description>
+	<command interpreter="python2.7">
+		/projet/galaxydev/galaxy/tools/proteore_uc1/component3/jvenn.py 
+		#if $mq.opt == "mq_file"
+                    --mq $mq.mq_file $mq.mq_file.name "mq_file"
+                #else if $mq.opt == "list_file"
+                    --mq $mq.list_file $mq.list_file.name "list_file"
+                #else
+                    --mq "$mq.list" "Query IDs" "list"
+                #end if
+
+		--input
+		#for $s in $series
+			$s.input
+		#end for 
+		--names
+		#for $s in $series
+			$s.input.name
+		#end for 
+		--summary $output_summary
+	</command>
+	<inputs>
+		<!-- Files ->
+		<param type="data" name="mq" format="txt" label="Filtered MaxQuant file" /-->
+                <conditional name="mq" >
+                    <param type="select" name="opt" label="Input file" >
+                        <option value="mq_file">Filtered MaxQuant file</option>
+                        <option value="list_file">List of IDs file</option>
+                        <option value="list">Enter list of IDs</option>
+                    </param>
+                    <when value="mq_file">
+                        <param type="data" name="mq_file" format="txt" label="Filtered MaxQuant file" />
+                    </when>
+                    <when value="list_file">
+                        <param type="data" name="list_file" format="txt" label="List of IDs file" />
+                    </when>
+                    <when value="list">
+                        <param type="text" name="list" label="Enter list of IDs" />
+                    </when>
+                </conditional>
+		<repeat name="series" title="Input files" min="1" max="5" >
+			<param format="txt" name="input" type="data" label="Files to compare" help="The text file containing lists of protein IDs to compare" />
+		</repeat>
+	</inputs>
+	<outputs>
+		<data format="html" name="output_summary" label="Jvenn.html" from_work_dir="summary.html" />
+	</outputs>
+	<help>
+
+.. class:: h3
+
+Inputs
+
+1. Query:
+
+* **Filtered MaxQuant file:** MaxQuant output file which is already filtered technical and biological contaminants.
+
+* **File of a list of IDs:** .TXT format, each line contains 1 ID
+
+ AMY1A
+
+ ALB
+
+ IGKC
+
+ CSTA
+
+ IGHA1
+
+ ACTG1
+
+* **List of IDs:** IDs separated by a space
+
+ AMY1A ALB IGKC CSTA IGHA1 ACTG1
+
+2. Other protein lists to compare: files containing list of proteins, TXT format, each protein IDs in a line.
+
+.. class:: h3
+
+Outputs
+
+**Summary file** (Jvenn_html.html):
+
+Venn diagram: Could be downloaded as image (PNG, SVG)
+
+	</help> 
+</tool>
