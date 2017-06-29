@@ -1,4 +1,4 @@
-<tool id="get_data_HPA" name="Filter your data with HPA information" version="0.1.0">
+<tool id="get_data_HPA" name="Retrieve tissue/cell expression levels" version="0.1.0">
     <requirements>
     </requirements>
     <stdio>
