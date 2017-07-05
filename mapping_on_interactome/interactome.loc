@@ -1,0 +1,4 @@
+#This file lists the locations and dbkeys of interactome files.
+#<name>	<display_name (value)>          <file_path>
+bioplex	Bioplex Interactome (v.2.0)	/path/to/mapping_on_interactome/component/directory/BioPlex_interactionList_v4a.tsv
+
