@@ -1,0 +1,155 @@
+<tool id="topGO" name="topGO enrichment analysis" version="0.1.0">
+    <requirements>
+    </requirements>
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+    <command><![CDATA[
+    
+  #if $inputtype.filetype == "file_all": 
+  Rscript --vanilla $__tool_directory__/enrichment_v3.R --inputtype tabfile --input '$inputtype.genelist' --ontology '$ontocat' --option '$option' --threshold '$threshold' --correction '$correction' --textoutput '$condtext.textoutput' --barplotoutput '$condbar.barplotoutput' --dotplotoutput '$conddot.dotplotoutput' --column '$inputtype.column'
+  #end if
+    
+    
+      #if $inputtype.filetype == "copy_paste": 
+  Rscript --vanilla $__tool_directory__/enrichment_v3.R --inputtype copypaste --input '$inputtype.genelist' --ontology '$ontocat' --option '$option' --threshold '$threshold' --correction '$correction' --textoutput '$condtext.textoutput' --barplotoutput '$condbar.barplotoutput' --dotplotoutput '$conddot.dotplotoutput' --column c1
+  #end if
+
+
+
+  #if $inputtype.filetype == "file_list":
+  Rscript --vanilla $__tool_directory__/enrichment_v3.R --inputtype tabfile --input '$inputtype.genelist' --ontology '$ontocat' --option '$option' --threshold '$threshold' --correction '$correction' --textoutput '$condtext.textoutput' --barplotoutput '$condbar.barplotoutput' --dotplotoutput '$conddot.dotplotoutput' --column c1
+  #end if
+    ]]></command>
+
+    <inputs>
+  <conditional name="inputtype">
+    <param name="filetype" type="select" label="Select your type of input file" help="The input file must contain Ensembl gene IDs (ENSG followed by numbers). If it is not the case, please refer to the mapping component.">
+      <option value="copy_paste">Copy/paste your list of IDs</option> 
+      <option value="file_list">Choose a single-column file</option> 
+      <option value="file_all">Choose a multiple-columns file</option>
+    </param>
+    <when value="copy_paste">
+      <param name="genelist" type="text" label="Enter a list of identifiers"/>
+    </when>
+    <when value="file_list">
+      <param name="genelist" type="data" format="txt,tabular" label="Choose a single-column file" help="This file must have only 1 column containing IDs - For the type of IDs, please refer to the documentation below."/> 
+    </when>
+    <when value="file_all">
+      <param name="genelist" type="data" format="txt,tabular" label="Choose a multiple-columns file" help="This file must imperatively have 1 column filled with IDs consistent with the database that will be used. Please use the MappingIDs component if this is not the case."/>
+      <param name="column" type="data_column" data_ref="genelist" label="Please specify the column where you would like to apply the comparison"/> 
+    </when>
+  </conditional>
+        <param name="ontocat" type="select" label="Ontology category">
+              <option value="BP" >Biological Process</option>
+              <option value="CC" >Cellular Component</option>
+              <option value="MF" >Molecular Function</option>
+        </param>
+
+        <param name="option" type="select" label="Choose the topGO option for your analysis">
+                <option value="classic" >Classic fisher test</option>
+                <option value="elim" selected="true">Elim</option>
+                <option value="weight01" >Weight01</option>
+                <option value="parentchild" >ParentChild</option>
+          </param>
+        <param name="threshold" type="text" label="Enter the threshold level under the form 1e-level wanted (e.g : 1e-15)" value="1e-15"/>
+	<param name="correction" label="Choose a correction for multiple testing" type="select">
+             <option value="none" >None</option>
+             <option value="holm" selected="true">Holm correction</option>
+             <option value="hochberg" >Hochberg correction</option>
+             <option value="hommel" >Hommel correction</option>
+             <option value="bonferroni" >Bonferroni correction</option>
+             <option value="BH" >BH</option>
+             <option value="BY" >BY</option>
+             <option value="fdr" >FDR</option>
+           </param>
+            <conditional name="condtext">
+            <param name="textoutput" type="select" label="Generate a text file for results">
+              <option value="TRUE">Yes</option>
+              <option value="FALSE">No</option>
+            </param>
+          </conditional>
+          <conditional name="condbar">
+            <param name="barplotoutput" type="select" label="Generate a barplot of over-represented GO terms">
+              <option value="TRUE">Yes</option>
+              <option value="FALSE">No</option>
+            </param>
+          </conditional>
+          <conditional name="conddot">
+              <param name="dotplotoutput" type="select" label="Generate a dotplot of over-represented GO terms">
+              <option value="TRUE">Yes</option>
+              <option value="FALSE">No</option>
+            </param>
+          </conditional>
+    </inputs>
+    <outputs>
+      <data name="outputtext" format="tsv" label="Text output for topGO analysis" from_work_dir="result.tsv">
+        <filter>condtext['textoutput']=="TRUE"</filter>
+      </data>
+
+      <data name="outputbarplot" format="png" label="Barplot output for topGO analysis" from_work_dir="barplot.png">
+        <filter>condbar['barplotoutput']=="TRUE"</filter>
+      </data>
+      
+      <data name="outputdotplot" format="png" label="Dotplot output for topGO analysis" from_work_dir="dotplot.png">
+        <filter>conddot['dotplotoutput']=="TRUE"</filter>
+      </data>
+      
+   </outputs>
+    <help><![CDATA[
+      
+      
+**Galaxy component based on R package topGO.** 
+
+**Input required**
+
+This component works with Ensembl gene ids (e.g : ENSG0000013618). You can
+copy/paste these identifiers or supply a tabular file (.csv, .tsv, .txt, .tab)
+where there are contained. 
+
+**Principle**
+
+This component provides the GO terms representativity of a gene list in one ontology category (Biological Process "BP", Cellular Component "CC", Molecular Function "MF"). This representativity is evaluated in comparison to the background list of all human genes associated associated with GO terms of the chosen category (BP,CC,MF). This background is given by the R package "org.Hs.eg.db", which is a genome wide association package for **human**.
+
+**Output**
+
+Three kind of outputs are available : a textual output, a barplot output and
+a dotplot output. 
+
+*Textual output* :
+The text output lists all the GO-terms that were found significant under the specified threshold.    
+
+
+The different fields are as follow :
+
+- Annotated : number of genes in org.Hs.eg.db which are annotated with the GO-term.
+
+- Significant : number of genes belonging to your input which are annotated with the GO-term. 
+
+- Expected : show an estimate of the number of genes a node of size Annotated would have if the significant genes were to be randomly selected from the gene universe.  
+
+- pvalues : pvalue obtained after the test 
+
+- ( qvalues  : additional column with adjusted pvalues ) 
+
+ 
+**Tests**
+
+topGO provides a classic fisher test for evaluating if some GO terms are over-represented in your gene list, but other options are also provided (elim, weight01,parentchild). For the merits of each option and their algorithmic descriptions, please refer to topGO manual : 
+https://bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
+
+**Multiple testing corrections**
+    
+Furthermore, the following corrections for multiple testing can also be applied : 
+- holm
+- hochberg
+- hommel
+- bonferroni
+- BH
+- BY
+- fdr
+
+
+
+    ]]></help>
+</tool>

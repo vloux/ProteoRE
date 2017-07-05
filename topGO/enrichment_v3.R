@@ -1,0 +1,260 @@
+# enrichment_v3.R
+# Usage : Rscript --vanilla enrichment_v3.R --inputtype copypaste (or
+# tabfile) --input file.txt --ontology "BP/CC/MF" --option option (e.g
+# : classic/elim...) --threshold threshold --correction correction --textoutput
+# text --barplotoutput barplot
+# --dotplotoutput dotplot --column column 
+# e.g : Rscript --vanilla enrichment_v3.R --inputtype listfile --input file.txt
+# --ontology BP --option classic --threshold 1e-15 --correction holm
+# --textoutput TRUE
+# --barplotoutput TRUE --dotplotoutput TRUE --column c1 
+# INPUT :
+# - type of input. Can be ids separated by a blank space (copypast), or a text
+# file (tabfile)
+#	- file with at least one column of ensembl ids 
+#	- gene ontology category : Biological Process (BP), Cellular Component (CC), Molecular Function (MF)
+#	- test option (relative to topGO algorithms) : elim, weight01, parentchild, or no option (classic)
+#	- threshold for enriched GO term pvalues (e.g : 1e-15)     
+#	- correction for multiple testing (see p.adjust options : holm, hochberg, hommel, bonferroni, BH, BY,fdr,none
+#	- outputs wanted in this order text, barplot, dotplot with boolean value (e.g
+#	: TRUE TRUE TRUE ).
+#	Declare the output not wanted as none
+#	- column containing the ensembl ids if the input file is a tabfile
+#
+# OUTPUT :
+#	- outputs commanded by the user named respectively result.tsv for the text
+#	results file, barplot.png for the barplot image file and dotplot.png for the
+#	dotplot image file 
+
+
+# loading topGO library
+library("topGO") 
+
+'%!in%' <- function(x,y)!('%in%'(x,y))
+
+
+# Parse command line arguments
+
+args = commandArgs(trailingOnly = TRUE)
+
+# create a list of the arguments from the command line, separated by a blank space
+hh <- paste(unlist(args),collapse=' ')
+
+# delete the first element of the list which is always a blank space
+listoptions <- unlist(strsplit(hh,'--'))[-1]
+
+# for each input, split the arguments with blank space as separator, unlist,
+# and delete the first element which is the input name (e.g --inputtype) 
+options.args <- sapply(listoptions,function(x){
+         unlist(strsplit(x, ' '))[-1]
+        })
+# same as the step above, except that only the names are kept
+options.names <- sapply(listoptions,function(x){
+  option <-  unlist(strsplit(x, ' '))[1]
+})
+names(options.args) <- unlist(options.names)
+
+
+if (length(options.args) != 10) {
+    stop("Not enough/Too many arguments", call. = FALSE)
+}
+
+typeinput = options.args[1]
+listfile = options.args[2]
+onto = as.character(options.args[3])
+option = as.character(options.args[4])
+correction = as.character(options.args[6])
+threshold = as.numeric(options.args[5])
+text = as.character(options.args[7])
+barplot = as.character(options.args[8])
+dotplot = as.character(options.args[9])
+column = as.numeric(gsub("c","",options.args[10]))
+
+if (typeinput=="copypaste"){
+  sample = as.data.frame(unlist(listfile))
+  sample = sample[,column]
+}
+if (typeinput=="tabfile"){
+
+  sample = read.table(listfile,header=FALSE,sep="\t")  
+  sample = sample[,column]
+
+}
+
+# get all the GO terms of the corresponding ontology (BP/CC/MF) and all their associated ensembl ids according to org.HS.eg.db
+xx = annFUN.org(onto,mapping="org.Hs.eg.db",ID="ensembl")
+
+allGenes = unique(unlist(xx))
+
+# check if the genes given by the user can be found in org.Hs.eg.db, that is in
+# allGenes 
+if (length(intersect(sample,allGenes))==0){
+
+    stop("None of the input ids can be found in org.Hs.eg.db data, enrichment analysis cannot be realized. \n The inputs ids probably have no associated GO terms.", call. = FALSE)
+
+}
+
+geneList = factor(as.integer(allGenes %in% sample)) 
+names(geneList) <- allGenes
+
+
+#topGO enrichment 
+
+
+# Creation of a topGOdata object
+# It will contain : the list of genes of interest, the GO annotations and the GO hierarchy
+# Parameters : 
+# ontology : character string specifying the ontology of interest (BP, CC, MF)
+# allGenes : named vector of type numeric or factor 
+# annot : tells topGO how to map genes to GO annotations.
+# argument not used here : nodeSize : at which minimal number of GO annotations
+# do we consider a gene  
+ 
+myGOdata = new("topGOdata", description="SEA with TopGO", ontology=onto, allGenes=geneList,  annot = annFUN.org, mapping="org.Hs.eg.db",ID="ensembl")
+
+
+# Performing enrichment tests
+result <- runTest(myGOdata, algorithm=option, statistic="fisher")
+
+# Some libraries such as GOsummaries won't be able to treat the values such as
+# "< 1e-30" produced by topGO. As such it is important to delete the < char
+# with the deleteInfChar function. Nevertheless the user will have access to the original results in the text output.
+deleteInfChar = function(values){
+
+	lines = grep("<",values)
+	if (length(lines)!=0){
+		for (line in lines){
+		  values[line]=gsub("<","",values[line])
+		}
+	}
+
+	return(values)
+}
+# adjust for multiple testing
+if (correction!="none"){
+
+
+  # GenTable : transforms the result object into a list. Filters can be applied
+  # (e.g : with the topNodes argument, to get for instance only the n first
+  # GO terms with the lowest pvalues), but as we want to  apply a correction we
+  # take all the GO terms, no matter their pvalues  
+  allRes <- GenTable(myGOdata, test = result, orderBy = "result", ranksOf = "result",topNodes=length(attributes(result)$score))
+
+  # Some pvalues given by topGO are not numeric (e.g : "<1e-30). As such, these
+  # values are converted to 1e-30 to be able to correct the pvalues 
+  pvaluestmp = deleteInfChar(allRes$test)
+
+  # the correction is done from the modified pvalues  
+  allRes$qvalues = p.adjust(pvaluestmp, method = as.character(correction), n = length(pvaluestmp))
+
+  allRes = as.data.frame(allRes)
+ 
+  # Rename the test column by pvalues, so that is more explicit
+  nb = which(names(allRes) %in% c("test"))
+  names(allRes)[nb] = "pvalues"
+
+  allRes = allRes[which(as.numeric(allRes$qvalues) <= threshold),]
+  
+  if (length(allRes$qvalues)==0){
+	  stop("Threshold was too stringent, no GO term found with qvalue equal or lesser than the threshold value", call. = FALSE)
+  }
+  allRes = allRes[order(allRes$qvalues),] 
+}
+
+if (correction=="none"){
+  # get all the go terms under user threshold 
+  mysummary <- summary(attributes(result)$score <= threshold)
+  numsignif <- as.integer(mysummary[[3]])
+  # get all significant nodes 
+  allRes <- GenTable(myGOdata, test = result, orderBy = "result", ranksOf = "result",topNodes=numsignif)
+
+  allRes = as.data.frame(allRes)
+  # Rename the test column by pvalues, so that is more explicit
+  nb = which(names(allRes) %in% c("test"))
+  names(allRes)[nb] = "pvalues"
+
+  if (numsignif==0){
+
+	  stop("Threshold was too stringent, no GO term found with pvalue equal or lesser than the threshold value", call. = FALSE)
+  }
+
+ allRes = allRes[order(allRes$pvalues),] 
+} 
+
+
+# Load R library ggplot2 to plot graphs
+library(ggplot2)
+
+
+# roundValues will simplify the results by rounding down the values. For instance 1.1e-17 becomes 1e-17
+roundValues = function(values){
+	for (line in 1:length(values)){
+    		values[line]=as.numeric(gsub(".*e","1e",as.character(values[line])))
+  }
+  return(values)
+}
+
+createDotPlot = function(data,correction){
+  
+  if (correction!="none"){
+    values = roundValues(data$qvalues)
+  }
+  else{
+
+	  values  = deleteInfChar(data$pvalues)
+    values = roundValues(values)
+  }  
+	geneRatio = data$Significant/data$Annotated
+	goTerms = data$Term
+	count = data$Significant
+	sp1 = ggplot(data,aes(x=geneRatio,y=goTerms,xlabel ="Ratio" ,ylabel = "GO terms", color=values,size=count)) +geom_point() + scale_colour_gradientn(colours=c("red","violet","blue")) + labs(color="Values\n") 
+
+	png(filename="dotplot.png")
+	plot(sp1)
+	dev.off()
+}
+
+createBarPlot = function(data,correction){
+
+  
+
+  if (correction!="none"){
+    values = roundValues(data$qvalues)
+  }
+  else{
+
+	  values  = deleteInfChar(data$pvalues)
+    values = roundValues(values)
+  }  
+
+  goTerms = data$Term
+	count = data$Significant
+	p<-ggplot(data, aes(x=goTerms, y=count,fill=values)) + geom_bar(stat="identity") + scale_fill_gradientn(colours=c("red","violet","blue")) + coord_flip() + labs(fill="Values\n") 
+  
+	png(filename="barplot.png")
+	plot(p)
+	dev.off()
+
+}
+
+
+# Produce the different outputs
+
+if (text=="TRUE"){
+	write.table(allRes, file='result.tsv', quote=FALSE, sep='\t', col.names = T, row.names = F)
+}
+
+if (barplot=="TRUE"){
+
+	createBarPlot(allRes,correction)
+
+}
+
+if (dotplot=="TRUE"){
+
+	createDotPlot(allRes,correction)
+
+}
+
+
+
