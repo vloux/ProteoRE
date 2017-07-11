@@ -10,8 +10,10 @@
       root = h.url_for( '/' )
                     %>
 
-    <script type="text/javascript" src="/static/scripts/libs/jquery/jquery.js"></script>
+    <!--<script type="text/javascript"
+src="/static/scripts/libs/jquery/jquery.js"></script>-->
 
+    ${h.js('libs/jquery/jquery')}
     ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/style.css' )}
     ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/font-awesome-4.0.3/css/font-awesome.css' )}
     ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/cytoscape.js-panzoom.css' )}
@@ -33,6 +35,11 @@
     <!-- config div for user changeable parameters on the cytoscape graph -->
     <div id="config" class="config">
 
+      <!-- Select Pathway dynamically generated bar-->
+      <select name="selectPathway" id="selectPathway" onclick="selectPathway()">
+      <option value="all" selected>Choose a pathway</option>
+      </select>
+      
       <!-- Change graph layout -->
       <select name="select" id="selectShape" onclick="changeLayout()">
         <option value="random">Change Graph Layout</option>
@@ -54,19 +61,17 @@
       <!-- Search bar for a node -->
       <input type="search" id="search" placeholder="Search Protein" onkeydown="searchProt(event)">  
       
-      <!-- Display edges interaction score and affect graph edges display-->
-      <form id="scoreform" oninput="scoreoutput.value = myScore.value;">  
-      
       <!-- Filter the graph by node degree -->
       <input type="search" id="filterdegree" placeholder="Filter proteins with degree >= ..." onkeydown="showNodeWithDegree(event)">  
+      
+      
+     <!-- Display edges interaction score and affect graph edges display-->
+      <form id="scoreform" oninput="scoreoutput.value = myScore.value;">  
+      
         Score
-      <input type="range" name="myScore" id="myScore" max="1" min="0" onclick="scoreImpact()">
-      <output name="scoreoutput"></output>
+      <input type="range" name="myScore" id="myScore" max="1" min="0" value="1" step="0.001" onclick="scoreImpact()">
+        <output name="scoreoutput"></output>
       </form>
-      <!-- Select Pathway dynamically generated bar-->
-      <select name="selectPathway" id="selectPathway" onclick="selectPathway()">
-      <option value="all" selected>Choose a pathway</option>
-      </select>
 
       <!-- Camera icon button to output a png image of the graph -->
       <div id="photo" class="photo">
