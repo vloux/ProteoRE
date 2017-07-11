@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   right:0;
-  top: 17%;
+  top: 18%;
 }
 
 
@@ -23,11 +23,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 17%;
+  height: 18%;
   font-family: Lucida Grande,Lucida Sans Unicode,Lucida Sans,Geneva,Verdana,sans-serif;
   background: rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
   color: #fff;
+  vertical-align:top;
 }
 .photo{
 
