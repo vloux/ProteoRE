@@ -254,10 +254,10 @@ function setMinMaxScore(){
 	var min_score = Math.min.apply(null,scores);
 	var max_score = Math.max.apply(null,scores);
 
-
 	$('#myScore').prop('min', min_score);
 	$('#myScore').prop('max', max_score);
 	$('#myScore').prop('value', min_score);
+	$('#myScore').prop('step', ((max_score-min_score)/100));
 }
 
 // Returns unique elements in an array 
