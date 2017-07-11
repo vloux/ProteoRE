@@ -101,7 +101,7 @@ getProtPPIs = function(prot_list,ppi_all,interactometype){
         # Bioplex.
 				p1s = paste(as.character(ppi_all[lines,3]),ppi_all[lines,1],sep=';')
 				p2s = paste(as.character(ppi_all[lines,4]),ppi_all[lines,2],sep=';')
-				scores = ppi_all[lines,7]
+				scores = ppi_all[lines,9]
 	      info = 	cbind(p1s,p2s,scores)
 				ppis = rbind(ppis,info)	
 	
@@ -110,7 +110,7 @@ getProtPPIs = function(prot_list,ppi_all,interactometype){
 				lines = grep(prot,ppi_all[,4])
 				p1s = paste(as.character(ppi_all[lines,3]),ppi_all[lines,1],sep=';')
 				p2s = paste(as.character(ppi_all[lines,4]),ppi_all[lines,2],sep=';')
-				scores = ppi_all[lines,7]
+				scores = ppi_all[lines,9]
 	      info = 	cbind(p1s,p2s,scores)
 	      ppis = rbind(ppis,info)	
 			}
