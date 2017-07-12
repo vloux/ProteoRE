@@ -3,11 +3,12 @@
 # tabfile) --input file.txt --ontology "BP/CC/MF" --option option (e.g
 # : classic/elim...) --threshold threshold --correction correction --textoutput
 # text --barplotoutput barplot
-# --dotplotoutput dotplot --column column 
+# --dotplotoutput dotplot --column column --geneuniver human 
 # e.g : Rscript --vanilla enrichment_v3.R --inputtype listfile --input file.txt
 # --ontology BP --option classic --threshold 1e-15 --correction holm
 # --textoutput TRUE
-# --barplotoutput TRUE --dotplotoutput TRUE --column c1 
+# --barplotoutput TRUE --dotplotoutput TRUE --column c1 --geneuniverse
+# org.Hs.eg.db
 # INPUT :
 # - type of input. Can be ids separated by a blank space (copypast), or a text
 # file (tabfile)
@@ -20,6 +21,7 @@
 #	: TRUE TRUE TRUE ).
 #	Declare the output not wanted as none
 #	- column containing the ensembl ids if the input file is a tabfile
+# - gene universe reference for the user chosen specie
 #
 # OUTPUT :
 #	- outputs commanded by the user named respectively result.tsv for the text
@@ -55,7 +57,7 @@ options.names <- sapply(listoptions,function(x){
 names(options.args) <- unlist(options.names)
 
 
-if (length(options.args) != 10) {
+if (length(options.args) != 11) {
     stop("Not enough/Too many arguments", call. = FALSE)
 }
 
@@ -69,6 +71,7 @@ text = as.character(options.args[7])
 barplot = as.character(options.args[8])
 dotplot = as.character(options.args[9])
 column = as.numeric(gsub("c","",options.args[10]))
+geneuniverse = as.character(options.args[11])
 
 if (typeinput=="copypaste"){
   sample = as.data.frame(unlist(listfile))
@@ -82,7 +85,7 @@ if (typeinput=="tabfile"){
 }
 
 # get all the GO terms of the corresponding ontology (BP/CC/MF) and all their associated ensembl ids according to org.HS.eg.db
-xx = annFUN.org(onto,mapping="org.Hs.eg.db",ID="ensembl")
+xx = annFUN.org(onto,mapping=geneuniverse,ID="ensembl")
 
 allGenes = unique(unlist(xx))
 
@@ -207,9 +210,10 @@ createDotPlot = function(data,correction){
 	geneRatio = data$Significant/data$Annotated
 	goTerms = data$Term
 	count = data$Significant
+  
+	png(filename="dotplot.png",res=300, width = 3200, height = 3200, units = "px")
 	sp1 = ggplot(data,aes(x=geneRatio,y=goTerms,xlabel ="Ratio" ,ylabel = "GO terms", color=values,size=count)) +geom_point() + scale_colour_gradientn(colours=c("red","violet","blue")) + labs(color="Values\n") 
 
-	png(filename="dotplot.png")
 	plot(sp1)
 	dev.off()
 }
@@ -229,9 +233,10 @@ createBarPlot = function(data,correction){
 
   goTerms = data$Term
 	count = data$Significant
-	p<-ggplot(data, aes(x=goTerms, y=count,fill=values)) + geom_bar(stat="identity") + scale_fill_gradientn(colours=c("red","violet","blue")) + coord_flip() + labs(fill="Values\n") 
+	png(filename="barplot.png",res=300, width = 3200, height = 3200, units = "px")
+	
+  p<-ggplot(data, aes(x=goTerms, y=count,fill=values)) + geom_bar(stat="identity") + scale_fill_gradientn(colours=c("red","violet","blue")) + coord_flip() + labs(fill="Values\n") 
   
-	png(filename="barplot.png")
 	plot(p)
 	dev.off()
 
