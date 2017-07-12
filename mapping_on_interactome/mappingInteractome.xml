@@ -24,7 +24,7 @@
 
     <inputs>
   <conditional name="inputtype">
-    <param name="filetype" type="select" label="Select your type of input file" help="The input file must contain Uniprot IDs. If it is not the case, please refer to the mapping component.">
+    <param name="filetype" type="select" label="Select your type of input file" help="The input file must contain Uniprot Accession IDs. If it is not the case, please refer to the mapping component.">
       <option value="copy_paste">Copy/paste your list of IDs</option> 
       <option value="file_list">Choose a single-column file</option> 
       <option value="file_all">Choose a multiple-columns file</option>

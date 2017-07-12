@@ -343,6 +343,9 @@ write(json,filename)
 
 if (tabfile=="TRUE"){
   ppi_list = addUnMappedProteins(ppi_list,prot_list)
+  if (interactometype=="bioplex"){
+    colnames(ppi_list)=c("Protein1","Protein2","score","Gene1","Gene2")
+  }
   write.table(ppi_list,file="result.txt",quote=FALSE, sep='\t', col.names = T, row.names = F)
 }
 
