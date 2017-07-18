@@ -162,8 +162,6 @@ constructNodesList = function(data,protlist,interactometype,addreactome,reactome
   all_nodes = unique(c(all_nodes,as.vector(data[,2]))) 
 
   # this vector will store for each node a list containing its attribute
-  # the expected structure is as follow : 
-  #TO COMPLETE
   vector_all_nodes = c()
   for (n in all_nodes){
   
