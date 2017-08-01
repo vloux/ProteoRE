@@ -4,7 +4,7 @@
 # : classic/elim...) --threshold threshold --correction correction --textoutput
 # text --barplotoutput barplot
 # --dotplotoutput dotplot --column column --geneuniver human 
-# e.g : Rscript --vanilla enrichment_v3.R --inputtype listfile --input file.txt
+# e.g : Rscript --vanilla enrichment_v3.R --inputtype tabfile --input file.txt
 # --ontology BP --option classic --threshold 1e-15 --correction holm
 # --textoutput TRUE
 # --barplotoutput TRUE --dotplotoutput TRUE --column c1 --geneuniverse
@@ -83,41 +83,47 @@ if (typeinput=="tabfile"){
   sample = sample[,column]
 
 }
+# Launch enrichment analysis and return result data from the analysis or the null
+# object if the enrichment could not be done.
+goEnrichment = function(geneuniverse,sample,onto){
 
-# get all the GO terms of the corresponding ontology (BP/CC/MF) and all their associated ensembl ids according to org.HS.eg.db
-xx = annFUN.org(onto,mapping=geneuniverse,ID="ensembl")
-
-allGenes = unique(unlist(xx))
-
-# check if the genes given by the user can be found in org.Hs.eg.db, that is in
-# allGenes 
-if (length(intersect(sample,allGenes))==0){
-
-    stop("None of the input ids can be found in org.Hs.eg.db data, enrichment analysis cannot be realized. \n The inputs ids probably have no associated GO terms.", call. = FALSE)
-
+	# get all the GO terms of the corresponding ontology (BP/CC/MF) and all their
+  # associated ensembl ids according to the org package
+	xx = annFUN.org(onto,mapping=geneuniverse,ID="ensembl")
+	allGenes = unique(unlist(xx))
+	# check if the genes given by the user can be found in the org package (gene
+  # universe), that is in
+	# allGenes 
+	if (length(intersect(sample,allGenes))==0){
+	
+	    print("None of the input ids can be found in the org package data, enrichment analysis cannot be realized. \n The inputs ids probably have no associated GO terms.")
+      return(c(NULL,NULL))
+	
+	}
+	
+	geneList = factor(as.integer(allGenes %in% sample)) 
+	names(geneList) <- allGenes
+	
+	
+	#topGO enrichment 
+	
+	
+	# Creation of a topGOdata object
+	# It will contain : the list of genes of interest, the GO annotations and the GO hierarchy
+	# Parameters : 
+	# ontology : character string specifying the ontology of interest (BP, CC, MF)
+	# allGenes : named vector of type numeric or factor 
+	# annot : tells topGO how to map genes to GO annotations.
+	# argument not used here : nodeSize : at which minimal number of GO annotations
+	# do we consider a gene  
+	 
+	myGOdata = new("topGOdata", description="SEA with TopGO", ontology=onto, allGenes=geneList,  annot = annFUN.org, mapping=geneuniverse,ID="ensembl")
+	
+	
+	# Performing enrichment tests
+	result <- runTest(myGOdata, algorithm=option, statistic="fisher")
+  return(c(result,myGOdata))	
 }
-
-geneList = factor(as.integer(allGenes %in% sample)) 
-names(geneList) <- allGenes
-
-
-#topGO enrichment 
-
-
-# Creation of a topGOdata object
-# It will contain : the list of genes of interest, the GO annotations and the GO hierarchy
-# Parameters : 
-# ontology : character string specifying the ontology of interest (BP, CC, MF)
-# allGenes : named vector of type numeric or factor 
-# annot : tells topGO how to map genes to GO annotations.
-# argument not used here : nodeSize : at which minimal number of GO annotations
-# do we consider a gene  
- 
-myGOdata = new("topGOdata", description="SEA with TopGO", ontology=onto, allGenes=geneList,  annot = annFUN.org, mapping="org.Hs.eg.db",ID="ensembl")
-
-
-# Performing enrichment tests
-result <- runTest(myGOdata, algorithm=option, statistic="fisher")
 
 # Some libraries such as GOsummaries won't be able to treat the values such as
 # "< 1e-30" produced by topGO. As such it is important to delete the < char
@@ -130,64 +136,62 @@ deleteInfChar = function(values){
 		  values[line]=gsub("<","",values[line])
 		}
 	}
-
 	return(values)
 }
-# adjust for multiple testing
-if (correction!="none"){
 
+corrMultipleTesting = function(result, myGOdata,correction,threshold){
+	
+	# adjust for multiple testing
+	if (correction!="none"){	
+	  # GenTable : transforms the result object into a list. Filters can be applied
+	  # (e.g : with the topNodes argument, to get for instance only the n first
+	  # GO terms with the lowest pvalues), but as we want to  apply a correction we
+	  # take all the GO terms, no matter their pvalues 
+	  allRes <- GenTable(myGOdata, test = result, orderBy = "result", ranksOf = "result",topNodes=length(attributes(result)$score))
+    # Some pvalues given by topGO are not numeric (e.g : "<1e-30). As such, these
+	  # values are converted to 1e-30 to be able to correct the pvalues 
+    pvaluestmp = deleteInfChar(allRes$test)
+	
+	  # the correction is done from the modified pvalues  
+	  allRes$qvalues = p.adjust(pvaluestmp, method = as.character(correction), n = length(pvaluestmp))
+	  allRes = as.data.frame(allRes)
 
-  # GenTable : transforms the result object into a list. Filters can be applied
-  # (e.g : with the topNodes argument, to get for instance only the n first
-  # GO terms with the lowest pvalues), but as we want to  apply a correction we
-  # take all the GO terms, no matter their pvalues  
-  allRes <- GenTable(myGOdata, test = result, orderBy = "result", ranksOf = "result",topNodes=length(attributes(result)$score))
+	  # Rename the test column by pvalues, so that is more explicit
+	  nb = which(names(allRes) %in% c("test"))
+	 
+    names(allRes)[nb] = "pvalues"
+	
+	  allRes = allRes[which(as.numeric(allRes$pvalues) <= threshold),]
+	  if (length(allRes$pvalues)==0){
+		  print("Threshold was too stringent, no GO term found with pvalue equal or lesser than the threshold value")
+      return(NULL)
+	  }
+	  allRes = allRes[order(allRes$qvalues),]
+	}
+	
+	if (correction=="none"){
+	  # get all the go terms under user threshold 
+	  mysummary <- summary(attributes(result)$score <= threshold)
+	  numsignif <- as.integer(mysummary[[3]])
+	  # get all significant nodes 
+	  allRes <- GenTable(myGOdata, test = result, orderBy = "result", ranksOf = "result",topNodes=numsignif)
+	
 
-  # Some pvalues given by topGO are not numeric (e.g : "<1e-30). As such, these
-  # values are converted to 1e-30 to be able to correct the pvalues 
-  pvaluestmp = deleteInfChar(allRes$test)
+	  allRes = as.data.frame(allRes)
+	  # Rename the test column by pvalues, so that is more explicit
+	  nb = which(names(allRes) %in% c("test"))
+	  names(allRes)[nb] = "pvalues"
+	  if (numsignif==0){
+	
+		  print("Threshold was too stringent, no GO term found with pvalue equal or lesser than the threshold value")
+      return(NULL)
+	  }
+	
+	 allRes = allRes[order(allRes$pvalues),] 
+	} 
 
-  # the correction is done from the modified pvalues  
-  allRes$qvalues = p.adjust(pvaluestmp, method = as.character(correction), n = length(pvaluestmp))
-
-  allRes = as.data.frame(allRes)
- 
-  # Rename the test column by pvalues, so that is more explicit
-  nb = which(names(allRes) %in% c("test"))
-  names(allRes)[nb] = "pvalues"
-
-  allRes = allRes[which(as.numeric(allRes$qvalues) <= threshold),]
-  
-  if (length(allRes$qvalues)==0){
-	  stop("Threshold was too stringent, no GO term found with qvalue equal or lesser than the threshold value", call. = FALSE)
-  }
-  allRes = allRes[order(allRes$qvalues),] 
+  return(allRes)  
 }
-
-if (correction=="none"){
-  # get all the go terms under user threshold 
-  mysummary <- summary(attributes(result)$score <= threshold)
-  numsignif <- as.integer(mysummary[[3]])
-  # get all significant nodes 
-  allRes <- GenTable(myGOdata, test = result, orderBy = "result", ranksOf = "result",topNodes=numsignif)
-
-  allRes = as.data.frame(allRes)
-  # Rename the test column by pvalues, so that is more explicit
-  nb = which(names(allRes) %in% c("test"))
-  names(allRes)[nb] = "pvalues"
-
-  if (numsignif==0){
-
-	  stop("Threshold was too stringent, no GO term found with pvalue equal or lesser than the threshold value", call. = FALSE)
-  }
-
- allRes = allRes[order(allRes$pvalues),] 
-} 
-
-
-# Load R library ggplot2 to plot graphs
-library(ggplot2)
-
 
 # roundValues will simplify the results by rounding down the values. For instance 1.1e-17 becomes 1e-17
 roundValues = function(values){
@@ -197,69 +201,141 @@ roundValues = function(values){
   return(values)
 }
 
-createDotPlot = function(data,correction){
+createDotPlot = function(data){
   
-  if (correction!="none"){
-    values = roundValues(data$qvalues)
-  }
-  else{
-
-	  values  = deleteInfChar(data$pvalues)
-    values = roundValues(values)
-  }  
-	geneRatio = data$Significant/data$Annotated
+	values  = deleteInfChar(data$pvalues)
+  values = roundValues(values)
+  values = as.numeric(values)
+	
+  geneRatio = data$Significant/data$Annotated
 	goTerms = data$Term
 	count = data$Significant
   
 	png(filename="dotplot.png",res=300, width = 3200, height = 3200, units = "px")
-	sp1 = ggplot(data,aes(x=geneRatio,y=goTerms,xlabel ="Ratio" ,ylabel = "GO terms", color=values,size=count)) +geom_point() + scale_colour_gradientn(colours=c("red","violet","blue")) + labs(color="Values\n") 
+	sp1 = ggplot(data,aes(x=geneRatio,y=goTerms,xlabel ="Ratio" ,ylabel = "GO terms", color=values,size=count)) +geom_point() + scale_colour_gradientn(colours=c("red","violet","blue")) + labs(color="p-values\n") 
 
 	plot(sp1)
 	dev.off()
 }
 
-createBarPlot = function(data,correction){
+createBarPlot = function(data){
 
   
+	values  = deleteInfChar(data$pvalues)
+  values = roundValues(values)
 
-  if (correction!="none"){
-    values = roundValues(data$qvalues)
-  }
-  else{
-
-	  values  = deleteInfChar(data$pvalues)
-    values = roundValues(values)
-  }  
-
+  values = as.numeric(values)
   goTerms = data$Term
 	count = data$Significant
 	png(filename="barplot.png",res=300, width = 3200, height = 3200, units = "px")
 	
-  p<-ggplot(data, aes(x=goTerms, y=count,fill=values)) + geom_bar(stat="identity") + scale_fill_gradientn(colours=c("red","violet","blue")) + coord_flip() + labs(fill="Values\n") 
-  
+  p<-ggplot(data, aes(x=goTerms, y=count,fill=values)) + geom_bar(stat="identity") + scale_fill_gradientn(colours=c("red","violet","blue")) + coord_flip() + labs(fill="p-values\n") 
 	plot(p)
 	dev.off()
-
 }
 
 
 # Produce the different outputs
+createOutputs = function(result, cut_result,text, barplot,dotplot){
 
-if (text=="TRUE"){
-	write.table(allRes, file='result.tsv', quote=FALSE, sep='\t', col.names = T, row.names = F)
+
+  if (is.null(result)){
+    
+	  if (text=="TRUE"){
+
+      err_msg = "None of the input ids can be found in the org package data, enrichment analysis cannot be realized. \n The inputs ids probably either have no associated GO terms or are not ENSG identifiers (e.g : ENSG00000012048)."
+      write.table(err_msg, file='result.csv', quote=FALSE, sep='\t', col.names = T, row.names = F)
+	  
+    }
+
+	  if (barplot=="TRUE"){
+
+	    png(filename="barplot.png")
+      plot.new()
+      #text(0,0,err_msg)
+	    dev.off()
+    }
+	
+	  if (dotplot=="TRUE"){
+	
+	    png(filename="dotplot.png")
+      plot.new()
+      #text(0,0,err_msg)
+	    dev.off()
+	
+	  }
+    return(TRUE)
+  }
+
+	
+  if (is.null(cut_result)){
+
+
+	  if (text=="TRUE"){
+
+		  err_msg = "Threshold was too stringent, no GO term found with pvalue equal or lesser than the threshold value."
+      write.table(err_msg, file='result.csv', quote=FALSE, sep='\t', col.names = T, row.names = F)
+	  
+    }
+
+	  if (barplot=="TRUE"){
+
+	    png(filename="barplot.png")
+      plot.new()
+      text(0,0,err_msg)
+	    dev.off()
+    }
+	
+	  if (dotplot=="TRUE"){
+	
+	    png(filename="dotplot.png")
+      plot.new()
+      text(0,0,err_msg)
+	    dev.off()
+	
+	  }
+    return(TRUE)
+
+
+
+  }
+
+	if (text=="TRUE"){
+		write.table(cut_result, file='result.csv', quote=FALSE, sep='\t', col.names = T, row.names = F)
+	}
+	
+	if (barplot=="TRUE"){
+	
+		createBarPlot(cut_result)
+	}
+	
+	if (dotplot=="TRUE"){
+	
+		createDotPlot(cut_result)
+	}
+  return(TRUE)
 }
 
-if (barplot=="TRUE"){
 
-	createBarPlot(allRes,correction)
+
+# Load R library ggplot2 to plot graphs
+library(ggplot2)
+
+# Launch enrichment analysis
+allresult = goEnrichment(geneuniverse,sample,onto)
+result = allresult[1][[1]]
+myGOdata = allresult[2][[1]]
+if (!is.null(result)){
+
+	# Adjust the result with a multiple testing correction or not and with the user
+	# p-value cutoff
+  cut_result = corrMultipleTesting(result,myGOdata, correction,threshold)
+}else{
+
+  cut_result=NULL
 
 }
 
-if (dotplot=="TRUE"){
 
-	createDotPlot(allRes,correction)
-
-}
-
-
+createOutputs(result, cut_result,text, barplot,dotplot)
 
