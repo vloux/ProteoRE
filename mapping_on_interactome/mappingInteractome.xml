@@ -1,5 +1,5 @@
 <tool id="cytoscapeJS" name="Map your protein list on a reference interactome" version="0.1.0">
-    <requirements>
+  <requirements>
     </requirements>
     <stdio>
         <exit_code range="1:" />
@@ -7,17 +7,17 @@
     <command><![CDATA[
   
   #if $inputtype.filetype == "copy_paste": 
-  Rscript --vanilla $__tool_directory__/interactomicsCyJS.R --inputtype copypaste --input '$inputtype.genelist' --column c1 --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt  
+  python $__tool_directory__/interactomicsCyJS.py --inputtype copypaste --input '$inputtype.genelist' --column c1 --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt  
   #end if
 
   
   #if $inputtype.filetype == "file_all":
-        Rscript --vanilla $__tool_directory__/interactomicsCyJS.R --inputtype tabfile --input '$inputtype.genelist' --column '$inputtype.column' --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt 
+        python $__tool_directory__/interactomicsCyJS.py --inputtype tabfile --input '$inputtype.genelist' --column '$inputtype.column' --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt 
 
   #end if
  
   #if $inputtype.filetype == "file_list":
-        Rscript --vanilla $__tool_directory__/interactomicsCyJS.R --inputtype tabfile --input '$inputtype.genelist' --column c1 --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt 
+        python --vanilla $__tool_directory__/interactomicsCyJS.py --inputtype tabfile --input '$inputtype.genelist' --column c1 --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt 
 
   #end if
     ]]></command>
@@ -70,10 +70,13 @@
 
       <data name="outputjson" format="json" label="Json network output"/>
       
-      <data name="outputtab" format="tsv" label="Tabular file network" from_work_dir="result.txt">
+      <data name="outputtabppis" format="tsv" label="Tabular file network" from_work_dir="ppis.csv">
         <filter>condtabfile['taboutput']=="TRUE"</filter>
       </data>
 
+      <data name="outputtabnodes" format="tsv" label="Tabular file network" from_work_dir="nodes_attributes.csv">
+        <filter>condtabfile['taboutput']=="TRUE"</filter>
+      </data>
 
    </outputs>
     <help><![CDATA[
