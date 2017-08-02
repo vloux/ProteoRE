@@ -18,28 +18,20 @@
 
 
 
-  #if $inputtype.filetype == "file_list":
-  Rscript --vanilla $__tool_directory__/enrichment_v3.R --inputtype tabfile --input '$inputtype.genelist' --ontology '$ontocat' --option '$option' --threshold '$threshold' --correction '$correction' --textoutput '$condtext.textoutput' --barplotoutput '$condbar.barplotoutput' --dotplotoutput '$conddot.dotplotoutput' --column c1 --geneuniverse '$geneuniverse'
-
-  #end if
     ]]></command>
 
     <inputs>
   <conditional name="inputtype">
     <param name="filetype" type="select" label="Select your type of input file" help="The input file must contain Ensembl gene IDs (e.g : ENSG00000139618). If it is not the case, please use the ID Mapping tool.">
+      <option value="file_all">Input file containing your identifiers</option>
       <option value="copy_paste">Copy/paste your list of IDs</option> 
-      <option value="file_list">Choose a single-column file</option> 
-      <option value="file_all">Choose a multiple-columns file</option>
     </param>
     <when value="copy_paste">
       <param name="genelist" type="text" label="Enter a list of identifiers"/>
     </when>
-    <when value="file_list">
-      <param name="genelist" type="data" format="txt,tabular" label="Choose a single-column file" help="This file must have only 1 column containing IDs - For the type of IDs, please refer to the documentation below."/> 
-    </when>
     <when value="file_all">
-      <param name="genelist" type="data" format="txt,tabular" label="Choose a multiple-columns file" help="This file must imperatively have 1 column filled with IDs consistent with the database that will be used. Please use the MappingIDs component if this is not the case."/>
-      <param name="column" type="data_column" data_ref="genelist" label="Please specify the column where you would like to apply the comparison"/> 
+      <param name="genelist" type="data" format="txt,tabular" label="Choose an input file" help="This file must imperatively have 1 column filled with IDs consistent with the database that will be used. Please use the MappingIDs component if this is not the case."/>
+      <param name="column" type="text" label="Please specify the column where you would like to apply the comparison (e.g : Enter c1)"/> 
     </when>
   </conditional>
       <param name="geneuniverse" type="select" label="Select a specie">
@@ -63,7 +55,7 @@
                 <option value="weight01" >Weight01</option>
                 <option value="parentchild" >ParentChild</option>
           </param>
-        <param name="threshold" type="text" label="Enter the threshold level under the form 1e-level wanted (e.g : 1e-15)" value="1e-15"/>
+        <param name="threshold" type="text" label="Enter the p-value threshold level under the form 1e-level wanted (e.g : 1e-3)" value="1e-3"/>
 	<param name="correction" label="Choose a correction for multiple testing" type="select">
              <option value="none" >None</option>
              <option value="holm">Holm correction</option>
@@ -104,7 +96,7 @@
       </data>
 -->
 
-      <data name="outputtext" format="tsv" label="Text output for topGO analysis" from_work_dir="result.tsv">
+      <data name="outputtext" format="tabular" label="Text output for topGO analysis" from_work_dir="result.csv">
         <filter>condtext['textoutput']=="TRUE"</filter>
       </data>
 
