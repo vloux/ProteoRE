@@ -7,6 +7,8 @@
 
 import argparse
 import numpy as np
+print "chemin numpy"
+print np.__file__
 import re
 import json
 import pandas as pd
