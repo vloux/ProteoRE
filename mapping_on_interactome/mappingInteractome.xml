@@ -16,29 +16,22 @@
 
   #end if
  
-  #if $inputtype.filetype == "file_list":
-        python --vanilla $__tool_directory__/interactomicsCyJS.py --inputtype tabfile --input '$inputtype.genelist' --column c1 --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt 
-
-  #end if
     ]]></command>
 
     <inputs>
   <conditional name="inputtype">
     <param name="filetype" type="select" label="Select your type of input file" help="The input file must contain Uniprot Accession IDs. If it is not the case, please refer to the mapping component.">
+      <option value="file_all">Input file containing your identifiers</option>
       <option value="copy_paste">Copy/paste your list of IDs</option> 
-      <option value="file_list">Choose a single-column file</option> 
-      <option value="file_all">Choose a multiple-columns file</option>
     </param>
     <when value="copy_paste">
       <param name="genelist" type="text" label="Enter a list of identifiers"/>
     </when>
     
-    <when value="file_list">
-      <param name="genelist" type="data" format="txt,tabular" label="Choose a single-column file" help="This file must have only 1 column containing IDs - For the type of IDs, please refer to the documentation below."/> 
-    </when>
     <when value="file_all">
       <param name="genelist" type="data" format="txt,tabular" label="Choose a multiple-columns file" help="This file must imperatively have 1 column filled with IDs consistent with the database that will be used. Please use the MappingIDs component if this is not the case."/>
-      <param name="column" type="data_column" data_ref="genelist" label="Please specify the column where you would like to apply the comparison"/> 
+      
+      <param name="column" type="text" label="Please specify the column where you would like to apply the comparison (e.g : Enter c1)"/> 
     </when>
   </conditional>
 
@@ -74,7 +67,7 @@
         <filter>condtabfile['taboutput']=="TRUE"</filter>
       </data>
 
-      <data name="outputtabnodes" format="tsv" label="Tabular file network" from_work_dir="nodes_attributes.csv">
+      <data name="outputtabnodes" format="tsv" label="Nodes attributes tabular file" from_work_dir="nodes_attributes.csv">
         <filter>condtabfile['taboutput']=="TRUE"</filter>
       </data>
 
