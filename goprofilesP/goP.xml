@@ -10,7 +10,12 @@
         <exit_code range="1:" />
     </stdio>
     <command><![CDATA[
-        Rscript /projet/galaxydev/galaxy/tools/proteore_uc1/goprofilesP/go.R $input1 "$ncol"
+        Rscript /projet/galaxydev/galaxy/tools/proteore_uc1/goprofilesP/go.R
+        #if $input.ids == "text"
+            "$input.text" "text"
+        #else 
+            "$input.file,$input.ncol,$input.header" "file"
+        #end if
         
         #*if $onto_opt=="cc"
             "CC"
@@ -34,8 +39,27 @@
 
     ]]></command>
     <inputs>
-        <param type="data" name="input1" format="txt" label="Input file" help="Input file is a tab-delimited file containing different information of proteins, such as an output of MaxQuant software" />
-        <param type="text" name="ncol" value="c1" label="specify the column that contains gene ID to be analysed" help ='For example, fill in "c1" if you want to filter the first column' />
+        <!--param type="data" name="input1" format="txt" label="Input file" help="Input file is a tab-delimited file containing different information of proteins, such as an output of MaxQuant software" />
+        <param type="text" name="ncol" value="c1" label="specify the column that contains gene ID to be analysed" help ='For example, fill in "c1" if you want to filter the first column' /-->
+        <conditional name="input" >
+            <param name="ids" type="select" label="Provide your identifiers (copy/paste or ID list from a one-column file or ID list from a multi-column file (e.g. table)) " >
+                <option value="text">Copy/paste your identifiers</option>
+                <option value="file">Input file containing your identifiers</option>
+            </param>
+            <when value="text" >
+                <param name="text" type="text" label="Copy/paste your identifiers" help='IDs must be separated by spaces or new lines, into the form field, for example:P31946 P62258 
+or
+ 
+P04259
+
+P13647 ' />
+            </when>
+            <when value="file" >
+                <param name="file" type="data" format="txt,tabular" label="Choose a one column file that contains your list of IDs" help="This file should contain only 1 column, each rows is an ID" />
+                <param name="ncol" type="text" label="The column number of IDs to map" help='For example, fill in "c1" if it is the first column, "c2" if it is the second column and so on' />
+                <param name="header" type="boolean" checked="true" truevalue="true" falsevalue="false" label="Does your input file contain header?" />
+            </when>
+        </conditional>
         <param type="select" name="onto_opt" label="Please select GO terms category" multiple="True" display="checkboxes" >
             <option value="CC">Cellular Component (CC)</option>
             <option value="MF">Molecular Function (MF)</option>
@@ -59,18 +83,18 @@
     </inputs>
     <outputs>
         <!--data name="output_png" format="png" label="GO Profile - PNG" >
-            <discover_datasets pattern="(?P&lt;designation&gt;.+)\.png" visible="True" format="png"/>
+            <discover_datasets pattern="(?P&lt;designation&gt;.+)\.png"  format="png"/>
             <filter>"PNG" in plot_opt</filter>
         </data>
         <data name="output_jpeg" format="jpeg" label="GO Profile - JPEG" >
-            <discover_datasets pattern="(?P&lt;designation&gt;.+)\.jpeg" visible="True" format="jpg"/>
+            <discover_datasets pattern="(?P&lt;designation&gt;.+)\.jpeg"  format="jpg"/>
             <filter>"JPEG" in plot_opt</filter>
         </data>
         <data name="output_pdf" format="pdf" label="GO Profile - PDF" >
-            <discover_datasets pattern="(?P&lt;designation&gt;.+)\.pdf" visible="True" format="pdf"/>
+            <discover_datasets pattern="(?P&lt;designation&gt;.+)\.pdf"  format="pdf"/>
             <filter>"PDF" in opt.plot_opt</filter>
         </data>
-	    <collection type="list" label="GO Profile diagram output" name="output" >
+	    <!-collection type="list" label="GO Profile diagram output" name="output" >
 	        <discover_datasets pattern="(?P&lt;designation&gt;.+\.png)" ext="png" />
 		    <filter>"PNG" in plot_opt</filter>
 		</collection>
