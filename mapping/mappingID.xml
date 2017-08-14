@@ -12,18 +12,34 @@
         #if $input.ids == "text"
             "$input.txt"
             "list"
-        #else if $input.ids == "file_list"
-            "$input.list"
-            "file_id"
         #else
-            "$input.file,$input.ncol"
-            "file_all"
+            "$input.file,$input.ncol,$input.header"
+            "file"
         #end if
         "$idto.idtypeout"
         "$output"
         
     ]]></command>
     <inputs>
+        <conditional name="input" >
+            <param name="ids" type="select" label="Provide your identifiers (copy/paste or ID list from a one-column file or ID list from a multi-column file (e.g. table)) " >
+                <option value="text">Copy/paste your identifiers</option>
+                <option value="file">Input file containing your identifiers</option>
+            </param>
+            <when value="text" >
+                <param name="txt" type="text" label="Copy/paste your identifiers" help='IDs must be separated by spaces or new lines, into the form field, for example:P31946 P62258 
+or
+ 
+P04259
+
+P13647 ' />
+            </when>
+            <when value="file" >
+                <param name="file" type="data" format="txt,tabular" label="Choose a one column file that contains your list of IDs" help="This file should contain only 1 column, each rows is an ID" />
+                <param name="ncol" type="text" label="The column number of IDs to map" help='For example, fill in "c1" if it is the first column, "c2" if it is the second column and so on' />
+                <param name="header" type="boolean" checked="true" truevalue="true" falsevalue="false" label="Does your input file contain header?" />
+            </when>
+        </conditional>
 	    <conditional name="idti" >
             <param name="idtypein" type="select" label="Select type/source of identifier of your list" >
 		        <option value="neXtProt" >neXtProt</option>
@@ -88,29 +104,9 @@
 	        <when value="RS" >
 	        </when>
 	    </section>
-        <conditional name="input" >
-            <param name="ids" type="select" label="Provide your identifiers (copy/paste or ID list from a one-column file or ID list from a multi-column file (e.g. table)) " >
-                <option value="text">Copy/paste identifiers</option>
-                <option value="file_list">Choose a one column file that contains your list of IDs</option>
-                <option value="file_all">Choose a file with multiple columns that contains your list of IDs</option>
-            </param>
-            <when value="text" >
-                <param name="txt" type="text" label="Copy/paste identifiers" help='IDs must be separated by spaces or new lines, into the form field, for example:P31946 P62258 
-or 
-P04259
-P13647 ' />
-            </when>
-            <when value="file_list" >
-                <param name="list" type="data" format="txt,tabular" label="Choose a one column file that contains your list of IDs" help="This file should contain only 1 column, each rows is an ID" />
-            </when>
-            <when value="file_all" >
-                <param name="file" type="data" format="txt,tabular" label="Choose a file with multiple columns that contains your list of IDs" />
-                <param name="ncol" type="text" label="The column number of IDs to map" help='For example, fill in "c1" if it is the first column, "c2" if it is the second column and so on' />
-            </when>
-        </conditional>
     </inputs>
     <outputs>
-        <data name="output" format="txt" />
+        <data name="output" format="tabular" />
     </outputs>
     <help><![CDATA[
 This tool converts a list of IDs to another identifier type, select the source and target type from the dropdown menus above (see below supported source and target types).
@@ -131,11 +127,7 @@ Available databases:
    
  ENSP: Ensembl protein identifiers
  
- # ENSP(unmapped): Ensembl protein identifiers that cannot be mapped to any isoform in neXtProt
- 
  ENST: Ensembl transcript identifiers
- 
- # ENST(unmapped): Ensembl transcript identifiers considered as coding by Ensembl that cannot be mapped to any isoform in neXtProt
  
  GeneID: NCBI GeneID gene accession numbers
  

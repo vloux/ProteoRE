@@ -1,8 +1,24 @@
 
 
 # Read file and return file content as data.frame?
-readfile = function(filename) {
-  file = read.table(filename, header = FALSE, sep = "\t", stringsAsFactors = FALSE, fill = TRUE)
+readfile = function(filename, header) {
+  if (header == "true") {
+    # Read only the first two lines of the files as data (without headers):
+    headers <- read.table(filename, nrows = 1, header = FALSE, sep = "\t", stringsAsFactors = FALSE, fill = TRUE)
+    #print("header")
+    #print(headers)
+    # Create the headers names with the two (or more) first rows, sappy allows to make operations over the columns (in this case paste) - read more about sapply here :
+    #headers_names <- sapply(headers, paste, collapse = "_")
+    #print(headers_names)
+    #Read the data of the files (skipping the first 2 rows):
+    file <- read.table(filename, skip = 1, header = FALSE, sep = "\t", stringsAsFactors = FALSE, fill = TRUE)
+    #print(file[1,])
+    #And assign the headers of step two to the data:
+    names(file) <- headers
+  }
+  else {
+    file <- read.table(filename, header = FALSE, sep = "\t", stringsAsFactors = FALSE, fill = TRUE)
+  }
   return(file)
 }
 
@@ -25,7 +41,7 @@ readfile = function(filename) {
 # option: from np to ensg (NPtoENSG) or in contrast (ENSGtoNP)
 NPvsENSG = function(np_ensg_file, list_ids, option) {
   # Read Nextprot to ENSG file
-  np_ensg = readfile(np_ensg_file)
+  np_ensg = readfile(np_ensg_file, 0)
   res = matrix(nrow = length(list_ids), ncol = 2)
   #print(list_ids)
   #print(length(list_ids))
@@ -41,7 +57,7 @@ NPvsENSG = function(np_ensg_file, list_ids, option) {
       res[which(res[,1] == id),2] = np_ensg[grepl(id, np_ensg[,1]),2][1]
     }
   }
-  print(res)
+  #print(res)
   return(res)
 }
 
@@ -53,7 +69,7 @@ NPvsUniProt = function(list_ids, option) {
   }
   else if (option == "UnitoNP") {
     res[,2] = paste("NX_", res[,1], sep = "")
-    print(res[,2])
+    #print(res[,2])
   }
   return(res)
 }
@@ -62,7 +78,7 @@ NPvsUniProt = function(list_ids, option) {
 #   ENSP: Ensembl protein identifiers
 NPvsENSP = function(np_ensp_file, list_ids, option) {
   # Read Nextprot to ENSP file
-  np_ensp = readfile(np_ensp_file)
+  np_ensp = readfile(np_ensp_file, 0)
   res = matrix(nrow = length(list_ids), ncol = 2)
   #print(list_ids)
   #print(length(list_ids))
@@ -86,7 +102,7 @@ NPvsENSP = function(np_ensp_file, list_ids, option) {
 #   ENST: Ensembl transcript identifiers
 NPvsENST = function(np_enst_file, list_ids, option) {
   # Read Nextprot to ENST file
-  np_enst = readfile(np_enst_file)
+  np_enst = readfile(np_enst_file, 0)
   res = matrix(nrow = length(list_ids), ncol = 2)
   #print(list_ids)
   #print(length(list_ids))
@@ -110,7 +126,7 @@ NPvsENST = function(np_enst_file, list_ids, option) {
 #   GeneID: NCBI GeneID gene accession numbers
 NPvsGeneID = function(np_geneID_file, list_ids, option) {
   # Read Nextprot to GeneID file
-  np_geneID = readfile(np_geneID_file)
+  np_geneID = readfile(np_geneID_file, 0)
   res = matrix(nrow = length(list_ids), ncol = 2)
   res[,1] = as.matrix(list_ids)
   if (option == "GeneIDtoNP") {
@@ -129,7 +145,7 @@ NPvsGeneID = function(np_geneID_file, list_ids, option) {
 #   HGNC: HGNC gene accession numbers
 NPvsHGNC = function(np_hgnc_file, list_ids, option) {
   # Read Nextprot to HGNC file
-  np_hgnc = readfile(np_hgnc_file)
+  np_hgnc = readfile(np_hgnc_file, 0)
   res = matrix(nrow = length(list_ids), ncol = 2)
   res[,1] = as.matrix(list_ids)
   if (option == "HGNCtoNP") {
@@ -148,7 +164,7 @@ NPvsHGNC = function(np_hgnc_file, list_ids, option) {
 #   IPI: IPI protein identifiers
 NPvsIPI = function(np_ipi_file, list_ids, option) {
   # Read Nextprot to IPI file
-  np_ipi = readfile(np_ipi_file)
+  np_ipi = readfile(np_ipi_file, 0)
   res = matrix(nrow = length(list_ids), ncol = 2)
   res[,1] = as.matrix(list_ids)
   if (option == "IPItoNP") {
@@ -167,7 +183,7 @@ NPvsIPI = function(np_ipi_file, list_ids, option) {
 #   MGI: MGI mouse gene accession numbers
 NPvsMGI = function(np_mgi_file, list_ids, option) {
   # Read Nextprot to IMGI file
-  np_mgi = readfile(np_mgi_file)
+  np_mgi = readfile(np_mgi_file, 0)
   res = matrix(nrow = length(list_ids), ncol = 2)
   res[,1] = as.matrix(list_ids)
   if (option == "MGItoNP") {
@@ -186,7 +202,7 @@ NPvsMGI = function(np_mgi_file, list_ids, option) {
 #   NCBI RefSeq: NCBI RefSeq protein accession numbers
 NPvsNCBIRS = function(np_rs_file, list_ids, option) {
   # Read Nextprot to NCBIRS file
-  np_rs = readfile(np_rs_file)
+  np_rs = readfile(np_rs_file, 0)
   res = matrix(nrow = length(list_ids), ncol = 2)
   res[,1] = as.matrix(list_ids)
   if (option == "NCBIRStoNP") {
@@ -229,18 +245,22 @@ mapping = function() {
     
     # Extract input IDs
     if (list_id_input_type == "list") {
-      list_id = strsplit(args[2], " ")
-    }
-    else if (list_id_input_type == "file_id") {
-      list_id = readfile(list_id)[,1]
+      list_id = strsplit(args[2], " ")[[1]]
       print(list_id)
     }
-    else if (list_id_input_type == "file_all") {
+    else if (list_id_input_type == "file") {
       filename = as.character(strsplit(list_id, ",")[[1]][1])
       print(filename)
       column_number = as.numeric(gsub("c", "" ,strsplit(list_id, ",")[[1]][2]))
-      file_all = read.table(filename, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
-      list_id = file_all[,column_number]
+      header = strsplit(list_id, ",")[[1]][3]
+      #file_all = read.table(filename, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+      file_all = readfile(filename, header)
+      #list_id = file_all[,column_number]
+      list_id = c()
+      for (i in file_all[,column_number]) {
+        list_id = c(list_id, strsplit(i, ";")[[1]][1])
+      }
+      print(list_id)
     }
     #names = c(input_id_type)
     names = c()
@@ -344,16 +364,19 @@ mapping = function() {
       colnames(res) = names
       write.table(res, output, row.names = FALSE, sep = "\t", quote = FALSE)
     }
-    else if (list_id_input_type == "file_all") {
+    else if (list_id_input_type == "file") {
       names(res) = options
-      names = c(as.vector(as.character(file_all[1,])), names)
+      #names = c(as.vector(as.character(file_all[1,])), names)
+      names = c(names(file_all), names)
       op = cbind(file_all, res)
       colnames(op) = names
-      print(op)
+      #print(op)
       write.table(op, output, row.names = FALSE, sep = "\t", quote = FALSE)
     }
   }
 }
 
 mapping()
-#Rscript mappingIDs.R "ENSP" "ENSP00000374817 ENSP00000374818 ENSP00000374819 ENSP00000374822 ENSP00000374830 ENSP00000374835 ENSP00000374842 ENSP00000374853 ENSP00000419353 ENSP00000401707 ENSP00000410711 ENSP00000417637 ENSP00000418292 ENSP00000418903 ENSP00000418948 ENSP00000463419 ENSP00000374831 ENSP00000403672 ENSP00000420285 ENSP00000477871" "HGNC" output.txt
+#Rscript mappingIDs.R "ENSP" "ENSP00000374817 ENSP00000374818 ENSP00000374819 ENSP00000374822 ENSP00000374830 ENSP00000374835 ENSP00000374842 ENSP00000374853 ENSP00000419353 ENSP00000401707 ENSP00000410711 ENSP00000417637 ENSP00000418292 ENSP00000418903 ENSP00000418948 ENSP00000463419 ENSP00000374831 ENSP00000403672 ENSP00000420285 ENSP00000477871" "list" "HGNC" output.txt
+#Rscript mappingIDs.R "UniProt" "/Users/LinCun/Documents/ProteoRE/mapping/proteinGroups_Maud.txt,c1,1" "file" "ENSP,ENSG" "output_file.txt"
+
