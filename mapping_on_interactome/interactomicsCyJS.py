@@ -7,8 +7,6 @@
 
 import argparse
 import numpy as np
-print "chemin numpy"
-print np.__file__
 import re
 import json
 import pandas as pd
@@ -38,7 +36,7 @@ else:
     inputids = inputfile.iloc[:,column]
 
 # Open the interactome file
-interactome = pd.read_csv(args.interactome, delimiter="\t")
+interactome = pd.read_csv(args.interactome, delimiter="\t",comment="#")
 interactome = pd.DataFrame(interactome)
 
 
@@ -49,7 +47,10 @@ def getProtPPIs(inputids,interactome,interactometype):
         # 3 and 4 for the interactants and column 9 for the scores 
        colstokeep = [2,3,8] # columns in panda dataframe begin at 0 and not 1
        colsnames = ["Protein1","Protein2","Interaction score"]
-    
+    if interactometype=="humap":
+        colstokeep = [3,4,2]
+        colsnames = ["Protein1","Protein2","Interaction score"]
+
     lines = interactome.iloc[:,colstokeep[0]].isin(inputids)
 
     ppis1 = interactome.loc[lines,:]
@@ -116,16 +117,19 @@ def getNodesAttributes(inputids,interactome,ppis,interactometype,addReactome,rea
     
     return data
 
-def getJSON(ppis,nodes_attributes,jsonfile):
+def getJSON(ppis,nodes_attributes,jsonfile,addReactome):
     
     elements = {}
     nodes = []
     edges = []
 
     for row in range(len(nodes_attributes.iloc[:,0])):
-        node = {"data" : {"id" : str(nodes_attributes["Protein"][row]),"colour" : str(nodes_attributes["From user input"][row]), "pathway" : str(nodes_attributes["Pathway"][row])}}
-        nodes.append(node)
-
+        if addReactome=="TRUE":
+            node = {"data" : {"id" : str(nodes_attributes["Protein"][row]),"colour" : str(nodes_attributes["From user input"][row]), "pathway" : str(nodes_attributes["Pathway"][row])}}
+            nodes.append(node)
+        else:
+            node = {"data" : {"id" : str(nodes_attributes["Protein"][row]),"colour" : str(nodes_attributes["From user input"][row])}}
+            nodes.append(node)
 
     for row in range(len(ppis.iloc[:,0])):
         ident = str(ppis.iloc[row,0])+"_"+str(ppis.iloc[row,1])
@@ -141,7 +145,7 @@ def getJSON(ppis,nodes_attributes,jsonfile):
 ppis = getProtPPIs(inputids,interactome,args.interactometype)
 nodes_attributes = getNodesAttributes(inputids,interactome,ppis,args.interactometype,args.addreactome,args.reactomefile)
 
-getJSON(ppis,nodes_attributes,args.jsonfile)
+getJSON(ppis,nodes_attributes,args.jsonfile,args.addreactome)
 if args.taboutput=="TRUE":
     nodes_attributes.to_csv("nodes_attributes.csv",sep="\t",index=False,na_rep="NaN")
     ppis.to_csv("ppis.csv",sep="\t",index=False,na_rep="NaN")
