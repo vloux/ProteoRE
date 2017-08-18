@@ -1,4 +1,4 @@
 #This file lists the locations and dbkeys of interactome files.
 #<name>	<display_name (value)>          <file_path>
-bioplex	Bioplex Interactome (v2.0)	/home/li/galaxy/tools/proteoRE/mapping_interactome/BioPlex_interactionList_v4a.tsv
-humap	hu.MAP Interactome	/home/li/galaxy/tools/proteoRE/mapping_interactome/huMAP_genes_Uniprot_mapping_no_ENSG.txt
+bioplex	Bioplex Interactome (v2.0)	BioPlex_interactionList_v4a.tsv
+humap	hu.MAP Interactome	huMAP_genes_Uniprot_mapping_no_ENSG.txt
