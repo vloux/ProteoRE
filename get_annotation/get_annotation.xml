@@ -74,6 +74,8 @@
           <option value="MW" selected="false">Molecular Weight</option>
  		      <option value="SeqLength" selected="false">Sequence Length</option>
           <option value="IsoPoint" selected="false">Isoelectric point</option>
+          <option value="TMDomains" selected="false">Number of transmembrane domains</option>
+          <option value="ProteinExistence" selected="false">Protein Existence (PE level)</option>
         </param>
 
         <param name="P2" type="select" label="Localization" multiple="true" help="Choose the information you want to add to your data from Nextprot" display="checkboxes" optional="true"> 

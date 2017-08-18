@@ -1,6 +1,7 @@
 # Usage : Rscript --vanilla get_data_nextprot.R --inputtype copypaste (or
-# tabfile) --input file.txt --nextprot result_nextprot.txt --column column  --argsP1 isoElec,length,molWeight
-# --argsP2 chromosome,subcellLoc --argsP3 true --type id nextprot (uniprot)
+# tabfile) --input file.txt --nextprot result_nextprot.txt --column column
+# --argsP1 IsoPoint,SeqLength,MW
+# --argsP2 Chr,SubcellLocations --argsP3 Diseases --type id nextprot (uniprot)
 # --output output.txt --header TRUE
 
 # e.g : 
@@ -8,8 +9,8 @@
 # P22612 P31321 P13861 P22694 P25098 P16220 Q14573 Q14571 Q14643 Q05655 Q02156
 # P19174 O43865 Q01064 P54750 Q14123 P51828 Q08828 O60266 Q08462 O60503 O43306
 # Q8NFM4 O95622 P40145 P17252 P05129 --nextprot
-# result_nextprot.txt--column c1 --argsP1 isoElec --argsP2
-# chromosome --argsP3 true --typeid uniprot --output output.txt --header FALSE
+# result_nextprot.txt--column c1 --argsP1 IsoPoint --argsP2
+# Chr --argsP3 Diseases --typeid uniprot --output output.txt --header FALSE
 
 # Useful functions
 
