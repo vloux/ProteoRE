@@ -79,7 +79,7 @@ if (typeinput=="copypaste"){
 }
 if (typeinput=="tabfile"){
 
-  sample = read.table(listfile,header=FALSE,sep="\t")  
+  sample = read.table(listfile,header=FALSE,sep="\t",na.strings="NA")  
   sample = sample[,column]
 
 }
