@@ -9,10 +9,10 @@
     <command><![CDATA[
         #if $opt.input == "text"
             python /projet/galaxydev/galaxy/tools/proteore_uc1/reactome/reac.py --json "$opt.list" "list" --output "$output" --trash "$trash"
-        #else if $opt.input == "file"
-            python /projet/galaxydev/galaxy/tools/proteore_uc1/reactome/reac.py --json "$opt.idfile" "file" --output "$output" --trash "$trash"
+        ##else if $opt.input == "file"
+            ##python /projet/galaxydev/galaxy/tools/proteore_uc1/reactome/reac.py --json "$opt.idfile" "file" --output "$output" --trash "$trash"
         #else if $opt.input == "mq"
-            python /projet/galaxydev/galaxy/tools/proteore_uc1/reactome/reac.py --json "$opt.mqfile" "mqfile" $opt.ncol --output "$output" --trash "$trash"
+            python /projet/galaxydev/galaxy/tools/proteore_uc1/reactome/reac.py --json "$opt.mqfile" "mqfile" $opt.header $opt.ncol --output "$output" --trash "$trash"
         #end if
         
     ]]></command>
@@ -20,17 +20,18 @@
         <conditional name="opt">
             <param name="input" type="select" label="Input identifiers" multiple="False" >
                 <option value="text">Copy/paste your list of IDs </option>
-                <option value="file">Choose a single-column file </option>
+                <!--option value="file">Choose a single-column file </option-->
 		        <option value="mq">Choose a multiple-columns file </option>
             </param>
             <when value="text" >
                 <param name="list" type="text" label="Enter list of identifiers" />
             </when>
-            <when value="file" >
+            <!--when value="file" >
                 <param name="idfile" type="data" format="txt" label="Choose a single-column file" />
-            </when>
+            </when-->
             <when value="mq" >
                 <param name="mqfile" type="data" format="txt" label="Choose a multiple-columns file" help="Input file is a tab-delimited file containing different information of proteins, such as an output of MaxQuant software" />
+                <param name="header" type="boolean" checked="true" truevalue="true" falsevalue="false" label="Does your input file contain header?" />
 		        <param type="text" name="ncol" value="c1" label="Please specify the column where you would like to apply the comparison" help ='For example, fill in "c1" if you want to filter the first column' />
             </when>
             
@@ -38,7 +39,7 @@
     </inputs>
     <outputs>
         <data name="output" format="html" label="" />
-        <data name="trash" format="txt" label="Invalid identifiers" />
+        <data name="trash" format="tab" label="Invalid identifiers" />
     </outputs>
     <help><![CDATA[
 Reactome software provides service of creating diagram representing the relations between the biological processes. This tool allows linking to Reactome web service with pre-loaded data from a list of IDs, a file containing IDs or from a column of a complexed file.

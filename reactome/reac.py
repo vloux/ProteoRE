@@ -38,18 +38,22 @@ def data_json(identifiers):
         json_string = os.popen("curl -H \"Content-Type: text/plain\" -d \"$(printf '%s')\" -X POST --url www.reactome.org/AnalysisService/identifiers/projection/\?pageSize\=1\&page\=1" % ids).read()
         if len(id_valid(identifiers[0].split())[1]) > 0:
             trash = id_valid(identifiers[0].split())[1]
-    elif identifiers[1] == "file":
-        file = open(identifiers[0]).readlines()
-        ids = "\n".join(id_valid(file)[0])
+    #elif identifiers[1] == "file":
+        #file = open(identifiers[0]).readlines()
+        #ids = "\n".join(id_valid(file)[0])
         #print(ids)
         #print("curl -H \"Content-Type: text/plain\" -d \"$(printf '%s')\" -X POST --url www.reactome.org/AnalysisService/identifiers/projection/\?pageSize\=1\&page\=1" % ids)
-        json_string = os.popen("curl -H \"Content-Type: text/plain\" -d \"$(printf '%s')\" -X POST --url www.reactome.org/AnalysisService/identifiers/projection/\?pageSize\=1\&page\=1" % ids).read()
-        if len(id_valid(file)[1]) > 0:
-            trash = id_valid(file)[1]
+        #json_string = os.popen("curl -H \"Content-Type: text/plain\" -d \"$(printf '%s')\" -X POST --url www.reactome.org/AnalysisService/identifiers/projection/\?pageSize\=1\&page\=1" % ids).read()
+        #if len(id_valid(file)[1]) > 0:
+            #trash = id_valid(file)[1]
     elif identifiers[1] == "mqfile":
+        header = identifiers[2]
         mq = open(identifiers[0]).readlines()
-        if isnumber("int", identifiers[2].replace("c", "")):
-            idens = [x.split("\t")[int(identifiers[2].replace("c", ""))-1] for x in mq[1:]]
+        if isnumber("int", identifiers[3].replace("c", "")):
+            if header == "true":
+                idens = [x.split("\t")[int(identifiers[3].replace("c", ""))-1] for x in mq[1:]]
+            else:
+                idens = [x.split("\t")[int(identifiers[3].replace("c", ""))-1] for x in mq]
             ids = "\n".join(id_valid(idens)[0])
             #print(ids)
             #print("curl -H \"Content-Type: text/plain\" -d \"$(printf '%s')\" -X POST --url www.reactome.org/AnalysisService/identifiers/projection/\?pageSize\=1\&page\=1" % ids)
