@@ -34,9 +34,9 @@
 		#for $i, $s in enumerate($series)
 		    --input
 		    #if $s.se.input == "mq_file"
-		        "$s.se.mq_file" "$s.se.name" "mq_file" "$s.se.ncol"
-		    #else if $s.se.input == "list_file"
-			    "$s.se.list_file" "$s.se.name" "file"
+		        "$s.se.mq_file" "$s.se.name" "mq_file" "$s.se.header" "$s.se.ncol"
+		    ##else if $s.se.input == "list_file"
+			    ##"$s.se.list_file" "$s.se.name" "file"
 		    #else
                 "$s.se.list" "$s.se.name" "list"
  		    #end if
@@ -76,18 +76,19 @@
                     <param type="select" name="input" label="Input" >
                         <option value="list">Copy/paste your list of IDs </option>
                         <option value="mq_file">Choose a multiple-columns file</option>
-                        <option value="list_file">Choose a single-column file</option>
+                        <!--option value="list_file">Choose a single-column file</option-->
                         
                     </param>
                     <when value="mq_file">
-                        <param type="data" name="mq_file" format="txt" label="Choose a multiple-columns file" help="Input file is a tab-delimited file containing different information of proteins, such as an output of MaxQuant software" />
+                        <param type="data" name="mq_file" format="txt,tab" label="Choose a multiple-columns file" help="Input file is a tab-delimited file containing different information of proteins, such as an output of MaxQuant software" />
+                        <param name="header" type="boolean" checked="true" truevalue="true" falsevalue="false" label="Does your input file contain header?" />
 		            	<param type="text" name="ncol" value="c1" label="Please specify the column where you would like to apply the comparison" help ='For example, fill in "c1" if you want to filter the first column' />
 		            	<param type="text" name="name" value="" label="Please enter the name of this list" help="This name will be displayed on venn diagram" />
                     </when>
-                    <when value="list_file">
+                    <!--when value="list_file">
                         <param type="data" name="list_file" format="txt" label="Choose a single-column file" />
                         <param type="text" name="name" value="" label="Please enter the name of this list" help="This name will be displayed on venn diagram" />
-                    </when>
+                    </when-->
                     <when value="list">
                         <param type="text" name="list" label="Copy/paste your list of IDs " />
                         <param type="text" name="name" value="" label="Please enter the name of this list" help="This name will be displayed on venn diagram" />

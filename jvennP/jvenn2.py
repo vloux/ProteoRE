@@ -48,25 +48,29 @@ def input_to_dict(inputs):
     #print(len(comp_files), comp_files[0])
     c = ["A", "B", "C", "D", "E", "F"]  
     for i in range(len(inputs)):
-        input_file = inputs[i][0]
+        input_file = inputs[i][0]        
         name = inputs[i][1]
         input_type = inputs[i][2]
         title = c[i]
         title_dict[title] = name
         ids = set()
         if input_type == "mq_file":
-            ncol = inputs[i][3]
+            header = inputs[i][3]
+            ncol = inputs[i][4]
             file_content = open(input_file, "r").readlines()
             
             if isnumber("int", ncol.replace("c", "")):
-                file_content = [x for x in [line.split("\t")[int(ncol.replace("c", ""))-1].split(";")[0] for line in file_content[1:]]]     # take only first IDs
+                if header == "true":
+                    file_content = [x for x in [line.split("\t")[int(ncol.replace("c", ""))-1].split(";")[0] for line in file_content[1:]]]     # take only first IDs
+                else:
+                    file_content = [x for x in [line.split("\t")[int(ncol.replace("c", ""))-1].split(";")[0] for line in file_content]]     # take only first IDs
                 #print(file_content[1:13])
             else:
                 raise ValueError("Please fill in the right format of column number")
-        elif input_type == "file":
-            file_content = open(input_file, "r").readlines()
-            file_content = [x.replace("\n", "") for x in file_content]
-            file_content = [x.replace("\r", "") for x in file_content]         
+        #elif input_type == "file":
+         #   file_content = open(input_file, "r").readlines()
+          #  file_content = [x.replace("\n", "") for x in file_content]
+           # file_content = [x.replace("\r", "") for x in file_content]         
         else:
             ids = set()
             file_content = inputs[i][0].split()
