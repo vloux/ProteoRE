@@ -110,7 +110,7 @@ if ((length(sample[sample %in% nextprot[,1]]))==0){
   # if only some of the proteins were not found in nextprot they will be added to
 	# the file with the fields "Protein not found in Nextprot"
 	if (length(which(sample %!in% nextprot[,1]))!=0){
-	  proteins_not_found = sample[which(sample %!in% nextprot[,1])]
+	  proteins_not_found = as.data.frame(sample[which(sample %!in% nextprot[,1])])
 	
 	  proteins_not_found = cbind(proteins_not_found,matrix(rep("Protein not found in Nextprot",length(proteins_not_found)),nrow=length(proteins_not_found),ncol=length(colnames(data))-1))
 
