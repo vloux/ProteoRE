@@ -8,7 +8,7 @@
     <command><![CDATA[
         ##echo $options.np.number_of_proteins > $output1
         python /projet/galaxydev/galaxy/tools/proteore_uc1/filter_kw_val/filter_kw_val.py 
-        -i "$input1" 
+        -i "$input1,$header" 
         -o "$output1"
         --trash_file "$trash_file"
 
@@ -44,6 +44,7 @@
     ]]></command>
     <inputs>
         <param type="data" name="input1" format="txt,tabular" label="Input file" help="Input file is a tab-delimited file containing proteomics results (e.g. output file from MaxQuant or Proline softwares" />
+        <param name="header" type="boolean" checked="true" truevalue="true" falsevalue="false" label="Does your input file contain header?" />
         <repeat name="keyword" title="Filter by keywords" >
             <param type="boolean" name="match" truevalue="True" label="Would you like to search for exact match?" help='Choosing "Yes" will only filter out exact match (i.e. case sensitive), see below for more detail' />
             <conditional name="k" >
@@ -101,8 +102,8 @@
    
     </inputs>
     <outputs>
-        <data name="output1" format="txt" label="${tool.name} on ${input1.name}" />
-        <data name="trash_file" format="txt" label="Removed proteins from input file" />
+        <data name="output1" format="tabular" label="${tool.name} on ${input1.name}" />
+        <data name="trash_file" format="tabular" label="Removed proteins from input file" />
     </outputs>
     <tests>       
     </tests>

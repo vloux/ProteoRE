@@ -33,23 +33,24 @@ def isnumber(format, n):
         return False
 
 def filters(args):
-    MQfilename = args.input
+    MQfilename = args.input.split(",")[0]
+    header = args.input.split(",")[1]
     MQfile = readMQ(MQfilename)
     results = [MQfile, None]
     
     if args.kw:
         keywords = args.kw
         for k in keywords:
-            results = filter_keyword(results[0], results[1], k[0], k[1], k[2])
+            results = filter_keyword(results[0], header, results[1], k[0], k[1], k[2])
     if args.kw_file:
         key_files = args.kw_file
         for kf in key_files:
             ids = readOption(kf[0])
-            results = filter_keyword(results[0], results[1], ids, kf[1], kf[2])
+            results = filter_keyword(results[0], header, results[1], ids, kf[1], kf[2])
     if args.value:
         for v in args.value:
             if isnumber("float", v[0]):
-                results = filter_value(results[0], results[1], v[0], v[1], v[2])
+                results = filter_value(results[0], header, results[1], v[0], v[1], v[2])
             else:
                 raise ValueError("Please enter a number in filter by value")
 
@@ -85,7 +86,7 @@ def readMQ(MQfilename):
     [mq.remove(blank) for blank in mq if blank.isspace() or blank == ""]     
     return mq
     
-def filter_keyword(MQfile, filtered_lines, ids, ncol, match):
+def filter_keyword(MQfile, header, filtered_lines, ids, ncol, match):
     mq = MQfile
     if isnumber("int", ncol.replace("c", "")):
         id_index = int(ncol.replace("c", "")) - 1 #columns.index("Majority protein IDs")
@@ -95,11 +96,18 @@ def filter_keyword(MQfile, filtered_lines, ids, ncol, match):
     ids = ids.upper().split(":")
     [ids.remove(blank) for blank in ids if blank.isspace() or blank == ""]
     
+    if header == "true":
+        header = mq[0]
+        content = mq[1:]
+    else:
+        header = ""
+        content = mq
+    
     if not filtered_lines: # In case there is already some filtered lines from other filters
         filtered_lines = []
-        filtered_lines.append(mq[0])
-  
-    for line in mq[1:]:    
+        filtered_lines.append(header)
+
+    for line in content:    
         id_inline = line.split("\t")[id_index].replace('"', "").split(";")
         one_id_line = line.replace(line.split("\t")[id_index], id_inline[0]) # Take only first IDs
         
@@ -121,17 +129,25 @@ def filter_keyword(MQfile, filtered_lines, ids, ncol, match):
                 mq[mq.index(line)] = one_id_line
     return mq, filtered_lines
     
-def filter_value(MQfile, filtered_prots, filter_value, ncol, opt):
+def filter_value(MQfile, header, filtered_prots, filter_value, ncol, opt):
     mq = MQfile
     if ncol and isnumber("int", ncol.replace("c", "")): #"Gene names" in columns:
         index = int(ncol.replace("c", "")) - 1 #columns.index("Gene names")
     else:
         raise ValueError("Please specify the column where you would like to apply the filter with valid format")
         
+    if header == "true":
+        header = mq[0]
+        content = mq[1:]
+    else:
+        header = ""
+        content = mq
+    
     if not filtered_prots: # In case there is already some filtered lines from other filters
         filtered_prots = []
-        filtered_prots.append(mq[0])
-    for prot in mq[1:]:
+        filtered_prots.append(header)
+        
+    for prot in content:
         filter_value = float(filter_value)
         pep = prot.split("\t")[index].replace('"', "")
         if pep.replace(".", "", 1).isdigit():
