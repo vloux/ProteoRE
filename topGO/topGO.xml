@@ -7,12 +7,12 @@
     <command><![CDATA[
     
   #if $inputtype.filetype == "file_all": 
-  Rscript --vanilla $__tool_directory__/enrichment_v3.R --inputtype tabfile --input '$inputtype.genelist' --ontology '$ontocat' --option '$option' --threshold '$threshold' --correction '$correction' --textoutput '$condtext.textoutput' --barplotoutput '$condbar.barplotoutput' --dotplotoutput '$conddot.dotplotoutput' --column '$inputtype.column' --geneuniverse '$geneuniverse'
+  Rscript --vanilla $__tool_directory__/enrichment_v3.R --inputtype tabfile --input '$inputtype.genelist' --ontology '$ontocat' --option '$option' --threshold '$threshold' --correction '$correction' --textoutput '$condtext.textoutput' --barplotoutput '$condbar.barplotoutput' --dotplotoutput '$conddot.dotplotoutput' --column '$inputtype.column' --geneuniverse '$geneuniverse' --header '$inputtype.header'
   #end if
     
     
       #if $inputtype.filetype == "copy_paste": 
-  Rscript --vanilla $__tool_directory__/enrichment_v3.R --inputtype copypaste --input '$inputtype.genelist' --ontology '$ontocat' --option '$option' --threshold '$threshold' --correction '$correction' --textoutput '$condtext.textoutput' --barplotoutput '$condbar.barplotoutput' --dotplotoutput '$conddot.dotplotoutput' --column c1 --geneuniverse '$geneuniverse'
+  Rscript --vanilla $__tool_directory__/enrichment_v3.R --inputtype copypaste --input '$inputtype.genelist' --ontology '$ontocat' --option '$option' --threshold '$threshold' --correction '$correction' --textoutput '$condtext.textoutput' --barplotoutput '$condbar.barplotoutput' --dotplotoutput '$conddot.dotplotoutput' --column c1 --geneuniverse '$geneuniverse' --header None
 
   #end if
 
@@ -22,7 +22,7 @@
 
     <inputs>
   <conditional name="inputtype">
-    <param name="filetype" type="select" label="Select your type of input file" help="The input file must contain Ensembl gene IDs (e.g : ENSG00000139618). If it is not the case, please use the ID Mapping tool.">
+    <param name="filetype" type="select" label="Select your type of input file" help="The identifiers must be Ensembl gene IDs (e.g : ENSG00000139618). If it is not the case, please use the ID Mapping tool.">
       <option value="file_all">Input file containing your identifiers</option>
       <option value="copy_paste">Copy/paste your list of IDs</option> 
     </param>
@@ -32,6 +32,11 @@
     <when value="file_all">
       <param name="genelist" type="data" format="txt,tabular" label="Choose an input file" help="This file must imperatively have 1 column filled with IDs consistent with the database that will be used. Please use the MappingIDs component if this is not the case."/>
       <param name="column" type="text" label="Please specify the column where you would like to apply the comparison (e.g : Enter c1)" value="c1"/> 
+    
+      <param name="header" type="select" label="Does your file have a header?" multiple="false" optional="false"> 
+ 		      <option value="TRUE" selected="true">Yes</option>
+          <option value="FALSE" selected="false">No</option>
+      </param>
     </when>
   </conditional>
       <param name="geneuniverse" type="select" label="Select a specie">
@@ -86,15 +91,6 @@
           </conditional>
     </inputs>
     <outputs>
-      <!-- <data name="outputtext" format="tsv" label="Text output for topGO analysis on ${inputtype.genelist.name}" from_work_dir="result.tsv">
-        <filter>condtext['textoutput']=="TRUE"</filter>
-        <filter>inputtype['filetype']!="copy_paste"</filter>
-      </data>
-      <data name="outputtext" format="tsv" label="Text output for topGO analysis on entered identifiers" from_work_dir="result.tsv">
-        <filter>condtext['textoutput']=="TRUE"</filter>
-        <filter>inputtype['filetype']=="copy_paste"</filter>
-      </data>
--->
 
       <data name="outputtext" format="tabular" label="Text output for topGO analysis" from_work_dir="result.csv">
         <filter>condtext['textoutput']=="TRUE"</filter>
@@ -108,21 +104,6 @@
         <filter>conddot['dotplotoutput']=="TRUE"</filter>
       </data>
       
-      <!-- 
-      <data name="outputbarplot" format="png" label="Barplot output for topGO analysis on ${inputtype.genelist.name}" from_work_dir="barplot.png">
-        <filter>condbar['barplotoutput']=="TRUE"</filter>
-      </data>
-      <data name="outputbarplot" format="png" label="Barplot output for topGO analysis on entered identifiers" from_work_dir="barplot.png">
-        <filter>condbar['barplotoutput']=="TRUE"</filter>
-        <filter>inputtype['filetype']=="copy_paste"</filter>
-      </data>
-      <data name="outputdotplot" format="png" label="Dotplot output for topGO analysis on ${inputtype.genelist.name}" from_work_dir="dotplot.png">
-        <filter>conddot['dotplotoutput']=="TRUE"</filter>
-      </data>
-      <data name="outputdotplot" format="png" label="Dotplot output for topGO analysis on entered identifiers" from_work_dir="dotplot.png">
-        <filter>conddot['dotplotoutput']=="TRUE"</filter>
-        <filter>inputtype['filetype']=="copy_paste"</filter>
-      </data>-->
    </outputs>
     <help><![CDATA[
       
@@ -179,5 +160,33 @@ Furthermore, the following corrections for multiple testing can also be applied 
 
 
 
-    ]]></help>
+]]></help>
+
+<tests>
+  <test>
+    <conditional name="inputtype">
+      <param name="filetype " value="tabfile"/>
+      <param name="genelist" value="prot_reactome_EGFR_mapped_ensg.txt"/>
+      <param name="column" value="c1"/>
+      <param name="header" value="FALSE"/>
+    </conditional>
+    <param name="ontocat" value="BP"/>
+    <param name="option" value="elim"/>
+    <param name="threshold" value="1e-3"/>
+    <param name="correction" value="BH"/> 
+    <conditional name="condtext">
+      <param name="textoutput" value="TRUE"/>
+    </conditional>
+    <conditional name="condbar">
+    <param name="barplotoutput" value="TRUE"/>
+  </conditional>
+    <conditional name="conddot">
+      <param name="dotoutput" value="TRUE"/>
+    </conditional>
+    <param name="geneuniverse" value="org.Hs.eg.db"/>
+    <output name="outputtext" file="Text_output_for_topGO_analysis.txt"/>
+    <output name="outputbarplot" file="Barplot_output_for_topGO_analysis.png"/>
+    <output name="outputdotplot" file="Dotplot_output_for_topGO_analysis.png"/>
+  </test>
+</tests>
 </tool>

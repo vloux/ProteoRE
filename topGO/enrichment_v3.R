@@ -1,6 +1,6 @@
 # enrichment_v3.R
-# Usage : Rscript --vanilla enrichment_v3.R --inputtype copypaste (or
-# tabfile) --input file.txt --ontology "BP/CC/MF" --option option (e.g
+# Usage : Rscript --vanilla enrichment_v3.R --inputtype tabfile (or
+# copypaste) --input file.txt --ontology "BP/CC/MF" --option option (e.g
 # : classic/elim...) --threshold threshold --correction correction --textoutput
 # text --barplotoutput barplot
 # --dotplotoutput dotplot --column column --geneuniver human 
@@ -22,6 +22,8 @@
 #	Declare the output not wanted as none
 #	- column containing the ensembl ids if the input file is a tabfile
 # - gene universe reference for the user chosen specie
+# - header : if the input is a text file, does this text file have a header
+# (TRUE/FALSE)
 #
 # OUTPUT :
 #	- outputs commanded by the user named respectively result.tsv for the text
@@ -57,7 +59,7 @@ options.names <- sapply(listoptions,function(x){
 names(options.args) <- unlist(options.names)
 
 
-if (length(options.args) != 11) {
+if (length(options.args) != 12) {
     stop("Not enough/Too many arguments", call. = FALSE)
 }
 
@@ -72,14 +74,19 @@ barplot = as.character(options.args[8])
 dotplot = as.character(options.args[9])
 column = as.numeric(gsub("c","",options.args[10]))
 geneuniverse = as.character(options.args[11])
+header = as.character(options.args[12])
 
 if (typeinput=="copypaste"){
   sample = as.data.frame(unlist(listfile))
   sample = sample[,column]
 }
 if (typeinput=="tabfile"){
-
-  sample = read.table(listfile,header=FALSE,sep="\t",na.strings="NA")  
+  
+  if (header=="TRUE"){
+    sample = read.table(listfile,header=TRUE,sep="\t",na.strings="NA",fill=TRUE)  
+  }else{
+    sample = read.table(listfile,header=FALSE,sep="\t",na.strings="NA",fill=TRUE)  
+  }
   sample = sample[,column]
 
 }
