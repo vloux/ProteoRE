@@ -1,0 +1,593 @@
+NextprotID	MW	SeqLength	IsoPoint	TMDomains	ProteinExistence	Chr	SubcellLocations	Diseases
+NX_A6NK06	52628	481	7.01	0	PE1	13	Mitochondrion	NA
+NX_A6NK58	25195	231	8.63	0	PE1	11	Mitochondrion	NA
+NX_A8MUP2	25910	240	5.51	0	PE2	11	Cytoplasm;Nucleolus;Nucleus membrane;Mitochondrion	NA
+NX_C9JRZ8	36537	316	6.23	0	PE1	7	Mitochondrion;Cytosol	NA
+NX_O00141	48942	431	8.7	0	PE1	6	Cytoplasm;Nucleoplasm;Cytoplasm;Nucleus;Endoplasmic reticulum membrane;Cell membrane;Mitochondrion;Cell membrane	NA
+NX_O00142	31005	265	8.71	0	PE1	16	Mitochondrion	Mitochondrial DNA depletion syndrome 2;Progressive external ophthalmoplegia with mitochondrial DNA deletions, autosomal recessive 3
+NX_O00154	41796	380	8.85	0	PE1	1	Mitochondrion;Cytoplasm;Nucleoplasm;Cytoplasm;Cytoplasm;Cytoplasm;Mitochondrion;Mitochondrion	NA
+NX_O00217	23705	210	6	0	PE1	11	Mitochondrion;Mitochondrion	Leigh syndrome
+NX_O00408	105717	941	5.22	0	PE1	11	Cell membrane;Mitochondrion matrix;Cytoplasm;Mitochondrion	NA
+NX_O00411	138620	1230	9.19	0	PE1	19	Mitochondrion;Mitochondrion	NA
+NX_O00429	81877	736	6.37	0	PE1	12	Cytoplasm;Cytoplasmic vesicle;Cytosol;Golgi apparatus;Endomembrane system;Mitochondrion outer membrane;Peroxisome;Clathrin-coated pit;Synaptic vesicle membrane	Encephalopathy due to defective mitochondrial and peroxisomal fission 1
+NX_O00487	34577	310	6.06	0	PE1	2	Mitochondrion;Nucleoplasm;Cytoplasm;Cytoplasmic vesicle	NA
+NX_O00571	73243	662	6.73	0	PE1	X	Nucleus speckle;Cytoplasm;Mitochondrion outer membrane	Mental retardation, X-linked 102
+NX_O00746	20659	187	10.3	0	PE1	16	Mitochondrion;Mitochondrion intermembrane space;Mitochondrion matrix	NA
+NX_O00763	276541	2458	6.05	0	PE1	12	Endomembrane system;Cytoplasm;Mitochondrion;Nucleus	NA
+NX_O14734	35914	319	7.22	0	PE1	20	Mitochondrion;Cytoplasmic vesicle;Cytoplasm;Peroxisome matrix	NA
+NX_O14874	46360	412	8.97	0	PE1	16	Mitochondrion;Mitochondrion matrix;Mitochondrion	Branched-chain ketoacid dehydrogenase kinase deficiency
+NX_O15121	37866	323	6.97	6	PE1	1	Mitochondrion;Endoplasmic reticulum membrane;Membrane	NA
+NX_O15229	55810	486	9.18	2	PE1	1	Mitochondrion outer membrane	NA
+NX_O15270	62924	562	7.89	1	PE1	14	Mitochondrion;Endoplasmic reticulum membrane	Neuropathy, hereditary sensory and autonomic, 1C
+NX_O15294	116925	1046	6.22	0	PE1	X	Nucleoplasm;Cytoplasm;Mitochondrion;Membrane;Cytoplasm;Nucleus;Cell membrane;Cytoplasm;Nucleus	NA
+NX_O15382	44288	392	8.88	0	PE1	19	Mitochondrion;Cytoplasm	NA
+NX_O15498	22418	198	6.44	0	PE1	7	Cytoplasm;Mitochondrion;Cytosol;Cytoplasmic vesicle membrane;Golgi apparatus membrane	NA
+NX_O15527	38782	345	8.89	0	PE1	3	Nucleoplasm;Nucleoplasm;Nucleus speckle;Nucleus matrix;Nucleus;Mitochondrion	Renal cell carcinoma
+NX_O15528	56504	508	9.34	0	PE1	12	Mitochondrion membrane	Rickets vitamin D-dependent 1A
+NX_O43184	99542	909	8.79	1	PE1	10	Cell membrane;Mitochondrion;Cell membrane;Secreted;Secreted;Secreted	NA
+NX_O43272	68002	600	7.96	0	PE1	22	Mitochondrion matrix	Hyperprolinemia 1;Schizophrenia 4
+NX_O43462	57444	519	7.21	10	PE1	X	Cytoplasm;Mitochondrion;Nucleoplasm;Membrane;Cytoplasm	IFAP syndrome with or without BRESHECK syndrome;Olmsted syndrome, X-linked;Keratosis follicularis spinulosa decalvans X-linked
+NX_O43464	48841	458	10.07	1	PE1	2	Mitochondrion intermembrane space;Mitochondrion membrane	Parkinson disease 13
+NX_O43688	32574	288	8.65	6	PE1	19	Mitochondrion;Membrane	NA
+NX_O43716	15086	136	4.94	0	PE1	12	Mitochondrion	NA
+NX_O43766	41911	372	8.84	0	PE1	4	Mitochondrion;Nucleoplasm;Mitochondrion	Hyperglycinemia, lactic acidosis, and seizures
+NX_O43837	42184	385	8.64	0	PE1	20	Mitochondrion;Mitochondrion	Retinitis pigmentosa 46
+NX_O60260	51641	465	6.71	0	PE1	6	Endoplasmic reticulum;Cytosol;Mitochondrion;Nucleus	Parkinson disease 2;Parkinson disease
+NX_O60264	121905	1052	8.27	0	PE1	4	Nucleus;Nucleolus;Cytoplasm;Nucleus;Mitochondrion	NA
+NX_O60313	111631	960	7.87	1	PE1	3	Mitochondrion;Nucleoplasm;Mitochondrion intermembrane space;Mitochondrion inner membrane	Optic atrophy 1;Dominant optic atrophy plus syndrome;Behr syndrome;Mitochondrial DNA depletion syndrome 14, cardioencephalomyopathic type
+NX_O60423	146752	1300	8.18	10	PE1	19	Mitochondrion;Acrosome membrane;Endoplasmic reticulum membrane;Nucleus	NA
+NX_O60427	51964	444	8.98	4	PE1	11	Endoplasmic reticulum membrane;Mitochondrion;Endoplasmic reticulum membrane	NA
+NX_O60488	79188	711	8.66	1	PE1	X	Mitochondrion;Golgi apparatus;Mitochondrion outer membrane;Peroxisome membrane;Microsome membrane;Endoplasmic reticulum membrane	Alport syndrome with mental retardation, midface hypoplasia and elliptocytosis;Mental retardation, X-linked 63
+NX_O75251	23564	213	10.02	0	PE1	19	Mitochondrion	Leigh syndrome;Mitochondrial complex I deficiency
+NX_O75306	52546	463	7.21	0	PE1	1	Nucleoplasm;Mitochondrion;Mitochondrion inner membrane	Mitochondrial complex I deficiency
+NX_O75390	51712	466	8.45	0	PE1	12	Mitochondrion;Mitochondrion matrix	NA
+NX_O75439	54366	489	6.38	0	PE1	7	Mitochondrion;Mitochondrion matrix	NA
+NX_O75489	30242	264	6.98	0	PE1	11	Nucleus;Mitochondrion inner membrane;Mitochondrion	NA
+NX_O75521	43585	394	9.13	0	PE1	6	Cytoplasmic vesicle;Mitochondrion;Peroxisome;Peroxisome matrix	NA
+NX_O75600	45285	419	8.3	0	PE1	22	Nucleoplasm;Mitochondrion;Nucleus;Mitochondrion	NA
+NX_O75648	47745	421	8.24	0	PE1	22	Mitochondrion;Mitochondrion;Nucleoplasm	Liver failure, infantile, transient
+NX_O75879	61864	557	8.85	0	PE1	4	Mitochondrion;Mitochondrion	NA
+NX_O75911	33548	302	9.07	4	PE1	1	Nucleolus;Mitochondrion;Membrane	NA
+NX_O94923	70101	617	9.04	1	PE1	15	Mitochondrion;Golgi apparatus membrane	NA
+NX_O94925	73461	669	7.85	0	PE1	2	Mitochondrion;Mitochondrion;Cytosol	NA
+NX_O95140	86402	757	6.52	2	PE1	1	Mitochondrion outer membrane	Neuropathy, hereditary motor and sensory, 6A;Charcot-Marie-Tooth disease 2A2A;Charcot-Marie-Tooth disease 2A2B
+NX_O95302	63084	570	4.91	0	PE1	7	Mitochondrion;Cytoplasmic vesicle;Endoplasmic reticulum	NA
+NX_O95340	69501	614	8.18	0	PE1	10	Mitochondrion	Brachyolmia type 4 with mild epiphyseal and metaphyseal changes
+NX_O95363	52357	451	6.99	0	PE1	6	Cell membrane;Mitochondrion matrix;Mitochondrion	Combined oxidative phosphorylation deficiency 14;Spastic paraplegia 77, autosomal recessive
+NX_O95571	27873	254	6.35	0	PE1	19	Nucleoplasm;Mitochondrion;Cytoplasm;Nucleus;Mitochondrion matrix	Ethylmalonic encephalopathy
+NX_O95573	80420	720	8.65	1	PE1	2	Mitochondrion outer membrane;Peroxisome membrane;Microsome membrane;Endoplasmic reticulum membrane	NA
+NX_O95674	51418	445	6.64	6	PE1	20	Cytoplasm;Endoplasmic reticulum;Mitochondrion inner membrane	NA
+NX_O95822	55003	493	9.11	0	PE1	16	Cytoplasm;Mitochondrion matrix;Peroxisome;Peroxisome matrix	Malonyl-CoA decarboxylase deficiency
+NX_O95831	66901	613	9.04	0	PE1	X	Mitochondrion intermembrane space;Mitochondrion inner membrane;Cytoplasm;Nucleus;Perinuclear region;Mitochondrion intermembrane space;Mitochondrion inner membrane;Cytoplasm	Combined oxidative phosphorylation deficiency 6;Deafness, X-linked, 5;Cowchock syndrome
+NX_O95865	29644	285	5.66	0	PE1	6	Cytoplasm;Centrosome;Cytoplasm;Mitochondrion	NA
+NX_O95922	48988	423	8.87	0	PE2	22	Mitochondrion;Nucleolus;Cytoskeleton	NA
+NX_P00367	61398	558	7.66	0	PE1	10	Mitochondrion matrix	Familial hyperinsulinemic hypoglycemia 6
+NX_P00374	21453	187	6.85	0	PE1	5	Mitochondrion;Cytoplasm	Megaloblastic anemia due to dihydrofolate reductase deficiency
+NX_P00387	34235	301	7.18	0	PE1	22	Endoplasmic reticulum;Endoplasmic reticulum membrane;Mitochondrion outer membrane;Cytoplasm	Methemoglobinemia CYB5R3-related
+NX_P00390	56257	522	8.74	0	PE1	8	Cell membrane;Cytoplasm;Mitochondrion;Cytoplasm	NA
+NX_P00395	57041	513	6.19	12	PE1	MT	Mitochondrion;Mitochondrion inner membrane	Leber hereditary optic neuropathy;Mitochondrial complex IV deficiency;Deafness, sensorineural, mitochondrial;Recurrent myoglobinuria mitochondrial;Colorectal cancer
+NX_P00441	15936	154	5.7	0	PE1	21	Nucleus;Cell membrane;Cytoplasm;Cytoplasm;Mitochondrion;Nucleus	Amyotrophic lateral sclerosis 1
+NX_P00480	39935	354	8.75	0	PE1	X	Mitochondrion matrix	Ornithine carbamoyltransferase deficiency
+NX_P00505	47518	430	9.14	0	PE1	16	Mitochondrion matrix;Cell membrane	NA
+NX_P00519	122873	1130	8.84	0	PE1	9	Nucleoplasm;Cytoskeleton;Nucleus;Mitochondrion;Nucleus membrane	Leukemia, chronic myeloid
+NX_P00973	46029	400	8.51	0	PE1	12	Cytoplasm;Cytoplasm;Mitochondrion;Nucleus;Microsome;Endoplasmic reticulum;Secreted	NA
+NX_P03886	35661	318	6.11	8	PE1	MT	Mitochondrion inner membrane	Mitochondrial complex I deficiency;Leber hereditary optic neuropathy;Diabetes mellitus, non-insulin-dependent;Alzheimer disease mitochondrial;Mitochondrial encephalomyopathy with lactic acidosis and stroke-like episodes syndrome
+NX_P03891	38961	347	9.84	10	PE1	MT	Mitochondrion inner membrane	Leber hereditary optic neuropathy;Alzheimer disease mitochondrial
+NX_P03897	13186	115	4.45	3	PE1	MT	Cytoplasm;Mitochondrion membrane	Mitochondrial complex I deficiency;Leigh syndrome
+NX_P03901	10741	98	5.73	3	PE1	MT	Mitochondrion membrane	Leber hereditary optic neuropathy
+NX_P03905	51581	459	9.4	11	PE1	MT	Nucleus;Mitochondrion membrane	Mitochondrial encephalomyopathy with lactic acidosis and stroke-like episodes syndrome;Leber hereditary optic neuropathy;Leber hereditary optic neuropathy with dystonia
+NX_P03915	67027	603	9.14	15	PE1	MT	Mitochondrion inner membrane	Mitochondrial complex I deficiency;Mitochondrial encephalomyopathy with lactic acidosis and stroke-like episodes syndrome;Leber hereditary optic neuropathy;Leigh syndrome
+NX_P03923	18622	174	4.18	6	PE1	MT	Mitochondrion membrane	Leber hereditary optic neuropathy with dystonia;Mitochondrial complex I deficiency;Mitochondrial encephalomyopathy with lactic acidosis and stroke-like episodes syndrome;Leber hereditary optic neuropathy
+NX_P04049	73052	648	9.33	0	PE1	3	Nucleoplasm;Cytoplasm;Cell membrane;Mitochondrion;Nucleus	LEOPARD syndrome 2;Cardiomyopathy, dilated 1NN;Noonan syndrome 5
+NX_P04179	24722	222	8.35	0	PE1	6	Mitochondrion matrix	Microvascular complications of diabetes 6
+NX_P04181	48535	439	6.57	0	PE1	10	Nucleoplasm;Mitochondrion;Mitochondrion matrix	Hyperornithinemia with gyrate atrophy of choroid and retina
+NX_P04818	35716	313	6.51	0	PE1	18	Nucleus;Cytoplasm;Mitochondrion;Mitochondrion matrix;Mitochondrion inner membrane	NA
+NX_P05091	56381	517	6.63	0	PE1	12	Mitochondrion matrix	NA
+NX_P05108	60102	521	8.89	0	PE1	15	Mitochondrion membrane	Adrenal insufficiency, congenital, with 46,XY sex reversal
+NX_P05165	80059	728	7.24	0	PE1	13	Mitochondrion matrix	Propionic acidemia type I
+NX_P05166	58216	539	7.56	0	PE1	3	Mitochondrion matrix	Propionic acidemia type II
+NX_P06493	34095	297	8.38	0	PE1	10	Cytoplasm;Nucleus;Nucleus;Cytoplasm;Mitochondrion;Centrosome;Spindle	NA
+NX_P06576	56560	529	5.26	0	PE1	12	Mitochondrion;Mitochondrion;Mitochondrion;Mitochondrion inner membrane	NA
+NX_P07954	54637	510	8.85	0	PE1	1	Mitochondrion;Mitochondrion;Cytoplasm	Fumarase deficiency;Hereditary leiomyomatosis and renal cell cancer
+NX_P08253	73882	660	5.26	0	PE1	16	Cytoplasmic vesicle;Cytoplasm;Extracellular matrix;Membrane;Nucleus;Cytoplasm;Mitochondrion	Multicentric osteolysis, nodulosis, and arthropathy
+NX_P08559	43296	390	8.35	0	PE1	X	Mitochondrion matrix	Pyruvate dehydrogenase E1-alpha deficiency
+NX_P09211	23356	210	5.43	0	PE1	11	Cytoplasm;Cytoplasm;Mitochondrion;Nucleus;Mitochondrion	NA
+NX_P09417	25790	244	6.9	0	PE1	4	Mitochondrion	Hyperphenylalaninemia, BH4-deficient, C
+NX_P09467	36842	338	6.54	0	PE1	9	Mitochondrion	Fructose-1,6-bisphosphatase deficiency
+NX_P09622	54177	509	7.95	0	PE1	7	Mitochondrion;Mitochondrion matrix;Acrosome;Flagellum	Dihydrolipoamide dehydrogenase deficiency
+NX_P09769	59479	529	5.41	0	PE1	1	Cell membrane;Cell membrane;Ruffle membrane;Cytosol;Cytoskeleton;Mitochondrion inner membrane;Mitochondrion intermembrane space	NA
+NX_P0C7M7	65703	580	8.84	0	PE2	12	Mitochondrion matrix	NA
+NX_P0C869	87978	781	5.64	0	PE1	15	Mitochondrion membrane;Early endosome membrane;Cytosol	NA
+NX_P10515	68997	647	7.96	0	PE1	11	Mitochondrion;Mitochondrion matrix	Pyruvate dehydrogenase E2 deficiency
+NX_P10620	17599	155	9.41	4	PE1	12	Microsome;Mitochondrion outer membrane;Endoplasmic reticulum membrane	NA
+NX_P10809	61055	573	5.7	0	PE1	2	Mitochondrion;Mitochondrion matrix	Leukodystrophy, hypomyelinating, 4;Spastic paraplegia 13, autosomal dominant
+NX_P11177	39233	359	6.2	0	PE1	3	Cytoplasm;Nucleoplasm;Mitochondrion;Mitochondrion matrix	Pyruvate dehydrogenase E1-beta deficiency
+NX_P11182	53487	482	8.71	0	PE1	1	Mitochondrion;Mitochondrion matrix	Maple syrup urine disease 2
+NX_P11310	46588	421	8.61	0	PE1	1	Mitochondrion;Mitochondrion matrix	Acyl-CoA dehydrogenase medium-chain deficiency
+NX_P11498	129634	1178	6.37	0	PE1	11	Mitochondrion;Mitochondrion matrix	Pyruvate carboxylase deficiency
+NX_P12532	47037	417	8.6	0	PE1	15	Mitochondrion inner membrane	NA
+NX_P12694	50471	445	8.42	0	PE1	19	Mitochondrion matrix	Maple syrup urine disease 1A
+NX_P12931	59835	536	7.1	0	PE1	20	Cell membrane;Cell membrane;Mitochondrion inner membrane;Nucleus;Cytoskeleton;Cytoplasm	Thrombocytopenia 6
+NX_P13051	34645	313	9.37	0	PE1	12	Cytoplasm;Mitochondrion;Nucleus	Immunodeficiency with hyper-IgM 5
+NX_P13196	70581	640	8.74	0	PE1	3	Mitochondrion matrix;Mitochondrion;Nucleus	NA
+NX_P13674	61049	534	5.7	0	PE1	10	Mitochondrion;Cytoplasmic vesicle;Endoplasmic reticulum;Endoplasmic reticulum lumen	NA
+NX_P13995	37895	350	8.86	0	PE1	2	Mitochondrion	NA
+NX_P14060	42252	373	8.86	1	PE1	1	Endoplasmic reticulum membrane;Mitochondrion membrane	NA
+NX_P15104	42064	373	6.43	0	PE1	1	Cytoplasm;Mitochondrion;Cytoplasm;Mitochondrion	Congenital systemic glutamine deficiency
+NX_P15336	54537	505	7.75	0	PE1	2	Nucleoplasm;Mitochondrion outer membrane;Cytoplasm;Nucleus	NA
+NX_P15538	57573	503	9.4	0	PE1	8	Mitochondrion membrane	Hyperaldosteronism, familial, 1;Adrenal hyperplasia 4
+NX_P16219	44297	412	8.13	0	PE1	12	Centrosome;Nucleoplasm;Mitochondrion matrix	Acyl-CoA dehydrogenase short-chain deficiency
+NX_P16298	59024	524	5.6	0	PE1	10	Mitochondrion	NA
+NX_P17252	76750	672	6.61	0	PE1	17	Cell membrane;Cytoplasm;Cytoplasm;Cell membrane;Mitochondrion membrane;Nucleus	NA
+NX_P17540	47504	419	8.46	0	PE1	5	Mitochondrion inner membrane	NA
+NX_P17612	40590	351	8.84	0	PE1	19	Cytoplasm;Cell membrane;Nucleus;Mitochondrion;Membrane;Flagellum;Acrosome	Primary pigmented nodular adrenocortical disease 4
+NX_P17858	85018	780	7.26	0	PE1	21	Nucleolus;Mitochondrion;Cytoplasm	NA
+NX_P19099	57560	503	9.47	0	PE1	8	Mitochondrion membrane	Corticosterone methyloxidase 1 deficiency;Corticosterone methyloxidase 2 deficiency;Hyperaldosteronism, familial, 1
+NX_P19367	102486	917	6.36	0	PE1	10	Mitochondrion;Mitochondrion outer membrane	Neuropathy, hereditary motor and sensory, Russe type;Hexokinase deficiency
+NX_P19404	27392	249	8.22	0	PE1	18	Mitochondrion inner membrane	NA
+NX_P21397	59682	527	7.94	1	PE1	X	Mitochondrion;Mitochondrion outer membrane	Brunner syndrome
+NX_P21399	98399	889	6.23	0	PE1	9	Mitochondrion;Cytoplasm;Cytoplasm	NA
+NX_P21549	43010	392	8.61	0	PE1	2	Cytoplasmic vesicle;Peroxisome;Mitochondrion	Hyperoxaluria primary 1
+NX_P21912	31630	280	9.03	0	PE1	1	Nucleoplasm;Cell membrane;Mitochondrion;Mitochondrion inner membrane	Pheochromocytoma;Paragangliomas 4;Paraganglioma and gastric stromal sarcoma;Cowden syndrome 2
+NX_P21953	43122	392	5.89	0	PE1	6	Mitochondrion matrix	Maple syrup urine disease 1B
+NX_P22033	83134	750	6.48	0	PE1	6	Mitochondrion matrix	Methylmalonic aciduria type mut
+NX_P22102	107767	1010	6.26	0	PE1	21	Mitochondrion;Cytoplasm;Nucleoplasm	NA
+NX_P22307	58994	547	6.44	0	PE1	1	Cytoplasmic vesicle;Nucleoplasm;Cytoplasm;Cytoplasm;Mitochondrion;Peroxisome;Mitochondrion	Leukoencephalopathy, with dystonia and motor neuropathy
+NX_P22314	117849	1058	5.49	0	PE1	X	Nucleoplasm;Cytoplasm;Mitochondrion;Nucleus;Nucleus;Cytoplasm	Spinal muscular atrophy X-linked 2
+NX_P22557	64633	587	8.39	0	PE1	X	Mitochondrion matrix	Erythropoietic protoporphyria, X-linked dominant;Anemia, sideroblastic, 1
+NX_P22570	53837	491	8.72	0	PE1	17	Mitochondrion;Mitochondrion matrix	NA
+NX_P22830	47862	423	8.96	0	PE1	18	Mitochondrion inner membrane	Erythropoietic protoporphyria
+NX_P23368	65444	584	7.52	0	PE1	18	Mitochondrion;Cytoplasmic vesicle;Mitochondrion matrix	NA
+NX_P23378	112730	1020	6.68	0	PE1	9	Mitochondrion;Nucleus;Mitochondrion	Non-ketotic hyperglycinemia
+NX_P23396	26688	243	9.68	0	PE1	11	Cytoplasm;Nucleus;Cytoplasm;Cytoplasm;Nucleus;Nucleolus;Mitochondrion inner membrane;Spindle	NA
+NX_P23443	59140	525	6.21	0	PE1	17	Nucleoplasm;Synaptosome;Mitochondrion outer membrane;Mitochondrion;Nucleus;Cytoplasm;Cytoplasm	NA
+NX_P23786	73777	658	8.38	0	PE1	1	Nucleolus;Nucleoplasm;Mitochondrion;Mitochondrion inner membrane	Encephalopathy, acute, infection-induced, 4;Carnitine palmitoyltransferase 2 deficiency, myopathic, stress-induced;Carnitine palmitoyltransferase 2 deficiency, infantile;Carnitine palmitoyltransferase 2 deficiency, lethal neonatal
+NX_P24752	45200	427	8.98	0	PE1	11	Mitochondrion;Mitochondrion	3-ketothiolase deficiency
+NX_P25325	33178	297	6.13	0	PE1	22	Cytoplasm;Mitochondrion;Cytoplasm;Mitochondrion;Synaptosome	NA
+NX_P26439	42052	372	8.12	1	PE1	1	Endoplasmic reticulum membrane;Mitochondrion membrane	Adrenal hyperplasia 2
+NX_P26440	46319	423	8.45	0	PE1	15	Mitochondrion;Nucleoplasm;Mitochondrion matrix	Isovaleric acidemia
+NX_P27144	25268	223	8.47	0	PE1	1	Mitochondrion;Mitochondrion matrix	NA
+NX_P27338	58763	520	7.2	1	PE1	X	Nucleolus;Mitochondrion;Mitochondrion outer membrane	NA
+NX_P27695	35555	318	8.33	0	PE1	14	Nucleus;Endoplasmic reticulum;Nucleus;Nucleolus;Nucleus speckle;Cytoplasm;Mitochondrion	NA
+NX_P28330	47656	430	7.68	0	PE1	2	Cytoplasm;Mitochondrion;Mitochondrion matrix	Acyl-CoA dehydrogenase very long-chain deficiency
+NX_P28331	79468	727	5.89	0	PE1	2	Mitochondrion inner membrane;Mitochondrion	Mitochondrial complex I deficiency
+NX_P29218	30189	277	5.16	0	PE1	8	Mitochondrion;Nucleoplasm;Cytoplasm	NA
+NX_P29372	32869	298	9.65	0	PE1	16	Cytoplasm;Nucleoplasm;Cytoplasm;Mitochondrion nucleoid;Nucleus	NA
+NX_P29728	82431	719	8.55	0	PE1	12	Cytoplasm;Perinuclear region;Mitochondrion;Nucleus;Microsome;Endoplasmic reticulum	NA
+NX_P29803	42933	388	8.76	0	PE1	4	Mitochondrion matrix	NA
+NX_P30038	61719	563	8.25	0	PE1	1	Cytoplasm;Mitochondrion matrix	Hyperprolinemia 2
+NX_P30044	22086	214	8.93	0	PE1	11	Cytoplasm;Cytoplasm;Mitochondrion;Mitochondrion;Cytoplasm;Peroxisome	NA
+NX_P30048	27693	256	7.68	0	PE1	10	Mitochondrion	NA
+NX_P30084	31387	290	8.34	0	PE1	10	Mitochondrion;Mitochondrion matrix	Mitochondrial short-chain enoyl-CoA hydratase 1 deficiency
+NX_P30405	22040	207	9.49	0	PE1	10	Mitochondrion matrix	NA
+NX_P30837	57206	517	6.36	0	PE1	9	Cytoplasmic vesicle;Mitochondrion;Nucleoplasm;Mitochondrion matrix	NA
+NX_P31040	72692	664	7.06	0	PE1	5	Mitochondrion;Mitochondrion inner membrane	Cardiomyopathy, dilated 1GG;Paragangliomas 5;Leigh syndrome;Mitochondrial complex II deficiency
+NX_P31327	164939	1500	6.3	0	PE1	2	Nucleolus;Mitochondrion;Nucleolus	Pulmonary hypertension, neonatal;Carbamoyl phosphate synthetase 1 deficiency
+NX_P31937	35329	336	8.38	0	PE1	7	Nucleoplasm;Mitochondrion	NA
+NX_P32189	61245	559	6.12	0	PE1	X	Cytoplasm;Mitochondrion outer membrane	Glycerol kinase deficiency
+NX_P32322	33361	319	7.18	0	PE1	17	Mitochondrion	Cutis laxa, autosomal recessive, 3B;Cutis laxa, autosomal recessive, 2B
+NX_P33121	77943	698	6.81	1	PE1	4	Nucleus;Mitochondrion;Mitochondrion outer membrane;Peroxisome membrane;Microsome membrane;Endoplasmic reticulum membrane	NA
+NX_P33316	26563	252	9.46	0	PE1	15	Nucleoplasm;Nucleus;Mitochondrion	NA
+NX_P34897	55993	504	8.76	0	PE1	12	Cytoskeleton;Mitochondrion;Mitochondrion;Mitochondrion nucleoid;Mitochondrion inner membrane;Cytoplasm;Nucleus	NA
+NX_P35218	34750	305	7.18	0	PE1	16	Mitochondrion	Hyperammonemia due to carbonic anhydrase VA deficiency
+NX_P35670	157263	1465	6.25	8	PE1	13	trans-Golgi network membrane;Late endosome;Golgi apparatus membrane;Cytoplasm;Mitochondrion	Wilson disease
+NX_P35914	34360	325	8.81	0	PE1	1	Mitochondrion matrix;Peroxisome	3-hydroxy-3-methylglutaryl-CoA lyase deficiency
+NX_P36551	50152	454	8.59	0	PE1	3	Mitochondrion;Mitochondrion intermembrane space	Hereditary coproporphyria
+NX_P36639	22520	197	5.15	0	PE1	7	Cytoplasm;Cytoplasm;Mitochondrion matrix;Nucleus;Cytoplasm;Mitochondrion matrix	NA
+NX_P36776	106489	959	6.01	0	PE1	19	Nucleus;Mitochondrion;Mitochondrion matrix	CODAS syndrome
+NX_P36873	36984	323	6.12	0	PE1	12	Kinetochore;Cytoplasm;Nucleus;Nucleolus;Nucleoplasm;Nucleus speckle;Cleavage furrow;Midbody;Mitochondrion	NA
+NX_P36957	48755	453	9.1	0	PE1	14	Mitochondrion	NA
+NX_P36969	22175	197	8.69	0	PE1	19	Cytoplasm;Nucleoplasm;Mitochondrion;Mitochondrion;Cytoplasm	Spondylometaphyseal dysplasia, Sedaghatian type
+NX_P39748	42593	380	8.8	0	PE1	11	Nucleus;Nucleolus;Cell membrane;Mitochondrion;Nucleolus;Nucleoplasm;Mitochondrion	NA
+NX_P40926	35503	338	8.92	0	PE1	7	Mitochondrion;Mitochondrion matrix	NA
+NX_P40939	83000	763	9.16	0	PE1	2	Mitochondrion;Mitochondrion	Maternal acute fatty liver of pregnancy;Long-chain 3-hydroxyl-CoA dehydrogenase deficiency;Mitochondrial trifunctional protein deficiency
+NX_P41247	27980	253	9.21	0	PE1	X	Cytoplasm;Mitochondrion;Nucleoplasm	NA
+NX_P42126	32816	302	8.8	0	PE1	16	Nucleoplasm;Mitochondrion matrix	NA
+NX_P42345	288892	2549	6.73	0	PE1	1	Endoplasmic reticulum membrane;Golgi apparatus membrane;Mitochondrion outer membrane;Lysosome;Cytoplasm;PML body;Microsome membrane	Smith-Kingsmore syndrome
+NX_P42574	31608	277	6.09	0	PE1	4	Nucleoplasm;Mitochondrion;Cytoplasm	NA
+NX_P42765	41924	397	8.32	0	PE1	18	Mitochondrion;Mitochondrion	NA
+NX_P43155	70858	626	8.63	0	PE1	9	Nucleoplasm;Nucleus membrane;Endoplasmic reticulum;Peroxisome;Mitochondrion inner membrane;Mitochondrion;Peroxisome	NA
+NX_P43250	65991	576	8.32	0	PE1	5	Mitochondrion;Membrane	NA
+NX_P43304	80853	727	7.58	0	PE1	2	Mitochondrion	NA
+NX_P45954	47485	432	6.53	0	PE1	10	Mitochondrion;Mitochondrion matrix	Short/branched-chain acyl-CoA dehydrogenase deficiency
+NX_P47985	29668	274	8.55	1	PE1	19	Cytoplasm;Mitochondrion inner membrane	NA
+NX_P48728	43946	403	8.87	0	PE1	3	Mitochondrion	Non-ketotic hyperglycinemia
+NX_P48735	50909	452	8.88	0	PE1	15	Mitochondrion;Mitochondrion	Glioma;D-2-hydroxyglutaric aciduria 2
+NX_P49419	58487	539	8.21	0	PE1	5	Mitochondrion;Mitochondrion;Cytosol;Nucleus;Cytoplasm	Pyridoxine-dependent epilepsy
+NX_P49448	61434	558	8.63	0	PE1	X	Mitochondrion matrix	NA
+NX_P49590	56888	506	8.53	0	PE1	5	Cytoplasm;Mitochondrion matrix	Perrault syndrome 2
+NX_P49662	43262	377	5.69	0	PE1	11	Cytoplasm;Cell membrane;Cytosol;Endoplasmic reticulum membrane;Mitochondrion;Inflammasome;Secreted	NA
+NX_P49720	22949	205	6.14	0	PE1	17	Nucleoplasm;Cytoskeleton;Golgi apparatus;Mitochondrion;Cytoplasm;Cytoplasm;Nucleus	NA
+NX_P49748	70390	655	8.92	0	PE1	17	Nucleolus;Nucleus;Mitochondrion inner membrane;Mitochondrion	Acyl-CoA dehydrogenase very long-chain deficiency
+NX_P49753	53218	483	8.7	0	PE1	14	Mitochondrion	NA
+NX_P49789	16858	147	6.54	0	PE1	3	Cytoplasm;Mitochondrion;Nucleus	NA
+NX_P49821	50817	464	8.51	0	PE1	11	Mitochondrion inner membrane	Mitochondrial complex I deficiency;Leigh syndrome
+NX_P49916	112907	1009	9.17	0	PE1	17	Nucleus;Mitochondrion;Mitochondrion;Nucleus;Nucleus	NA
+NX_P50213	39592	366	6.46	0	PE1	15	Mitochondrion;Mitochondrion	NA
+NX_P50336	50765	477	8.43	0	PE1	1	Mitochondrion inner membrane	Variegate porphyria
+NX_P50416	88368	773	8.85	2	PE1	11	Mitochondrion;Mitochondrion outer membrane	Carnitine palmitoyltransferase 1A deficiency
+NX_P50440	48455	423	8.26	0	PE1	15	Mitochondrion;Cytoplasm;Mitochondrion inner membrane	Cerebral creatine deficiency syndrome 3
+NX_P50613	39038	346	8.66	0	PE1	5	Perinuclear region;Cytoplasm;Nucleus;Mitochondrion;Nucleus;Cytoplasm	NA
+NX_P50747	80760	726	5.4	0	PE1	21	Cytoplasm;Cytoplasm;Mitochondrion	Holocarboxylase synthetase deficiency
+NX_P51530	120415	1060	7.95	0	PE1	10	Mitochondrion;Mitochondrion;Nucleus	Seckel syndrome 8;Progressive external ophthalmoplegia with mitochondrial DNA deletions, autosomal dominant, 6
+NX_P51553	42794	393	8.75	0	PE1	X	Mitochondrion;Mitochondrion;Mitochondrion	NA
+NX_P51617	76537	712	6.18	0	PE1	X	Mitochondrion;Cytoplasm;Nucleus;Cytoplasm;Nucleus;Lipid droplet	NA
+NX_P51649	57215	535	8.62	0	PE1	6	Mitochondrion;Mitochondrion	Succinic semialdehyde dehydrogenase deficiency
+NX_P51687	60283	545	5.72	0	PE1	12	Mitochondrion intermembrane space	Isolated sulfite oxidase deficiency
+NX_P52789	102380	917	5.71	0	PE1	2	Mitochondrion;Mitochondrion outer membrane	NA
+NX_P53370	35679	316	8.15	0	PE1	4	Cytoskeleton;Cytoplasm;Nucleus;Mitochondrion	NA
+NX_P53597	36250	346	9.01	0	PE1	2	Cell membrane;Mitochondrion;Mitochondrion	Mitochondrial DNA depletion syndrome 9
+NX_P53701	30602	268	6.25	0	PE1	X	Mitochondrion;Mitochondrion inner membrane;Membrane	Linear skin defects with multiple congenital anomalies 1
+NX_P53778	41940	367	5.98	0	PE1	22	Cytoplasm;Nucleoplasm;Cytoplasm;Nucleus;Mitochondrion	NA
+NX_P53779	52585	464	6.33	0	PE1	4	Cytoplasm;Membrane;Nucleus;Mitochondrion	NA
+NX_P54098	139562	1239	6.46	0	PE1	15	Mitochondrion;Mitochondrion nucleoid	Progressive external ophthalmoplegia with mitochondrial DNA deletions, autosomal recessive, 1;Spinocerebellar ataxia with epilepsy;Sensory ataxic neuropathy dysarthria and ophthalmoparesis;Mitochondrial DNA depletion syndrome 4B;Leigh syndrome;Mitochondrial DNA depletion syndrome 4A;Progressive external ophthalmoplegia with mitochondrial DNA deletions, autosomal dominant, 1
+NX_P54819	26478	239	7.67	0	PE1	1	Mitochondrion intermembrane space	Reticular dysgenesis
+NX_P54868	56635	508	8.4	0	PE1	1	Mitochondrion;Mitochondrion	3-hydroxy-3-methylglutaryl-CoA synthase-2 deficiency
+NX_P54886	87302	795	6.66	0	PE1	10	Mitochondrion;Mitochondrion inner membrane	Cutis laxa, autosomal dominant, 3;Spastic paraplegia 9B, autosomal recessive;Spastic paraplegia 9A, autosomal dominant;Cutis laxa, autosomal recessive, 3A
+NX_P55084	51294	474	9.45	0	PE1	2	Mitochondrion;Mitochondrion;Mitochondrion inner membrane;Mitochondrion outer membrane;Endoplasmic reticulum	Mitochondrial trifunctional protein deficiency
+NX_P55789	23449	205	7.57	0	PE1	16	Mitochondrion;Cytoplasm;Mitochondrion intermembrane space;Cytoplasm;Secreted	Myopathy, mitochondrial progressive, with congenital cataract, hearing loss and developmental delay
+NX_P55809	56158	520	7.13	0	PE1	5	Mitochondrion;Mitochondrion matrix	Succinyl-CoA:3-oxoacid CoA transferase deficiency
+NX_P62256	20655	183	4.55	0	PE1	7	Mitochondrion	NA
+NX_P78540	38578	354	6	0	PE1	14	Nucleoplasm;Mitochondrion;Mitochondrion	NA
+NX_P78549	34390	312	9.72	0	PE1	16	Nucleus;Mitochondrion	Familial adenomatous polyposis 3
+NX_P80404	56439	500	8.17	0	PE1	16	Mitochondrion matrix	GABA transaminase deficiency
+NX_P83111	60694	547	8.71	0	PE1	15	Mitochondrion;Cytoplasm;Mitochondrion	NA
+NX_P86397	18559	168	9.1	0	PE1	3	Nucleolus;Cytoplasm;Mitochondrion;Mitochondrion	NA
+NX_Q00796	38325	357	8.23	0	PE1	15	Mitochondrion membrane;Flagellum	NA
+NX_Q02127	42867	395	9.66	1	PE1	16	Mitochondrion;Nucleoplasm;Mitochondrion inner membrane	Postaxial acrofacial dysostosis
+NX_Q02218	115935	1023	6.39	0	PE1	7	Mitochondrion;Mitochondrion matrix	NA
+NX_Q02252	57840	535	8.72	0	PE1	14	Mitochondrion;Mitochondrion	Methylmalonate semialdehyde dehydrogenase deficiency
+NX_Q02318	60235	531	9.05	0	PE1	2	Mitochondrion;Mitochondrion membrane	Cerebrotendinous xanthomatosis
+NX_Q02338	38157	343	9.1	0	PE1	3	Nucleoplasm;Mitochondrion;Mitochondrion inner membrane;Mitochondrion matrix	NA
+NX_Q02790	51805	459	5.35	0	PE1	12	Cytoplasm;Nucleoplasm;Cytosol;Mitochondrion;Nucleus;Cytoskeleton;Axon	NA
+NX_Q05823	83533	741	6.2	0	PE1	1	Cytoplasm;Cytoplasm;Mitochondrion	Prostate cancer, hereditary, 1
+NX_Q05932	64609	587	8.17	0	PE1	9	Mitochondrion inner membrane;Mitochondrion matrix;Cytoplasm	NA
+NX_Q06830	22110	199	8.27	0	PE1	1	Mitochondrion;Cytoplasm;Melanosome	NA
+NX_Q07973	58875	514	8.94	0	PE1	20	Nucleoplasm;Mitochondrion;Cell membrane;Mitochondrion	Hypercalcemia, infantile, 1
+NX_Q08828	123440	1119	8.77	12	PE1	7	Mitochondrion;Membrane;Cell membrane;Cytoplasm;Membrane raft	Deafness, autosomal recessive, 44
+NX_Q08AH1	65273	577	8.54	0	PE1	16	Mitochondrion matrix	NA
+NX_Q08AH3	64223	577	8.34	0	PE1	16	Mitochondrion matrix	NA
+NX_Q09013	69385	629	4.92	1	PE1	19	Cytoplasm;Cytoplasmic vesicle;Endoplasmic reticulum membrane;Nucleus outer membrane;Mitochondrion outer membrane;Sarcoplasmic reticulum membrane;Cell membrane;Cytosol;Mitochondrion membrane;Mitochondrion membrane	Dystrophia myotonica 1
+NX_Q10713	58253	525	6.45	0	PE1	9	Mitochondrion;Mitochondrion matrix;Mitochondrion inner membrane	Spinocerebellar ataxia, autosomal recessive, 2
+NX_Q12887	48910	443	9.36	7	PE1	17	Mitochondrion membrane	Mitochondrial complex IV deficiency;Leigh syndrome
+NX_Q13011	35816	328	8.16	0	PE1	19	Mitochondrion;Peroxisome	NA
+NX_Q13057	62329	564	6.51	0	PE1	17	Nucleoplasm;Cytoplasm;Cytoplasm;Mitochondrion matrix	Neurodegeneration with brain iron accumulation 6
+NX_Q13114	64490	568	8.23	0	PE1	14	Nucleoplasm;Microtubule organizing center;Cytoplasm;Endosome;Mitochondrion	Herpes simplex encephalitis 3
+NX_Q13268	29927	280	9.21	0	PE1	14	Nucleus;Mitochondrion;Mitochondrion matrix;Nucleus	NA
+NX_Q13423	113896	1086	8.31	14	PE1	5	Mitochondrion;Mitochondrion;Mitochondrion inner membrane	Glucocorticoid deficiency 4 with or without mineralocorticoid deficiency
+NX_Q13572	45621	414	5.78	0	PE1	14	Mitochondrion	NA
+NX_Q13686	43832	389	6.61	0	PE1	14	Nucleus;Mitochondrion	NA
+NX_Q13825	35609	339	9.53	0	PE1	9	Mitochondrion	3-methylglutaconic aciduria 1
+NX_Q14197	23630	206	10.09	0	PE1	17	Nucleoplasm;Mitochondrion;Mitochondrion	NA
+NX_Q14249	32620	297	9.53	0	PE1	9	Mitochondrion	NA
+NX_Q14296	61104	549	9.96	0	PE1	7	Nucleoplasm;Mitochondrion;Mitochondrion matrix	NA
+NX_Q14318	44562	412	4.78	1	PE1	19	Cytoplasm;Endoplasmic reticulum;Mitochondrion;Mitochondrion;Mitochondrion membrane;Mitochondrion membrane;Mitochondrion membrane	NA
+NX_Q14409	60598	553	6	0	PE1	4	Mitochondrion outer membrane;Cytoplasm	NA
+NX_Q14410	60594	553	5.57	0	PE1	4	Mitochondrion outer membrane;Cytoplasm	NA
+NX_Q14679	133378	1199	9.04	0	PE1	2	Mitochondrion;Cilium;Cilium basal body	NA
+NX_Q14790	55391	479	5	0	PE1	2	Nucleoplasm;Mitochondrion;Cytoplasm;Cytoplasm	Caspase-8 deficiency
+NX_Q15031	101976	903	8.46	0	PE1	3	Nucleoplasm;Mitochondrion;Mitochondrion matrix	Perrault syndrome 4;Hydrops, lactic acidosis, and sideroblastic anemia
+NX_Q15046	68048	597	5.94	0	PE1	16	Cytoskeleton;Cytoplasm;Cytoplasm;Nucleus;Cell membrane;Secreted;Mitochondrion	Charcot-Marie-Tooth disease, recessive, intermediate type, B;Deafness, autosomal recessive, 89
+NX_Q15118	49244	436	8.92	0	PE1	2	Mitochondrion matrix	NA
+NX_Q15119	46154	407	6.14	0	PE1	17	Nucleoplasm;Mitochondrion;Mitochondrion matrix	NA
+NX_Q15120	46939	406	8.46	0	PE1	X	Mitochondrion matrix	Charcot-Marie-Tooth disease, X-linked dominant, 6
+NX_Q15303	146808	1308	5.98	1	PE1	2	Cell membrane;Nucleus;Mitochondrion	Amyotrophic lateral sclerosis 19
+NX_Q15386	123923	1083	6.27	0	PE1	7	Mitochondrion;Cell membrane;Nucleus;Nucleoplasm	NA
+NX_Q15759	41357	364	5.56	0	PE1	22	Mitochondrion;Cytoplasm;Nucleus	NA
+NX_Q15831	48636	433	7.12	0	PE1	19	Nucleus;Cytoplasm;Nucleoplasm;Membrane;Mitochondrion;Nucleus;Cytoplasm	Peutz-Jeghers syndrome;Testicular germ cell tumor
+NX_Q16134	68495	617	7.31	0	PE1	4	Mitochondrion inner membrane	Glutaric aciduria 2C
+NX_Q16595	23135	210	8.8	0	PE1	9	Mitochondrion;Cytosol	Friedreich ataxia
+NX_Q16654	46469	411	6.19	0	PE1	7	Mitochondrion matrix	NA
+NX_Q16678	60846	543	9.18	0	PE1	2	Endoplasmic reticulum membrane;Microsome membrane;Mitochondrion	Glaucoma 3, primary congenital, A;Glaucoma 1, open angle, A;Glaucoma, primary open angle;Anterior segment dysgenesis 6
+NX_Q16698	36068	335	9.35	0	PE1	8	Mitochondrion;Cytoplasm;Mitochondrion	2,4-dienoyl-CoA reductase deficiency
+NX_Q16740	30180	277	8.26	0	PE1	19	Mitochondrion;Mitochondrion matrix	Perrault syndrome 3
+NX_Q16762	33429	297	6.77	0	PE1	22	Mitochondrion;Mitochondrion matrix	NA
+NX_Q16775	33806	308	8.34	0	PE1	16	Mitochondrion matrix;Cytoplasm	NA
+NX_Q16798	67068	604	8.16	0	PE1	11	Mitochondrion matrix	NA
+NX_Q16822	70730	640	7.57	0	PE1	14	Mitochondrion;Mitochondrion	Mitochondrial phosphoenolpyruvate carboxykinase deficiency
+NX_Q16836	34294	314	8.88	0	PE1	4	Mitochondrion;Nucleoplasm;Mitochondrion matrix	3-alpha-hydroxyacyl-CoA dehydrogenase deficiency;Familial hyperinsulinemic hypoglycemia 4
+NX_Q16851	56940	508	8.15	0	PE1	2	Cytoplasm;Mitochondrion;Centrosome;Nucleoplasm;Cytoplasm	NA
+NX_Q16854	32056	277	8.76	0	PE1	2	Mitochondrion	Portal hypertension, non-cirrhotic;Progressive external ophthalmoplegia with mitochondrial DNA deletions, autosomal recessive 4;Mitochondrial DNA depletion syndrome 3
+NX_Q2TB90	102545	917	6.77	0	PE1	10	Mitochondrion	NA
+NX_Q32NB8	62730	556	9.08	0	PE1	17	Mitochondrion	NA
+NX_Q32P41	58246	509	8.78	0	PE1	14	Mitochondrion matrix;Nucleus;Cytoplasm	Combined oxidative phosphorylation deficiency 26
+NX_Q38SD2	225393	2015	6.25	0	PE1	15	Cytoplasm;Mitochondrion;Cytoplasm	NA
+NX_Q3MIT2	60244	529	6.1	0	PE1	2	Nucleoplasm;Cytoplasm;Mitochondrion	NA
+NX_Q3SY69	101746	923	6.13	0	PE1	12	Mitochondrion;Mitochondrion	NA
+NX_Q4G0N4	49433	442	8.46	0	PE1	5	Mitochondrion	2,4-dienoyl-CoA reductase deficiency
+NX_Q4G176	64130	576	8.64	0	PE1	16	Mitochondrion	Combined malonic and methylmalonic aciduria
+NX_Q53FZ2	66153	586	9.16	0	PE1	16	Mitochondrion matrix	NA
+NX_Q53H12	47137	422	8.3	0	PE1	7	Mitochondrion;Cytoplasmic vesicle;Mitochondrion membrane	Mitochondrial DNA depletion syndrome 10;Cataract 38
+NX_Q53H82	32806	288	6.32	0	PE1	8	Golgi apparatus;Cytoplasm;Nucleus;Mitochondrion matrix	NA
+NX_Q5EBM0	49448	449	6.57	0	PE1	2	Mitochondrion	NA
+NX_Q5HYK3	37140	327	6.47	0	PE1	12	Mitochondrion;Nucleolus;Mitochondrion inner membrane	NA
+NX_Q5JPH6	58689	523	8.97	0	PE1	16	Mitochondrion;Nucleoplasm;Mitochondrion matrix	Combined oxidative phosphorylation deficiency 12
+NX_Q5JRX3	117413	1037	6.45	0	PE1	10	Mitochondrion;Mitochondrion matrix	NA
+NX_Q5JTZ9	107340	985	5.87	0	PE1	6	Mitochondrion;Mitochondrion	Combined oxidative phosphorylation deficiency 8;Leukoencephalopathy, progressive, with ovarian failure
+NX_Q5K4L6	78644	730	7.25	2	PE1	1	Mitochondrion membrane	NA
+NX_Q5S007	286103	2527	6.35	0	PE1	12	Membrane;Cytoplasm;Perikaryon;Mitochondrion;Golgi apparatus;Axon;Dendrite;Endoplasmic reticulum;Synaptic vesicle membrane;Endosome;Lysosome;Mitochondrion outer membrane;Mitochondrion inner membrane;Mitochondrion matrix	Parkinson disease 8
+NX_Q5ST30	118490	1063	6.56	0	PE1	6	Mitochondrion;Mitochondrion	Combined oxidative phosphorylation deficiency 20
+NX_Q5T160	65505	578	8.41	0	PE1	6	Mitochondrion matrix	Pontocerebellar hypoplasia 6
+NX_Q5T1C6	27130	240	8.58	0	PE1	1	Cell membrane;Ruffle membrane;Cytoplasm;Mitochondrion;Mitochondrion inner membrane;Mitochondrion intermembrane space	NA
+NX_Q5T2R2	46261	415	9.17	0	PE1	10	Cytoplasm;Mitochondrion	Coenzyme Q10 deficiency, primary, 2
+NX_Q5T440	38155	356	9.88	0	PE1	1	Mitochondrion	Spastic paraplegia 74, autosomal recessive;Multiple mitochondrial dysfunctions syndrome 3
+NX_Q5T6J7	20578	187	5.84	0	PE1	9	Mitochondrion;Cytoplasm	NA
+NX_Q5T890	177127	1561	8.83	0	PE1	9	Nucleoplasm;Cytoplasm;Mitochondrion;Centrosome;Nucleus	Bone marrow failure syndrome 2
+NX_Q5TEU4	38918	345	6.14	0	PE1	20	Mitochondrion inner membrane	Leigh syndrome;Mitochondrial complex I deficiency
+NX_Q5VT66	37499	337	9.12	1	PE1	1	Mitochondrion outer membrane;Membrane	NA
+NX_Q63HM1	33992	303	5.57	0	PE1	17	Mitochondrion;Cytosol;Nucleus	NA
+NX_Q68CK6	64271	577	8.5	0	PE1	16	Mitochondrion matrix	NA
+NX_Q68CQ7	41935	371	9.37	1	PE1	3	Mitochondrion;Membrane	NA
+NX_Q6GMV2	47341	418	4.98	0	PE1	2	Mitochondrion	NA
+NX_Q6IB77	33924	296	8.38	0	PE1	11	Mitochondrion	NA
+NX_Q6IN84	38638	353	8.15	0	PE1	17	Mitochondrion;Mitochondrion	NA
+NX_Q6L8Q7	67352	609	6.11	0	PE1	3	Cytoplasm;Cytoskeleton;Centrosome;Mitochondrion matrix	NA
+NX_Q6NUI2	87835	795	7.74	2	PE1	2	Mitochondrion outer membrane	NA
+NX_Q6NUN0	64760	579	8.69	0	PE1	16	Mitochondrion matrix	NA
+NX_Q6NVY1	43482	386	8.38	0	PE1	2	Mitochondrion;Nucleoplasm;Mitochondrion	3-hydroxyisobutryl-CoA hydrolase deficiency
+NX_Q6P179	110462	960	6.25	1	PE1	5	Mitochondrion;Endoplasmic reticulum membrane	NA
+NX_Q6P461	53585	480	8.73	0	PE2	10	Mitochondrion	NA
+NX_Q6P587	24843	224	6.96	0	PE1	16	Mitochondrion;Mitochondrion;Nucleus;Mitochondrion;Cytosol	NA
+NX_Q6P9A2	69561	607	6.07	1	PE1	11	Mitochondrion;Golgi apparatus membrane	NA
+NX_Q6PI48	73563	645	8.19	0	PE1	1	Mitochondrion;Nucleus;Mitochondrion matrix	Leukoencephalopathy with brainstem and spinal cord involvement and lactate elevation
+NX_Q6UB28	37088	335	6.35	0	PE1	2	Cytoplasmic vesicle;Mitochondrion	NA
+NX_Q6UB35	105790	978	8.32	0	PE1	6	Mitochondrion	NA
+NX_Q6YN16	45395	418	8.07	0	PE1	9	Mitochondrion;Peroxisome	NA
+NX_Q6ZMQ8	144569	1374	4.48	1	PE1	17	Mitochondrion;Membrane;Cytoplasm;Perinuclear region	NA
+NX_Q6ZNC8	56557	495	9.33	9	PE1	6	Mitochondrion;Membrane	NA
+NX_Q6ZSG1	39526	346	8.19	0	PE1	18	Cytoplasm;Mitochondrion;Nucleus;Cell membrane;Nucleus	NA
+NX_Q6ZV29	145733	1317	7.77	1	PE1	9	Membrane;Nucleus membrane;Mitochondrion membrane;Lysosome membrane;Microsome membrane	NA
+NX_Q709F0	87283	780	8.35	0	PE1	3	Peroxisome;Mitochondrion	NA
+NX_Q70CQ3	58503	517	8.57	1	PE1	12	Mitochondrion outer membrane	NA
+NX_Q7L0Y3	47347	403	9.4	0	PE1	3	Mitochondrion;Mitochondrion nucleoid;Nucleoplasm	Combined oxidative phosphorylation deficiency 30
+NX_Q7L2E3	133938	1194	8.99	0	PE1	3	Mitochondrion;Cytoplasm;Cytoplasm;Cytoplasm;Mitochondrion;Cytoplasm;Mitochondrion nucleoid	NA
+NX_Q7L3T8	53263	475	8.45	0	PE1	1	Centrosome;Mitochondrion matrix;Nucleus	NA
+NX_Q7L592	49238	441	8.47	0	PE1	2	Mitochondrion	NA
+NX_Q7L5Y1	49786	443	6.03	0	PE1	18	Mitochondrion	NA
+NX_Q7L7V1	84419	743	4.88	0	PE1	10	Nucleus;Mitochondrion	NA
+NX_Q7Z419	33697	303	7.62	1	PE1	6	Nucleoplasm;Cytoplasm;Microtubule organizing center;Mitochondrion membrane;Cytoplasm	NA
+NX_Q86TL0	52922	474	8.93	0	PE1	19	Cytoplasm;Cytoplasm;Mitochondrion matrix	NA
+NX_Q86TN4	27742	253	10.01	0	PE1	11	Mitochondrion	NA
+NX_Q86TU7	67257	594	5.72	0	PE1	14	Mitochondrion;Nucleus	NA
+NX_Q86UV5	119032	1035	5.75	0	PE1	1	Cytoplasm;Cytoplasm;Nucleus;Nucleoplasm;Mitochondrion	NA
+NX_Q86W56	111110	976	6.03	0	PE1	10	Cytoplasmic vesicle;Nucleus;Mitochondrion;Nucleus;Cytoplasm;Cytoplasm;Cytoplasm;Mitochondrion matrix	NA
+NX_Q86WU2	54871	507	6.2	0	PE1	16	Cytoplasm;Mitochondrion	NA
+NX_Q86X76	35896	327	7.91	0	PE1	1	Nucleoplasm;Cytoplasmic vesicle;Cytoplasm;Cytoplasm;Mitochondrion	NA
+NX_Q86XE5	35249	327	8.13	0	PE1	10	Mitochondrion	Hyperoxaluria primary 3
+NX_Q86XF0	21620	187	7.75	0	PE1	3	Mitochondrion;Mitochondrion matrix;Mitochondrion inner membrane	NA
+NX_Q86Y07	58141	508	8.97	1	PE1	2	Endoplasmic reticulum;Cytoplasm;Endoplasmic reticulum membrane;Mitochondrion membrane;Cytoplasm;Nucleus	NA
+NX_Q86YH6	44129	399	8.43	0	PE1	6	Cytoplasm;Mitochondrion	Coenzyme Q10 deficiency, primary, 3
+NX_Q8IUQ4	31123	282	6.35	0	PE1	16	Nucleoplasm;Mitochondrion;Cytoplasm;Nucleus	NA
+NX_Q8IUZ5	49711	450	6.28	0	PE1	5	Mitochondrion;Mitochondrion	Phosphohydroxylysinuria
+NX_Q8IVH4	46538	418	9.37	0	PE1	4	Cytoplasm;Mitochondrion	Methylmalonic aciduria type cblA
+NX_Q8IVS2	42962	390	8.97	0	PE1	22	Mitochondrion	NA
+NX_Q8IVS8	55253	523	6.25	0	PE1	3	Cytoplasm;Cytoplasm;Golgi apparatus;Cytoplasm;Mitochondrion	D-glyceric aciduria
+NX_Q8IW45	36576	347	8.21	0	PE1	13	Nucleus;Nucleolus;Cytoplasm;Mitochondrion	NA
+NX_Q8IWA4	84100	741	5.87	2	PE1	3	Mitochondrion outer membrane;Cytoplasm;Mitochondrion	NA
+NX_Q8IWW8	50308	467	7.65	0	PE1	8	Mitochondrion	NA
+NX_Q8IXI1	68118	618	5.55	1	PE1	16	Cytoplasm;Mitochondrion outer membrane	NA
+NX_Q8IXI2	70784	618	5.87	1	PE1	17	Mitochondrion outer membrane	NA
+NX_Q8IXL7	20702	192	7.01	0	PE1	12	Endoplasmic reticulum;Mitochondrion	Deafness, autosomal recessive, 74
+NX_Q8IXQ6	96343	854	8.12	0	PE1	3	Nucleoplasm;Cytoplasm;Mitochondrion;Cytosol;Nucleus	NA
+NX_Q8IXQ9	29461	262	6.05	0	PE1	12	Cytoplasm;Mitochondrion matrix	NA
+NX_Q8IYB8	87991	786	8.21	0	PE1	10	Nucleus;Mitochondrion matrix;Mitochondrion nucleoid	NA
+NX_Q8IZ52	85467	775	6.45	1	PE1	2	Cytoplasm;Cytoplasmic vesicle;Golgi stack membrane;Centrosome;Cytosol;Cytosol;Mitochondrion;Mitochondrion matrix	NA
+NX_Q8IZN3	53388	488	8.59	4	PE1	6	Mitochondrion;Membrane;Nucleolus	NA
+NX_Q8N0X4	37359	340	8.88	0	PE1	13	Cytoplasm;Cytoskeleton;Mitochondrion	NA
+NX_Q8N159	58156	534	9.12	0	PE1	17	Mitochondrion matrix	N-acetylglutamate synthase deficiency
+NX_Q8N1Q8	27677	247	7.61	0	PE1	1	Mitochondrion matrix	NA
+NX_Q8N2A8	28273	252	9.53	1	PE1	17	Mitochondrion outer membrane	NA
+NX_Q8N3J2	54041	472	6.39	0	PE1	18	Mitochondrion	NA
+NX_Q8N3J5	40997	372	6.27	0	PE1	4	Mitochondrion matrix;Mitochondrion;Mitochondrion	Maple syrup urine disease, mild variant
+NX_Q8N442	74328	669	8.75	0	PE1	4	Nucleus;Mitochondrion;Mitochondrion inner membrane	Epileptic encephalopathy, early infantile, 40
+NX_Q8N465	56416	521	8.21	0	PE1	2	Mitochondrion	D-2-hydroxyglutaric aciduria 1
+NX_Q8N490	42876	385	9.22	0	PE1	2	Mitochondrion;Membrane;Cytoplasm;Nucleus;Mitochondrion	Dystonia 8
+NX_Q8N4E7	27538	242	6.79	0	PE1	5	Mitochondrion	NA
+NX_Q8N4T8	25301	237	9.4	0	PE1	4	Mitochondrion matrix	NA
+NX_Q8N5Z0	47352	425	6.47	0	PE1	4	Mitochondrion	NA
+NX_Q8N9F0	32837	302	9.05	1	PE1	4	Mitochondrion;Cytoplasm;Membrane;Microsome membrane;Mitochondrion membrane;Rough endoplasmic reticulum membrane	N-acetylaspartate deficiency
+NX_Q8NBU5	40744	361	6.43	0	PE1	10	Cytoplasm;Mitochondrion;Nucleolus;Nucleus;Peroxisome;Postsynaptic cell membrane	NA
+NX_Q8NCC3	46658	412	6.26	0	PE1	16	Mitochondrion;Nucleoplasm;Cytoplasmic vesicle;Lysosome;Secreted;Membrane	NA
+NX_Q8NCW5	31675	288	7.56	0	PE1	1	Nucleoplasm;Cytoplasm;Mitochondrion;Secreted	NA
+NX_Q8NE62	65358	594	8.57	0	PE1	3	Mitochondrion inner membrane	NA
+NX_Q8NEJ0	21066	188	7.04	0	PE1	22	Nucleoplasm;Cytoplasm;Nucleus;Mitochondrion inner membrane	NA
+NX_Q8NEM8	116011	1001	8.98	0	PE2	7	Nucleoplasm;Cytoplasm;Mitochondrion;Cytosol	NA
+NX_Q8NFF5	65266	587	6.49	0	PE1	1	Cytoplasm;Cell membrane;Cytoplasm;Mitochondrion matrix	Lipid storage myopathy due to flavin adenine dinucleotide synthetase deficiency
+NX_Q8NFV4	34690	315	9.5	0	PE1	7	Mitochondrion	NA
+NX_Q8NI60	71950	647	6.51	1	PE1	1	Mitochondrion;Mitochondrion;Membrane	Coenzyme Q10 deficiency, primary, 4
+NX_Q8TBG4	55671	499	8.32	0	PE1	4	Nucleus;Mitochondrion	NA
+NX_Q8TCG5	90989	803	8.33	2	PE1	19	Mitochondrion outer membrane;Synapse;Dendrite;Axon;Endoplasmic reticulum	Spastic paraplegia 73, autosomal dominant
+NX_Q8TCQ1	32308	289	8.76	2	PE1	4	Mitochondrion;trans-Golgi network membrane;Lysosome membrane;Cytoplasmic vesicle membrane;Late endosome membrane;Early endosome membrane;Cell membrane	NA
+NX_Q8TCS8	85951	783	7.87	0	PE1	2	Mitochondrion;Cytoplasm;Mitochondrion;Mitochondrion intermembrane space	Combined oxidative phosphorylation deficiency 13;Deafness, autosomal recessive, 70
+NX_Q8TD19	107168	979	5.51	0	PE1	14	Mitochondrion;Cytoplasm;Nucleus	Lethal congenital contracture syndrome 10;Nevus comedonicus;Arthrogryposis, Perthes disease, and upward gaze palsy
+NX_Q8TD30	57904	523	7.85	0	PE1	16	Mitochondrion	Mental retardation, autosomal recessive 49
+NX_Q8TEB9	35823	315	8.47	4	PE1	2	Endoplasmic reticulum membrane;Endoplasmic reticulum;Membrane;Mitochondrion	NA
+NX_Q8WUK0	22844	201	9.8	0	PE1	11	Mitochondrion;Mitochondrion inner membrane	NA
+NX_Q8WVB3	53790	486	5.61	0	PE1	17	Mitochondrion;Nucleolus;Cytoplasm;Nucleus	NA
+NX_Q8WVD3	28193	245	6.5	0	PE1	18	Mitochondrion;Chromosome	NA
+NX_Q8WVM0	39543	346	9.35	0	PE1	6	Mitochondrion	NA
+NX_Q92506	26974	261	6.09	0	PE1	6	Mitochondrion matrix	NA
+NX_Q92523	87801	772	8.86	2	PE1	22	Mitochondrion outer membrane	NA
+NX_Q92874	32853	299	4.8	0	PE1	16	Mitochondrion;Endoplasmic reticulum;Cytoplasm;Secreted	NA
+NX_Q92876	26856	244	7.15	0	PE1	19	Nucleoplasm;Cytoskeleton;Secreted;Nucleolus;Cytoplasm;Mitochondrion;Microsome	NA
+NX_Q92947	48127	438	8.31	0	PE1	19	Mitochondrion;Mitochondrion matrix	Glutaric aciduria 1
+NX_Q969P6	69872	601	9.46	0	PE1	8	Mitochondrion;Mitochondrion	NA
+NX_Q969V5	39800	352	8.46	2	PE1	1	Mitochondrion;Mitochondrion;Nucleoplasm;Cytoplasm;Mitochondrion outer membrane;Peroxisome	NA
+NX_Q969Z3	38023	335	9.32	0	PE1	1	Mitochondrion;Nucleoplasm;Cytoplasm;Mitochondrion outer membrane;Peroxisome	NA
+NX_Q96BN8	40263	352	5.35	0	PE1	5	Cell membrane;Mitochondrion;Cytoplasm	Autoinflammation, panniculitis, and dermatosis syndrome
+NX_Q96BW9	51067	452	8.23	0	PE1	3	Cytoplasm;Mitochondrion inner membrane	NA
+NX_Q96C36	33637	320	7.66	0	PE1	1	Cytoplasm;Mitochondrion	Leukodystrophy, hypomyelinating, 10
+NX_Q96C45	142442	1275	5.9	0	PE1	3	Cytoplasm;Nucleoplasm;Mitochondrion	NA
+NX_Q96CB9	43089	384	8.47	0	PE1	1	Mitochondrion	NA
+NX_Q96CM8	68125	615	7.5	0	PE1	17	Mitochondrion	NA
+NX_Q96CU9	53812	486	7.66	1	PE1	11	Mitochondrion;Mitochondrion;Mitochondrion inner membrane	Mitochondrial complex I deficiency
+NX_Q96D53	60069	544	6.84	1	PE1	19	Cell membrane;Mitochondrion;Mitochondrion membrane;Cytosol;Cell membrane;Cytoplasm	Nephrotic syndrome 9
+NX_Q96DP5	43832	389	9.7	0	PE1	15	Cytoplasm;Nucleoplasm;Mitochondrion	Leigh syndrome;Combined oxidative phosphorylation deficiency 15
+NX_Q96E52	60120	524	9.36	2	PE1	1	Nucleoplasm;Mitochondrion;Mitochondrion inner membrane	NA
+NX_Q96EB6	81681	747	4.55	0	PE1	10	Mitochondrion;Nucleus;Cytoplasm;PML body;Cytoplasm;Nucleus;Cytoplasm;Mitochondrion	NA
+NX_Q96EN8	98120	888	6.23	0	PE1	18	Mitochondrion;Cytoplasm	Xanthinuria 2
+NX_Q96EY8	27388	250	8.86	0	PE1	12	Mitochondrion	Methylmalonic aciduria type cblB
+NX_Q96GF1	20459	192	6.09	2	PE1	22	Mitochondrion outer membrane;Endoplasmic reticulum membrane	NA
+NX_Q96GW9	66591	593	8.38	0	PE1	2	Mitochondrion matrix	Combined oxidative phosphorylation deficiency 25;Spastic ataxia 3, autosomal recessive
+NX_Q96H96	40489	371	9.27	9	PE1	4	Mitochondrion inner membrane	Coenzyme Q10 deficiency, primary, 1;Multiple system atrophy 1
+NX_Q96HS1	32004	289	8.88	1	PE1	12	Mitochondrion;Mitochondrion outer membrane	NA
+NX_Q96HY7	103077	919	6.46	0	PE1	10	Mitochondrion;Mitochondrion	2-aminoadipic 2-oxoadipic aciduria;Charcot-Marie-Tooth disease 2Q
+NX_Q96I59	54090	477	6.79	0	PE1	11	Mitochondrion;Cytoplasm;Nucleoplasm;Mitochondrion matrix;Mitochondrion	Leigh syndrome;Combined oxidative phosphorylation deficiency 24
+NX_Q96I99	46511	432	6.15	0	PE1	3	Cell membrane;Nucleus;Microtubule organizing center;Mitochondrion;Mitochondrion	NA
+NX_Q96IR7	39386	371	6.55	0	PE1	1	Mitochondrion	NA
+NX_Q96LU5	18504	166	8.29	0	PE1	11	Mitochondrion inner membrane	NA
+NX_Q96LW4	64383	560	5.15	0	PE1	4	Nucleoplasm;Nucleus;Cytoplasm;Cytoplasm;Nucleus;Mitochondrion matrix	Myopia 22, autosomal dominant
+NX_Q96NN9	66791	605	9.2	0	PE1	22	Mitochondrion	NA
+NX_Q96PE7	18749	176	9.17	0	PE1	2	Cytoplasm;Nucleolus;Mitochondrion	Methylmalonyl-CoA epimerase deficiency
+NX_Q96PN6	187149	1610	6.99	0	PE1	1	Cell membrane;Cytoskeleton;Perinuclear region;Nucleus;Cilium;Cytoplasm;Mitochondrion	Hypercalciuria absorptive 2
+NX_Q96Q11	50128	434	8.14	0	PE1	3	Mitochondrion;Mitochondrion;Mitochondrion	Sideroblastic anemia with B-cell immunodeficiency, periodic fevers, and developmental delay;Retinitis pigmentosa and erythrocytic microcytosis
+NX_Q96Q83	33375	286	8.58	0	PE1	11	Cytoplasm;Mitochondrion;Nucleus;Nucleus;Cytoplasm	NA
+NX_Q96RQ3	80473	725	7.66	0	PE1	3	Mitochondrion;Mitochondrion matrix	3-methylcrotonoyl-CoA carboxylase 1 deficiency
+NX_Q96RR1	77154	684	9.13	0	PE1	10	Mitochondrion nucleoid	Perrault syndrome 5;Mitochondrial DNA depletion syndrome 7;Progressive external ophthalmoplegia with mitochondrial DNA deletions, autosomal dominant, 3
+NX_Q96T52	19718	175	9.43	1	PE1	7	Mitochondrion;Mitochondrion inner membrane	Gilles de la Tourette syndrome
+NX_Q96T66	28322	252	9.28	0	PE1	3	Mitochondrion	NA
+NX_Q96TA2	86455	773	8.86	1	PE1	10	Mitochondrion;Nucleoplasm;Mitochondrion inner membrane;Mitochondrion	NA
+NX_Q99424	76827	681	7.32	0	PE1	3	Cytoplasmic vesicle;Mitochondrion;Peroxisome	NA
+NX_Q99497	19891	189	6.33	0	PE1	1	Nucleus;Cytoplasm;Cell membrane;Cytoplasm;Nucleus;Membrane raft;Mitochondrion	Parkinson disease 7
+NX_Q99536	41920	393	5.88	0	PE1	17	Cytoplasm;Mitochondrion outer membrane	NA
+NX_Q99714	26923	261	7.65	0	PE1	X	Mitochondrion	2-methyl-3-hydroxybutyryl-CoA dehydrogenase deficiency;Mental retardation, X-linked 17;Mental retardation, X-linked, syndromic, 10
+NX_Q99797	80641	713	6.6	0	PE1	13	Mitochondrion;Mitochondrion matrix	NA
+NX_Q99798	85425	780	7.36	0	PE1	22	Mitochondrion;Nucleus;Mitochondrion	Infantile cerebellar-retinal degeneration;Optic atrophy 9
+NX_Q99807	24277	217	8.77	0	PE1	16	Mitochondrion;Mitochondrion inner membrane	Coenzyme Q10 deficiency, primary, 8
+NX_Q99942	19881	180	6.2	2	PE1	6	Endoplasmic reticulum membrane;Mitochondrion membrane;Membrane	NA
+NX_Q99952	50482	460	8.57	0	PE1	2	Mitochondrion;Nucleus;Cytoskeleton;Nucleolus;Nucleus;Cytoplasm	NA
+NX_Q9BQ52	92219	826	8.13	0	PE1	17	Nucleoplasm;Mitochondrion;Nucleus	Combined oxidative phosphorylation deficiency 17;Prostate cancer, hereditary, 2
+NX_Q9BQP7	39421	344	7.58	0	PE1	20	Mitochondrion;Mitochondrion	Mitochondrial DNA depletion syndrome 11
+NX_Q9BRQ8	40527	373	9.16	1	PE1	10	Membrane;Mitochondrion outer membrane;Cytoplasm	NA
+NX_Q9BSE5	37660	352	7.54	0	PE1	1	Mitochondrion	NA
+NX_Q9BT30	24516	221	6.61	0	PE1	19	Mitochondrion matrix	NA
+NX_Q9BTU6	54022	479	8.51	0	PE1	10	trans-Golgi network membrane;Membrane raft;Dendrite;Presynaptic cell membrane;Synaptosome;Mitochondrion;Endosome;Cytoplasmic vesicle;Membrane;Cell membrane	NA
+NX_Q9BTY2	54067	467	5.84	0	PE1	6	Nucleoplasm;Mitochondrion;Secreted	NA
+NX_Q9BUX1	28747	264	5.96	0	PE1	15	Mitochondrion;Cytosol;trans-Golgi network	NA
+NX_Q9BV23	38331	337	8.67	1	PE1	3	Membrane;Mitochondrion	NA
+NX_Q9BV79	40462	373	8.99	0	PE1	1	Mitochondrion;Mitochondrion;Cytoplasm;Nucleus	NA
+NX_Q9BVS5	52965	477	6.17	0	PE1	2	Cytoplasmic vesicle;Mitochondrion	NA
+NX_Q9BW91	39125	350	8.26	0	PE1	4	Mitochondrion	NA
+NX_Q9BW92	81036	718	6.9	0	PE1	1	Mitochondrion matrix;Nucleoplasm;Cytoskeleton;Cytoplasm	Combined oxidative phosphorylation deficiency 21
+NX_Q9BX68	17162	163	9.2	0	PE1	9	Mitochondrion;Mitochondrion	NA
+NX_Q9BXM7	62769	581	9.43	1	PE1	1	Mitochondrion outer membrane;Cytosol	Parkinson disease 6
+NX_Q9BXR0	44048	403	6.82	0	PE1	19	Mitochondrion;Cytoplasm;Mitochondrion outer membrane	NA
+NX_Q9BYC2	56140	517	6.73	0	PE1	1	Mitochondrion	NA
+NX_Q9BYT8	80652	704	6.21	0	PE1	5	Mitochondrion;Mitochondrion intermembrane space;Cytoplasm	NA
+NX_Q9BYV1	57156	514	8.08	0	PE1	5	Mitochondrion	NA
+NX_Q9BYV7	65674	579	8.65	0	PE1	11	Mitochondrion	NA
+NX_Q9BZ23	62681	570	9.39	0	PE1	20	Cytoplasm;Mitochondrion;Cytoplasm;Cytoplasm;Cytoplasm	Hypoprebetalipoproteinemia, acanthocytosis, retinitis pigmentosa, and pallidal degeneration;Neurodegeneration with brain iron accumulation 1
+NX_Q9BZ95	161613	1437	8.57	0	PE1	8	Nucleus;Mitochondrion;Nucleoplasm;Chromosome	NA
+NX_Q9BZY9	48244	425	7.55	0	PE1	6	Cytoplasm;Mitochondrion	NA
+NX_Q9C0J1	42310	378	9.44	1	PE1	12	Mitochondrion;Nucleolus;Golgi apparatus membrane	NA
+NX_Q9H078	78729	707	9.13	0	PE1	11	Mitochondrion	3-methylglutaconic aciduria with cataracts, neurologic involvement and neutropenia
+NX_Q9H0P0	37948	336	6.67	0	PE1	7	Nucleus;Mitochondrion;Cytoplasm;Nucleoplasm;Cytoplasm;Cell junction;Cytoplasm;Endoplasmic reticulum	P5N deficiency
+NX_Q9H0R6	57460	528	5.47	0	PE1	6	Centrosome;Cytoplasmic vesicle;Mitochondrion	NA
+NX_Q9H2K8	105406	898	6.83	0	PE1	12	Mitochondrion;Cytoplasm;Cell membrane	NA
+NX_Q9H2U2	37920	334	7.07	0	PE1	4	Mitochondrion;Mitochondrion;Nucleus	Sudden cardiac failure, alcohol-induced;Sudden cardiac failure, infantile
+NX_Q9H300	42190	379	9.82	7	PE1	3	Mitochondrion;Mitochondrion inner membrane;Nucleus	NA
+NX_Q9H3H1	52725	467	8.35	0	PE1	1	Cytoplasm;Golgi apparatus;Nucleus;Mitochondrion;Mitochondrion;Cytoplasm;Cytoplasm;Cytoplasm	NA
+NX_Q9H479	35171	309	7.13	0	PE1	17	Mitochondrion	NA
+NX_Q9H4B0	45123	414	8.83	0	PE1	2	Mitochondrion;Mitochondrion	NA
+NX_Q9H596	21529	190	8.95	0	PE1	X	Cytoplasm;Nucleus;Mitochondrion inner membrane	NA
+NX_Q9H5I1	46682	410	8.55	0	PE1	10	Mitochondrion;Nucleus;Centromere	NA
+NX_Q9H5L6	103411	903	9.26	0	PE1	4	Mitochondrion	NA
+NX_Q9H5Q4	45349	396	9.3	0	PE1	1	Mitochondrion;Mitochondrion	NA
+NX_Q9H611	69799	641	9.81	0	PE1	15	Nucleoplasm;Nucleus;Mitochondrion	NA
+NX_Q9H649	38244	340	9.09	0	PE1	3	Nucleus membrane;Nucleoplasm;Mitochondrion matrix	NA
+NX_Q9H6R3	74778	686	8.84	0	PE1	12	Mitochondrion	NA
+NX_Q9H773	18681	170	4.93	0	PE1	16	Nucleoplasm;Cytoplasm;Mitochondrion;Nucleus;Cytosol	NA
+NX_Q9H7H0	50734	456	9.45	0	PE1	14	Nucleus;Mitochondrion	NA
+NX_Q9H845	68760	621	8.15	0	PE1	3	Mitochondrion;Mitochondrion	Acyl-CoA dehydrogenase family, member 9, deficiency
+NX_Q9H903	37315	347	9.38	0	PE1	4	Cytoplasm;Mitochondrion inner membrane	NA
+NX_Q9H9J2	37535	332	8.65	0	PE1	2	Mitochondrion;Nucleus;Cell membrane;Mitochondrion	Combined oxidative phosphorylation deficiency 16
+NX_Q9H9P8	50316	463	8.45	0	PE1	14	Mitochondrion;Mitochondrion	L-2-hydroxyglutaric aciduria
+NX_Q9HA77	62224	564	8.58	0	PE1	13	Mitochondrion;Nucleoplasm;Mitochondrion matrix	Combined oxidative phosphorylation deficiency 27
+NX_Q9HA92	48714	442	7.7	0	PE1	17	Cytoplasm;Cell membrane;Nucleoplasm;Mitochondrion	NA
+NX_Q9HAB8	34005	311	6.26	0	PE1	1	Nucleolus;Mitochondrion;Nucleus	NA
+NX_Q9HAC7	48462	445	8.54	0	PE1	7	Mitochondrion	Glutaric aciduria 3
+NX_Q9HBH1	27013	243	9.48	0	PE1	16	Mitochondrion	NA
+NX_Q9HC36	47020	420	8.89	0	PE1	17	Mitochondrion;Cytoplasm;Cytoskeleton;Mitochondrion	NA
+NX_Q9HCC0	61333	563	7.58	0	PE1	5	Mitochondrion;Mitochondrion matrix	3-methylcrotonoyl-CoA carboxylase 2 deficiency
+NX_Q9HCL2	93795	828	7.81	2	PE1	10	Mitochondrion;Mitochondrion outer membrane	NA
+NX_Q9HCM9	59690	518	7.8	0	PE1	6	Cytosol;Mitochondrion	NA
+NX_Q9HCN4	41740	374	4.8	0	PE1	2	Nucleoplasm;Cytoplasm;Cytoplasm;Mitochondrion;Nucleus	NA
+NX_Q9HD43	122352	1115	5.21	1	PE1	19	Mitochondrion;Microvillus membrane;Apical cell membrane;Cytoplasm	NA
+NX_Q9NNW7	56507	524	7.24	0	PE1	22	Nucleus;Cytoplasm;Mitochondrion;Cytoplasm;Mitochondrion	NA
+NX_Q9NP81	58283	518	8.35	0	PE1	19	Mitochondrion matrix	Hyperuricemia, pulmonary hypertension, renal failure, and alkalosis syndrome
+NX_Q9NPB1	25862	228	8.21	0	PE1	17	Mitochondrion	NA
+NX_Q9NPH0	48854	428	6.04	0	PE1	1	Mitochondrion	NA
+NX_Q9NPJ3	14960	140	9.23	0	PE1	6	Cell junction;Nucleoplasm;Cytosol;Mitochondrion;Nucleus;Spindle	NA
+NX_Q9NQ88	30063	270	7.6	0	PE1	12	Nucleus;Cytoplasm;Cytoplasm;Nucleus;Mitochondrion	NA
+NX_Q9NQE9	20361	182	6.12	0	PE1	6	Cytoplasm;Mitochondrion;Nucleolus;Cytoplasm;Nucleus	NA
+NX_Q9NQH7	57034	507	6.37	0	PE1	22	Nucleus;Mitochondrion;Cytoplasm	Nephronophthisis-like nephropathy 1
+NX_Q9NRG4	49688	433	6.27	0	PE1	1	Cytoskeleton;Cytoplasm;Mitochondrion;Cytosol;Nucleus	NA
+NX_Q9NSE4	113792	1012	6.78	0	PE1	1	Mitochondrion;Mitochondrion matrix	Cataracts, growth hormone deficiency, sensory neuropathy, sensorineural hearing loss, and skeletal dysplasia
+NX_Q9NST1	52865	481	6.27	1	PE1	22	Nucleolus;Membrane;Cytoplasm;Mitochondrion	Non-alcoholic fatty liver disease 1
+NX_Q9NTG7	43573	399	8.98	0	PE1	11	Mitochondrion matrix	NA
+NX_Q9NUB1	74857	689	6.66	0	PE1	20	Mitochondrion matrix	NA
+NX_Q9NUJ1	33933	306	8.81	0	PE1	3	Nucleus;Nucleolus;Mitochondrion	NA
+NX_Q9NUL7	59581	540	10.43	0	PE1	16	Nucleus;Mitochondrion;Mitochondrion nucleoid;Mitochondrion matrix;Cytoplasm;Mitochondrion;Nucleolus	NA
+NX_Q9NUQ2	42072	364	9.18	3	PE1	8	Mitochondrion;Cytoplasm;Nucleoplasm;Endoplasmic reticulum membrane;Nucleus envelope;Mitochondrion	NA
+NX_Q9NVH0	70353	621	8.63	0	PE1	14	Cytoskeleton;Mitochondrion;Nucleus	NA
+NX_Q9NVH6	49518	421	7.64	0	PE1	X	Mitochondrion;Mitochondrion matrix;Mitochondrion	Autism, X-linked 6
+NX_Q9NVV4	66172	582	9.24	0	PE1	10	Cytoplasm;Mitochondrion;Mitochondrion	Spastic ataxia 4, autosomal recessive
+NX_Q9NWU1	48843	459	7.59	0	PE1	3	Mitochondrion;Cytoplasm;Mitochondrion	NA
+NX_Q9NWX6	34831	298	8.12	0	PE1	5	Mitochondrion;Nucleoplasm;Cytoplasm	NA
+NX_Q9NX46	38947	363	4.95	0	PE1	1	Cytoplasm;Mitochondrion matrix;Nucleus;Nucleoplasm	NA
+NX_Q9NX47	31232	278	9	4	PE1	10	Mitochondrion;Mitochondrion outer membrane;Endoplasmic reticulum membrane	NA
+NX_Q9NXA8	33881	310	8.82	0	PE1	6	Mitochondrion;Mitochondrion matrix;Mitochondrion intermembrane space;Cytosol;Nucleus;Cytoplasm;Mitochondrion;Mitochondrion	NA
+NX_Q9NZC7	46677	414	6.71	0	PE1	16	Cytoplasm;Golgi apparatus;Cytoplasm;Nucleus;Mitochondrion;Golgi apparatus	Spinocerebellar ataxia, autosomal recessive, 12;Esophageal cancer;Epileptic encephalopathy, early infantile, 28
+NX_Q9NZJ6	41054	369	7.1	0	PE1	6	Mitochondrion;Mitochondrion inner membrane;Nucleoplasm	NA
+NX_Q9P035	43160	362	9.04	6	PE1	15	Cell membrane;Endoplasmic reticulum;Cytoplasm;Endoplasmic reticulum;Nucleus membrane;Endoplasmic reticulum membrane;Cytoplasm;Mitochondrion	NA
+NX_Q9P0J1	61054	537	6.2	0	PE1	8	Cytoplasm;Mitochondrion;Nucleoplasm;Mitochondrion matrix	Pyruvate dehydrogenase phosphatase deficiency
+NX_Q9P286	80745	719	8.19	0	PE1	20	Mitochondrion;Cytoplasm;Nucleus	NA
+NX_Q9P2J9	59978	529	5.69	0	PE1	16	Mitochondrion;Mitochondrion matrix	NA
+NX_Q9P2R7	50317	463	7.05	0	PE1	13	Mitochondrion;Mitochondrion	Mitochondrial DNA depletion syndrome 5
+NX_Q9UBF8	91379	816	5.86	0	PE1	1	Cytoplasm;Golgi apparatus;Endomembrane system;Mitochondrion outer membrane;Rough endoplasmic reticulum membrane;Golgi apparatus;Perinuclear region	NA
+NX_Q9UBM1	22134	199	8.89	3	PE1	17	Cytoplasm;Endoplasmic reticulum membrane;Mitochondrion membrane;Endoplasmic reticulum membrane	NA
+NX_Q9UBZ4	57401	518	8.65	0	PE1	X	Nucleus;Cytoplasmic vesicle;Nucleolus;Nucleus;Cytoplasm;Mitochondrion	NA
+NX_Q9UDR5	102132	926	6.18	0	PE1	7	Cytoplasmic vesicle;Mitochondrion;Mitochondrion	Hyperlysinemia, 1;2,4-dienoyl-CoA reductase deficiency
+NX_Q9UG56	46672	409	9.51	1	PE1	22	Golgi apparatus;Cytoplasm;Mitochondrion inner membrane;Mitochondrion inner membrane	NA
+NX_Q9UGM6	40147	360	9.31	0	PE1	1	Mitochondrion;Nucleoplasm;Cell membrane;Mitochondrion matrix	NA
+NX_Q9UHK6	42387	382	6.07	0	PE1	5	Cytoplasmic vesicle;Cell membrane;Peroxisome;Mitochondrion	Congenital bile acid synthesis defect 4;Alpha-methylacyl-CoA racemase deficiency
+NX_Q9UHN1	54911	485	8.64	0	PE1	17	Nucleus;Mitochondrion;Mitochondrion	Progressive external ophthalmoplegia with mitochondrial DNA deletions, autosomal dominant, 4
+NX_Q9UHQ9	34095	305	9.41	1	PE1	1	Cytoplasm;Nucleolus;Membrane;Mitochondrion	NA
+NX_Q9UI17	96811	866	7.31	0	PE1	5	Mitochondrion	DMGDH deficiency
+NX_Q9UI32	66323	602	6.9	0	PE1	12	Mitochondrion	NA
+NX_Q9UI43	27424	246	9.6	0	PE1	7	Nucleolus;Mitochondrion	NA
+NX_Q9UIF7	60069	546	8.99	0	PE1	1	Nucleus;Nucleus;Mitochondrion	Familial adenomatous polyposis 2;Gastric cancer
+NX_Q9UIJ7	25565	227	9.15	0	PE1	9	Mitochondrion matrix	NA
+NX_Q9UJ68	26132	235	8.22	0	PE1	8	Cell membrane;Nucleoplasm;Cytoplasm;Mitochondrion;Cytoplasm;Cytoplasm;Nucleus;Cytoplasm;Membrane	NA
+NX_Q9UJA2	32593	301	9.73	5	PE1	20	Mitochondrion inner membrane	NA
+NX_Q9UK32	83872	745	5.92	0	PE1	X	Nucleus;Nucleolus;Mitochondrion;Cytosol;Nucleus	NA
+NX_Q9UKU0	77752	697	7.2	1	PE1	5	Mitochondrion outer membrane;Peroxisome membrane;Microsome membrane;Endoplasmic reticulum membrane	NA
+NX_Q9UKU7	45070	415	8.12	0	PE1	11	Mitochondrion	Isobutyryl-CoA dehydrogenase deficiency
+NX_Q9UL12	101037	918	6.8	0	PE1	9	Mitochondrion;Mitochondrion matrix	Sarcosinemia
+NX_Q9ULC5	75991	683	6.49	1	PE1	10	Nucleus;Nucleolus;Mitochondrion;Mitochondrion;Endoplasmic reticulum;Mitochondrion outer membrane;Endoplasmic reticulum membrane	NA
+NX_Q9ULD0	114481	1010	6.18	0	PE1	10	Nucleolus;Cytoplasm;Nucleus;Mitochondrion matrix	NA
+NX_Q9UPW5	138448	1226	5.78	0	PE1	9	Nucleolus;Cell membrane;Cytoplasm;Cytoplasm;Cytosol;Nucleus;Mitochondrion	NA
+NX_Q9UQ90	88235	795	8.79	2	PE1	16	Mitochondrion membrane	Spastic paraplegia 7, autosomal recessive
+NX_Q9Y234	42479	373	8.66	0	PE1	2	Mitochondrion	Lipoyltransferase 1 deficiency
+NX_Q9Y237	13810	131	9.78	0	PE1	X	Nucleus;Nucleolus;Cytoplasm;Nucleolus;Spindle;Cytoplasm;Mitochondrion;Mitochondrion matrix	NA
+NX_Q9Y2C2	47673	406	8.88	1	PE1	6	Mitochondrion;Golgi apparatus membrane	NA
+NX_Q9Y2C4	41085	368	8.45	0	PE1	3	Mitochondrion inner membrane	NA
+NX_Q9Y2D0	36434	317	7.7	0	PE1	X	Mitochondrion;Nucleus;Mitochondrion	NA
+NX_Q9Y2Z4	53199	477	9.07	0	PE1	12	Mitochondrion;Mitochondrion matrix	Myopathy with lactic acidosis and sideroblastic anemia 2
+NX_Q9Y2Z9	50870	468	6.81	0	PE1	14	Mitochondrion inner membrane;Golgi apparatus;Cell projection	Coenzyme Q10 deficiency, primary, 6
+NX_Q9Y305	49902	439	8.81	0	PE1	X	Cell membrane;Nucleoplasm;Cytoplasm;Mitochondrion	NA
+NX_Q9Y394	38299	339	8.59	0	PE1	14	Mitochondrion;Nucleoplasm	NA
+NX_Q9Y3B8	26833	237	6.4	0	PE1	11	Nucleus;Mitochondrion;Nucleolus;Focal adhesion;Mitochondrion intermembrane space;Mitochondrion matrix;Nucleus;Cytoplasm	NA
+NX_Q9Y3D2	19536	182	8.95	0	PE1	10	Mitochondrion	NA
+NX_Q9Y3E5	19194	179	8.95	0	PE1	17	Mitochondrion;Mitochondrion	Neurologic, endocrine, and pancreatic disease, multisystem, infantile-onset
+NX_Q9Y4K3	59573	522	6	0	PE1	11	Nucleolus;Cytoplasm;Cell cortex;Nucleus;Lipid droplet;Mitochondrion	NA
+NX_Q9Y4W6	88584	797	8.81	2	PE1	18	Mitochondrion;Mitochondrion membrane	Spastic ataxia 5, autosomal recessive;Spinocerebellar ataxia 28
+NX_Q9Y572	56887	518	6.08	0	PE1	14	Cytosol;Cell membrane;Mitochondrion	NA
+NX_Q9Y5B8	42492	376	6.03	0	PE1	1	Mitochondrion	NA
+NX_Q9Y5R4	38231	338	6.22	0	PE1	3	Mitochondrion	NA
+NX_Q9Y5Z9	36831	338	8.4	8	PE1	1	Cytoplasmic vesicle;Endoplasmic reticulum membrane;Golgi apparatus membrane;Mitochondrion membrane;Cytoplasm;Nucleus	Corneal dystrophy, Schnyder type
+NX_Q9Y606	47470	427	8.69	0	PE1	12	Nucleus;Mitochondrion;Mitochondrion;Nucleus	Myopathy with lactic acidosis and sideroblastic anemia 1
+NX_Q9Y697	50196	457	8.54	0	PE1	20	Cytoplasmic vesicle;Cytoplasm;Nucleoplasm;Mitochondrion;Cytoplasm;Nucleus	NA
+NX_Q9Y6E7	35188	314	9.04	0	PE1	12	Mitochondrion matrix	NA
+NX_Q9Y6N5	49961	450	9.18	0	PE1	15	Mitochondrion;Mitochondrion	NA
+NX_Q9Y6V7	54226	483	9.21	0	PE1	19	Nucleolus;Mitochondrion	NA
