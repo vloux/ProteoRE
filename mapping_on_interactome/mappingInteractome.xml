@@ -7,12 +7,12 @@
     <command><![CDATA[
   
   #if $inputtype.filetype == "copy_paste": 
-  python $__tool_directory__/interactomicsCyJS.py --inputtype copypaste --input '$inputtype.genelist' --column c1 --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt  
+  python $__tool_directory__/interactomicsCyJS.py --inputtype copypaste --input '$inputtype.genelist' --column c1 --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt --header FALSE 
   #end if
 
   
   #if $inputtype.filetype == "file_all":
-        python $__tool_directory__/interactomicsCyJS.py --inputtype tabfile --input '$inputtype.genelist' --column '$inputtype.column' --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt 
+        python $__tool_directory__/interactomicsCyJS.py --inputtype tabfile --input '$inputtype.genelist' --column '$inputtype.column' --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt --header '$inputtype.header' 
 
   #end if
  
@@ -29,9 +29,14 @@
     </when>
     
     <when value="file_all">
-      <param name="genelist" type="data" format="txt,tabular" label="Choose a multiple-columns file" help="This file must imperatively have 1 column filled with IDs consistent with the database that will be used. Please use the MappingIDs component if this is not the case."/>
+      <param name="genelist" type="data" format="txt,tabular" label="Choose a multiple-columns file" help="This file must imperatively have 1 column filled with Uniprot Accession IDs. Please use the MappingIDs component if this is not the case."/>
       
-      <param name="column" type="text" label="Please specify the column where you would like to apply the comparison (e.g : Enter c1)"/> 
+      <param name="column" type="text" label="Please specify the column where you would like to apply the comparison (e.g : Enter c1)" value="c1"/> 
+      <param name="header" type="select" label="Does your file have a header?" multiple="false" optional="false"> 
+ 		      <option value="TRUE" selected="true">Yes</option>
+          <option value="FALSE" selected="false">No</option>
+      </param>
+    
     </when>
   </conditional>
 
@@ -74,5 +79,27 @@
    </outputs>
     <help><![CDATA[
 
-    ]]></help>
+      ]]></help>
+    <!--     
+  <tests>
+  <test>
+    <conditional name="inputtype">
+      <param name="filetype " value="tabfile"/>
+      <param name="genelist" value="ribosomal_human_protein_uniprot.txt"/>
+      <param name="column" value="c1"/>
+      <param name="header" value="TRUE"/>
+    </conditional>
+    <param name="interactome" file="BioPlex_interactionList_v4a.tsv"/> 
+    <param name="interactome.fields.dbkey" value="bioplex"/> 
+    <param name="addReactome" value="TRUE"/> 
+
+    <conditional name="condtabfile">
+      <param name="taboutput" value="TRUE"/>
+    </conditional>
+    <output name="outputjson" file="network.json"/>
+    <output name="outputtabppis" file="network_tab.tsv"/>
+    <output name="outputtabnodes" file="nodes_tab.tsv"/>
+  </test>
+</tests>
+-->
 </tool>
