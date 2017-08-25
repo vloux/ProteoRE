@@ -2,7 +2,7 @@
 # python interactomicsCyJS.py --inputtype copypaste --input Q6ZMN8 Q8N1S5
 # P40855 P00813 --column c1 --interactome BioPlex_interactionList_v4a.tsv --jsonoutput output.json
 # --taboutput TRUE --interactometype bioplex --addReactome TRUE --reactomeFile
-# UniProt2Reactome.txt
+# UniProt2Reactome.txt --header FALSE
 
 
 import argparse
@@ -10,6 +10,8 @@ import numpy as np
 import re
 import json
 import pandas as pd
+
+print pd.__file__
 
 parser = argparse.ArgumentParser(description="Map a list of uniprot Accession IDs on a given interactome")
 parser.add_argument('--inputtype',action='store', dest='inputtype')
@@ -21,6 +23,7 @@ parser.add_argument('--taboutput',action='store',dest='taboutput')
 parser.add_argument('--interactometype',action='store',dest='interactometype')
 parser.add_argument('--addReactome',action='store',dest='addreactome')
 parser.add_argument('--reactomeFile',action='store',dest='reactomefile')
+parser.add_argument('--header',action='store',dest='header')
 
 args = parser.parse_args()
 # Open the file containing the list of uniprot ids or split the ids given as an
@@ -31,7 +34,10 @@ if args.inputtype=="copypaste":
     inputids = pd.DataFrame(inputids)
     inputids = inputids.iloc[:,0]
 else:
-    inputfile = pd.read_csv(args.input[0],delimiter="\t")
+    if args.header=="FALSE":
+        inputfile = pd.read_csv(args.input[0],delimiter="\t",header=None)
+    else:
+        inputfile = pd.read_csv(args.input[0],delimiter="\t")
     column = int(re.sub("c","",args.column))-1
     inputids = inputfile.iloc[:,column]
 
