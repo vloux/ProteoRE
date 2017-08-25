@@ -37,8 +37,7 @@ names(options.args) <- unlist(options.names)
 
 typeinput = as.character(options.args[1])
 nextprot = read.table(as.character(options.args[3]),header=TRUE,sep="\t",quote="\"") 
-listfile = options.args[2]
-
+listfile = as.character(options.args[2])
 column = as.numeric(gsub("c","",options.args[4]))
 P1_args = as.character(options.args[5])
 P2_args = as.character(options.args[6])
@@ -54,14 +53,13 @@ if (typeinput=="copypaste"){
 if (typeinput=="tabfile"){
   
   if (header=="TRUE"){
-    listfile = read.table(listfile,header=TRUE,sep="\t")
+    listfile = read.table(listfile,header=TRUE,sep="\t",quote="\"",fill=TRUE)
   }else{
-    listfile = read.table(listfile,header=FALSE,sep="\t")
+    listfile = read.table(listfile,header=FALSE,sep="\t",quote="\"",fill=TRUE)
   }
   sample = listfile[,column]
 
 }
-
 # Change the sample ids if they are uniprot ids to be able to match them with
 # Nextprot data
 if (typeid=="uniprot"){
@@ -72,7 +70,7 @@ if (typeid=="uniprot"){
 
 if ((length(sample[sample %in% nextprot[,1]]))==0){
 
-    stop("None of the input ids are can be found in Nextprot", call. = FALSE)
+    write.table("None of the input ids are can be found in Nextprot",file=filename,sep="\t",quote=FALSE,col.names=TRUE,row.names=FALSE)
 
 }else{ 
 
@@ -105,8 +103,10 @@ if ((length(sample[sample %in% nextprot[,1]]))==0){
 	to_keep = c(1,to_keep)
 	lines = which(nextprot[,1] %in% sample)
   data = nextprot[lines,]
+  
   data = data[,to_keep]
-	
+
+
   # if only some of the proteins were not found in nextprot they will be added to
 	# the file with the fields "Protein not found in Nextprot"
 	if (length(which(sample %!in% nextprot[,1]))!=0){

@@ -13,7 +13,12 @@
     Rscript --vanilla $__tool_directory__/get_data_nextprot.R --inputtype copypaste --input '$inputtype.genelist' --nextprot $__tool_directory__/result_nextprot.txt --column c1 --argsP1 '$database_type.Nextprot_params.P1' --argsP2 '$database_type.Nextprot_params.P2'--argsP3 '$database_type.Nextprot_params.P3' --type '$database_type.idtype' --output '$output' --header None 
   
     #end if
-
+    
+    #if $database_type.database == "HPA":
+  
+    Rscript --vanilla $__tool_directory__/get_data_HPA_v2.R --inputtype copypaste --input '$inputtype.genelist' --header FALSE --proteinatlas $__tool_directory__/proteinatlas.csv --column c1 --select '$database_type.hpaparams' --output '$output'  
+  
+    #end if
   #end if
 
   #if $inputtype.filetype == "file_all": 
@@ -22,15 +27,13 @@
   Rscript --vanilla $__tool_directory__/get_data_nextprot.R --inputtype tabfile --input '$inputtype.genelist' --nextprot $__tool_directory__/result_nextprot.txt --column '$inputtype.column' --argsP1 '$database_type.Nextprot_params.P1' --argsP2 '$database_type.Nextprot_params.P2'--argsP3 '$database_type.Nextprot_params.P3' --type '$database_type.idtype' --output '$output' --header '$inputtype.header' 
   #end if
 
-  #end if
-
-
-  #if $inputtype.filetype == "file_list":
-    
-    #if $database_type.database == "Nextprot":
-    Rscript --vanilla $__tool_directory__/get_data_nextprot.R --inputtype tabfile --input '$inputtype.genelist' --nextprot $__tool_directory__/result_nextprot.txt --column c1 --argsP1 '$database_type.Nextprot_params.P1' --argsP2 '$database_type.Nextprot_params.P2'--argsP3 '$database_type.Nextprot_params.P3' --type '$database_type.idtype' --output '$output' --header '$inputtype.header'
-
+    #if $database_type.database == "HPA":
+  
+    Rscript --vanilla $__tool_directory__/get_data_HPA_v2.R --inputtype tabfile --input '$inputtype.genelist' --header '$inputtype.header' --proteinatlas $__tool_directory__/proteinatlas.csv --column '$inputtype.column' --select '$database_type.hpaparams' --output '$output'  
+  
     #end if
+
+
 
   #end if
     
@@ -39,10 +42,9 @@
 
 <inputs>
   <conditional name="inputtype">
-    <param name="filetype" type="select" label="Select your type of input file">
+    <param name="filetype" type="select" label="Select your type of input file"> 
+      <option value="file_all">Input file containing your identifiers</option>
       <option value="copy_paste">Copy/paste your list of IDs</option> 
-      <option value="file_list">Choose a single-column file</option> 
-      <option value="file_all">Choose a multiple-columns file</option>
     </param>
     <when value="copy_paste">
       <param name="genelist" type="text" label="Enter a list of identifiers"/>
@@ -56,7 +58,7 @@
     </when>
     <when value="file_all">
       <param name="genelist" type="data" format="txt,tabular" label="Choose a multiple-columns file" help="This file must imperatively have 1 column filled with IDs consistent with the database that will be used. Please use the MappingIDs component if this is not the case."/>
-      <param name="column" type="data_column" data_ref="genelist" label="Please specify the column where you would like to apply the comparison"/>
+      <param name="column" type="text" label="Please specify the column where you would like to apply the comparison (e.g : Enter c1)" value="c1"/> 
       <param name="header" type="select" label="Does your file have a header?" multiple="false" optional="false"> 
  		      <option value="TRUE" selected="true">Yes</option>
           <option value="FALSE" selected="false">No</option>
@@ -66,6 +68,7 @@
   <conditional name="database_type">
     <param name="database" type="select" label="Choose a ressource to be retrieved">
       <option value="Nextprot">Nextprot</option>
+      <option value="HPA">Retrieve information from the "Human Protein Atlas" (HPA)</option>
     </param>
     
     <when value="Nextprot">
@@ -95,7 +98,19 @@
       </param>
 
       </when>
-  </conditional>
+  
+    <when value="HPA">
+        <param name="hpaparams" type="select" label="Human Protein Atlas Informations" multiple="true" help="Choose the information you want to add to your data from HPA" display="checkboxes" optional="false"> 
+          <option value="RNA.tissue.category" selected="false">RNA tissue category</option>
+ 		      <option value="Reliability..IH." selected="false">IH detection level</option>
+          <option value="Reliability..IF." selected="false">IF detection level</option>
+        </param>
+
+
+
+      </when>
+  
+    </conditional>
 
 </inputs>
 
@@ -146,5 +161,29 @@ The output will be a tabular file. The initial columns will be kept, but lines c
 The data for HPA normal tissue was retrieved from the Human Protein Atlas downloadable data repository (http://www.proteinatlas.org/download/proteinatlas.tab.gz).
 
 The data for HPA cancer was retrieved from the Human Protein Atlas downloadable data repository (http://www.proteinatlas.org/download/cancer.csv.zip).
-    ]]></help>
+]]></help>
+
+
+<tests>
+  <test>
+    <conditional name="inputtype">
+      <param name="filetype " value="tabfile"/>
+      <param name="genelist" value="mitochondrion_enzymes_Nextprot.txt"/>
+      <param name="column" value="c1"/>
+      <param name="header" value="TRUE"/>
+    </conditional>
+    <conditional name="database_type">
+      <param name="database" value="Nextprot"/>
+
+      <section name="Nextprot_params">
+        <param name="P1" value="MW,SeqLength,IsoPoint,TMDomains,ProteinExistence"/> 
+        <param name="P2" value="Chr,SubcellLocations"/> 
+        <param name="P3" value="Diseases"/> 
+      </section>
+      <param name="idtype" value="nextprot"/> 
+    </conditional>
+    <output name="output" file="output_get_data.tsv"/>
+  </test>
+</tests>
+
 </tool>
