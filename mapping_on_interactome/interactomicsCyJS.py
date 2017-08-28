@@ -131,10 +131,10 @@ def getJSON(ppis,nodes_attributes,jsonfile,addReactome):
 
     for row in range(len(nodes_attributes.iloc[:,0])):
         if addReactome=="TRUE":
-            node = {"data" : {"id" : str(nodes_attributes["Protein"][row]),"colour" : str(nodes_attributes["From user input"][row]), "pathway" : str(nodes_attributes["Pathway"][row])}}
+            node = {"data" : {"id" : str(nodes_attributes["Protein"][row]),"from_user_input" : str(nodes_attributes["From user input"][row]), "pathway" : str(nodes_attributes["Pathway"][row])}}
             nodes.append(node)
         else:
-            node = {"data" : {"id" : str(nodes_attributes["Protein"][row]),"colour" : str(nodes_attributes["From user input"][row])}}
+            node = {"data" : {"id" : str(nodes_attributes["Protein"][row]),"from_user_input" : str(nodes_attributes["From user input"][row])}}
             nodes.append(node)
 
     for row in range(len(ppis.iloc[:,0])):
