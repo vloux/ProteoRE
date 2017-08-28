@@ -139,7 +139,7 @@ def getJSON(ppis,nodes_attributes,jsonfile,addReactome):
 
     for row in range(len(ppis.iloc[:,0])):
         ident = str(ppis.iloc[row,0])+"_"+str(ppis.iloc[row,1])
-        edge = {"data" : {"id" : ident,"source" : str(ppis.iloc[row,0]), "edge": str(ppis.iloc[row,1]), "score" : str(ppis.iloc[row,2])}}
+        edge = {"data" : {"id" : ident,"source" : str(ppis.iloc[row,0]),"target": str(ppis.iloc[row,1]), "score" : str(ppis.iloc[row,2])}}
         edges.append(edge)
 
     elements["nodes"] = nodes
