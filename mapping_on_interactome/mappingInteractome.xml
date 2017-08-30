@@ -12,7 +12,8 @@
 
   
   #if $inputtype.filetype == "file_all":
-        python $__tool_directory__/interactomicsCyJS.py --inputtype tabfile --input '$inputtype.genelist' --column '$inputtype.column' --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt --header '$inputtype.header' 
+
+  python2.7 $__tool_directory__/interactomicsCyJS.py --inputtype tabfile --input '$inputtype.genelist' --column '$inputtype.column' --interactome '$interactome' --jsonoutput '$outputjson' --taboutput '$condtabfile.taboutput' --interactometype '${interactome.fields.dbkey}' --addReactome '$addReactome' --reactomeFile $__tool_directory__/UniProt2Reactome.txt --header '$inputtype.header' 
 
   #end if
  
@@ -68,11 +69,11 @@
 
       <data name="outputjson" format="json" label="Json network output"/>
       
-      <data name="outputtabppis" format="tsv" label="Tabular file network" from_work_dir="ppis.csv">
+      <data name="outputtabppis" format="tabular" label="Tabular file network" from_work_dir="ppis.csv">
         <filter>condtabfile['taboutput']=="TRUE"</filter>
       </data>
 
-      <data name="outputtabnodes" format="tsv" label="Nodes attributes tabular file" from_work_dir="nodes_attributes.csv">
+      <data name="outputtabnodes" format="tabular" label="Nodes attributes tabular file" from_work_dir="nodes_attributes.csv">
         <filter>condtabfile['taboutput']=="TRUE"</filter>
       </data>
 
@@ -80,8 +81,7 @@
     <help><![CDATA[
 
       ]]></help>
-    <!--     
-  <tests>
+    <!--  <tests>
   <test>
     <conditional name="inputtype">
       <param name="filetype " value="tabfile"/>
@@ -89,7 +89,7 @@
       <param name="column" value="c1"/>
       <param name="header" value="TRUE"/>
     </conditional>
-    <param name="interactome" file="BioPlex_interactionList_v4a.tsv"/> 
+    <param name="interactome" value="/home/li/galaxy/tools/proteoRE/mapping_interactome/BioPlex_interactionList_v4a.tsv"/> 
     <param name="interactome.fields.dbkey" value="bioplex"/> 
     <param name="addReactome" value="TRUE"/> 
 
@@ -100,6 +100,5 @@
     <output name="outputtabppis" file="network_tab.tsv"/>
     <output name="outputtabnodes" file="nodes_tab.tsv"/>
   </test>
-</tests>
--->
+</tests>-->
 </tool>
