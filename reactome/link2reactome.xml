@@ -12,7 +12,7 @@
         ##else if $opt.input == "file"
             ##python /projet/galaxydev/galaxy/tools/proteore_uc1/reactome/reac.py --json "$opt.idfile" "file" --output "$output" --trash "$trash"
         #else if $opt.input == "mq"
-            python /projet/galaxydev/galaxy/tools/proteore_uc1/reactome/reac.py --json "$opt.mqfile" "mqfile" $opt.header $opt.ncol --output "$output" --trash "$trash"
+            python /projet/galaxydev/galaxy/tools/proteore_uc1/reactome/reac.py --json "$opt.mq_file" "mq_file" $opt.header $opt.ncol --output "$output" --trash "$trash"
         #end if
         
     ]]></command>
@@ -30,7 +30,7 @@
                 <param name="idfile" type="data" format="txt" label="Choose a single-column file" />
             </when-->
             <when value="mq" >
-                <param name="mqfile" type="data" format="txt" label="Choose a multiple-columns file" help="Input file is a tab-delimited file containing different information of proteins, such as an output of MaxQuant software" />
+                <param name="mq_file" type="data" format="txt" label="Choose a multiple-columns file" help="Input file is a tab-delimited file containing different information of proteins, such as an output of MaxQuant software" />
                 <param name="header" type="boolean" checked="true" truevalue="true" falsevalue="false" label="Does your input file contain header?" />
 		        <param type="text" name="ncol" value="c1" label="Please specify the column where you would like to apply the comparison" help ='For example, fill in "c1" if you want to filter the first column' />
             </when>
@@ -41,6 +41,18 @@
         <data name="output" format="html" label="" />
         <data name="trash" format="tab" label="Invalid identifiers" />
     </outputs>
+    <tests>
+        <test>
+            <conditional name="opt" >
+                <param name="input" value="mq" />
+                <param name="mq_file" value="UnipIDs.txt" />
+                <param name="header" value="false" />
+                <param name="ncol" value="c1" />
+            </conditional>
+            <output name="output" file="output.html" ftype="html" />
+            <output name="trash" file="trash.txt" ftype="tab" />
+        </test>
+    </tests>
     <help><![CDATA[
 Reactome software provides service of creating diagram representing the relations between the biological processes. This tool allows linking to Reactome web service with pre-loaded data from a list of IDs, a file containing IDs or from a column of a complexed file.
 

@@ -46,7 +46,7 @@ def data_json(identifiers):
         #json_string = os.popen("curl -H \"Content-Type: text/plain\" -d \"$(printf '%s')\" -X POST --url www.reactome.org/AnalysisService/identifiers/projection/\?pageSize\=1\&page\=1" % ids).read()
         #if len(id_valid(file)[1]) > 0:
             #trash = id_valid(file)[1]
-    elif identifiers[1] == "mqfile":
+    elif identifiers[1] == "mq_file":
         header = identifiers[2]
         mq = open(identifiers[0]).readlines()
         if isnumber("int", identifiers[3].replace("c", "")):
