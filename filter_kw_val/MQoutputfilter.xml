@@ -56,7 +56,7 @@
                 <when value="None" />
                 <when value="text" >
                     <param name="txt" type="text" label="Enter keywords or a file containing keywords to be removed" />
-                   # <param name="ncol" type="text" value="c1" label="Please specify the column where you would like to apply this filter" help='For example, fill in "c1" if you want to filter the first column' />
+                    <param name="ncol" type="text" value="c1" label="Please specify the column where you would like to apply this filter" help='For example, fill in "c1" if you want to filter the first column' />
                 </when>
                 <when value="file" >
                     <param name="file" type="data" format="txt,tab" label="Choose a file containing keywords" />
@@ -105,7 +105,28 @@
         <data name="output1" format="tabular" label="${tool.name} on ${input1.name}" />
         <data name="trash_file" format="tabular" label="Removed proteins from input file" />
     </outputs>
-    <tests>       
+    <tests>
+        <test>
+            <param name="input1" value="UnipIDs.txt" />
+            <param name="header" value="false" />
+            <repeat name="keyword">
+                <param name="match" value="false" />
+                <conditional name="k">
+                    <param name="kw" value="text" />
+                    <param name="txt" value="A" />
+                    <param name="ncol" value="c3" />
+                </conditional>
+            </repeat>
+            <repeat name="value">
+                <conditional name="v">
+                    <param name="val" value="Equal or higher"/>
+                    <param name="equal_higher" value="1.0" />
+                    <param name="ncol" value="c2" />
+                </conditional>
+            </repeat>
+            <output name="output1" file="output1.txt" />
+            <output name="trash_file" file="trash1.txt" />
+        </test>       
     </tests>
     <help><![CDATA[
 This tool allows to remove unneeded data (e.g. contaminants, non-significant values) from a proteomics results file (e.g. MaxQuant or Proline output).

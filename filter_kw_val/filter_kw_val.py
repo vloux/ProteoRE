@@ -101,11 +101,12 @@ def filter_keyword(MQfile, header, filtered_lines, ids, ncol, match):
         content = mq[1:]
     else:
         header = ""
-        content = mq
+        content = mq[:]
     
     if not filtered_lines: # In case there is already some filtered lines from other filters
         filtered_lines = []
-        filtered_lines.append(header)
+        if header != "":
+            filtered_lines.append(header)
 
     for line in content:    
         id_inline = line.split("\t")[id_index].replace('"', "").split(";")
@@ -141,11 +142,12 @@ def filter_value(MQfile, header, filtered_prots, filter_value, ncol, opt):
         content = mq[1:]
     else:
         header = ""
-        content = mq
+        content = mq[:]
     
     if not filtered_prots: # In case there is already some filtered lines from other filters
         filtered_prots = []
-        filtered_prots.append(header)
+        if header != "":
+            filtered_prots.append(header)
         
     for prot in content:
         filter_value = float(filter_value)
