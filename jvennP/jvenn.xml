@@ -106,6 +106,70 @@
 		    <discover_datasets pattern="(?P&lt;designation&gt;.+_venn).txt" ext="txt" />
 		</collection>
 	</outputs>
+	<tests>
+	    <test>
+	        <repeat name="series">
+	            <conditional name="se">
+	                <param name="input" value="mq_file" />
+	                <param name="mq_file" value="DESeq.txt" />
+	                <param name="header" value="false" />
+	                <param name="ncol" value="c1" />
+	                <param name="name" value="DESeq" />
+	            </conditional>
+	        </repeat>
+	        <repeat name="series">
+	            <conditional name="se">
+	                <param name="input" value="mq_file" />
+	                <param name="mq_file" value="FQ.txt" />
+	                <param name="header" value="false" />
+	                <param name="ncol" value="c1" />
+	                <param name="name" value="FQ" />
+	            </conditional>
+	        </repeat>
+	        <repeat name="series">
+	            <conditional name="se">
+	                <param name="input" value="mq_file" />
+	                <param name="mq_file" value="RPKM.txt" />
+	                <param name="header" value="false" />
+	                <param name="ncol" value="c1" />
+	                <param name="name" value="RPKM" />
+	            </conditional>
+	        </repeat>
+	        <repeat name="series">
+	            <conditional name="se">
+	                <param name="input" value="mq_file" />
+	                <param name="mq_file" value="TC.txt" />
+	                <param name="header" value="false" />
+	                <param name="ncol" value="c1" />
+	                <param name="name" value="TC" />
+	            </conditional>
+	        </repeat>
+	        <repeat name="series">
+	            <conditional name="se">
+	                <param name="input" value="mq_file" />
+	                <param name="mq_file" value="TMM.txt" />
+	                <param name="header" value="false" />
+	                <param name="ncol" value="c1" />
+	                <param name="name" value="TMM" />
+	            </conditional>
+	        </repeat>
+	        <repeat name="series">
+	            <conditional name="se">
+	                <param name="input" value="mq_file" />
+	                <param name="mq_file" value="UQ.txt" />
+	                <param name="header" value="false" />
+	                <param name="ncol" value="c1" />
+	                <param name="name" value="UQ" />
+	            </conditional>
+	        </repeat>
+	        <output name="output_summary" file="summary.html" />
+	        <output name="output_text" file="text_venn.txt" />
+	        <!--output_collection name="output_text" type="list" >
+	            <discovered_dataset designation="text" ftype="tabular" />
+	        </output_collection-->
+	                
+	    </test>
+	</tests>
 	<help>
 
 This tool draw a venn diagram from lists/files using Jvenn plug-in. It also creates output files that contain common or specific elements between query and each compared lists/files.
@@ -149,4 +213,6 @@ Venn diagram: Could be downloaded as image (PNG, SVG)
 Text files containing common/specific elements between query and each compared lists/files.
 
 	</help> 
+	<citations>
+    </citations>
 </tool>
