@@ -27,7 +27,7 @@
   font-family: Lucida Grande,Lucida Sans Unicode,Lucida Sans,Geneva,Verdana,sans-serif;
   background: rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
-  color: #fff;
+  color: #000000;
   vertical-align:top;
 }
 .photo{
@@ -38,4 +38,6 @@
   width: 10%;
 
 }
-
+.input{
+  color: #000000;
+}

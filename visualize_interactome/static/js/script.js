@@ -8,26 +8,521 @@ var edges_pathway = []; // edges belonging to the current selected pathway
 var nodes_pathway = []; // nodes belonging to the current selected pathway
 
 
-// shows/hides nodes if the score is above/under a certain threshold 
-function scoreImpact(){
-  
-  var score = document.getElementById('myScore').value;
 
-  cy.edges().filter('[weight>='+score+']').css({'opacity': 0.8});
-  cy.edges().filter('[weight<'+score+']').css({'opacity': 0});
+// All values associated to nodes and edges parameters
+var nodes_parameters_values = {};
+var edges_parameters_values = {};
 
+// Dictionnaries associating nodes/edges parameters to boolean values : true if
+// the parameter is a numeric parameter false if it is not 
+var nodes_parameters_is_numeric = {};
+var edges_parameters_is_numeric = {};
+
+// Header from the edges and nodes attributes files 
+var headerEdges = [];
+var headerNodes = [];
+
+// boolean value, true if a node/edge parameter menu/range slider has been
+// added to the config div 
+var param_node_has_been_added = false;
+var param_edge_has_been_added = false;
+
+// name of the node/edge parameter added (if a parameter has been added), by
+// default all
+var param_node_added = "all";
+var param_edge_added = "all";
+
+// Array of highlighted nodes/edges
+var nodes_highlighted = []; 
+var edges_highlighted = [];
+
+// Returns unique elements in an array 
+uniqueArray = function(my_array) {
+  var n = {},r=[];
+  for(var i = 0; i < my_array.length; i++) 
+  {
+    if (!n[my_array[i]]) 
+    {
+      n[my_array[i]] = true; 
+      r.push(my_array[i]); 
+    }
+  }
+  return r;
 }
 
 
+// returns false if at least one element of the input array is not numeric
+function checkIfNumeric(a){
+  console.log(a);
+  for (var e=0; e < a.length; e++){
+    console.log(a[e]);
+    if ($.isNumeric(a[e])==false && a[e]!="None" && a[e]!="NA" && a[e]!=NaN && a[e]!=null && a[e]!=undefined && a[e]!="No interactants found"){
+        return(false)
+    }
+  }
+  return(true); 
 
-function createNetwork(data,datatype){
- 
+}
 
-  if (datatype == "json"){
+// return the json format for edges'data
+function getEdges(data,idBaitnb,idPreynb,idEdgesParams,headerNetworkFile){
+
+    var edges = [];
+    // decrease the column's number of -1 so that first index is 0 and not 1 
+    var idBait = idBaitnb-1; 
+	  var idPrey = idPreynb-1;
+    
+    var headerEdges = [];
+    
+
+    var edge_data;
+    var node_data;
+
+    var all_nodes = [];
+
+    // the Json object usable by Cytoscape JS is as follows : 
+    // { elements : {
+    //    "nodes" : [
+    //        { "data": {"id" : "1", "something": "somethingelse"}},
+    //        ...
+    //        ],
+    //    "edges" : [ 
+    //        { "data": {"id" : "1to2","source":"1","target":"2"}},
+    //        ...
+    //        ]
+    //    }
+    //  }
+    //  Here we want to get the edges array.
+    // NB : for unknown reasons, papaparse adds an empty array at the end of the
+    // parsed data from the csv. In order to avoir this empty array, the loops
+    // stops at data["data"].length-1
+    if (headerNetworkFile=="true"){
+      var headerEdges = data["data"][0]; // contains the header of the file     
+
+      // prepare a dictonnary with edge's parameters as keys and arrays of values
+      // associated to each parameter as key values 
+      for (var i=0; i < idEdgesParams.length; i++){
+      
+        edges_parameters_values[headerEdges[idEdgesParams[i]-1]] = [];
+      }
+       
+      for (var i=1; i < data["data"].length -1; i++){
+	      
+	      // add the basic information for each edge : id, source and target. 
+	      edge_data = {"data":{"id":String(data["data"][i][idBait]+"_"+data["data"][i][idPrey]),"source":String(data["data"][i][idBait]),"target":String(data["data"][i][idPrey])}};
+	     
+	        // add additional information if the user entered edges's parameters  
+	        if (idEdgesParams!="none"){
+	          for (var j=0; j < idEdgesParams.length; j++){
+	
+	            edge_data["data"][headerEdges[idEdgesParams[j]-1]] = data["data"][i][idEdgesParams[j]-1];
+	
+	            edges_parameters_values[headerEdges[idEdgesParams[j]-1]].push(data["data"][i][idEdgesParams[j]-1]);
+	          }
+	      }
+	      // stock edge data in edges
+	      edges.push(edge_data)
+	      // stock the source and target of each edge in all_nodes
+	      all_nodes.push(data["data"][i][idBait]);
+	      all_nodes.push(data["data"][i][idPrey]);
+	    }
+    }else{
+
+      // prepare a dictonnary with edge's parameters as keys and arrays of values
+      // associated to each parameter as key values 
+      for (var i=0; i < idEdgesParams.length; i++){
+      
+        edges_parameters_values["Column_"+idEdgesParams[i]] = [];
+      }
+
+      for (var i=0; i < data["data"].length -1; i++){
+
+	      // add the basic information for each edge : id, source and target. 
+	      edge_data = {"data":{"id":String(data["data"][i][idBait]+"_"+data["data"][i][idPrey]),"source":String(data["data"][i][idBait]),"target":String(data["data"][i][idPrey])}};
+      
+
+	    // add additional information if the user entered edges's parameters  
+	    if (idEdgesParams!="none"){
+	      for (var j=0; j < idEdgesParams.length; j++){
+	        edge_data["data"]["Column_"+idEdgesParams[j]] = data["data"][i][idEdgesParams[j]-1];
+	        edge_data["data"][headerEdges[idEdgesParams[j]-1]] = data["data"][i][idEdgesParams[j]-1];
+	
+	        edges_parameters_values["Column_"+idEdgesParams[j]].push(data["data"][i][idEdgesParams[j]-1]);
+	        }
+	      }
+      
+	    // stock edge data in edges
+	    edges.push(edge_data)
+	    // stock the source and target of each edge in all_nodes
+	    all_nodes.push(data["data"][i][idBait]);
+	    all_nodes.push(data["data"][i][idPrey]);
+      }
+    }
+    // nodes from the network file have been stocked in all_nodes and some are duplicated so we remove the duplicated nodes with the function uniqueArray 
+    all_nodes = uniqueArray(all_nodes);
+    return [edges,all_nodes];
+}
+
+function getNodes(node_attributes,all_nodes,idNode, headerNodeFile){
   
-    json_input = data.elements;
+  var nodes = [];
+  var nodes_added = [];
+  var node_data;
+  idNode = idNode -1;
+ 
+  // get the specific elements of an array compared to another array
+  // e.g : [1,2,3,4,5,6].diff( [3,4,5] ) => [1, 2, 6]  
+  Array.prototype.diff = function(a) {
+      return this.filter(function(i) {return a.indexOf(i) < 0;});
+  };
+
+
+  // first if there is a  node attributes file, add all the nodes from the node
+  // attributes file to the nodes variable
+  if (node_attributes!="none"){
+    if (headerNodeFile=="true"){
+      var headerNode = node_attributes["data"][0];
+        
+      // prepare a dictonnary with node's parameters as keys and arrays of values
+      // associated to each parameter as key values 
+      for (var i=0; i < headerNode.length; i++){
+        if (i!=idNode){ 
+          nodes_parameters_values[headerNode[i]] = [];
+        }
+      }
+      for (var i=1; i < node_attributes["data"].length -1; i++){
+        node_data = {"data":{"id":String(node_attributes["data"][i][idNode])}};
+        nodes_added.push(node_attributes["data"][i][idNode]);
+            for (var j=0; j < node_attributes["data"][i].length; j++){
+              if (j!=idNode){
+                node_data["data"][headerNode[j]]= node_attributes["data"][i][j];
+                nodes_parameters_values[headerNode[j]].push(node_attributes["data"][i][j]); 
+              }
+            }
+      nodes.push(node_data);
+      }
+      
+    }else{
+
+      // prepare a dictonnary with node's parameters as keys and arrays of values
+      // associated to each parameter as key values 
+      for (var i=0; i < node_attributes["data"][0].length; i++){
+        if (i!=idNode){ 
+          var nb = i+1;
+          nodes_parameters_values["Column_"+nb] = [];
+        }
+      }
+      
+      for (var i=0; i < node_attributes["data"].length -1; i++){
+        node_data = {"data":{"id":String(node_attributes["data"][i][idNode])}};
+        nodes_added.push(node_attributes["data"][i][idNode]);
+        for (var j=0; j < node_attributes["data"][i].length; j++){
+              if (j!=idNode){
+                var nb = j+1;
+                node_data["data"]["Column_"+nb]= node_attributes["data"][i][j];
+
+                nodes_parameters_values["Column_"+nb].push(node_attributes["data"][i][j]);
+
+              }
+            }
+      nodes.push(node_data);
+      }  
+    }
+    // now check in case there are nodes in the network that are not in the node
+    // attributes file (e.g : if the user has only annotated some nodes of his
+    // network and not all the nodes)
+    var nodes_spec_to_network_file = all_nodes.diff(nodes_added);
+    if (nodes_spec_to_network_file.length!=0){
+
+    if (headerNodeFile=="true"){
+        
+      for (var i=0; i < nodes_spec_to_network_file.length; i++){
+        node_data = {"data":{"id":String(nodes_spec_to_network_file[i])}};
+            for (var j=0; j < node_attributes["data"][0].length; j++){
+              if (j!=idNode){
+                node_data["data"][headerNode[j]]= "NA"; 
+                nodes_parameters_values[headerNode[j]].push("NA"); 
+              }
+            }
+      nodes.push(node_data);
+      }
+
+      
+    }else{
+      for (var i=0; i < nodes_spec_to_network_file.length; i++){
+ 
+       node_data = {"data":{"id":String(nodes_spec_to_network_file[i])}};
+       for (var j=0; j < node_attributes["data"][0].length; j++){
+              if (j!=idNode){
+                var nb = j+1;
+                node_data["data"]["Column_"+nb]= "NA"; 
+                nodes_parameters_values["Column_"+nb].push("NA");
+              }
+            }
+      nodes.push(node_data);
+        }  
+      }
+    }
   }
 
+  // If there is no node attributes file, add all the nodes from the all_nodes variable
+  if (node_attributes=="none"){
+    for (var i=0; i< all_nodes.length; i++){
+      node_data = {"data":{"id":String(all_nodes[i])}};
+      nodes.push(node_data);  
+    }
+
+  }
+
+
+  return nodes;
+}
+
+// convert the text variables for node and edge attributes into a usable json
+// variable for cytoscape js
+function convertToJSON(data,idBaitnb,idPreynb,node_attributes, idEdgesParams, headerNetworkFile, headerNodeFile,idNode){
+
+    
+    // parse the edge attributes file into a text variable
+    Papa.parse(data,{header:false,dynamicTyping:true,delimiter:"\t",complete: function(results){data = results;}});
+
+    var network_data = getEdges(data,idBaitnb,idPreynb,idEdgesParams,headerNetworkFile);
+    var edges = network_data[0];
+    var all_nodes = network_data[1];
+
+
+    var nodes = getNodes(node_attributes,all_nodes,idNode, headerNodeFile);
+    
+    // for each node parameter get an array of its unique values
+    for (var i = 0; i < Object.keys(nodes_parameters_values).length; i++){
+      nodes_parameters_values[Object.keys(nodes_parameters_values)[i]] = uniqueArray(nodes_parameters_values[Object.keys(nodes_parameters_values)[i]]); 
+    }
+
+    // for each edge parameter get an array of its unique values
+    for (var i = 0; i < Object.keys(edges_parameters_values).length; i++){
+      edges_parameters_values[Object.keys(edges_parameters_values)[i]] = uniqueArray(edges_parameters_values[Object.keys(edges_parameters_values)[i]]); 
+    }
+    // indicate if the nodes/edges parameters are numeric or not
+    for (var i=0; i < Object.keys(nodes_parameters_values).length; i++){
+      nodes_parameters_is_numeric[Object.keys(nodes_parameters_values)[i]] = checkIfNumeric(nodes_parameters_values[Object.keys(nodes_parameters_values)[i]]);
+
+    }
+
+    for (var i=0; i < Object.keys(edges_parameters_values).length; i++){
+      edges_parameters_is_numeric[Object.keys(edges_parameters_values)[i]] = checkIfNumeric(edges_parameters_values[Object.keys(edges_parameters_values)[i]]);
+
+    }
+    var final_data = {elements: {nodes: nodes, edges: edges}}
+    return(final_data);
+}
+// Add menu bar for "filter by node/edge parameters"
+function addFilterMenus(){
+  
+  var div = document.getElementById('config');
+  
+  // add edge filter menu
+  var html = '<select name=\"selectEdgeParams\" id=\"selectEdgeParams\" onclick=\"selectEdgeParam()\">';
+
+  html = html + '<option value=\"all\" selected> Filter edge parameters</option>';
+  
+  for (var i=0; i < Object.keys(edges_parameters_values).length; i++){
+      html = html + '<option value=\"';
+      html = html + Object.keys(edges_parameters_values)[i];
+      html = html + '\">';
+      html = html + Object.keys(edges_parameters_values)[i];
+      html = html + '</option>';
+  } 
+  html = html + '</select>';
+  div.innerHTML = div.innerHTML + html;
+
+
+  // same for nodes
+  html = '<select name=\"selectNodeParams\" id=\"selectNodeParams\" onclick=\"selectNodeParam()\">';
+
+  html = html + '<option value=\"all\" selected> Filter node parameters</option>';
+  for (var i=0; i < Object.keys(nodes_parameters_values).length; i++){
+      html = html + '<option value=\"';
+      html = html + Object.keys(nodes_parameters_values)[i];
+      html = html + '\">';
+      html = html + Object.keys(nodes_parameters_values)[i];
+      html = html + '</option>';
+  } 
+  html = html + '</select>';
+  div.innerHTML = div.innerHTML + html;
+
+}
+
+// add an edge parameter menu/range slider 
+function selectEdgeParam(){
+
+  // get the name of the edge parameter selected
+  var param = document.getElementById('selectEdgeParams').value;
+  var div = document.getElementById('config');
+  var html;
+  // if an edge parameter menu/range slider is already present, remove it
+  if (param_edge_has_been_added == true){
+    $('#edgeElementAdded').remove();
+    param_edge_has_been_added=false;
+  }
+  
+  // if edges are highlighted due to the last edge parameter selected remove the highlight 
+  if (edges_highlighted.length!=0){
+    edges_highlighted.removeClass('highlight-edge');
+    edges_highlighted = [];
+  }
+  // if the parameter not the line "Select an edge parameter"
+  if (param!="all"){
+    // if the selected parameter is numeric, create a range slider
+	  if (edges_parameters_is_numeric[param]){
+	
+	      var min_value = Math.min.apply(null, edges_parameters_values[param]);      
+	      var max_value = Math.max.apply(null, edges_parameters_values[param]);
+        // let's get an interval of 100 values
+        var step = (max_value - min_value)/100;
+	      html = "<form id=\"edgeElementAdded\" oninput=\"scoreoutput.value = numScore.value;\">"+param+"<input type=\"range\" name=\"numScore\" id=\"numScore\" onclick=\"hideShowEdges()\" value=\""+min_value+"\" max=\""+max_value+"\" min=\""+min_value+"\" step=\""+step+"\"><output name=\"scoreoutput\"></output></form>"
+        div.innerHTML = div.innerHTML + html;
+	      $('#selectEdgeParams option:contains('+param+')').prop({selected: true});
+	  }else{
+	      // else create a menu with all the edge parameter unique values
+	      html = '<select name=\"edgeElementAdded\" id=\"edgeElementAdded\" onclick=\"highlightEdges()\"><option value=\"all\" selected>Choose an edge value</option>';
+	      for (var i=0; i < edges_parameters_values[param].length;i++){
+	        html += '<option value=\"'+edges_parameters_values[param][i]+'\">'+edges_parameters_values[param][i]+'</option>';
+	
+	      }
+	      html += '</select>';
+	      div.innerHTML = div.innerHTML + html;
+	
+	  }
+    // force the edge parameter menu to stay on the selected edge parameter
+	  $('#selectEdgeParams option:contains('+param+')').prop({selected: true});
+	  // same for the nodes
+    $('#selectnodeParams option:contains('+param_node_added+')').prop({selected: true});
+
+    param_edge_has_been_added=true;
+    param_edge_added = param;
+  } 
+
+}
+// same as selectEdgeParam() but for node parameter selection
+function selectNodeParam(){
+
+  var param = document.getElementById('selectNodeParams').value;
+  var div = document.getElementById('config');
+  var html;
+
+  if (param_node_has_been_added == true){
+    $('#nodeElementAdded').remove();
+    param_node_has_been_added=false;
+  }
+
+  if (nodes_highlighted.length!=0){
+    nodes_highlighted.removeClass('highlight-node');
+    nodes_highlighted = [];
+  }
+
+  cy.nodes().css({'opacity': 1});
+  
+
+  if (param!="all"){
+	  if (nodes_parameters_is_numeric[param]){
+	
+	      var min_value = Math.min.apply(null, nodes_parameters_values[param]);      
+	      var max_value = Math.max.apply(null, nodes_parameters_values[param]);
+        
+        // let's get an interval of 100 values
+        var step = (max_value - min_value)/100;
+	      html = "<form id=\"nodeElementAdded\" oninput=\"scoreoutput.value = numScore.value;\">"+param+"<input type=\"range\" name=\"numScore\" id=\"numScore\" onclick=\"hideShowNodes()\" value=\""+min_value+"\" max=\""+max_value+"\" min=\""+min_value+"\" step=\""+step+"\"><output name=\"scoreoutput\"></output></form>"
+	      div.innerHTML = div.innerHTML + html;
+	      $('#selectnodeParams option:contains('+param+')').prop({selected: true});
+	  }else{
+	      
+	      html = '<select name=\"nodeElementAdded\" id=\"nodeElementAdded\" onclick=\"highlightNodes()\"><option value=\"all\" selected>Choose a node value</option>';
+	      for (var i=0; i < nodes_parameters_values[param].length;i++){
+	        html += '<option value=\"'+nodes_parameters_values[param][i]+'\">'+nodes_parameters_values[param][i]+'</option>';
+	
+	      }
+	      html += '</select>';
+	      div.innerHTML = div.innerHTML + html;
+	
+	  }
+	  $('#selectNodeParams option:contains('+param+')').prop({selected: true});
+	  $('#selectEdgeParams option:contains('+param_edge_added+')').prop({selected: true});
+
+    param_node_has_been_added = true;
+    param_node_added = param;
+  }
+}
+
+// Highlight nodes corresponding to the value of nodeElementAdded 
+function highlightNodes(){
+
+  if (nodes_highlighted.length!=0){
+    nodes_highlighted.removeClass('highlight-node');
+    nodes_highlighted = [];
+  }
+  
+  var param = document.getElementById('selectNodeParams').value;
+  var value = document.getElementById("nodeElementAdded").value;
+ 
+   
+  if (value!="all"){
+	  nodes_highlighted = cy.nodes().filter(function(ele){ return ele.data(param).indexOf(value) >=0;});
+    nodes_highlighted.addClass('highlight-node');
+  }
+  
+}
+
+// Highlight edges corresponding to the value of edgeElementAdded 
+function highlightEdges(){
+
+  if (edges_highlighted.length!=0){
+    edges_highlighted.removeClass('highlight-edge');
+    edges_highlighted = [];
+  }
+  
+
+  cy.edges().css({'opacity': 0.8});
+  var param = document.getElementById('selectEdgeParams').value;
+  var value = document.getElementById("edgeElementAdded").value;
+  if (value!="all"){
+	  edges_highlighted = cy.edges().filter(function(ele){ return ele.data(param).indexOf(value) >=0;});
+    edges_highlighted.addClass('highlight-edge');
+  }
+}
+// shows/hides edges above edgeElementAdded numericalValue if the edge
+// attribute selected is numerical 
+function hideShowEdges(){
+  
+  var param = document.getElementById('selectEdgeParams').value;
+  var value = document.getElementById("numScore").value;
+  
+	cy.edges().filter(function(ele){ return ele.data(param) >= value;}).css({'opacity':0.8});
+	cy.edges().filter(function(ele){ return ele.data(param) < value;}).css({'opacity':0});
+
+
+}
+
+// shows/hides nodes above nodeElementAdded numericalValue if the node
+// attribute selected is numerical 
+function hideShowNodes(){
+  
+  var param = document.getElementById('selectNodeParams').value;
+  var value = document.getElementById("numScore").value;
+  
+  cy.nodes().filter('['+param+'>='+value+']').css({'opacity': 1});
+  cy.nodes().filter('['+param+'<'+value+']').css({'opacity': 0});
+
+}
+
+// create the graph visualization
+function createNetwork(data,idBaitnb, idPreynb, node_attributes, idEdgesParams, headerNetworkFile, headerNodeFile, idNode){
+
+    // get the json variable representing the network and usable by CytoscapeJS
+    // from the tabular input file(s) 
+    json_input = convertToJSON(data,idBaitnb,idPreynb,node_attributes, idEdgesParams,headerNetworkFile,headerNodeFile,idNode);
+    json_input = json_input.elements;
+    
+    // create the cytoscape graph in the cy div
     cy = window.cy = cytoscape({
       container: document.getElementById('cy'),
       elements: json_input,
@@ -37,28 +532,29 @@ function createNetwork(data,datatype){
         style:
         {
           'content':'data(id)',
-          'background-color': 'data(colour)'
         }
       },
       {
         selector: 'node:selected',
         style: {
-          'background-color': 'data(colour)',
           'border-width': '6px',
           'border-color': '#000000',
           'border-opacity': '0.5'
         }
       },
       {
-        selector: '.pathway-edge',
+        selector: '.highlight-edge',
         style: {
-          'line-color': '#ff0000'
+          'line-color': '#000000',
+          'width': '10px'
         }
       },
       {
-        selector: '.pathway-node',
+        selector: '.highlight-node',
         style: {
-          'background-color': '#ff0000'
+          'background-color': '#ff0000',
+          'width':'100px',
+          'height':'100px'
         }
       }
  
@@ -66,6 +562,8 @@ function createNetwork(data,datatype){
     });
 
   // add qtip boxes with links to Nextprot and Uniprot
+  // NB : this works only if the nodes are Uniprot identifiers -> to be
+  // deleted?  
   cy.nodes().qtip({
     content: function(){
 
@@ -116,17 +614,17 @@ function createNetwork(data,datatype){
     zoomOutIcon: 'fa fa-minus',
     resetIcon: 'fa fa-expand'
   };
+
+  // initialize the view with a default zoom
   cy.panzoom(defaults);
   // put to automatically selected layout (here concentric)
   changeLayout();
-  // set minimal and maximal scores for the edge interaction 
-  setMinMaxScore();
-  scoreImpact();
-  // add pathway to the select bar in the config div
-  addPathways();
+  
+  // add menus which allow to manipulate the graph with edge's and node's parameters 
+  addFilterMenus();
 }
 
-
+// Change Layout of the graph
 function changeLayout(){
 
     var html_layout_part = document.getElementById("selectShape");
@@ -141,7 +639,8 @@ function changeLayout(){
 
 
 
-
+// create a concentric graph from a selected node with this node and all its
+// neighborhood nodes
 function viewSelectedNode(){
   var selected_node = cy.$(':selected');
   if (hidden_nodes.length!=0){ 
@@ -165,7 +664,7 @@ function viewSelectedNode(){
   }
 }
 
-// reset the graph to initial zoom and nodes
+// Reset the graph to initial zoom and nodes
 function getGeneralView(){
 
   if (edges_pathway.length!=0){
@@ -182,43 +681,14 @@ function getGeneralView(){
   cy.zoom(0.5);
 }
 
-// color nodes and edges belonging to selected pathway 
-function selectPathway(){
-
-  if (edges_pathway.length!=0){ 
-   for (var e=0; e < edges_pathway.length ; e++){ 
-      edges_pathway[e].removeClass('pathway-edge');
-   }
-    edges_pathway = [];
-  }
-  if (nodes_pathway.length!=0){
-    nodes_pathway.removeClass('pathway-node');
-    nodes_pathway = [];
-  }
-  
-
-  var e = document.getElementById("selectPathway");
-  var pathway = e.options[e.selectedIndex].value;
-  if (pathway!="all"){
-	  nodes_pathway = cy.nodes().filter(function(ele){ return ele.data('pathway').indexOf(pathway) >=0;});
-    nodes_pathway.addClass('pathway-node');
-    var edges_nodes_pathway = nodes_pathway.connectedEdges();
-
-    for (var e=0; e < edges_nodes_pathway.length; e++){
-      if (edges_nodes_pathway[e].source().data('pathway').indexOf(pathway)>=0 && edges_nodes_pathway[e].target().data('pathway').indexOf(pathway)>=0){
-        edges_nodes_pathway[e].addClass('pathway-edge');
-        edges_pathway.push(edges_nodes_pathway[e]);  
-      }
-    }
-
-  }
-}
+// Get a static image of the graph when clicking on the camera icon
 function getPNG(){
   var png_image =  cy.png();
   var openWindow = window.open();
   openWindow.document.body.innerHTML = "<img src="+png_image+" />";
 }
 
+// Zoom on the node with id entered in the search bar
 function searchProt(e){
   if(e.keyCode == 13) {
     var protein_searched = document.getElementById("search").value;
@@ -229,7 +699,7 @@ function searchProt(e){
   }
 }
 
-// shows only nodes with a degree superior or equal to the degree put by the
+// Shows only nodes with a degree superior or equal to the degree put by the
 // user  
 function showNodeWithDegree(e){
 
@@ -241,83 +711,4 @@ function showNodeWithDegree(e){
     }
 }
 
-// set the min and max values of the score slider
-function setMinMaxScore(){
- 
-  var scores = [];
 
-  for (var e=0; e < json_input.edges.length; e++){
-    scores.push(json_input.edges[e]['data']['weight']);
-
-  }
-
-	var min_score = Math.min.apply(null,scores);
-	var max_score = Math.max.apply(null,scores);
-
-	$('#myScore').prop('min', min_score);
-	$('#myScore').prop('max', max_score);
-	$('#myScore').prop('value', min_score);
-	$('#myScore').prop('step', ((max_score-min_score)/100));
-}
-
-// Returns unique elements in an array 
-function uniqueArray(my_array) {
-  var n = {},r=[];
-  for(var i = 0; i < my_array.length; i++) 
-  {
-    if (!n[my_array[i]]) 
-    {
-      n[my_array[i]] = true; 
-      r.push(my_array[i]); 
-    }
-  }
-  return r;
-}
-	
-
-
-// if there is a pathway attribute to the nodes, a pathway select input will be
-// dynamically added to the menu
-function addPathways(){
-
- var nodes_elements = [];
- for (var n=0; n < json_input.nodes.length; n++){
- 
-   for (var e=0; e < Object.keys(json_input.nodes[n]['data']).length; e++){
-      nodes_elements.push(Object.keys(json_input.nodes[n]['data'])[e]);
-   }
-
- } 
-
-  nodes_elements = uniqueArray(nodes_elements);
-
-  if ($.inArray('pathway', nodes_elements) > -1){
-    getPathwayValues();
-  
-	  var html = "";
-
-	  for (var p=0; p < all_pathways.length; p++){
-	    html += "<option value=\""+all_pathways[p]+"\" >"+all_pathways[p]+"</option>";
-	  }
-	  document.getElementById("selectPathway").innerHTML += html;
-  }
-} 
-
-// get the different pathway values from the json input
-
-function getPathwayValues(){
-  
-  var pathway = "";
-
- for (var n=0; n < json_input.nodes.length; n++){
-   
-    pathway = json_input.nodes[n]['data']['pathway'];
-    if (pathway!="None"){
-      for (var p=0; p < pathway.length; p++){
-        all_pathways.push(pathway[p]);
-      }    
-    }
- } 
-  all_pathways = uniqueArray(all_pathways);
-
-}

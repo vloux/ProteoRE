@@ -10,10 +10,8 @@
       root = h.url_for( '/' )
                     %>
 
-    <!--<script type="text/javascript"
-src="/static/scripts/libs/jquery/jquery.js"></script>-->
-
-    ${h.js('libs/jquery/jquery')}
+    <!-- Include here all JS and CSS scripts -->
+    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/jquery.js')}
     ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/style.css' )}
     ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/font-awesome-4.0.3/css/font-awesome.css' )}
     ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/cytoscape.js-panzoom.css' )}
@@ -22,6 +20,7 @@ src="/static/scripts/libs/jquery/jquery.js"></script>-->
     ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/cytoscape-panzoom.js' )}
     ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/jquery.qtip.js' )}
     ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/script.js' )}
+    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/papaparse.min.js' )}
     ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/cytoscape-qtip.js' )}
 
   </head>
@@ -35,10 +34,6 @@ src="/static/scripts/libs/jquery/jquery.js"></script>-->
     <!-- config div for user changeable parameters on the cytoscape graph -->
     <div id="config" class="config">
 
-      <!-- Select Pathway dynamically generated bar-->
-      <select name="selectPathway" id="selectPathway" onclick="selectPathway()">
-      <option value="all" selected>Choose a pathway</option>
-      </select>
       
       <!-- Change graph layout -->
       <select name="select" id="selectShape" onclick="changeLayout()">
@@ -55,40 +50,86 @@ src="/static/scripts/libs/jquery/jquery.js"></script>-->
                 value="breadthfirst">breadthfirst</option>
       </select>
       <!-- Restore graph to its initial form -->
-      <button type="button" onclick="getGeneralView()">Global View</button>
+      <button type="button" onclick="getGeneralView()">Reset View</button>
       <!-- Focus on a selected node --> 
       <button type="button" onclick="viewSelectedNode()">Node-centric View</button>
       <!-- Search bar for a node -->
-      <input type="search" id="search" placeholder="Search Protein" onkeydown="searchProt(event)">  
+      <input type="search" id="search" placeholder="Search Node by id" onkeydown="searchProt(event)">  
       
       <!-- Filter the graph by node degree -->
-      <input type="search" id="filterdegree" placeholder="Filter proteins with degree >= ..." onkeydown="showNodeWithDegree(event)">  
-      
-      
-     <!-- Display edges interaction score and affect graph edges display-->
-      <form id="scoreform" oninput="scoreoutput.value = myScore.value;">  
-      
-        Score
-      <input type="range" name="myScore" id="myScore" max="1" min="0" value="1" step="0.001" onclick="scoreImpact()">
-        <output name="scoreoutput"></output>
-      </form>
-
+      <input type="search" id="filterdegree" placeholder="Filter nodes with degree >= ..." onkeydown="showNodeWithDegree(event)">  
+       
+      </div>
       <!-- Camera icon button to output a png image of the graph -->
       <div id="photo" class="photo">
       <button type="button" onclick="getPNG()"><img src="./static/img/appphoto.png" title="Get a PNG screenshot" width="50px"/></button>
       </div>
 
+      <!-- Initial div where the user has to specify the network
+        characteristics (interactant's columns, node attributes file) -->
+      <div id="initdiv" class="initdiv">
+        <button type="button" onclick="visualize()">Visualize!</button>
+      </div>
 
 
       <script>
 
-    // once HTML page has been loaded
+      //var query = '/api/histories/'+'${trans.security.encode_id(trans.history.id)}/contents?details=all';
+      // get the query for all history data which have not been deleted 
+      var query = '/api/histories/'+'${trans.security.encode_id(trans.history.id)}/contents?deleted=false';
+      console.log("before query");
+      // get the details of the data in the history 
+      $.ajax({url: query, dataType : 'json', async: true, success: function(data){console.log(data);return(data);}}).done(function(data){ 
+      var historycontents = data;
+      console.log(historycontents); 
+      // add content to the initial div - namely the fields to enter edges and
+      // nodes data 
+      var hdaExt = '${hda.ext}';
+      var div_contents = "<p>Visualize Interactomes with CytoscapeJS</p>"
+      if (hdaExt == "tabular" || hdaExt == "txt"){
+        div_contents = div_contents + '<form> First interactant column:<br><input type="text" name="firstint" id="firstint"><br> Second interactant column:<br> <input type="text" name="secondint" id="secondint"><br> Edges\' attributes columns (comma-separated : eg 1,3,7) :<br> <input type="text" name="secondint" id="edgesatt"> <br><form> Does your network file have a header? <br><input type="radio" name="header" value="true" checked>Yes<br><input type="radio" name="header" value="false">No</form>Do you want to add node attributes from an history dataset? <br><select name="selectNodesAttributes" id="selectNodesAttributes"><option value="none" selected>Add no node attributes file</option><br>';
+     
+        
+      for (var i=0; i < historycontents.length; i++){
+        div_contents = div_contents + '<option value='+historycontents[i]["id"]+'>'+historycontents[i]["hid"]+': '+historycontents[i]["name"]+'</option>';
 
-		$(document).ready(function() {
-		
+      }
+      
+      div_contents = div_contents + '</select><br></form>';
+      div_contents = div_contents + '<form> If yes please enter the number of the column containing the nodes identifiers:<br><input type="text" name="idnode" id="idnode"> <br> If yes, does this file have a header (column names)? <br><input type="radio" name="headerNode" value="true" checked>Yes<br><input type="radio" name="headerNode" value="false">No</form>';
+      $('#initdiv').prepend(div_contents);
+           
+      }
+
+      });
+
+
+    // function to launch visualization once the parameters have been entered
+    function visualize(){
+
+      // number of the first column in the tabular interactome file to contain
+      // interactants identifiers
+      var idBaitnb = parseInt(document.getElementById("firstint").value);
+
+      // number of the second column in the tabular interactome file to contain
+      // interactants identifiers
+      var idPreynb = parseInt(document.getElementById("secondint").value);
+      // number of the columns containing the edges parameters
+      var idEdgesParams = document.getElementById("edgesatt").value;
+      // number of the column in the node attributes file containing   
+      var idNode = parseInt(document.getElementById("idnode").value);
+      // does the network file have a header or not
+      var headerNetworkFile = $('input[name="header"]:checked').val();
+      // does the node attributes file have a header or not
+      var headerNodeFile = $('input[name="headerNode"]:checked').val();
+      // split the column's numbers of the edge attributes by the comma
+      if (idEdgesParams==""){
+        idEdgesParams = "none";
+      }else{
+        idEdgesParams = idEdgesParams.split(",");
+		  }
 
       // get information on the dataset the visualization is applied on
-		  var hdaExt = '${hda.ext}';
 		
 		  var hdaName = '${ hda.name | h }';
 		  var hdaId = '${trans.security.encode_id( hda.id )}';
@@ -96,15 +137,43 @@ src="/static/scripts/libs/jquery/jquery.js"></script>-->
 		  var apiUrl = '${h.url_for( "/" ) + "api/datasets"}';
 		
 		  var dataUrl = rawUrl + '/' + hdaId + '/display?to_ext=txt';
+	
+      // get the identifiers of the node attributes file  
+      var nodeId = document.getElementById("selectNodesAttributes").value;
+
+      // query to get the history file
+      var nodeFileUrl = rawUrl + '/' + nodeId +'/display?to_ext=txt';
+  
+      var node_attributes;
+
+	    $('#initdiv').remove();
+      // If no file was selected put the node_attributes variable to "none"
+      if (nodeId=="none"){
+        node_attributes="none";
+        // Launch creation of the network
+        $.ajax(dataUrl, {dataType :'text',success: function(data){createNetwork(data, idBaitnb,idPreynb,node_attributes,idEdgesParams, headerNetworkFile, headerNodeFile,idNode) }});
+      }else{
+        // else get the selected history data as a text variable
+        $.ajax(nodeFileUrl,{dataType :'text',async: true, success:
+          function(data){node_attributes = data;}}).done(function(){
+     
+       // use papa parse to parse the text variable containing the nodes
+       // attributes - to see if we can delete this step (as we go through the
+       // generated JSON object it may be unecessary to first parse the text
+       // into a json object. Best would be to directly parse the text
+       // variable)
+        Papa.parse(node_attributes,{header:false,dynamicTyping:true,delimiter:"\t",complete:
+          function(results){node_attributes = results;}});
+
+      // Launch creation of the network
+      $.ajax(dataUrl, {dataType :'text',success: function(data){createNetwork(data, idBaitnb,idPreynb,node_attributes,idEdgesParams, headerNetworkFile, headerNodeFile,idNode) }});
+        });
+        }
+      
+		  
 		
-		  // if dataset format is json then proceed to create the network 
-      if (hdaExt == "json"){
-		    $.ajax(dataUrl, {dataType : 'json', success : function(data){createNetwork(data,hdaExt) }});
-		  }
 		
-		
-		
-		});
+    }
       </script>
 
   </body>
