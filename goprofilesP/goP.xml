@@ -4,7 +4,7 @@
     <requirements>
         <!--requirement type="package" version="3.2.1">R</requirement>
         <requirement type="package" version="3.2.3">org.Hs.eg.db</requirement-->
-        <requirement type="package" version="1.32.0">goProfiles</requirement>
+        <!--requirement type="package" version="1.32.0">goProfiles</requirement-->
     </requirements>
     <stdio>
         <exit_code range="1:" />
@@ -112,6 +112,28 @@ P13647 ' />
 	        <discover_datasets pattern="(?P&lt;designation&gt;.+\.pdf)" ext="pdf" />
 	    </collection>
     </outputs>
+    <tests>
+        <test>
+            <conditional name="input">
+                <param name="ids" value="file" />
+                <param name="file" value="UnipIDs.txt" />
+                <param name="ncol" value="c1" />
+                <param name="header" value="false" />               
+            </conditional>
+            <param name="onto_opt" value="CC,MF,BP" />
+            <param name="level" value="2" />
+            <param name="per" value="true" />
+            <param name="title" value="Test" />
+            <section name="opt" >
+                <param name="plot_opt" value="PDF" />
+            </section>
+            <output_collection name="output" type="list" >
+                <element name="profile.BP.pdf" file="profile.BP.pdf" ftype="pdf" />
+                <element name="profile.MF.pdf" file="profile.MF.pdf" ftype="pdf" />
+                <element name="profile.CC.pdf" file="profile.CC.pdf" ftype="pdf" />
+            </output_collection>
+        </test>
+    </tests>
     <help><![CDATA[
 This tool , based on the GoProfiles R package, performs Gene Ontology (GO) based analysis for gene sets (from ‘Entrez’) or other type of biological identifiers (Uniprot, BiocProbes or GoTermsFrame) which can be annotated in the Gene Ontology. You can choose one or more GO categories, GO level at which the profile has to be built, display and/or export bar plots (with absolute or relative frequencies), for more details, please read: <I> Salicrú M, Ocaña J, Sánchez-Pla A. Comparison of lists of genes based on functional profiles. BMC Bioinformatics. 2011;12:401. </I> 
 
