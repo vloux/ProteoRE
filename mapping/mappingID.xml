@@ -116,6 +116,23 @@ P13647 ' />
     <outputs>
         <data name="output" format="tabular" />
     </outputs>
+    <tests>
+        <test>
+            <conditional name="input">
+                <param name="ids" value="file" />
+                <param name="file" value="UnipIDs.txt" />
+                <param name="header" value="false" />
+                <param name="ncol" value="c1" />
+            </conditional>
+            <conditional name="idti">
+                <param name="idtypein" value="UniProt" />
+            </conditional>
+            <section name="idto">
+                <param name="idtypeout" value="ENSG,ENSP,HGNC" />
+            </section>
+            <output name="output" file="output1.txt" />
+        </test>
+    </tests>
     <help><![CDATA[
 This tool converts a list of IDs to another identifier type, select the source and target type from the dropdown menus above (see below supported source and target types).
 
