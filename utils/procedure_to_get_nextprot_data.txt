@@ -1,0 +1,18 @@
+Guidelines to retrieve information from Nextprot : 
+
+Nextprot data (for now : Nextprot ID, molecular weight, sequence length, isoelectric point, chromosome, subcellular location, diseases, number of trans-membrane domains and level of existence PE) can be retrieved using the scripts in the utils directory on https://github.com/ifb-git/ProteoRE.
+
+Steps :
+
+1) Make sure that the script get_data_nextprot.sh and the file nextprot_ac_list_all.txt are in the same directory. The file nextprot_ac_list_all.txt contains all the nextprot ids and can be downloaded via the following link : ftp://ftp.nextprot.org/pub/current_release/ac_lists/nextprot_ac_list_all.txt .
+
+2) Launch the script get_data_nextprot.sh by using nohup (useful command to execute a job in the background which will still be active even after a logout from the server) on the Migale server. 
+
+3) After around 6 hours check if the script execution has ended. You can use the ps aux command or check that you have the expected number of lines in the result_nextprot.txt file (that should be the number of identifiers in nextprot_ac_list_all.txt plus one line for the header).
+
+WARNINGS : 
+The connection to Nextprot can be cut off. In this case, you have to launch once again the script from the last id not retrieved to the last id of nextprot_ac_list_all.txt. You can for this create a new file containing the ids not retrieved (e.g : new_identifiers.txt) and replace the nextprot variable ligne 14 nextprot=`cat nextprot_ac_list_all.txt` by your new file : nextprot=`cat new_identifiers.txt`.
+
+The logging off with Nextprot is totally random. 
+
+
