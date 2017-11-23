@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import argparse
+
 def human_id_mapping(human_id_mapping_filename, nextprot_filename):
     """
     - Read HUMAN_9606_idmapping_selected.txt file and extract list of IDs:
