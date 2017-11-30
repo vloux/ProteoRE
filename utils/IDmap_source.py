@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""
+Source files:
+    - HUMAN_9606_idmapping_selected.tab - tarball downloaded from ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/
+    - nextprot_ac_list_all.txt downloaded from ftp://ftp.nextprot.org/pub/current_release/ac_lists/
+"""
+
 import argparse
 
 def human_id_mapping(human_id_mapping_filename, nextprot_filename):
@@ -43,7 +49,7 @@ def human_id_mapping(human_id_mapping_filename, nextprot_filename):
     ensembl_trs_index = 19
     ensembl_pro_index = 20
 
-    string = "UniProtKB-AC\tUniProtKB-ID\tGeneID\tRefSeq\tGI\tPDB\tGO\tPIR\tMIM\tUniGene\tEnsembl\tEnsembl_TRS\tEnsembl_PRO\n"
+    string = "neXtProt_ID\tUniProt-AC\tUniProt-ID\tGeneID\tRefSeq\tGI\tPDB\tGO\tPIR\tMIM\tUniGene\tEnsembl\tEnsembl_TRS\tEnsembl_PRO\n"
     uniprot_ac = []
     for line in human_id_mapping_file:
         columns = line.split("\t")
