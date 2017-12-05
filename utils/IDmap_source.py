@@ -2,13 +2,15 @@
 
 """
 Source files:
-    - HUMAN_9606_idmapping_selected.tab - tarball downloaded from ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/
-    - nextprot_ac_list_all.txt downloaded from ftp://ftp.nextprot.org/pub/current_release/ac_lists/
+    - HUMAN_9606_idmapping_selected.tab
+      Tarball downloaded from ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/
+    - nextprot_ac_list_all.txt 
+      Downloaded from ftp://ftp.nextprot.org/pub/current_release/ac_lists/
 """
 
 import argparse
 
-def human_id_mapping(human_id_mapping_filename, nextprot_filename):
+def human_id_mapping(uniprot_human_mapping_filename, nextprot_mapping_filename):
     """
     - Read HUMAN_9606_idmapping_selected.txt file and extract list of IDs:
         1. UniProtKB-AC: Uniprot accession number; only one ID => P31946
@@ -27,12 +29,12 @@ def human_id_mapping(human_id_mapping_filename, nextprot_filename):
     - Read nextprot_ac_list_all.txt file and compare neXtProt ID to UniProt ID
     """
     # Read source files
-    f1 = open(human_id_mapping_filename, "r")
-    human_id_mapping_file = f1.readlines()
+    f1 = open(uniprot_human_mapping_filename, "r")
+    uniprot_human_mapping_file = f1.readlines()
 
-    f2 = open(nextprot_filename, "r")
-    nextprot_file = f2.readlines()
-    nextprot_file = [line.replace("\n", "") for line in nextprot_file] 
+    f2 = open(nextprot_mapping_filename, "r")
+    nextprot_mapping_file = f2.readlines()
+    nextprot_mapping_file = [line.replace("\n", "") for line in nextprot_mapping_file] 
 
     # Index
     uniprot_ac_index = 0
@@ -51,30 +53,30 @@ def human_id_mapping(human_id_mapping_filename, nextprot_filename):
 
     string = "neXtProt_ID\tUniProt-AC\tUniProt-ID\tGeneID\tRefSeq\tGI\tPDB\tGO\tPIR\tMIM\tUniGene\tEnsembl\tEnsembl_TRS\tEnsembl_PRO\n"
     uniprot_ac = []
-    for line in human_id_mapping_file:
+    for line in uniprot_human_mapping_file:
         columns = line.split("\t")
         # Compare nextprot id to uniprot id
         expected_nextprot = "".join(["NX_", columns[uniprot_ac_index]])
-        if expected_nextprot in nextprot_file:
+        if expected_nextprot in nextprot_mapping_file:
             string += expected_nextprot + "\t"
         else:
             string += "NA" + "\t"
 
         # Join selected ids
-	string += columns[uniprot_ac_index] + "\t"
-	string += columns[uniprot_id_index] + "\t"
-	string += columns[gene_id_index] + "\t"
-	string += columns[refseq_index] + "\t"
-	string += columns[gi_index] + "\t"
-	string += columns[pdb_index] + "\t"
-	string += columns[go_index] + "\t"
-	string += columns[pir_index] + "\t"
-	string += columns[mim_index] + "\t"
-	string += columns[unigene_index] + "\t"
-	string += columns[ensembl_index] + "\t"
-	string += columns[ensembl_trs_index] + "\t"
-	string += columns[ensembl_pro_index] + "\n"
-	uniprot_ac.append(columns[uniprot_ac_index])
+        string += columns[uniprot_ac_index] + "\t"
+        string += columns[uniprot_id_index] + "\t"
+        string += columns[gene_id_index] + "\t"
+        string += columns[refseq_index] + "\t"
+        string += columns[gi_index] + "\t"
+        string += columns[pdb_index] + "\t"
+        string += columns[go_index] + "\t"
+        string += columns[pir_index] + "\t"
+        string += columns[mim_index] + "\t"
+        string += columns[unigene_index] + "\t"
+        string += columns[ensembl_index] + "\t"
+        string += columns[ensembl_trs_index] + "\t"
+        string += columns[ensembl_pro_index] + "\n"
+        uniprot_ac.append(columns[uniprot_ac_index])
 
     f1.close()
     f2.close()
@@ -88,25 +90,23 @@ def write_output(content, filename):
 def main():
     """
     Parse arguments:
-        --human_id_mapping_file: pathway to the human ID mapping file
-        --nextprot_file: pathway to the nextprot IDs file
+        --uniprot_human_mapping_file: pathway to the human ID mapping file
+        --nextprot_mapping_file: pathway to the nextprot IDs file
         --output: output filename
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--human_id_mapping_file", help="pathway to the human ID mapping file", required=True)
-    parser.add_argument("--nextprot_file", help="pathway to the nextprot IDs file", required=True)
+    parser.add_argument("--uniprot_human_mapping_file", help="pathway to the human ID mapping file", required=True)
+    parser.add_argument("--nextprot_mapping_file", help="pathway to the nextprot IDs file", required=True)
     parser.add_argument("--output", help="output filename") 
 
     args = parser.parse_args()
-    
-    human_id_mapping_filename = args.human_id_mapping_file 
-    nextprot_filename = args.nextprot_file 
-    content = human_id_mapping(human_id_mapping_filename, nextprot_filename)
+
+    uniprot_human_mapping_filename = args.uniprot_human_mapping_file
+    nextprot_mapping_filename = args.nextprot_mapping_file
+    content = human_id_mapping(uniprot_human_mapping_filename, nextprot_mapping_filename)
     write_output(content, args.output)
 
 if __name__ == "__main__":
     main()
-		
-# python IDmap_source.py --human_id_mapping_file "/Users/LinCun/Documents/ProteoRE/mapping/HUMAN_9606_idmapping_selected.txt" --nextprot_file "/Users/LinCun/Documents/ProteoRE/mapping/nextprot_ac_list_all.txt" --output "mapping_file.txt"	
 
-    
+# python IDmap_source.py --uniprot_human_mapping_file "/Users/LinCun/Documents/ProteoRE/mapping/HUMAN_9606_idmapping_selected.txt" --nextprot_mapping_file "/Users/LinCun/Documents/ProteoRE/mapping/nextprot_ac_list_all.txt" --output "mapping_file.txt"
