@@ -30,7 +30,7 @@
 		        <column name="name" index="1" />
 		        <column name="value" index="2" />
 		        <filter type="remove_value" meta_ref="proteinatlas" key="name" value="Full Human Protein Atlas" />
-                <filter type="remove_value" meta_ref="proteinatlas" key="name" value="Human Tumor Atlas">
+                <filter type="remove_value" meta_ref="proteinatlas" key="name" value="HPA Tumor Tissue" />
 	        </options>
 	    </param>
         <section name="opt_del" title="Choose tissues where expressed genes need to be discarded" expanded="True">
