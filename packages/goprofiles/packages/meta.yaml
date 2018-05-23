@@ -1,0 +1,36 @@
+package:
+  name: goprofiles
+  version: 1.38.0
+
+source:
+  url: https://www.bioconductor.org/packages/release/bioc/src/contrib/goProfiles_1.38.0.tar.gz
+  md5: 117f1c371b092292fa60c95a47d74271
+
+build:
+  number: 0
+  rpaths:
+    - /usr/local/bin/r
+    - lib/R/lib/
+    - lib/
+
+requirements:
+  build:
+    - bioconductor-biobase
+    - bioconductor-annotationdbi
+    - bioconductor-go.db
+    - 'r >=2.10'
+
+  run:
+    - bioconductor-biobase
+    - bioconductor-annotationdbi
+    - bioconductor-go.db
+    - 'r >=2.10'
+
+test:
+  commands:
+    - '$R -e "library(''goProfiles'')"'
+
+about:
+  home: https://www.bioconductor.org/packages/release/bioc/html/goProfiles.html
+  license: 'GPL-2'
+  summary: 'an R package for the statistical analysis of functional profiles'
