@@ -83,7 +83,7 @@ request({
 			}
 
 		}
-		console.log(id+"\t"+mass_mol+"\t"+seqLength+"\t"+isoElec+"\t"+chromosomalLocation+"\t"+all_subcellLocs+"\t"+all_diseases+"\t"+nb_domains+"\t"+"PE"+ent["overview"]["proteinExistenceLevel"]);
+		console.log(id+"\t"+mass_mol+"\t"+seqLength+"\t"+isoElec+"\t"+chromosomalLocation+"\t"+all_subcellLocs+"\t"+all_diseases+"\t"+nb_domains+"\t"+"PE"+ent["overview"]["proteinExistences"]["proteinExistenceInferred"]["proteinExistence"]["level"]);
                 }
       });
 
