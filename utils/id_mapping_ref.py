@@ -4,6 +4,8 @@
 #This script is used to build a reference file "human_id_mapping.tsv" for ID_converter tool
 #It replace the old one written by Lien Nguyen (IDmap_source.py)
 # ex : ./id_mapping_ref.py -1 HUMAN_9606_idmapping.dat -2 HUMAN_9606_idmapping_selected.tab -3 nextprot_ac_list_all.txt
+#for mus musculus, we do not need nextprot ID
+#
 
 import argparse, csv, sys
 csv.field_size_limit(sys.maxsize) # to handle big files
@@ -46,7 +48,8 @@ def human_id_mapping(dat_file, tab_file, all_nextprot):
     """
 
     #header
-    tab = [["UniProt-AC","UniProt-ID","GeneID","RefSeq","GI","PDB","GO","PIR","MIM","UniGene","Ensembl","Ensembl_TRS","Ensembl_PRO","neXtProt","BioGrid","STRING","KEGG"]]
+    if all_nextprot : tab = [["UniProt-AC","UniProt-ID","GeneID","RefSeq","GI","PDB","GO","PIR","MIM","UniGene","Ensembl","Ensembl_TRS","Ensembl_PRO","neXtProt","BioGrid","STRING","KEGG"]]
+    else : tab = [["UniProt-AC","UniProt-ID","GeneID","RefSeq","GI","PDB","GO","PIR","MIM","UniGene","Ensembl","Ensembl_TRS","Ensembl_PRO","BioGrid","STRING","KEGG"]]
 
     #import HUMAN_9606_idmapping_selected.tab and keep only ids of interest
     with open(tab_file,"r") as tab_file :
@@ -62,7 +65,8 @@ def human_id_mapping(dat_file, tab_file, all_nextprot):
     -KEGG
     """
 
-    ids = ['neXtProt','BioGrid','STRING','KEGG' ]   #ids to get from dat_file
+    if all_nextprot : ids = ['neXtProt','BioGrid','STRING','KEGG' ]   #ids to get from dat_file
+    else : ids = ['BioGrid','STRING','KEGG' ]
     unidict = {}
 
     #import HUMAN_9606_idmapping.dat and keep only ids of interest in dictionaries
@@ -84,28 +88,36 @@ def human_id_mapping(dat_file, tab_file, all_nextprot):
     #add ids from HUMAN_9606_idmapping.dat to the final tab
     for line in tab[1:] :
         uniprotID=line[0]
-        nextprot = access_dictionary(unidict,uniprotID,'neXtProt')
-        if uniprotID in unidict :
-            if nextprot != '' : nextprot = clean_nextprot_id(nextprot,line[0])
-            tmp = [nextprot,access_dictionary(unidict,uniprotID,'BioGrid'),
-                    access_dictionary(unidict,uniprotID,'STRING'),access_dictionary(unidict,uniprotID,'KEGG')]
-            line.extend(tmp)
+        if all_nextprot :
+            if uniprotID in unidict :
+                nextprot = access_dictionary(unidict,uniprotID,'neXtProt')
+                if nextprot != '' : nextprot = clean_nextprot_id(nextprot,line[0])
+                line.extend([nextprot,access_dictionary(unidict,uniprotID,'BioGrid'),access_dictionary(unidict,uniprotID,'STRING'),
+                        access_dictionary(unidict,uniprotID,'KEGG')])
+            else :
+                line.extend(["","","",""])
         else :
-            line.extend(["","","",""])
-    
-    #build next_dict
-    with open(all_nextprot,"r") as next_file :
-        next_file = next_file.read().splitlines()
-        next_dict = {}
-        for nextid in next_file : 
-            next_dict[nextid.replace("NX_","")] = nextid
+            if uniprotID in unidict :
+                line.extend([access_dictionary(unidict,uniprotID,'BioGrid'),access_dictionary(unidict,uniprotID,'STRING'),
+                        access_dictionary(unidict,uniprotID,'KEGG')])
+            else :
+                line.extend(["","",""])
 
-    #add missing nextprot ID
-    for line in tab[1:] : 
-        uniprotID=line[0]
-        nextprotID=line[13]
-        if nextprotID == '' and uniprotID in next_dict :
-            line[13]=next_dict[uniprotID]
+    
+    if all_nextprot : 
+        #build next_dict
+        with open(all_nextprot,"r") as next_file :
+            next_file = next_file.read().splitlines()
+            next_dict = {}
+            for nextid in next_file : 
+                next_dict[nextid.replace("NX_","")] = nextid
+
+        #add missing nextprot ID
+        for line in tab[1:] : 
+            uniprotID=line[0]
+            nextprotID=line[13]
+            if nextprotID == '' and uniprotID in next_dict :
+                line[13]=next_dict[uniprotID]
 
     return (tab)
 
@@ -137,7 +149,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-1","--dat_file", help="human ID mapping file (.dat)", required=True)
     parser.add_argument("-2","--tab_file", help="human ID mapping file (_selected.tab)", required=True)
-    parser.add_argument("-3","--next_file", help="list of all nextprot ID", required=True)
+    parser.add_argument("-3","--next_file", help="list of all nextprot ID")
     parser.add_argument("-o","--output", default="./human_id_mapping_file.tsv", help="output filename") 
 
     args = parser.parse_args()
