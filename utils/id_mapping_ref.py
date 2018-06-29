@@ -5,7 +5,7 @@
 #It replace the old one written by Lien Nguyen (IDmap_source.py)
 # ex : ./id_mapping_ref.py -1 HUMAN_9606_idmapping.dat -2 HUMAN_9606_idmapping_selected.tab -3 nextprot_ac_list_all.txt
 #for mus musculus, we do not need nextprot ID
-#
+# ex : ./id_mapping_ref.py -1 MOUSE_10090_idmapping.dat -2 MOUSE_10090_idmapping_selected.tab -o mouse_id_mapping.tsv
 
 import argparse, csv, sys
 csv.field_size_limit(sys.maxsize) # to handle big files
