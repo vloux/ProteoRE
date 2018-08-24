@@ -7,21 +7,22 @@
 
     <title>Visualize your interactome</title>
     <% 
-      root = h.url_for( '/' )
+      root = h.url_for( '/static/' )
+      app_root = root + 'plugins/visualizations/visualize_interactome/static/'
                     %>
 
     <!-- Include here all JS and CSS scripts -->
-    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/jquery.js')}
-    ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/style.css' )}
-    ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/font-awesome-4.0.3/css/font-awesome.css' )}
-    ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/cytoscape.js-panzoom.css' )}
-    ${h.stylesheet_link( root + 'plugins/visualizations/visualize_interactome/static/css/jquery.qtip.css' )}
-    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/cytoscape.min.js' )}
-    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/cytoscape-panzoom.js' )}
-    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/jquery.qtip.js' )}
-    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/script.js' )}
-    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/papaparse.min.js' )}
-    ${h.javascript_link( root + 'plugins/visualizations/visualize_interactome/static/js/cytoscape-qtip.js' )}
+    ${h.javascript_link( app_root + 'js/jquery.js')}
+    ${h.stylesheet_link( app_root + 'css/style.css' )}
+    ${h.stylesheet_link( app_root + 'css/font-awesome-4.0.3/css/font-awesome.css' )}
+    ${h.stylesheet_link( app_root + 'css/cytoscape.js-panzoom.css' )}
+    ${h.stylesheet_link( app_root + 'css/jquery.qtip.css' )}
+    ${h.javascript_link( app_root + 'js/cytoscape.min.js' )}
+    ${h.javascript_link( app_root + 'js/cytoscape-panzoom.js' )}
+    ${h.javascript_link( app_root + 'js/jquery.qtip.js' )}
+    ${h.javascript_link( app_root + 'js/script.js' )}
+    ${h.javascript_link( app_root + 'js/papaparse.min.js' )}
+    ${h.javascript_link( app_root + 'js/cytoscape-qtip.js' )}
 
   </head>
 
@@ -38,16 +39,11 @@
       <!-- Change graph layout -->
       <select name="select" id="selectShape" onclick="changeLayout()">
         <option value="random">Change Graph Layout</option>
-        <option
-                value="random">random</option>
-        <option
-                value="circle">circle</option>
-        <option
-                value="grid">grid</option>
-        <option
-                value="concentric" selected>concentric</option>
-        <option
-                value="breadthfirst">breadthfirst</option>
+        <option value="random">random</option>
+        <option value="circle">circle</option>
+        <option value="grid">grid</option>
+        <option value="concentric" selected>concentric</option>
+        <option value="breadthfirst">breadthfirst</option>
       </select>
       <!-- Restore graph to its initial form -->
       <button type="button" onclick="getGeneralView()">Reset View</button>
@@ -62,7 +58,7 @@
       </div>
       <!-- Camera icon button to output a png image of the graph -->
       <div id="photo" class="photo">
-      <button type="button" onclick="getPNG()"><img src="./static/img/appphoto.png" title="Get a PNG screenshot" width="50px"/></button>
+      <button type="button" onclick="getPNG()"><img src="img/appphoto.png" title="Get a PNG screenshot" width="50px"/></button>
       </div>
 
       <!-- Initial div where the user has to specify the network
