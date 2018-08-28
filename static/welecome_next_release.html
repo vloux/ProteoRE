@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88179-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-88179-2');
+</script>
+
+        <link rel="stylesheet" href="style/base.css" type="text/css" />
+    </head>
+    <body style="margin: 0">
+        <div class="jumbotron">
+             <div class="container">
+               <img src="images/proteore.png/" width="100px">
+               <strong>Welcome to Proteore Galaxy !</strong>
+        <!--         To customize this page edit <code>static/welcome.html</code> -->
+        <!--         <br> -->
+        <!--         <a target="_blank" href="https://galaxyproject.org/admin/config/" class="btn btn-primary btn-lg">Configuring Galaxy »</a> -->
+        <!--         <a target="_blank" href="https://galaxyproject.org/admin/tools/add-tool-from-toolshed-tutorial/" class="btn btn-primary btn-lg">Installing Tools »</a> -->
+        <!--     </div> -->
+        <!--     <br> -->
+        <!--     <div class="container"> -->
+        <!--         <p>Take an interactive tour: -->
+        <!--             <a target="_parent" href="../tours/core.galaxy_ui" class="btn btn-default btn-xs">Galaxy UI</a> -->
+        <!--             <a target="_parent" href="../tours/core.history" class="btn btn-default btn-xs">History</a> -->
+        <!--             <a target="_parent" href="../tours/core.scratchbook" class="btn btn-default btn-xs">Scratchbook</a> -->
+        <!--         </p> -->
+            </div>
+         </div>
+
+        <div class="container" style="text-align:justify">
+            <p class="lead">
+              <h2>What is ProteoRE ?</h2>
+ProteoRE (Proteomics Research Environment) aims at centrally providing the proteomics community with an online research service enabling biologists/clinicians without programming expertise to <b>annotate and interpret</b> their proteomics data through the Web. ProteoRE is built upon the popular Galaxy framework, providing simple interfaces to tools and online access to computational resources in a collaborative and transparent way.
+
+
+<h2>ProteoRE version 1.1 content</h2>
+ProteoRE currently comprises tools (including graphical display) for:
+<ul>
+<li>Standard data manipulation (e.g. filtering, sorting, and ranking),</li>
+<li>Protein list annotation, </li>
+<li>Annotation retrieval from databases, </li>
+<li>Functional and pathways analysis (e.g. cross-comparison, classification and enrichment analysis)</li>
+<li>Graphical representation</li>
+</ul>
+
+This version also includes Galaxy generic tools and some tools from the <a href="https://usegalaxyp.org">GalaxyP project</a> that should be of great help for people who want to (re)process their MS-based proteomics data (e.g. peptide/protein identification).<br/>
+<BR>
+<h2>How to use this public ProteoRE instance ?</h2>
+This public site is meant for academic usage (for commercial usage, please contact us at contact@proteore.org).
+ProteoRE can currently be used in two ways:
+<ol>
+<li><b>Unregistered user</b>: you can start a session by uploading your data (e.g. proteomics identification results in tabular format). Analysis can be performed using the available tools. Note that the allocated storage space for unregistered users is limited to 20 Mb and data cannot be conserved between sessions. For frequent use and/or numerous analyses, we highly recommend that you create an account (see below).</li>
+<li><b>Registered user</b> (password-protected access): creating an account is the best way to keep track of and record your analyses and your workflows. In addition, additional storage space is available to registered users (up to 20 Gb). To create an account, click on "Account registration or login" on the main menu bar (upper part of the ProteoRE central panel), click on "registration" and fill out the form. Once the form is submitted, your account is created.</li>
+</ol>
+
+<h2>Last release 25/07/18</h2>
+    <h3>Updates</h3>
+    <ul>
+        <li><b>id_converter</b> : the Mus musculus species is now available for id conversion, update of reference mapping file for id conversion, from Uniprot and neXtProt files (02/07/18). </li>
+        <li><b>topGO</b> : Packages updated org.Hs.eg.db (3.5.0), IDs format is now checked. </li>
+        <li><b>goProfiles</b> : Mus musculus is now available as reference species, packages updated, IDs format is now checked.  </li>
+        <li><b>clusterProfiler</b> : Mus musculus is now available as reference species, packages updated, IDs format is now checked</li>
+    </ul>
+
+    <h3>New tool</h3>
+    <ul>
+        <li><b>number of MS/MS observations in a tissue</b> : Given a list of Uniprot accession number this tool reports the number of times peptides matching a protein 
+            have been observed in a given sample using LC-MS/MS proteomics approach. Could be of interest for people who wants to access whether know a protein is detectable 
+            (and to roughly estimate its level) in a given sample using a MS-based approach. Biological samples available : human brain, heart, kidney, liver, plasma, urine 
+            and cerebrospinal fluid (CSF). Data were queried from Peptide Atlas release (Jan 2018). </li>
+    </ul>
+
+<h2>Data sources</h2>
+    <div class="row">
+        <div class="column">
+    <ul>
+        <li><b>id_converter</b> : Uniprot and nextprot files are used to create a mapping reference file for id convertion</li>
+            <div class="row">
+                <div class="column">
+                    <b>&emsp;&emsp;source files</b>
+                    <ul>
+                        <li><a href="ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/">HUMAN_9606_idmapping_selected.tab</a></li>
+                        <li><a href="ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/">HUMAN_9606_idmapping.dat</a></li>
+                        <li><a href="ftp://ftp.nextprot.org/pub/current_release/ac_lists/">nextprot_ac_list_all.txt</a></li>
+                        <li><a href="ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/">MOUSE_10090_idmapping_selected.tab</a></li>
+                        <li><a href="ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/">MOUSE_10090_idmapping.dat</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                </div>
+            </div>
+            <BR>
+        <li><b>Get expression data by tissue</b> : expression data are extracted from the following files</li>
+            <div class="row">
+                <div class="column">
+                <b>&emsp;&emsp;source files</b>
+                <ul>
+                    <li><a href="https://www.proteinatlas.org/download/normal_tissue.tsv.zip">Normal_tissue</a></li>
+                    <li><a href="https://www.proteinatlas.org/download/pathology.tsv.zip">Pathology</a></li>
+                    <li><a href="https://www.proteinatlas.org/download/proteinatlas.tsv.zip">ProteinAtlas</a></li>
+                </ul>
+                </div>
+                <div class="column"></div>
+            </div>
+        <BR>
+        <li><b>Add expression data to your protein</b></li>
+            <div class="row">
+                <div class="column">
+                <b>&emsp;&emsp;source files</b>
+                    <ul>
+                    <li><a href="https://www.proteinatlas.org/download/proteinatlas.tsv.zip">ProteinAtlas</a></li>
+                    </ul>
+                </div>
+                <div class="column"></div>
+            </div>
+        <BR>
+        <li><b>Protein features</b></li>
+        <div class="row">
+            <div class="column">
+                    <b>&emsp;&emsp;source files</b>
+                <ul><li><a href="ftp://ftp.nextprot.org/pub/current_release/ac_lists/nextprot_ac_list_all.txt">nextprot_ac_list.txt</a></li></ul>
+            </div>
+            <div class=column></div>
+        </div>
+        <BR>
+        <li><b>Retrieve tissue-specific expression data</b></li>
+        <div class="row">
+            <div class="column">
+            <b>&emsp;&emsp;source files</b>
+            <ul>
+                <li><a href="https://www.proteinatlas.org/about/download">normal_tissue.tsv</a></li>
+                <li><a href="https://www.proteinatlas.org/about/download">rna_tissue.tsv</a></li>
+            </ul>
+            </div>
+        </div>
+        </ul>
+        </div>
+        <div class="column">&emsp;&emsp;&emsp;</div>
+        <div class="column">
+        <ul>
+        <li><b>clusterProfiler</b> : Given ids are now checked.</li>
+        <div class="row">
+            <div class="column">
+            <b>&emsp;&emsp;dependencies</b>
+            <ul>
+                <li>v3.5.0&emsp;bioconductor-org.hs.eg.db</li>
+                <li>v3.5.0&emsp;bioconductor-org.mm.eg.db</li>
+                <li>v3.2.0&emsp;bioconductor-dose</li>
+                <li>v3.4.4&emsp;bioconductor-clusterprofiler</li>
+            </ul>
+            </div>
+        </div>
+        <BR>
+        <li><b>goProfiles</b></li>
+            <div class=row>
+                <div class="column">
+                <b>&emsp;&emsp;dependencies</b>
+                <ul>
+                    <li>v3.5.0&emsp;bioconductor-org.hs.eg.db</li>
+                    <li>v3.5.0&emsp;bioconductor-org.mm.eg.db</li>
+                    <li>v1.40.0&emsp;bioconductor-annotationdbi</li>
+                    <li>v2.38.0&emsp;bioconductor-biobase</li>
+                    <li>v1.38.0&emsp;bioconductor-goprofile</li>
+                </ul>
+                </div>
+            </div>
+        <BR>
+        <li><b>topGO</b></li>
+        <div class=row>
+            <div class="column">
+            <b>&emsp;&emsp;dependencies</b>
+            <ul>
+                <li>v2.2.1&emsp;r-ggplot2</li>
+                <li>v3.5.0&emsp;bioconductor-org.hs.eg.db</li>
+                <li>v1.56.0&emsp;bioconductor-graph</li>
+                <li>v1.40.0&emsp;bioconductor-annotationdbi</li>
+                <li>v3.5.0&emsp;bioconductor-go.db</li>
+                <li>v2.30.0&emsp;bioconductor-topgo</li>
+            </ul>
+            </div>
+        </div>
+        <BR>
+        <li><b>Reactome</b></li>
+        <div class="row">
+            <div class="column">
+        <ul><li><a href="https://reactome.org/dev/content-service">Reactome content-service</a></li></ul>
+        </div>
+        </div>
+        </ul>
+        </div>
+    </div>
+
+<b>Help and support: <a mailto="contact@proteore.org">contact@proteore.org</a></b><br/>
+<BR>
+
+
+<h2>Tutorials</h2>
+<a href="http://www.proteore.org/u/proteore/p/proteore-tutorial-1-annotating-a-protein-list-identified-by-lc-msms-experiments"><b>Tutorial 1.</b> Annotating a protein list identified by LC-MS/MS experiments</a><br/>
+<BR>
+
+<footer>
+<h3>Fundings</h3>
+ProteoRE project is a joint collaboration between the <a target="_blank" class="reference" href="http://www.france-bioinformatique.fr/en">French bioinformatics Institute (IFB)</a> and the <a target="_blank" class="reference" href="http://www.profiproteomics.fr/">proteomics infrastructure ProFI</a> and funded by the <a target="_blank" class="reference" href="http://www.agence-nationale-recherche.fr/en/">French Research Agency</a> (ANR-11-INBS-0013).<br/>
+<BR>
+<img src="images/ifb.png/" width="100px">
+<img src="images/profi.png/" width="100px">
+<img src="images/anr.png/" width="100px"><br/>
+<BR>
+<h3>People</h3>
+Lien Nguyen (software engineer), David Christiany (bioinformatician), Florence Combes (bioinformatician), Valentin Loux (Bioinformatician , IT Manager), Virginie Brun, Maud Lacombe, Marianne Tardif & Benoit Gilquin (use-case & beta-testing), Yves Vandenbrouck (Project manager)
+<p/>
+<p/>
+                The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
+                is supported in part by <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>,
+                <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>,
+                <a target="_blank" class="reference" href="http://www.huck.psu.edu">The Huck Institutes of the Life Sciences</a>,
+                <a target="_blank" class="reference" href="http://www.ics.psu.edu">The Institute for CyberScience at Penn State</a>,
+                and <a target="_blank" class="reference" href="http://www.jhu.edu/">Johns Hopkins University</a>.
+
+
+
+            </footer>
+        </div>
+    </body>
+</html>
