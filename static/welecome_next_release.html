@@ -69,12 +69,20 @@ ProteoRE can currently be used in two ways:
         <li><b>clusterProfiler</b> : Mus musculus is now available as reference species, packages updated, IDs format is now checked</li>
     </ul>
 
-    <h3>New tool</h3>
+    <h3>New tools</h3>
     <ul>
-        <li><b>number of MS/MS observations in a tissue</b> : Given a list of Uniprot accession number this tool reports the number of times peptides matching a protein 
+        <li><b>Number of MS/MS observations in a tissue</b> : Given a list of Uniprot accession number, this tool reports the number of times peptides matching a protein 
             have been observed in a given sample using LC-MS/MS proteomics approach. Could be of interest for people who wants to access whether know a protein is detectable 
             (and to roughly estimate its level) in a given sample using a MS-based approach. Biological samples available : human brain, heart, kidney, liver, plasma, urine 
             and cerebrospinal fluid (CSF). Data were queried from Peptide Atlas release (Jan 2018). </li>
+        <li><b>Find pathways</b> : Given a list of Uniprot accession number or Entrez gene ID, this tool reports pathways concern by the proteins entered. 
+            Pathways are found with the keggrest library (R), results are sorted by the number of mapping ids on the number of pathway genes (%).
+            This tool can be used to have a look of the main pathways concern by a set of proteins or genes. </li>
+        <li><b>KEGG pathway mapping</b> : This tool map a list of Uniprot Accession number or Entrez gene ID to KEGG pathway with pathview R package. 
+            The output is a KEGG graph (jpg) or an automatic graph made by Graphviz layout engine (pdf) with ids converted into entrez gene ID mapped on it.
+            Up to 3 expression data set can be used in addition to informed ids list. THis features allows you to compare different expression data set on the same graph.
+            Outpout files from Find_pathways tool can be used directly to inform pathway of interest.</li>
+        <li><b>Heatmap ?</b></li>
     </ul>
 
 <h2>Data sources</h2>
