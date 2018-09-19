@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #This script is used to build a reference file "human_id_mapping.tsv" for ID_converter tool
-#It replace the old one written by Lien Nguyen (IDmap_source.py)
+#It replaces the old one written by Lien Nguyen (IDmap_source.py)
 # ex : ./id_mapping_ref.py -1 HUMAN_9606_idmapping.dat -2 HUMAN_9606_idmapping_selected.tab -3 nextprot_ac_list_all.txt
 #for mus musculus, we do not need nextprot ID
 # ex : ./id_mapping_ref.py -1 MOUSE_10090_idmapping.dat -2 MOUSE_10090_idmapping_selected.tab -o mouse_id_mapping.tsv
@@ -41,15 +41,15 @@ def human_id_mapping(dat_file, tab_file, all_nextprot):
     16. PubMed
     17. EMBL
     18. EMBL-CDS
-    19. Ensembl
-    20. Ensembl_TRS
-    21. Ensembl_PRO
+    19. Ensembl_Gene
+    20. Ensembl_Transcript
+    21. Ensembl_Protein
     22. Additional PubMed
     """
 
     #header
-    if all_nextprot : tab = [["UniProt-AC","UniProt-ID","GeneID","RefSeq","GI","PDB","GO","PIR","MIM","UniGene","Ensembl","Ensembl_TRS","Ensembl_PRO","neXtProt","BioGrid","STRING","KEGG"]]
-    else : tab = [["UniProt-AC","UniProt-ID","GeneID","RefSeq","GI","PDB","GO","PIR","MIM","UniGene","Ensembl","Ensembl_TRS","Ensembl_PRO","BioGrid","STRING","KEGG"]]
+    if all_nextprot : tab = [["UniProt-AC","UniProt-ID","GeneID","RefSeq","GI","PDB","GO","PIR","MIM","UniGene","Ensembl_Gene","Ensembl_Transcript","Ensembl_Protein","neXtProt","BioGrid","STRING","KEGG"]]
+    else : tab = [["UniProt-AC","UniProt-ID","GeneID","RefSeq","GI","PDB","GO","PIR","MIM","UniGene","Ensembl_Gene","Ensembl_Transcript","Ensembl_Protein","BioGrid","STRING","KEGG"]]
 
     #import HUMAN_9606_idmapping_selected.tab and keep only ids of interest
     with open(tab_file,"r") as tab_file :
