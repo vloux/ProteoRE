@@ -24,7 +24,7 @@ tab=[['#value',"name"]]
 with open(args.input,"r") as tab_file :
         tab_file = csv.reader(tab_file,delimiter="\t")
         for line in tab_file :
-            tmp = [line[0].replace("path:","")]             #remove 'path:' from value
+            tmp = [line[0].replace("path:","")]     #remove 'path:' from value
             tmp.append(line[1].split(" - ")[0])     #remove suffix from name
             tab.append(tmp)
 
