@@ -3772,7 +3772,7 @@ button .badge, .action-button .badge, .menubutton .badge {
   padding-left: 0;
   border-radius: 0; }
   @media (min-width: 576px) {
-    .jumbotron-fuild {
+    .jumbotron-fluid {
       padding: 0.8rem 0.8rem; } }
 
 .alert, .errormessagelarge, .error-modal .modal-content,
