@@ -14,7 +14,7 @@ You can easily test them on the [ProteoRE](http://www.proteore.org) main instanc
 
 
 ### Contribute
-Do not hesitate to give us feedback on the tool (Opne an issue or contact us directly at contact@proteore.org ). We will be glad to examine any suggestion / feedback you may have.
+Do not hesitate to give us feedback on the tool (Open an issue or contact us directly at contact@proteore.org ). We will be glad to examine any suggestion / feedback you may have.
 If you want to contribute, we will examine any pull request / contribution if it sticks to the IUC standards.
 
 
