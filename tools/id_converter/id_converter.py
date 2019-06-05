@@ -58,6 +58,7 @@ def one_id_one_line(input_file,nb_col,header) :
 
     return new_file, ids_list
 
+#not used
 def output_one_id_one_line(line,convert_ids,target_ids):
 
     #ids_not_processed = ["GI","PDB","GO","PIR","MIM","UniGene","BioGrid","STRING"]  #ids with multiple ids per line in output file
@@ -126,6 +127,13 @@ def create_ids_dictionary (ids_list) :
             
     return(ids_dictionary,ids_dictionary_index)
 
+def create_header(input_file,ncol,id_type,target_ids):
+    col_names = list(range(1,len(input_file[0])+1))
+    col_names = ["col"+str(e) for e in col_names]
+    col_names[ncol]=id_type
+    col_names = col_names+target_ids
+    return(col_names)
+
 def main():
     
     #Get args from command line
@@ -159,9 +167,9 @@ def main():
                 ids_dictionary[id]={}
             for other_id_type in other_id_type_index :
                 if ids_dictionary_index[other_id_type] not in ids_dictionary[id] :
-                    ids_dictionary[id][ids_dictionary_index[other_id_type]] = set(line[other_id_type].replace(" ","").split(";"))
+                    ids_dictionary[id][ids_dictionary_index[other_id_type]] = set(line[other_id_type].replace("NA","").replace(" ","").split(";"))
                 else :
-                    ids_dictionary[id][ids_dictionary_index[other_id_type]] |= set(line[other_id_type].replace(" ","").split(";"))
+                    ids_dictionary[id][ids_dictionary_index[other_id_type]] |= set(line[other_id_type].replace("NA","").replace(" ","").split(";"))
                 if len(ids_dictionary[id][ids_dictionary_index[other_id_type]]) > 1 and '' in ids_dictionary[id][ids_dictionary_index[other_id_type]] : 
                     ids_dictionary[id][ids_dictionary_index[other_id_type]].remove('')
 
@@ -189,23 +197,29 @@ def main():
         #write header
         if header : 
             writer.writerow(input_file[0]+target_ids)
-            input_file = input_file[1:]
-        else :
+            input_file = input_file[1:]  
+        elif args.input_type=="file":
+            col_names = create_header(input_file,args.column_number,args.id_type,target_ids)
+            writer.writerow(col_names)
+        else : 
             writer.writerow([args.id_type]+target_ids)
 
         #write lines 
+        previous_line=""
         if args.input_type=="file" :
             for line in input_file :
-                tmp = output_one_id_one_line(line,result_dict[line[args.column_number]],target_ids)
-                tmp = blank_to_NA(tmp)
-                for row in tmp :
-                    writer.writerow(row)
+                res = [";".join(list(res_ids)) for res_ids in result_dict[line[args.column_number]]]
+                line = ["NA" if cell=="" or cell==" " or cell=="NaN" else cell for cell in line+res]
+                if previous_line != line :
+                    writer.writerow(line)
+                    previous_line=line
         elif args.input_type=="list" :
             for id in ids :
-                tmp = output_one_id_one_line([id],result_dict[id],target_ids)
-                tmp = blank_to_NA(tmp)
-                for row in tmp :
-                    writer.writerow(row)
+                res = [";".join(list(res_ids)) for res_ids in result_dict[id]]
+                line = ["NA" if cell=="" or cell==" " or cell=="NaN" else cell for cell in [id]+res]
+                if previous_line != line :
+                    writer.writerow(line)
+                    previous_line=line
 
         #print ("output file created")
 
