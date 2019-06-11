@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88179-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-88179-2');
+</script>
+
+        <link rel="stylesheet" href="style/base.css" type="text/css" />
+    </head>
+    <body style="margin: 0">
+        <div class="jumbotron jumbotron-fluid">
+             <div class="container">
+               <img src="images/proteore.png/" width="100px">
+               <strong>Welcome to Proteore Galaxy !</strong>
+            </div>
+         </div>
+
+
+<!--
+     <div class="container" style="text-align:justify">
+            <div class="jumbotron">
+                <table style="width:100%">
+                    <tr>
+                        <th><img src="images/red_warning.png" width="80px"></th>
+                        <th style="text-align:center"><font size="3"><strong>Proteore.org will be unavailable for maintenance purpose from Sunday , March 31th to Wednesday , April 3d.<br/>
+                            Thank you for your understanding. </strong></font></th>
+                        <th><img src="images/red_warning.png" width="80px"></th>
+                    </tr>
+                </table>
+      </div>
+-->
+        <div class="container" style="text-align:justify">
+            <p class="lead">
+                <h2>What is ProteoRE ?</h2>
+                ProteoRE (Proteomics Research Environment) aims at centrally providing the proteomics community with an online research service enabling biologists/clinicians without programming expertise to perform the functional analysis and to interpret their proteomics data through the Web. ProteoRE is built upon the popular Galaxy framework, providing simple interfaces to tools and online access to computational resources in a collaborative and transparent way.<br/>
+		        <BR>
+
+                <h2>ProteoRE new release (v1.2 - 18th December 2018)</h2>
+                ProteoRE now comprises 15 tools for:
+                <ul>
+                <li>Data manipulation (e.g. filtering, list comparison, ID conversion)</li>
+                <li>Human annotation (protein features, MS/MS observations, expression and tissue-specificity)</li>
+                <li>GO terms analysis (functional profiles, enrichment analysis)</li>
+                <li>Pathways analysis (Reactome and KEGG pathways exploration)</li>
+                <li>Graphical representation (Venn diagram, heat map, bar- and dot-plot…) </li>
+                </ul>
+
+                This version also includes Galaxy generic tools and some tools from the <a href="http://galaxyp.org/access-galaxy-p/">GalaxyP project</a> that should be of great help for people who want to (re)process their MS-based proteomics data (e.g. peptide/protein identification).<br/>
+                <BR>
+                <h2>How to use ProteoRE ?</h2>
+                This public site is meant for academic usage (for commercial usage, please contact us at contact@proteore.org).
+                ProteoRE can currently be used in two ways:
+                <ol>
+                <li><b>Unregistered user</b>: you can start a session by uploading your data (e.g. proteomics identification results in tabular format). Analysis can be performed using the available tools. Note that the allocated storage space for unregistered users is limited to 20 Mb and data cannot be conserved between sessions. For frequent use and/or numerous analyses, we highly recommend that you create an account (see below).</li>
+                <li><b>Registered user</b> (password-protected access): creating an account is the best way to keep track of and record your analyses and your workflows. In addition, additional storage space is available to registered users (up to 20 Gb). To create an account, click on "Account registration or login" on the main menu bar (upper part of the ProteoRE central panel), click on "registration" and fill out the form. Once the form is submitted, your account is created.</li>
+                </ol>
+		<h2>Tutorials and training</h2>
+                <a href="http://www.proteore.org/u/proteore/p/proteore-tutorial-1-release-2-0"><b>Tutorial 1.</b> Annotating a protein list identified by LC-MS/MS experiments</a><br/>
+                <BR>
+		<a href="https://www.france-bioinformatique.fr/fr/evenements/3586" target="_blank"><b>Training session in March 2019 - registration</b></a><br/>
+		<BR>
+                <h2>Data sources</h2>
+                You can find all source files used by ProteoRE tools here: <a href="http://www.proteore.org/u/proteore/p/data-sources-1-2">Data sources</a><br>
+                <BR>
+
+                <h2>Links and citations</h2>
+                <a href="http://www.proteore.org/u/proteore/p/citationspostersandcommunication">Links and citations</a><br>
+                <BR>
+
+                <b>Help, feedbacks and support: <a mailto="contact@proteore.org">contact@proteore.org</a></b><br/>
+                <BR>
+			
+		<h2>Release 19th September 2018</h2>
+                <h3>Updates</h3>
+                <ul>
+                <li><b>Filter by keywords or numerical value</b>: You can now filter by a range of values, choose an operator to use when multiple filters are set (AND or OR) and sort your result file</li>
+                <li><b>ID converter</b>: the Mus musculus species is now available for id conversion, update of reference mapping file for id conversion, from Uniprot and neXtProt files (12/09/18). </li>
+                <li><b>goProfiles</b>: Mus musculus is now available as reference species, packages updated, IDs format is now checked.  </li>
+                </ul>
+
+                <h3>New tools</h3>
+                <ul>
+                <li><b>Number of MS/MS observations in a tissue</b> : this tool reports the number of times peptides matching a protein have been observed 
+                        in a given human biological sample using LC-MS/MS proteomics approach. Data were queried from Peptide Atlas release (Jan 2018). </li>
+                <li><b>KEGG pathways coverage</b> : this tool reports pathways concern by the proteins entered. Pathways are found with the Keggrest R library,
+                        results are sorted by the number of mapping ids on the number of pathway genes (%). </li>
+                </ul>
+
+                <h2>Release 7th May 2018</h2>
+                ProteoRE comprises tools for:
+                <ul>
+                <li>Standard data manipulation (e.g. filtering, sorting, and ranking)</li>
+                <li>Protein list annotation</li>
+                <li>Annotation retrieval from databases</li>
+                <li>Functional and pathways analysis (cross-comparison, classification and enrichment analysis)</li>
+                <li>Graphical representation</li>
+                </ul>
+
+                This version also includes Galaxy generic tools and others from the <a href="http://galaxyp.org/access-galaxy-p/">GalaxyP project</a> that should 
+                be of great help for people who want to (re)process their MS-based proteomics data (e.g. peptide/protein)<br/>
+		        <BR>
+
+                                
+            </p>
+            <footer>
+                <h3>Fundings</h3>
+                ProteoRE project is a joint national effort between the <a target="_blank" class="reference" href="http://www.france-bioinformatique.fr/en">French bioinformatics Institute (IFB)</a> and the <a target="_blank" class="reference" href="http://www.profiproteomics.fr/">proteomics infrastructure (ProFI)</a> funded by the <a target="_blank" class="reference" href="http://www.agence-nationale-recherche.fr/en/">French Research Agency</a> (ANR-11-INBS-0013).<br/>
+                <BR>
+                <img src="images/ifb.png/" width="100px">
+                <img src="images/profi.png/" width="100px">
+                <img src="images/anr.png/" width="100px"><br/>
+                <BR>
+                <h3>Project team</h3>
+                Lien Nguyen (software engineer), David Christiany (software engineer), Florence Combes (bioinformatician), Virginie Brun, Maud Lacombe, Marianne Tardif & Benoit Gilquin (use-case & beta-testing), Valentin Loux (Bioinformatician , IT Manager), Yves Vandenbrouck (Project manager – yves.vandenbrouck@cea.fr)
+
+                The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
+                is supported in part by <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>,
+                <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>,
+                <a target="_blank" class="reference" href="http://www.huck.psu.edu">The Huck Institutes of the Life Sciences</a>,
+                <a target="_blank" class="reference" href="http://www.ics.psu.edu">The Institute for CyberScience at Penn State</a>,
+                and <a target="_blank" class="reference" href="http://www.jhu.edu/">Johns Hopkins University</a>.<br/>
+                <BR>
+                <BR>
+            </footer>
+        </div>
+    </body>
+</html>
+
