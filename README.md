@@ -1,5 +1,5 @@
 # ProteoRE
-## A biologist-oriented web-based platform for proteomics data exploration
+## A biologist-oriented Galaxy platform for proteomics data exploration
 
 With the increased simplicity associated with producing MS-based proteomics data, the bottleneck has now shifted to the functional analysis and exploration of large lists of expressed proteins to extract meaningful biological knowledge. Bioinformatics resources are often spread and disseminated under different forms (program/libraries/software/web tools and databases) and their access is rather limited for researchers without programming experience or no in-house bioinformatics support. As a consequence, interpretation of their data by experts remains a tedious and time-consuming process, and potentially error-prone (e.g., due to manual handling or input error).
 
