@@ -1,0 +1,143 @@
+<tool id="proteore_get_unique_peptide_SRM-MRM_method" name="Get unique peptide SRM-MRM method" version="2019.07.10">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+
+        python $__tool_directory__/get_unique_srm.py 
+        
+        #if $input.ids == "text"
+            --input="$input.txt"
+            --input_type="list"
+        #else
+            --input="$input.input_file"
+            --column_number="$input.ncol"
+            --header="$input.header"
+            --input_type="file"
+        #end if
+
+        --features="$protein_features"
+        --output="$output"
+        
+        #if "SRM_atlas" in str($srm_file).split("/")
+            --ref_file="$srm_file"
+        #else 
+            --ref_file="$__tool_directory__/$srm_file"
+        #end if 
+
+    ]]></command>
+    <inputs>
+    <conditional name="input" >
+        <param name="ids" type="select" label="Enter IDs" help="Copy/paste or from a file (e.g. table)" >
+            <option value="text">Copy/paste your Uniprot-AC identifiers</option>
+            <option value="file" selected="true">Input file containing Uniprot-AC identifiers</option>
+        </param>
+        <when value="text" >
+            <param name="txt" type="text" label="Copy/paste IDs" help='IDs must be separated by tab, space or carriage return into the form field, for example: P31946 P62258' >
+                <sanitizer invalid_char="">
+                    <valid initial="string.printable">
+                        <remove value="&apos;"/>
+                    </valid>
+                    <mapping initial="none">
+                        <add source="&apos;" target="__sq__"/>
+                        <add source="&#x20;" target=""/>
+                        <add source="&#xA;" target=""/>
+                        <add source="&#xD;" target=""/>
+                        <add source="&#x9;" target=""/>
+                    </mapping>
+                </sanitizer>
+            </param>
+        </when>
+        <when value="file" >
+            <param name="input_file" type="data" format="txt,tabular" label="Select your file" help="" />
+            <param name="header" type="boolean" checked="true" truevalue="true" falsevalue="false" label="Does file contain header?" />
+            <param name="ncol" type="text" value="c1" label="Column number of IDs to map" help='For example, fill in "c1" if it is the first column, "c2" if it is the second column and so on'>
+                <validator type="regex" message="Please enter a column number, for example: 'c1' for the first column">[c]{0,1}[0-9]+</validator>
+            </param>
+        </when>
+    </conditional>
+    <param name="srm_file" type="select" label="Release" >
+        <options from_data_table="proteore_human_srm_atlas">
+            <filter type="sort_by" column="0"/>
+        </options>
+    </param>
+    <param name="protein_features" type="select" label="Protein sequence/Features" multiple="true" help="" display="checkboxes" optional="false">
+        <option value="sequence" selected="true">Protein sequence</option>
+        <option value="ssr" selected="false">SSR (Sequence Specific Retention time provides a hydrophobicity measure for each peptide)</option>
+        <option value="length" selected="false">Length (peptide length)</option>
+        <option value="PA_Acc" selected="false">PeptideAtlas Accession (PA_Acc)</option>
+    </param>
+    </inputs>
+    <outputs>
+        <data name="output" format="tsv"/>
+    </outputs>
+    <tests>
+        <test>
+            <conditional name="input" >
+                <param name="ids" value="file"/>
+                <param name="input_file" value="Lacombe_et_al_2017_modified.tsv" />
+                <param name="header" value="true" />
+                <param name="ncol" value="c1"/>
+            </conditional>
+            <param name="srm_file" value="tool-data/Human_SRM_atlas_2016-04.csv" />
+            <param name="protein_features" value="sequence,ssr,length,PA_Acc"/>
+            <output name="output" value="srm_results.tsv" />
+        </test>
+    </tests>
+    <help><![CDATA[
+        **Description**
+
+This tool allows you to get SRM/MRM informations from Uniprot-AC IDs.
+
+-----
+
+**Input**
+
+A list of IDs (entered in a copy/paste mode) or a single-column file, the tool will then return a file containing the wanted protein features. 
+If your input is a multiple-column file, the mapped IDs column(s) will be added at the end of the input file.
+
+.. class:: warningmark
+
+Accession numbers with an hyphen ("-") that normally correspond to isoform are not considered as similar to its canonical form.
+
+.. class:: warningmark
+
+In copy/paste mode, the number of IDs considered in input is limited to 5000.
+
+-----
+
+**Parameters**
+
+- **Enter IDS:** enter your Uniprot-AC from a file or a copy paste
+- **Release:** choose the release you want to use for retrieving protein sequences / features 
+- **Protein sequence/Features:** choose proteins features you want to retrieve
+
+-----
+
+**Output**
+
+A text file containing the selected protein features (in addition to the original column(s) provided).
+Please, note that a "NA" is returned when there is no match between a source ID and SRM/MRM source file.
+
+-----
+
+**Data sources (release date)**
+
+This tool is using the following source file:
+
+- `HumanSRMAtlasPeptidesFinalAnnotated (2016-04) <http://www.srmatlas.org/downloads/HumanSRMAtlasPeptidesFinalAnnotated.xlsx>`_.
+
+-----
+
+.. class:: infomark
+
+**Authors**
+
+David Christiany, Florence Combes, Yves Vandenbrouck CEA, INSERM, CNRS, Grenoble-Alpes University, BIG Institute, FR
+
+Sandra Dérozier, Olivier Rué, Christophe Caron, Valentin Loux INRA, Paris-Saclay University, MAIAGE Unit, Migale Bioinformatics platform, FR
+
+This work has been partially funded through the French National Agency for Research (ANR) IFB project.
+
+Help: contact@proteore.org for any questions or concerns about this tool.
+    ]]></help>
+</tool>
