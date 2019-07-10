@@ -1,0 +1,15 @@
+categories: [Proteomics]
+description: "Get unique peptide SRM-MRM method [SRM Atlas]"
+name: proteore_get_unique_peptide_srm_method
+owner: proteore
+include:
+  - README.rst
+  - proteore_get_unique_peptide_SRM-MRM_method.xml
+  - get_unique_srm.py
+  - tool_data_table_conf.xml.sample
+  - tool_data_table_conf.xml.test
+  - tool-data/Human_SRM_atlas_2016-04.csv                    
+  - tool-data/proteore_human_srm_atlas.loc.sample
+  - test-data/Lacombe_et_al_2017_modified.tsv
+  - test-data/proteore_human_srm_atlas.loc
+  - test-data/srm_results.tsv
