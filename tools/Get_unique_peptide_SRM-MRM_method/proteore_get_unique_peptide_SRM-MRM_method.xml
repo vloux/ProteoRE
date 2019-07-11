@@ -1,4 +1,4 @@
-<tool id="proteore_get_unique_peptide_srm_method" name="Get unique peptide SRM-MRM method" version="2019.07.10">
+<tool id="proteore_get_unique_peptide_srm_method" name="Get unique peptide SRM-MRM method" version="2019.07.11">
     <description>[SRM Atlas]</description>
     <requirements>
     </requirements>
