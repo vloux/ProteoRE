@@ -96,7 +96,7 @@ def one_id_one_line(input_file,nb_col,header) :
 def create_srm_atlas_dictionary(features,srm_atlas_csv):
 
     srm_atlas={}
-    features_index = {"sequence" : 0, "ssr" : 1 , "length" : 2 , "type": 3 , "PA_Acc" : 4 }
+    features_index = {"PeptideSeq" : 0, "SSRT" : 1 , "Length" : 2 , "type": 3 , "PA_AccNum" : 4, "MW" : 5 }
     features_to_get = [features_index[feature] for feature in features]
     for line in srm_atlas_csv[1:]:
         id = line[9].replace("_SNP","").replace("d_","")
