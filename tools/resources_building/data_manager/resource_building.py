@@ -373,7 +373,7 @@ def PPI_ref_files(data_manager_dict, species, interactome, target_directory):
     elif interactome=="bioplex":
 
         with requests.Session() as s:
-            r = s.get('http://bioplex.hms.harvard.edu/data/BioPlex_interactionList_v4a.tsv')
+            r = s.get('http://bioplex.hms.harvard.edu/data/BioPlex_interactionList_v4a.tsv',verify=False)
             r = r.content.decode('utf-8')
             bioplex = csv.reader(r.splitlines(), delimiter='\t')
 
