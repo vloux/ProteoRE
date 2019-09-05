@@ -1,0 +1,11 @@
+# config file for proteore_data_manager
+# run with run-data-manager (ephemeris):
+# run-data-managers --galaxy <Galaxy_URL> -a <api-key> --config run_data_manager_nextprot.yml
+
+data_managers:
+  ###Nextprot
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    params:
+      - 'database|database': 'nextprot'
+    data_table_reload:
+      -  proteore_nextprot_ref

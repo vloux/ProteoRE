@@ -1,0 +1,29 @@
+# config file for proteore_data_manager
+# run with run-data-manager (ephemeris):
+# run-data-managers --galaxy <Galaxy_URL> -a <api-key> --config run_proteore_data_manager_PPI.yml
+
+data_managers:
+  ###Build protein interaction maps
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    params:
+      - 'database|database': 'PPI'
+      - 'database|base|interactome': 'biogrid'
+      - 'database|base|species': '{{ item }}'
+    items:
+      - Human
+      - Mouse
+      - Rat
+
+    data_table_reload:
+      - proteore_biogrid_dictionaries 
+
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    params:
+      - 'database|database': 'PPI'
+      - 'database|base|interactome': '{{ item }}'
+    items:
+      - bioplex
+      - humap
+    data_table_reload:
+      - proteore_bioplex_dictionaries
+      - proteore_humap_dictionaries
