@@ -1,0 +1,18 @@
+# config file for proteore_data_manager
+# run with run-data-manager (ephemeris):
+# run-data-managers --galaxy <Galaxy_URL> -a <api-key> --config run_proteore_data_manager_ID-mapping.yml
+
+data_managers:
+  ###ID_mapping
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    params:
+      - 'database|database': 'id_mapping'
+      - 'database|species': '{{ item }}'
+    items:
+      - Human
+      - Mouse
+      - Rat
+    data_table_reload:
+      -  proteore_id_mapping_Human
+      -  proteore_id_mapping_Mouse
+      -  proteore_id_mapping_Rat

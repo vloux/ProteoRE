@@ -1,0 +1,114 @@
+# config file for proteore_data_manager
+# run with run-data-manager (ephemeris):
+# run-data-managers --galaxy <Galaxy_URL> -a <api-key> --config run_proteore_data_manager.yml
+
+data_managers:
+  ###Human Protein Atlas
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    # tool parameters, nested parameters should be specified using a pipe (|)
+    params:
+      - 'database|database': 'human_protein_atlas'
+      - 'database|tissues': '{{ item }}'
+    items:
+      - HPA_normal_tissue
+      - HPA_pathology
+
+    # Name of the data-tables you want to reload after your DM are finished. This can be important for subsequent data managers
+    data_table_reload:
+      - proteore_protein_atlas_normal_tissue
+      - proteore_protein_atlas_tumor_tissue 
+
+  ###ID_mapping
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    params:
+      - 'database|database': 'id_mapping'
+      - 'database|species': '{{ item }}'
+    items:
+      - Human
+      - Mouse
+      - Rat
+    data_table_reload:
+      -  proteore_id_mapping_Human
+      -  proteore_id_mapping_Mouse
+      -  proteore_id_mapping_Rat
+
+  ###Build protein interaction maps
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    params:
+      - 'database|database': 'PPI'
+      - 'database|base|interactome': 'biogrid'
+      - 'database|base|species': '{{ item }}'
+    items:
+      - Human
+      - Mouse
+      - Rat
+
+    data_table_reload:
+      - proteore_biogrid_dictionaries 
+
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    params:
+      - 'database|database': 'PPI'
+      - 'database|base|interactome': '{{ item }}'
+    items:
+      - bioplex
+      - humap
+    data_table_reload:
+      - proteore_bioplex_dictionaries
+      - proteore_humap_dictionaries
+        
+  ###Nextprot
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    params:
+      - 'database|database': 'nextprot'
+    data_table_reload:
+      -  proteore_nextprot_ref
+
+  ###Peptide Atlas
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    # tool parameters, nested parameters should be specified using a pipe (|)
+    params:
+      - 'database|database': 'peptide_atlas'
+      - 'database|tissues': '{{ item.tissue }}'
+      - 'database|date': '{{ item.date }}'
+    items:
+      - tissue: 432.Human_Adrenal_gland
+        date: 2019-09
+      - tissue: 441.Human_Brain
+        date: 2019-09
+      - tissue: 427.Human_Breast
+        date: 2019-09
+      - tissue: 434.Human_CSF
+        date: 2019-09
+      - tissue: 374.Human_Colon_cancer
+        date: 2019-09
+      - tissue: 429.Human_Digestive_system
+        date: 2019-09
+      - tissue: 430.Human_Female_reproductive_system
+        date: 2019-09
+      - tissue: 418.Human_Heart
+        date: 2019-09
+      - tissue: 424.Human_Kidney
+        date: 2019-09
+      - tissue: 425.Human_Liver
+        date: 2019-09
+      - tissue: 419.Human_Lung
+        date: 2019-09
+      - tissue: 431.Human_Male_reproductive_system
+        date: 2019-09
+      - tissue: 420.Human_Pancreas
+        date: 2019-09
+      - tissue: 465.Human_Plasma_non_glyco
+        date: 2019-09
+      - tissue: 421.Human_Spleen
+        date: 2019-09
+      - tissue: 463.Human_Testis
+        date: 2019-09
+      - tissue: 422.Human_Urinary_bladder
+        date: 2019-09
+      - tissue: 423.Human_Urine
+        date: 2019-09
+
+    # Name of the data-tables you want to reload after your DM are finished. This can be important for subsequent data managers
+    data_table_reload:
+      - proteore_peptide_atlas 

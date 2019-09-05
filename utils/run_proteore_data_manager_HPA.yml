@@ -1,0 +1,19 @@
+# config file for proteore_data_manager
+# run with run-data-manager (ephemeris):
+# run-data-managers --galaxy <Galaxy_URL> -a <api-key> --config run_proteore_data_manager_HPA.yml
+
+data_managers:
+  ###Human Protein Atlas
+  - id: testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_data_manager/data_manager_proteore/2019.09.05
+    # tool parameters, nested parameters should be specified using a pipe (|)
+    params:
+      - 'database|database': 'human_protein_atlas'
+      - 'database|tissues': '{{ item }}'
+    items:
+      - HPA_normal_tissue
+      - HPA_pathology
+
+    # Name of the data-tables you want to reload after your DM are finished. This can be important for subsequent data managers
+    data_table_reload:
+      - proteore_protein_atlas_normal_tissue
+      - proteore_protein_atlas_tumor_tissue 
