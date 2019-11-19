@@ -1,7 +1,7 @@
 ---
 layout: tutorial_hands_on
 
-title: Strategy for candidate biomarkers identification
+title: Biomarker candidate identification
 zenodo_link: ''
 questions:
 - How to mine public databases to retrieve info?
