@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="base.css" type="text/css" />
+    </head>
+    <body style="margin: 0">
+        <div class="container" style="text-align:justify">
+            <h2>Data sources</h2>
+            <BR>
+
+            <h3>ID Converter (Human, Mouse, Rat)</h3>
+            <ul>
+                <li>Current release of Uniprot, for idmapping_selected.tab and idmapping.dat for Human, Mouse and Rat: <a href='ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism'>current_release</a></li>
+                <li>All previous release of uniprot can be found here: <a href='ftp://ftp.uniprot.org/pub/databases/uniprot/previous_releases/'>uniprot_previous_releases</a></li>
+                <li>nextprot_ac_list_all.txt (Nextprot released on 13/02/2019 - current): <a href='ftp://ftp.nextprot.org/pub/current_release/ac_lists/'>ac_lists</a></li>
+                <li>All previous release of nextprot_ac_list_all.txt can be foud here: <a href='ftp://ftp.nextprot.org/pub/previous_releases/'>nextprot_previous_releases</a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:9606+AND+created:[20120720%20TO%2020190605]&format=list">Human uniprot-AC entries reviewed (05/06/2019)</a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:10090+AND+created:[20120720%20TO%2020190605]&format=list">Mouse uniprot-AC entries reviewed (05/06/2019) </a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:10116+AND+created:[20120720%20TO%2020190605]&format=list">Rat uniprot-AC entries reviewed (05/06/2019) </a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:9606+AND+created:[20120720%20TO%2020190508]&format=list">Human uniprot-AC entries reviewed (08/05/2019)</a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:10090+AND+created:[20120720%20TO%2020190508]&format=list">Mouse uniprot-AC entries reviewed (08/05/2019)</a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:10116+AND+created:[20120720%20TO%2020190508]&format=list">Rat uniprot-AC entries reviewed (08/05/2019)</a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:9606+AND+created:[20120720%20TO%2020181010]&format=list">Human uniprot-AC entries reviewed (10/10/2018)</a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:10090+AND+created:[20120720%20TO%2020181010]&format=list">Mouse uniprot-AC entries reviewed (10/10/2018)</a></li>
+                <li><a href="https://www.uniprot.org/uniprot/?query=reviewed:yes+AND+organism:10116+AND+created:[20120720%20TO%2020181010]&format=list">Rat uniprot-AC entries reviewed (10/10/2018)</a></li>
+            </ul>
+
+            <h3>Get expression profiles by (normal or tumor) tissue/cell type [Human Protein Atlas]</h3>
+            <ul>
+                <li><a href="https://www.proteinatlas.org/download/normal_tissue.tsv.zip">Normal_tissue:</a></li>
+                <ul>
+                    <li>Human Protein Atlas version 18.1 and Ensembl version 88.38</li>
+                    <li>Human Protein Atlas version 19 and Ensembl version 92.38</li>
+                </ul>
+                <li><a href="https://www.proteinatlas.org/download/pathology.tsv.zip">Pathology:</a></li>
+                <ul>
+                    <li>Human Protein Atlas version 18.1 and Ensembl version 88.38</li>
+                    <li>Human Protein Atlas version 19 and Ensembl version 92.38</li>
+                </ul>
+                <li><a href="https://www.proteinatlas.org/download/proteinatlas.tsv.zip">ProteinAtlas:</a></li>
+                <ul>
+                    <li>Human Protein Atlas version 18.1 and Ensembl version 88.38</li>
+                </ul>
+            </ul>
+
+            <h3>Add expression data (RNAseq or Immuno-assays)[Human Protein Atlas]</h3>
+            <ul>
+                <li><a href="https://www.proteinatlas.org/download/proteinatlas.tsv.zip">ProteinAtlas</a></li>
+            </ul>
+
+            <h3>Add protein features [neXtProt]</h3>
+            <ul>
+                <li>nextprot_ac_list.txt: <a href="ftp://ftp.nextprot.org/pub/current_release/ac_lists/nextprot_ac_list_all.txt">nextprot_ac_list_all</a></li>
+            </ul>
+
+            <h3>Build tissue-specific expression dataset [Human Protein Atlas][neXtProt]</h3>
+            <ul>
+                <li>The data is based on the Human Protein Atlas version 18 and Ensembl version 88.38. For more information, click <a href="https://www.proteinatlas.org/about/help">here</a></li>
+            </ul>
+
+            <h3>Get MS/MS observations in tissue/fluid [Peptide Atlas]</h3>
+            <ul>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=432&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Adrenal Gland 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=441&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Brain 2015-01</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=427&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Breast 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=434&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human CSF 2014-09</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=374&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Colon Cancer 2013-02</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=429&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Digestive System 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=430&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Female Reproductive System 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=418&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Heart 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=424&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Kidney 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=425&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Liver 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=419&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Lung 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=431&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Male Reproductive System 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=420&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Pancreas 2014-08</a></li>
+                <li><a href="http://migale.jouy.inra.fr/Human%20Plasma%20Non-Glyco%20proteome">Human Plasma Non-Glyco 2017-04</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=421&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Spleen 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=463&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Testis 2017-01</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=422&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Urinary Bladder 2014-08</a></li>
+                <li><a href="https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetProteins?&atlas_build_id=423&display_options=ShowAbundances&organism_id=2&redundancy_constraint=4&presence_level_constraint=1%2C2&gene_annotation_level_constraint=leaf&QUERY_NAME=AT_GetProteins&action=QUERY&output_mode=tsv&apply_action=QUERY">Human Urine 2014-08</a></li>
+            </ul>
+
+            <h3>Add protein features (Mouse) [UniProt]</h3>
+            <ul>
+                <li>Annotations have been retrieved from UniProt.org (02/2019)</li>
+            </ul>
+
+            <h3>GO terms classification and enrichment analysis (Human, Mouse, Rat)[clusterProfiler]</h3>
+            <ul>
+                <li>bioconductor-org.hs.eg.db v3.5.0</li>
+                <li>bioconductor-org.mm.eg.db v3.5.0</li>
+                <li>bioconductor-org.rn.eg.db v3.5.0</li>
+            </ul>
+
+            <h3>Statistical analysis of functional profiles (Human, Mouse) [goProfiles] </h3>
+            <ul>
+                <li>bioconductor-org.hs.eg.db v3.5.0</li>
+                <li>bioconductor-org.mm.eg.db v3.5.0</li>
+            </ul>
+
+            <h3>Enrichment analysis for Gene Ontology (Human, Mouse, Rat)[topGO]</h3>
+            <ul>
+                <li>bioconductor-org.hs.eg.db v3.5.0</li>
+                <li>bioconductor-org.mm.eg.db v3.5.0</li>
+                <li>bioconductor-org.rn.eg.db v3.5.0</li>
+            </ul>
+
+            <h3>Query pathway database [Reactome] </h3>
+            <ul>
+                <li>Reactome content-service</li>
+            </ul>
+
+            <h3>Pathways identification and coverage [KEGG]</h3>
+            <ul>
+                <li>Pathways and KEGG genes IDs are collected via KEGGREST package.</li>
+            </ul>
+            
+            <h3>Pathways visualization of (differentially expressed) genes/proteins [KEGG]</h3>
+            <ul>
+                <li>KEGG Pathways names list</li>
+                <li>Pathview package doc</li>
+            </ul>
+
+            <h3>Biogrid</h3>
+            <ul>
+                <li>BIOGRID-ORGANISM</li>
+                <li>NCBI2Reactome (v67 10-12-18)</li>
+            </ul>
+
+            <h3>Bioplex</h3>
+            <ul>
+                <li>BioPlex_interactionList_v4a</li>
+                <li>UniProt2Reactome</li>
+                <li>NCBI2Reactome (v67 10-12-18)</li>
+            </ul>
+
+            <h3>Humap</h3>
+            <ul>
+                <li>nodeTable</li>
+                <li>pairsWprob</li>
+                <li>NCBI2Reactome (v67 10-12-18)</li>
+            </ul>
+        </div>
+    </body>
+</html>
