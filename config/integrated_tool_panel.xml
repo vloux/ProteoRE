@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<toolbox>
+    <!--
+    This is Galaxy's integrated tool panel and should be modified directly only for
+    reordering tools inside a section. Each time Galaxy starts up, this file is
+    synchronized with the various tool config files: tools, sections and labels
+    added to one of these files, will be added also here in the appropriate place,
+    while elements removed from the tool config files will be correspondingly
+    deleted from this file.
+    To modify locally managed tools (e.g. from tool_conf.xml) modify that file
+    directly and restart Galaxy. Whenever possible Tool Shed managed tools (e.g.
+    from shed_tool_conf.xml) should be managed from within the Galaxy interface or
+    via its API - but if changes are necessary (such as to hide a tool or re-assign
+    its section) modify that file and restart Galaxy.
+    -->
+    <section id="getext" name="Get Data" version="">
+
+        <tool id="upload1" />
+
+    </section>
+
+    <section id="proteore" name="ProteoRE" version="">
+
+        <label id="data_manipulation" text="Data Manipulation And Visualization" version="" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_id_converter/IDconverter/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_filter_keywords_values/MQoutputfilter/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_filter_keywords_values/MQoutputfilter/2019.03.11" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_filter_keywords_values/MQoutputfilter/2019.03.05" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_filter_keywords_values/MQoutputfilter/2019.02.05" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_filter_keywords_values/MQoutputfilter/2019.01.16" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_filter_keywords_values/MQoutputfilter/2018.12.18" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/filter_keywords_values/MQoutputfilter/0.1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_filter_keywords_values/MQoutputfilter/2018.09.21" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_venn_diagram/Jvenn/2019.09.12" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_venn_diagram/Jvenn/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_venn_diagram/Jvenn/2019.02.21" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_venn_diagram/Jvenn/2018.12.18" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_venn_diagram/Jvenn/1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/iuc/volcanoplot/volcanoplot/0.0.3" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_heatmap_visualization/heatmap/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_heatmap_visualization/heatmap/2019.03.05" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_heatmap_visualization/heatmap/2019.02.26" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_heatmap_visualization/heatmap/2019.02.05" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_heatmap_visualization/heatmap/2018.12.12" />
+
+        <label id="human_annotation" text="Human Annotation" version="" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_expression_levels_by_tissue/sel_ann_hpa/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_expression_levels_by_tissue/sel_ann_hpa/2019.03.13" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_expression_levels_by_tissue/sel_ann_hpa/2018.12.17" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_expression_rnaseq_abbased/rna_abbased_data/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_expression_rnaseq_abbased/rna_abbased_data/2019.03.07" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_expression_rnaseq_abbased/rna_abbased_data/2019.01.02" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_prot_features/prot_features/2019.06.27.2" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_prot_features/prot_features/2019.03.12.1" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_prot_features/prot_features/2019.01.18" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_prot_features/prot_features/2018.12.18" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_ms_observation_pepatlas/retr_pepatlas1/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_ms_observation_pepatlas/retr_pepatlas1/2019.05.01" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_ms_observation_pepatlas/retr_pepatlas1/2019.02.26" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_ms_observation_pepatlas/retr_pepatlas1/2019.02.01.1" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_ms_observation_pepatlas/retr_pepatlas1/2018.12.18" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_get_unique_peptide_srm_method/proteore_get_unique_peptide_srm_method/2019.07.11" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_tissue_specific_expression_data/retrieve_from_hpa/2019.02.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_tissue_specific_expression_data/retrieve_from_hpa/2018.12.12" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_expression_levels_by_tissue/sel_ann_hpa/0.1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_prot_features/prot_features/0.1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_ms_observation_pepatlas/retr_pepatlas1/2018.09.19" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_tissue_specific_expression_data/retrieve_from_hpa/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_tissue_specific_expression_data/retrieve_from_hpa/0.1.0" />
+
+        <label id="mouse_annotation" text="Mouse Annotation" version="" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_prot_features_mouse/prot_features_mouse/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_prot_features_mouse/prot_features_mouse/2019.02.21" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_prot_features_mouse/prot_features_mouse/2019.02.08" />
+
+        <label id="go_terms_analysis" text="Go terms Analysis" version="" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_goprofiles/goProfiles/2019.12.11" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_goprofiles/goProfiles/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_goprofiles/goProfiles/2019.02.27.1" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_goprofiles/goProfiles/2018.12.12" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_clusterprofiler/cluter_profiler/2019.09.26" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_clusterprofiler/cluter_profiler/2019.06.27.1" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_clusterprofiler/cluter_profiler/2019.02.18" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_clusterprofiler/cluter_profiler/2018.12.21" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_clusterprofiler/cluter_profiler/0.1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_go_terms_enrich_comparison/go_terms_enrich_comparison/2019.11.19.1" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_goprofiles/goProfiles/0.1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_goprofiles/goProfiles/2018.09.21" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_topgo/topGO/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_topgo/topGO/2019.09.26" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_topgo/topGO/2019.02.19" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_topgo/topGO/0.1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_topgo/topGO/2018.09.21" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_topgo/topGO/2018.12.17" />
+
+        <label id="pathway" text="Pathway Analysis" version="" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_reactome/reactome_analysis/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_reactome/reactome_analysis/2019.03.05" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_reactome/reactome_analysis/2018.12.12" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_reactome/reactome_analysis/0.1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_kegg_pathways_coverage/kegg_identification/2019.06.27" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_kegg_pathways_coverage/kegg_identification/2019.03.05" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_kegg_pathways_coverage/kegg_identification/2018.12.12" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_maps_visualization/kegg_maps_visualization/2019.06.27.1" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_maps_visualization/kegg_maps_visualization/2019.03.05" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_maps_visualization/kegg_maps_visualization/2019.01.31" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_maps_visualization/kegg_maps_visualization/2018.12.18" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/proteore/proteore_build_protein_interaction_maps/build_protein_interaction_maps/2019.06.27" />
+
+    </section>
+
+    <section id="collection_operations" name="Collection Operations" version="">
+
+        <tool id="__UNZIP_COLLECTION__" />
+
+        <tool id="__ZIP_COLLECTION__" />
+
+        <tool id="__FILTER_FAILED_DATASETS__" />
+
+        <tool id="__FLATTEN__" />
+
+        <tool id="__MERGE_COLLECTION__" />
+
+        <tool id="__RELABEL_FROM_FILE__" />
+
+        <tool id="__FILTER_FROM_FILE__" />
+
+        <tool id="__SORTLIST__" />
+
+    </section>
+
+    <section id="liftOver" name="Lift-Over" version="">
+
+        <tool id="liftOver1" />
+
+    </section>
+
+    <section id="textutil" name="Text Manipulation" version="">
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tac/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tail_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_uniq_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_text_file_with_recurring_lines/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_multijoin_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_rows/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sed_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_unfold_column_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/1.0.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/0.1.0" />
+
+        <tool id="addValue" />
+
+        <tool id="cat1" />
+
+        <tool id="mergeCols1" />
+
+        <tool id="Convert characters1" />
+
+        <tool id="createInterval" />
+
+        <tool id="ChangeCase" />
+
+        <tool id="Paste1" />
+
+        <tool id="Remove beginning1" />
+
+        <tool id="random_lines1" />
+
+        <tool id="Show beginning1" />
+
+        <tool id="Show tail1" />
+
+        <tool id="trimmer" />
+
+        <tool id="wc_gnu" />
+
+        <tool id="secure_hash_message_digest" />
+
+    </section>
+
+    <section id="filter" name="Filter and Sort" version="">
+
+        <tool id="Filter1" />
+
+        <tool id="sort1" />
+
+        <tool id="Grep1" />
+
+        <label id="gff" text="GFF" version="" />
+
+        <tool id="Extract_features1" />
+
+        <tool id="gff_filter_by_attribute" />
+
+        <tool id="gff_filter_by_feature_count" />
+
+        <tool id="gtf_filter_by_attribute_values_list" />
+
+    </section>
+
+    <section id="group" name="Join, Subtract and Group" version="">
+
+        <tool id="join1" />
+
+        <tool id="comp1" />
+
+        <tool id="Grouping1" />
+
+    </section>
+
+    <section id="convert" name="Convert Formats" version="">
+
+        <tool id="axt_to_concat_fasta" />
+
+        <tool id="axt_to_fasta" />
+
+        <tool id="axt_to_lav_1" />
+
+        <tool id="bed2gff1" />
+
+        <tool id="gff2bed1" />
+
+        <tool id="lav_to_bed1" />
+
+        <tool id="MAF_To_BED1" />
+
+        <tool id="MAF_To_Interval1" />
+
+        <tool id="MAF_To_Fasta1" />
+
+        <tool id="wiggle2simple1" />
+
+        <tool id="Sff_extractor" />
+
+        <tool id="gtf2bedgraph" />
+
+        <tool id="wig_to_bigWig" />
+
+        <tool id="bed_to_bigBed" />
+
+    </section>
+
+    <section id="features" name="Extract Features" version="">
+
+        <tool id="gene2exon1" />
+
+    </section>
+
+    <section id="fetchSeq" name="Fetch Sequences" version="">
+
+        <tool id="Extract genomic DNA 1" />
+
+    </section>
+
+    <section id="fetchAlign" name="Fetch Alignments" version="">
+
+        <tool id="Interval2Maf_pairwise1" />
+
+        <tool id="Interval2Maf1" />
+
+        <tool id="MAF_split_blocks_by_species1" />
+
+        <tool id="Interval_Maf_Merged_Fasta2" />
+
+        <tool id="GeneBed_Maf_Fasta2" />
+
+        <tool id="maf_stats1" />
+
+        <tool id="MAF_Thread_For_Species1" />
+
+        <tool id="MAF_Limit_To_Species1" />
+
+        <tool id="maf_limit_size1" />
+
+        <tool id="maf_by_block_number1" />
+
+        <tool id="MAF_Reverse_Complement_1" />
+
+        <tool id="MAF_filter" />
+
+    </section>
+
+    <section id="stats" name="Statistics" version="">
+
+        <tool id="Summary_Statistics1" />
+
+        <tool id="Count1" />
+
+    </section>
+
+    <section id="plots" name="Graph/Display Data" version="">
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/iuc/charts/charts/1.0.1" />
+
+        <tool id="barchart_gnuplot" />
+
+        <tool id="qual_stats_boxplot" />
+
+        <tool id="vcf_to_maf_customtrack1" />
+
+    </section>
+
+    <section id="beta_tools" name="Beta tools" version="">
+
+        <tool id="testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_go_terms_profiles_comparison/go_terms_profiles_comparison/2019.09.27" />
+
+        <tool id="testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_go_terms_profiles_comparison/go_terms_profiles_comparison/2019.03.07" />
+
+        <tool id="testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_go_terms_profiles_comparison/go_terms_profiles_comparison/2019.02.28.1" />
+
+        <tool id="testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_topgo/topGO/2019.02.19" />
+
+        <tool id="testtoolshed.g2.bx.psu.edu/repos/proteore/proteore_topgo/topGO/2018.12.17" />
+
+        <label id="beta_data_manip" text="Data Manipulation" version="" />
+
+        <label id="beta_human_annotation" text="Human annotation" version="" />
+
+        <label id="beta_mouse_annotation" text="Mouse annotation" version="" />
+
+        <label id="beta_goterms_analysis" text="GO terms analysis" version="" />
+
+        <label id="beta_pathway_analysis" text="Pathway Analysis" version="" />
+
+    </section>
+
+    <section id="sample_specific_db_generation" name="Sample Specific DB generation" version="">
+
+    </section>
+
+    <section id="sequence_database_tools" name="Sequence Database Tools" version="">
+
+    </section>
+
+    <section id="protein/peptide_search_algorithms" name="Protein/Peptide Search Algorithms" version="">
+
+    </section>
+
+    <section id="galaxy-p_tools" name="Galaxy-P tools" version="">
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/galaxyp/quantp/quantp/1.1.2" />
+
+        <label id="sample_specific_db_generation" text="Sample Specific DB generation" version="" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/galaxyp/custom_pro_db/custom_pro_db/1.22.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/galaxyp/psm_to_sam/PSMtoSAM/1.3.2.1" />
+
+        <label id="sequence_database_tools" text="Sequence Database Tools" version="" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/galaxyp/dbbuilder/dbbuilder/0.3.0" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/galaxyp/fasta_merge_files_and_filter_unique_sequences/fasta_merge_files_and_filter_unique_sequences/1.2.0" />
+
+        <label id="protein-peptide_search_algorithms" text="Protein/Peptide Search Algorithms" version="" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/galaxyp/peptideshaker/peptide_shaker/1.16.36.2" />
+
+        <tool id="toolshed.g2.bx.psu.edu/repos/galaxyp/peptideshaker/search_gui/3.3.10.1" />
+
+    </section>
+
+</toolbox>
