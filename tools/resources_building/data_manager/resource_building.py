@@ -235,7 +235,7 @@ def id_mapping_sources (data_manager_dict, species, target_directory, tool_data_
     #add missing nextprot ID for human or replace old ones
     if human : 
         #build next_dict
-        nextprot_path = id_list_from_nextprot_ftp("nextprot_ac_list_all.txt",target_directory)
+        nextprot_path = download_from_nextprot_ftp("nextprot_ac_list_all.txt",target_directory)
         with open(nextprot_path,'r') as nextprot_ids :
             nextprot_ids = nextprot_ids.read().splitlines()
         if os.path.exists(os.path.join(archive,nextprot_path.split("/")[-1])) : os.remove(os.path.join(archive,nextprot_path.split("/")[-1]))
@@ -280,7 +280,7 @@ def download_from_uniprot_ftp(file,target_directory) :
     ftp.quit()
     return (path)
 
-def id_list_from_nextprot_ftp(file,target_directory) :
+def download_from_nextprot_ftp(file,target_directory):
     ftp_dir = "pub/current_release/ac_lists/"
     path = os.path.join(target_directory, file)
     ftp = ftplib.FTP("ftp.nextprot.org")
@@ -288,9 +288,19 @@ def id_list_from_nextprot_ftp(file,target_directory) :
     ftp.cwd(ftp_dir)
     ftp.retrbinary("RETR " + file, open(path, 'wb').write)
     ftp.quit()
-    with open(path,'r') as nextprot_ids :
-        nextprot_ids = nextprot_ids.read().splitlines()
-    return (nextprot_ids)
+    return path
+
+def id_list_from_nextprot_ftp(file) :
+    ftp = ftplib.FTP("ftp.nextprot.org")
+    ftp.login("anonymous", "anonymous") 
+    r = StringIO()
+    ftp.retrlines("RETR " + file, lambda line: r.write(line + '\n'))
+    ftp.quit()
+    r.seek(0)
+    ids = r.readlines()
+    ids = [id.strip('\n') for id in ids]
+
+    return (ids)
 
 #return '' if there's no value in a dictionary, avoid error
 def access_dictionary (dico,key1,key2) :
@@ -534,72 +544,87 @@ def PPI_ref_files(data_manager_dict, species, interactome, target_directory):
 #######################################################################################################
 # 5. nextprot (add protein features)
 #######################################################################################################
-
 def Build_nextprot_ref_file(data_manager_dict,target_directory):
-    nextprot_ids_file = "nextprot_ac_list_all.txt"
-    ids = id_list_from_nextprot_ftp(nextprot_ids_file,target_directory)
+
+    from requests_futures.sessions import FuturesSession
+    from concurrent.futures import ProcessPoolExecutor
+
+    #Get nextprot ids list
+    ids = id_list_from_nextprot_ftp("pub/current_release/ac_lists/nextprot_ac_list_all.txt")
     
     output_file = 'nextprot_ref_'+ time.strftime("%d-%m-%Y") + ".tsv"
     path = os.path.join(target_directory,output_file)
     name = "neXtProt release "+time.strftime("%d-%m-%Y")
     release_id = "nextprot_ref_"+time.strftime("%d-%m-%Y")
-    
+
+    #open output file to write
     output = open(path, 'w')
     writer = csv.writer(output,delimiter="\t")
-        
-    nextprot_file=[["NextprotID","MW","SeqLength","IsoPoint","Chr","SubcellLocations","Diseases","TMDomains","ProteinExistence"]]
-    writer.writerows(nextprot_file)
-    
-    for id in ids :
-        query="https://api.nextprot.org/entry/"+id+".json"
-        resp = requests.get(url=query)
-        data = resp.json()
+    writer.writerow(["NextprotID","MW","SeqLength","IsoPoint","Chr","SubcellLocations","Diseases","TMDomains","ProteinExistence"])
 
-        #get info from json dictionary
-        mass_mol = data["entry"]["isoforms"][0]["massAsString"]
-        seq_length = data['entry']["isoforms"][0]["sequenceLength"]
-        iso_elec_point = data['entry']["isoforms"][0]["isoelectricPointAsString"]
-        chr_loc = data['entry']["chromosomalLocations"][0]["chromosome"]        
-        protein_existence = "PE"+str(data['entry']["overview"]['proteinExistence']['level'])
+    subset=200
+    ids_subsets = [ids[x:x+subset] for x in range(0, len(ids), subset)]
 
-        #put all subcell loc in a set
-        if "subcellular-location" in data['entry']["annotationsByCategory"].keys() :
-            subcell_locs = data['entry']["annotationsByCategory"]["subcellular-location"]
-            all_subcell_locs = set()
-            for loc in subcell_locs :
-                all_subcell_locs.add(loc['cvTermName'])
-            all_subcell_locs.discard("")
-            all_subcell_locs = ";".join(all_subcell_locs)
-        else :
-            all_subcell_locs = "NA"
-        
-        #put all subcell loc in a set
-        if ('disease') in data['entry']['annotationsByCategory'].keys() :
-            diseases = data['entry']['annotationsByCategory']['disease']
-            all_diseases = set()
-            for disease in diseases :
-                if (disease['cvTermName'] is not None and disease['cvTermName'] != ""):
-                    all_diseases.add(disease['cvTermName'])
-            if len(all_diseases) > 0 : all_diseases = ";".join(all_diseases)
-            else : all_diseases="NA"
-        else :
-            all_diseases="NA"
+    i=1
+    for ids_subset in ids_subsets:
 
-        #get all tm domain 
-        nb_domains = 0
-        if  "transmembrane-region" in data['entry']['annotationsByCategory'].keys():
-            tm_domains = data['entry']['annotationsByCategory']["transmembrane-region"]
-            all_tm_domains = set()
-            for tm in tm_domains :
-                all_tm_domains.add(tm['cvTermName'])
-                nb_domains+=1
-                #print "nb domains ++"
-                #print (nb_domains)
-        nextprot_file[:] = [] 
-        nextprot_file.append([id,mass_mol,str(seq_length),iso_elec_point,chr_loc,all_subcell_locs,all_diseases,str(nb_domains),protein_existence])
-        writer.writerows(nextprot_file)
+        #Open concurent sessions
+        with FuturesSession(executor=ProcessPoolExecutor(max_workers=8)) as session:
+            futures = [session.get("https://api.nextprot.org/entry/"+id+".json") for id in ids_subset]
+            #jsons = [future.result().json()['entry'] for future in futures]
 
-        id = str(10000000000 - int(time.strftime("%Y%m%d")))
+        for id,future in zip(ids_subset,futures) :
+
+            #Get json dictionary 
+            res = future.result()
+            data = res.json()
+
+            #get info from json dictionary
+            mass_mol = data["entry"]["isoforms"][0]["massAsString"]
+            seq_length = data['entry']["isoforms"][0]["sequenceLength"]
+            iso_elec_point = data['entry']["isoforms"][0]["isoelectricPointAsString"]
+            chr_loc = data['entry']["chromosomalLocations"][0]["chromosome"]        
+            protein_existence = "PE"+str(data['entry']["overview"]['proteinExistence']['level'])
+
+            #put all subcell loc in a set
+            if "subcellular-location" in data['entry']["annotationsByCategory"].keys() :
+                subcell_locs = data['entry']["annotationsByCategory"]["subcellular-location"]
+                all_subcell_locs = set()
+                for loc in subcell_locs :
+                    all_subcell_locs.add(loc['cvTermName'])
+                all_subcell_locs.discard("")
+                all_subcell_locs = ";".join(all_subcell_locs)
+            else :
+                all_subcell_locs = "NA"
+            
+            #put all subcell loc in a set
+            if ('disease') in data['entry']['annotationsByCategory'].keys() :
+                diseases = data['entry']['annotationsByCategory']['disease']
+                all_diseases = set()
+                for disease in diseases :
+                    if (disease['cvTermName'] is not None and disease['cvTermName'] != ""):
+                        all_diseases.add(disease['cvTermName'])
+                if len(all_diseases) > 0 : all_diseases = ";".join(all_diseases)
+                else : all_diseases="NA"
+            else :
+                all_diseases="NA"
+
+            #get all tm domain 
+            nb_domains = 0
+            if  "transmembrane-region" in data['entry']['annotationsByCategory'].keys():
+                tm_domains = data['entry']['annotationsByCategory']["transmembrane-region"]
+                all_tm_domains = set()
+                for tm in tm_domains :
+                    all_tm_domains.add(tm['cvTermName'])
+                    nb_domains+=1
+
+            writer.writerow([id,mass_mol,str(seq_length),iso_elec_point,chr_loc,all_subcell_locs,all_diseases,str(nb_domains),protein_existence])
+            
+
+        print (str(i*100))
+        i+=1
+
+    id = str(10000000000 - int(time.strftime("%Y%m%d")))
 
     data_table_entry = dict(id=id, release=release_id, name = name, value = path)
     _add_data_table_entry(data_manager_dict, data_table_entry, "proteore_nextprot_ref")
@@ -623,8 +648,7 @@ def main():
     data_manager_dict = {}
     # Extract json file params
     filename = args.output
-    params = from_json_string(open(filename).read())
-    target_directory = params[ 'output_data' ][0]['extra_files_path']
+    target_directory = "/home/dchristiany/tmp2"
     os.mkdir(target_directory)
 
     ## Download source files from HPA
