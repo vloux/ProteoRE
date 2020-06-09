@@ -562,21 +562,24 @@ def Build_nextprot_ref_file(data_manager_dict,target_directory):
     writer = csv.writer(output,delimiter="\t")
     writer.writerow(["NextprotID","MW","SeqLength","IsoPoint","Chr","SubcellLocations","Diseases","TMDomains","ProteinExistence"])
 
-    subset=200
+    subset=100
     ids_subsets = [ids[x:x+subset] for x in range(0, len(ids), subset)]
 
-    i=1
     for ids_subset in ids_subsets:
 
         #Open concurent sessions
         with FuturesSession(executor=ProcessPoolExecutor(max_workers=8)) as session:
             futures = [session.get("https://api.nextprot.org/entry/"+id+".json") for id in ids_subset]
-            #jsons = [future.result().json()['entry'] for future in futures]
 
         for id,future in zip(ids_subset,futures) :
 
             #Get json dictionary 
-            res = future.result()
+            try:
+                res = future.result()
+            except:
+                print ("sleep 1 hour")
+                time.sleep(3600)
+                res = future.result()
             data = res.json()
 
             #get info from json dictionary
@@ -619,10 +622,6 @@ def Build_nextprot_ref_file(data_manager_dict,target_directory):
                     nb_domains+=1
 
             writer.writerow([id,mass_mol,str(seq_length),iso_elec_point,chr_loc,all_subcell_locs,all_diseases,str(nb_domains),protein_existence])
-            
-
-        print (str(i*100))
-        i+=1
 
     id = str(10000000000 - int(time.strftime("%Y%m%d")))
 
@@ -648,7 +647,8 @@ def main():
     data_manager_dict = {}
     # Extract json file params
     filename = args.output
-    target_directory = "/home/dchristiany/tmp2"
+    params = from_json_string(open(filename).read())
+    target_directory = params[ 'output_data' ][0]['extra_files_path']
     os.mkdir(target_directory)
 
     ## Download source files from HPA
