@@ -1,6 +1,6 @@
 # Read file and return file content as data.frame
 read_file <- function(path, header) {
-  file <- try(read.csv(path, header = header, sep = "\t", stringsAsFactors = FALSE, quote = "\"", check.names = F),silent=TRUE)
+  file <- try(read.csv(path, header = header, sep = "\t", stringsAsFactors = FALSE, quote = "\"", check.names = F), silent = TRUE)
   if (inherits(file, "try-error")) {
     stop("File not found !")
   }else{
@@ -10,9 +10,9 @@ read_file <- function(path, header) {
 
 str2bool <- function(x) {
   if (any(is.element(c("t", "true"), tolower(x)))) {
-    return (TRUE)
-  }else if (any(is.element(c("f", false"), tolower(x)))) {
-    return (FALSE)
+    return(TRUE)
+  }else if (any(is.element(c("f", false), tolower(x)))) {
+    return(FALSE)
   }else{
     return(NULL)
   }
