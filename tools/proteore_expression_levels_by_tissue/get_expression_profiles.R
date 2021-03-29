@@ -134,8 +134,6 @@ argsdf <- as.data.frame(do.call("rbind", parseargs(args)))
 args <- as.list(as.character(argsdf$V2))
 names(args) <- argsdf$V1
 
-#save(args,file = "~/ProteoRE/tools/Get_expression_profiles/args.rda")
-#load("~/ProteoRE/tools/Get_expression_profiles/args.rda")
 
   # Extract input
   input_type <- args$input_type
