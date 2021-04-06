@@ -93,9 +93,6 @@ enrich_go <- function(geneid, universe, orgdb, ontology, pval_cutoff,
       ifelse(nchar(x) > 50, substr(x, 1, 50), x)
       }, USE.NAMES = FALSE)
 
-#nb_max_char = max_str_length_10_first(ego$Description)
-#width = width_by_max_char(nb_max_char)
-
     if ("dotplot" %in% plot) {
     dot_name <- paste("EGO_", ontology, "_dot-plot", sep = "")
     png(dot_name, height = 720, width = 600)
