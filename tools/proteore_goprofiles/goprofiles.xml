@@ -134,9 +134,9 @@
             <param name="title" value="Test" />
             <param name="plot_opt" value="PDF" />
             <output_collection name="output" type="list" >
-                <element name="profile.BP.pdf" file="profile.BP.pdf" ftype="pdf" compare="sim_size"/>
-                <element name="profile.CC.pdf" file="profile.CC.pdf" ftype="pdf" compare="sim_size"/>
-                <element name="profile.MF.pdf" file="profile.MF.pdf" ftype="pdf" compare="sim_size"/>
+                <element name="profile_BP.pdf" file="profile.BP.pdf" ftype="pdf" compare="sim_size"/>
+                <element name="profile_CC.pdf" file="profile.CC.pdf" ftype="pdf" compare="sim_size"/>
+                <element name="profile_MF.pdf" file="profile.MF.pdf" ftype="pdf" compare="sim_size"/>
             </output_collection>
             <output name="log" file="GO_Profile_text_output.tsv"/>
         </test>
