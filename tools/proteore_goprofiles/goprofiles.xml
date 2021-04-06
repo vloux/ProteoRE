@@ -1,13 +1,12 @@
 <tool id="goProfiles" name="Compute functional profiles" version="2020.01.23">
     <description>(Human, Mouse) [goProfiles]</description>
     <requirements>
-        <requirement type="package" >R</requirement>
-        <requirement type="package" version="3.8.2">bioconductor-org.hs.eg.db</requirement>
-        <requirement type="package" version="3.8.2">bioconductor-org.mm.eg.db</requirement>
-        <!--requirement type="package" version="3.5.0">bioconductor-org.rn.eg.db</requirement-->
-        <requirement type="package" version="1.46.0">bioconductor-annotationdbi</requirement>
-        <requirement type="package" version="2.44.0">bioconductor-biobase</requirement>
-        <requirement type="package" version="1.46.0">bioconductor-goprofiles</requirement>
+        <requirement type="package" version="4.0">R</requirement>
+        <requirement type="package" version="3.12.0-1">bioconductor-org.hs.eg.db</requirement>
+        <requirement type="package" version="3.12.0-1">bioconductor-org.mm.eg.db</requirement>
+        <requirement type="package" version="1.53">bioconductor-annotationdbi</requirement>
+        <requirement type="package" version="2.51.0">bioconductor-biobase</requirement>
+        <requirement type="package" version="1.52.0-1">bioconductor-goprofiles</requirement>
 
     </requirements>
     <stdio>
