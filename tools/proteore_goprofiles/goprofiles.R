@@ -27,10 +27,12 @@ str2bool <- function(x) {
 }
 
 check_ids <- function(vector, type) {
+ # nolint start
   uniprot_pattern <-
     "^([OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2})$"
   entrez_id <- "^([0-9]+|[A-Z]{1,2}_[0-9]+|[A-Z]{1,2}_[A-Z]{1,4}[0-9]+)$"
-  if (type == "Entrez"){
+  # nolint end
+  if (type == "Entrez") {
     return(grepl(entrez_id, vector))
   } else if (type == "UniProt") {
     return(grepl(uniprot_pattern, vector))
@@ -50,11 +52,11 @@ getprofile <- function(ids, id_type, level, duplicate, species) {
   library(species, character.only = TRUE, quietly = TRUE)
 
   if (species == "org.Hs.eg.db") {
-    package <- org.Hs.eg.db
+    package <- org.Hs.eg.db #nolint
   } else if (species == "org.Mm.eg.db") {
-    package <- org.Mm.eg.db
+    package <- org.Mm.eg.db #nolint
   } else if (species == "org.Rn.eg.db") {
-    package <- org.Rn.eg.db
+    package <- org.Rn.eg.db #nolint
   }
 
   # Check if level is number
@@ -67,15 +69,15 @@ getprofile <- function(ids, id_type, level, duplicate, species) {
 
   # Extract Gene Entrez ID
   if (id_type == "Entrez") {
-    id <- select(package, ids, "ENTREZID", multiVals = "first")
+    id <- select(package, ids, "ENTREZID", multiVals = "first") #nolint
   } else {
-    id <- select(package, ids, "ENTREZID", "UNIPROT", multiVals = "first")
+    id <- select(package, ids, "ENTREZID", "UNIPROT", multiVals = "first") #nolint
   }
   if (duplicate) {
     id <- unique(id)
   }
   genes_ids <- id$ENTREZID[which(!is.na(id$ENTREZID))]
-  nas <- id$UNIPROT[which(is.na(id$ENTREZID))] # IDs that have NA ENTREZID
+  nas <- id$UNIPROT[which(is.na(id$ENTREZID))] # IDs that have NA ENTREZID #nolint
 
   # Create basic profiles
   profile.CC <-
