@@ -182,11 +182,12 @@ Text output: with the following information GO category description (e.g.BP.Desc
 .. class:: infomark
 
 Packages used:
-    - bioconductor-org.hs.eg.db v3.5.0
-    - bioconductor-org.mm.eg.db v3.5.0
-    - bioconductor-annotationdbi v1.40.0
-    - bioconductor-biobase v2.98.0
-    - goprofiles v1.38.0
+    - bioconductor-org.hs.eg.db v3.12.0
+    - bioconductor-org.mm.eg.db v3.12.0
+    - bioconductor-annotationdbi v1.52.0
+    - bioconductor-biobase v2.50.0
+    - bioconductor-go.db v3.12.1
+    - goprofiles v1.52.0
 
 -----
 
