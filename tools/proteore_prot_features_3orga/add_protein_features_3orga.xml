@@ -1,4 +1,4 @@
-<tool id="prot_features_3orga" name="Add protein features" version="2020.01.23">
+<tool id="prot_features_3orga" name="Add protein features" version="2021.04.06">
 <description>[UniProt, Human, Mouse, Rat]
 </description>
 <requirements>
