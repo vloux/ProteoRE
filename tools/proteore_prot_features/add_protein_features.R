@@ -196,8 +196,6 @@ protein_features <- function() {
   }
   nextprotid <- file[, ncol]
 
-  #Select user input protein ids in nextprot
-  #nextprotid = unique(nextprotid[which(!is.na(nextprotid[nextprotid!=""]))])
   if (all(!nextprotid %in% nextprot[, 1])) {
     write.table("None of the input ids can be found in Nextprot", file = output,
                 sep = "\t", quote = FALSE, col.names = TRUE, row.names = FALSE)
