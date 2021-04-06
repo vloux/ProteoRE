@@ -1,7 +1,7 @@
 <tool id="goProfiles" name="Compute functional profiles" version="2021.04.03">
     <description>(Human, Mouse) [goProfiles]</description>
     <requirements>
-        <requirement type="package" version="4.0.3">R</requirement>
+        <requirement type="package" version="4.0.3">r-base</requirement>
         <requirement type="package" version="3.12.0">bioconductor-org.hs.eg.db</requirement>
         <requirement type="package" version="3.12.0">bioconductor-org.mm.eg.db</requirement>
         <requirement type="package" version="1.52.0">bioconductor-annotationdbi</requirement>
