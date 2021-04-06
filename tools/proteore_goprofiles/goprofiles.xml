@@ -1,4 +1,4 @@
-<tool id="goProfiles" name="Compute functional profiles" version="2020.01.23">
+<tool id="goProfiles" name="Compute functional profiles" version="2021.04.03">
     <description>(Human, Mouse) [goProfiles]</description>
     <requirements>
         <requirement type="package" version="4.0">R</requirement>
