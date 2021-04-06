@@ -1,4 +1,4 @@
-<tool id="cluter_profiler" name="Classification and enrichment analysis" version="2019.01.23">
+<tool id="cluter_profiler" name="Classification and enrichment analysis" version="2021.04.06">
     <description>(Human, Mouse, Rat)[clusterProfiler]</description>
     <requirements>
         <requirement type="package">R</requirement>
