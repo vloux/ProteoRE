@@ -1,40 +1,43 @@
-options(warn=-1)  #TURN OFF WARNINGS !!!!!!
-suppressMessages(library(clusterProfiler,quietly = TRUE))
+options(warn = -1)  #TURN OFF WARNINGS !!!!!!
+suppressMessages(library(clusterProfiler, quietly = TRUE))
 suppressMessages(library(plyr, quietly = TRUE))
 suppressMessages(library(ggplot2, quietly = TRUE))
 suppressMessages(library(DOSE, quietly = TRUE))
 
-#return the number of character from the longest description found (from the 10 first)
-max_str_length_10_first <- function(vector){
+#return the number of character from the longest description
+#found (from the 10 first)
+max_str_length_10_first <- function(vector) {
   vector <- as.vector(vector)
-  nb_description = length(vector)
-  if (nb_description >= 10){nb_description=10}
+  nb_description <- length(vector)
+  if (nb_description >= 10) {
+    nb_description <- 10
+    }
   return(max(nchar(vector[1:nb_description])))
 }
 
-str2bool <- function(x){
-  if (any(is.element(c("t","true"),tolower(x)))){
-    return (TRUE)
-  }else if (any(is.element(c("f","false"),tolower(x)))){
-    return (FALSE)
+str2bool <- function(x) {
+  if (any(is.element(c("t", "true"), tolower(x)))) {
+    return(TRUE)
+  }else if (any(is.element(c("f", "false"), tolower(x)))) {
+    return(FALSE)
   }else{
     return(NULL)
   }
 }
 
-get_args <- function(){
-  
+get_args <- function() {
+
   ## Collect arguments
   args <- commandArgs(TRUE)
   #value = character vector of length=nb of arguments
-  
+
   ## Default setting when no arguments passed
-  if(length(args) < 1) {
+  if (length(args) < 1) {
     args <- c("--help")
   }
-  
+
   ## Help section
-  if("--help" %in% args) {
+  if ("--help" %in% args) {
     cat("Selection and Annotation HPA
       Arguments:
       --inputtype1: type of input (list of id or filename)
@@ -54,57 +57,62 @@ get_args <- function(){
       --list_name1: name of the first list
       --list_name2: name of the second list
       --list_name3: name of the third list \n")
-        
-    q(save="no")
+
+    q(save = "no")
   }
-  
-  parseArgs <- function(x) strsplit(sub("^--", "", x), "=")
-  argsDF <- as.data.frame(do.call("rbind", parseArgs(args)))
-  args <- as.list(as.character(argsDF$V2))
-  names(args) <- argsDF$V1
-  
+
+  parseargs <- function(x) strsplit(sub("^--", "", x), "=")
+  argsdf <- as.data.frame(do.call("rbind", parseargs(args)))
+  args <- as.list(as.character(argsdf$V2))
+  names(args) <- argsdf$V1
+
   return(args)
 }
 
-get_ids=function(input, inputtype, header , ncol) {
+get_ids <- function(input, inputtype, header, ncol) {
 
     if (inputtype == "text") {
-      ids = strsplit(input, "[ \t\n]+")[[1]]
+      ids <- strsplit(input, "[ \t\n]+")[[1]]
     } else if (inputtype == "file") {
-      header=str2bool(header)
-      ncol=get_cols(ncol)
-      csv = read.csv(input,header=header, sep="\t", as.is=T)
-      ids=csv[,ncol]
+      header <- str2bool(header)
+      ncol <- get_cols(ncol)
+      csv <- read.csv(input, header = header, sep = "\t", as.is = T)
+      ids <- csv[, ncol]
     }
 
-    ids = unlist(strsplit(as.character(ids),";"))
-    ids = ids[which(!is.na(ids))]
+    ids <- unlist(strsplit(as.character(ids), ";"))
+    ids <- ids[which(!is.na(ids))]
 
     return(ids)
 }
 
-str2bool <- function(x){
-  if (any(is.element(c("t","true"),tolower(x)))){
-    return (TRUE)
-  }else if (any(is.element(c("f","false"),tolower(x)))){
-    return (FALSE)
+str2bool <- function(x) {
+  if (any(is.element(c("t", "true"), tolower(x)))) {
+    return(TRUE)
+  }else if (any(is.element(c("f", "false"), tolower(x)))) {
+    return(FALSE)
   }else{
     return(NULL)
   }
 }
 
-check_ids <- function(vector,type) {
-  uniprot_pattern = "^([OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2})$"
-  entrez_id = "^([0-9]+|[A-Z]{1,2}_[0-9]+|[A-Z]{1,2}_[A-Z]{1,4}[0-9]+)$"
+
+check_ids <- function(vector, type) {
+# nolint start
+  uniprot_pattern <- "^([OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]
+  ([A-Z][A-Z0-9]{2}[0-9]){1,2})$"
+  entrez_id <- "^([0-9]+|[A-Z]{1,2}_[0-9]+|[A-Z]{1,2}_[A-Z]{1,4}[0-9]+)$"
+# nolint end
   if (type == "entrez")
-    return(grepl(entrez_id,vector))
+    return(grepl(entrez_id, vector))
   else if (type == "uniprot") {
-    return(grepl(uniprot_pattern,vector))
+    return(grepl(uniprot_pattern, vector))
   }
 }
 
-#res.cmp@compareClusterResult$Description <- sapply(as.vector(res.cmp@compareClusterResult$Description), function(x) {ifelse(nchar(x)>50, substr(x,1,50),x)},USE.NAMES = FALSE)
-fortify.compareClusterResult <- function(res.cmp, showCategory=30, by="geneRatio", split=NULL, includeAll=TRUE) {
+# nolint start
+fortify.compareClusterResult <- function(res.cmp, showCategory = 30, 
+                        by="geneRatio", split=NULL, includeAll = TRUE) {
   clProf.df <- as.data.frame(res.cmp)
   .split <- split
   ## get top 5 (default) categories of each gene cluster.
@@ -121,12 +129,12 @@ fortify.compareClusterResult <- function(res.cmp, showCategory=30, by="geneRatio
                   ## for groupGO
                   idx <- order(df$Count, decreasing=T)[1:N]
                 }
-                return(df[idx,])
+                return(df[idx, ])
               } else {
                 return(df)
               }
             },
-            N=showCategory
+            N <- showCategory
       )
     }
     if (!is.null(.split) && .split %in% colnames(clProf.df)) {
@@ -139,40 +147,39 @@ fortify.compareClusterResult <- function(res.cmp, showCategory=30, by="geneRatio
   }
   ID <- NULL
   if (includeAll == TRUE) {
-    result = subset(clProf.df, ID %in% result$ID)
+    result <- subset(clProf.df, ID %in% result$ID)
   }
   ## remove zero count
   result$Description <- as.character(result$Description) ## un-factor
-  GOlevel <- result[,c("ID", "Description")] ## GO ID and Term
-  #GOlevel <- unique(GOlevel)
+  GOlevel <- result[, c("ID", "Description")] ## GO ID and Term
   result <- result[result$Count != 0, ]
-  #bug 19.11.2019
-  #result$Description <- factor(result$Description,levels=rev(GOlevel[,2]))
-  if (by=="rowPercentage") {
+  if (by == "rowPercentage") {
     Description <- Count <- NULL # to satisfy codetools
-    result <- ddply(result,.(Description),transform,Percentage = Count/sum(Count),Total = sum(Count))
+    result <- ddply(result, .(Description), transform, 
+                    Percentage = Count / sum(Count), Total = sum(Count))
     ## label GO Description with gene counts.
     x <- mdply(result[, c("Description", "Total")], paste, sep=" (")
-    y <- sapply(x[,3], paste, ")", sep="")
+    y <- sapply(x[,3], paste, ")", sep = "")
     result$Description <- y
     
     ## restore the original order of GO Description
-    xx <- result[,c(2,3)]
+    xx <- result[, c(2,3)]
     xx <- unique(xx)
-    rownames(xx) <- xx[,1]
-    Termlevel <- xx[as.character(GOlevel[,1]),2]
+    rownames(xx) <- xx[, 1]
+    Termlevel <- xx[as.character(GOlevel[, 1]), 2]
     
     ##drop the *Total* column
     result <- result[, colnames(result) != "Total"]
-    result$Description <- factor(result$Description, levels=rev(Termlevel))
+    result$Description <- factor(result$Description, levels = rev(Termlevel))
     
   } else if (by == "count") {
     ## nothing
   } else if (by == "geneRatio") { ##default
     gsize <- as.numeric(sub("/\\d+$", "", as.character(result$GeneRatio)))
     gcsize <- as.numeric(sub("^\\d+/", "", as.character(result$GeneRatio)))
-    result$GeneRatio = gsize/gcsize
-    cluster <- paste(as.character(result$Cluster),"\n", "(", gcsize, ")", sep="")
+    result$GeneRatio = gsize / gcsize
+    cluster <- paste(as.character(result$Cluster), "\n", "(", gcsize, ")",
+                     sep="")
     lv <- unique(cluster)[order(as.numeric(unique(result$Cluster)))]
     result$Cluster <- factor(cluster, levels = lv)
   } else {
@@ -182,9 +189,12 @@ fortify.compareClusterResult <- function(res.cmp, showCategory=30, by="geneRatio
 }
 
 ##function plotting.clusteProfile from clusterProfiler pkg
-plotting.clusterProfile <- function(clProf.reshape.df,x = ~Cluster,type = "dot", colorBy = "p.adjust",by = "geneRatio",title="",font.size=12) {
+plotting.clusterProfile <- function(clProf.reshape.df, x = ~Cluster,
+  type = "dot", colorBy = "p.adjust", by = "geneRatio", title="",
+  font.size = 12) {
   
-  Description <- Percentage <- Count <- Cluster <- GeneRatio <- p.adjust <- pvalue <- NULL # to
+  Description <- Percentage <- Count <- Cluster <- GeneRatio <- p.adjust <- 
+    pvalue <- NULL # to
   if (type == "dot") {
     if (by == "rowPercentage") {
       p <- ggplot(clProf.reshape.df,
@@ -202,126 +212,117 @@ plotting.clusterProfile <- function(clProf.reshape.df,x = ~Cluster,type = "dot",
       p <- p +
         geom_point() +
         aes_string(color=colorBy) +
-        scale_color_continuous(low="red", high="blue", guide=guide_colorbar(reverse=TRUE))
-      ## scale_color_gradientn(guide=guide_colorbar(reverse=TRUE), colors = enrichplot:::sig_palette)
+        scale_color_continuous(low = "red", high="blue",
+                               guide=guide_colorbar(reverse = TRUE))
+
     } else {
-      p <- p + geom_point(colour="steelblue")
+      p <- p + geom_point(colour = "steelblue")
     }
   }
   
-  p <- p + xlab("") + ylab("") + ggtitle(title) +
-    theme_dose(font.size)
-  
-  ## theme(axis.text.x = element_text(colour="black", size=font.size, vjust = 1)) +
-  ##     theme(axis.text.y = element_text(colour="black",
-  ##           size=font.size, hjust = 1)) +
-  ##               ggtitle(title)+theme_bw()
-  ## p <- p + theme(axis.text.x = element_text(angle=angle.axis.x,
-  ##                    hjust=hjust.axis.x,
-  ##                    vjust=vjust.axis.x))
+  p <- p + xlab("") + ylab("") + ggtitle(title) + theme_dose(font.size)
   
   return(p)
 }
 
-make_dotplot<-function(res.cmp,ontology) {
+make_dotplot <- function(res.cmp, ontology) {
 
-  dfok<-fortify.compareClusterResult(res.cmp)
-  dfok$Description <- sapply(as.vector(dfok$Description), function(x) {ifelse(nchar(x)>50, substr(x,1,50),x)},USE.NAMES = FALSE)
-  p<-plotting.clusterProfile(dfok, title="")
+  dfok <- fortify.compareClusterResult(res.cmp)
+  dfok$Description <- sapply(as.vector(dfok$Description),
+    function(x) {ifelse(nchar(x) > 50, substr(x, 1, 50), x)}, USE.NAMES = FALSE)
+  p <- plotting.clusterProfile(dfok, title="")
 
   #plot(p, type="dot") #
-  output_path= paste("GO_enrich_comp_",ontology,".png",sep="")
-  png(output_path,height = 720, width = 600)
-  pl <- plot(p, type="dot")
+  output_path = paste("GO_enrich_comp_", ontology, ".png", sep = "")
+  png(output_path, height = 720, width = 600)
+  pl <- plot(p, type = "dot")
   print(pl)
   dev.off()
 }
 
-get_cols <-function(input_cols) {
-  input_cols <- gsub("c","",gsub("C","",gsub(" ","",input_cols)))
-  if (grepl(":",input_cols)) {
-    first_col=unlist(strsplit(input_cols,":"))[1]
-    last_col=unlist(strsplit(input_cols,":"))[2]
-    cols=first_col:last_col
+# nolint end
+
+get_cols <- function(input_cols) {
+  input_cols <- gsub("c", "", gsub("C", "", gsub(" ", "", input_cols)))
+  if (grepl(":", input_cols)) {
+    first_col <- unlist(strsplit(input_cols, ":"))[1]
+    last_col <- unlist(strsplit(input_cols, ":"))[2]
+    cols <- first_col:last_col
   } else {
-    cols = as.integer(unlist(strsplit(input_cols,",")))
+    cols <- as.integer(unlist(strsplit(input_cols, ",")))
   }
   return(cols)
 }
 
-#to check
-cmp.GO <- function(l,fun="enrichGO",orgdb, ontology, readable=TRUE) {
-  cmpGO<-compareCluster(geneClusters = l,
-                        fun=fun, 
+# nolint start
+cmp.GO <- function(l, fun = "enrichGO", orgdb, ontology, readable = TRUE) {
+  cmpGO <- compareCluster(geneClusters = l,
+                        fun = fun, 
                         OrgDb = orgdb, 
-                        ont=ontology, 
-                        readable=TRUE)
+                        ont = ontology, 
+                        readable = TRUE)
   
   return(cmpGO)
 }
 
-check_ids <- function(vector,type) {
-  uniprot_pattern = "^([OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2})$"
-  entrez_id = "^([0-9]+|[A-Z]{1,2}_[0-9]+|[A-Z]{1,2}_[A-Z]{1,4}[0-9]+)$"
+# nolint end
+
+check_ids <- function(vector, type) {
+  # nolint start
+  uniprot_pattern <- "^([OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]
+  ([A-Z][A-Z0-9]{2}[0-9]){1,2})$"
+  entrez_id <- "^([0-9]+|[A-Z]{1,2}_[0-9]+|[A-Z]{1,2}_[A-Z]{1,4}[0-9]+)$"
+  # nolint end
   if (type == "entrez")
-    return(grepl(entrez_id,vector))
+    return(grepl(entrez_id, vector))
   else if (type == "uniprot") {
-    return(grepl(uniprot_pattern,vector))
+    return(grepl(uniprot_pattern, vector))
   }
 }
 
-main = function() {
-  
+main <- function() {
+
   #to get the args of the command line
-  args=get_args()  
+  args <- get_args()
 
-  #saved
-  #l<-list()
-  #for(j in 1:args$nb){
-  #  i<-j-1
-  #  ids<-get_ids(args$input.i, args$inputtype.i, args$header.i, args$column.i) 
-  #  l[[args$name.i]]<-ids
+  l <- list()
+  for (j in 1:args$nb) {
+  i <- j - 1
+  ids <- get_ids(args[[paste("input", i, sep = ".")]],
+                args[[paste("inputtype", i, sep = ".")]],
+                args[[paste("header", i, sep = ".")]],
+                args[[paste("column", i, sep = ".")]])
 
-  #}
-  #saved
+  l[[args[[paste("name", i, sep = ".")]]]] <- ids
 
-
-  l<-list()
-  for(j in 1:args$nb){
-  i<-j-1
-  ids<-get_ids( args[[paste("input",i,sep=".")]], 
-                args[[paste("inputtype",i,sep=".")]], 
-                args[[paste("header",i,sep=".")]], 
-                args[[paste("column",i,sep=".")]] ) 
-
-  l[[args[[paste("name",i,sep=".")]]]]<-ids
-  
 }
 
-  ont = strsplit(args$ont, ",")[[1]] 
-  org=args$org
-  
-  #load annot package 
+  ont <- strsplit(args$ont, ",")[[1]]
+  org <- args$org
+
+  #load annot package
   suppressMessages(library(args$org, character.only = TRUE, quietly = TRUE))
-  
+
   # Extract OrgDb
-  if (args$org=="org.Hs.eg.db") {
-    orgdb<-org.Hs.eg.db
-  } else if (args$org=="org.Mm.eg.db") {
-    orgdb<-org.Mm.eg.db
-  } else if (args$org=="org.Rn.eg.db") {
-    orgdb<-org.Rn.eg.db
+  if (args$org == "org.Hs.eg.db") {
+    orgdb <- org.Hs.eg.db
+  } else if (args$org == "org.Mm.eg.db") {
+    orgdb <- org.Mm.eg.db
+  } else if (args$org == "org.Rn.eg.db") {
+    orgdb <- org.Rn.eg.db
   }
 
-  for(ontology in ont) {
-    
-    res.cmp<-cmp.GO(l=l,fun="enrichGO",orgdb, ontology, readable=TRUE)
-    make_dotplot(res.cmp,ontology)  
-    output_path = paste("GO_enrich_comp_",ontology,".tsv",sep="")
-    write.table(res.cmp@compareClusterResult, output_path, sep="\t", row.names=F, quote=F)
+# nolint start
+  for (ontology in ont) {
+
+    res.cmp <- cmp.GO(l = l,fun = "enrichGO", orgdb, ontology, readable = TRUE)
+    make_dotplot(res.cmp, ontology)  
+    output_path <- paste("GO_enrich_comp_", ontology, ".tsv", sep = "")
+    write.table(res.cmp@compareClusterResult, output_path, sep = "\t",
+                row.names = F, quote = F)
   }
-  
-} #end main 
+# nolint end
+
+} #end main
 
 main()
-
