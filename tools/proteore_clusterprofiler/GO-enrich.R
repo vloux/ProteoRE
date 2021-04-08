@@ -57,6 +57,7 @@ repartition_go <- function(geneid, orgdb, ontology,
                 level = level,
                 readable = TRUE)
 
+# nolint start
   if (length(ggo@result$ID) > 0) {
     ggo@result$Description <- sapply(as.vector(ggo@result$Description),
                               function(x) {
@@ -73,6 +74,8 @@ repartition_go <- function(geneid, orgdb, ontology,
   }
 }
 
+# nolint end
+
 # GO over-representation test
 enrich_go <- function(geneid, universe, orgdb, ontology, pval_cutoff,
                       qval_cutoff, plot) {
@@ -86,7 +89,10 @@ enrich_go <- function(geneid, universe, orgdb, ontology, pval_cutoff,
                 readable = TRUE)
 
   # Plot bar & dot plots
-  #if there are enriched GopTerms
+  #if there are enriched GoTerms
+
+  # nolint start 
+  
   if (length(ego$ID) > 0) {
 
     ego@result$Description <- sapply(ego@result$Description, function(x) {
@@ -117,6 +123,8 @@ enrich_go <- function(geneid, universe, orgdb, ontology, pval_cutoff,
             noBreaks. = TRUE, call. = FALSE)
   }
 }
+
+# nolint end
 
 clean_ids <- function(ids) {
   ids <- gsub(" ", "", ids)
