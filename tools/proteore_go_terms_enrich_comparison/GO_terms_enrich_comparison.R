@@ -110,6 +110,8 @@ check_ids <- function(vector, type) {
 #res_cmp@compareClusterResult$Description <-
 #sapply(as.vector(res_cmp@compareClusterResult$Description),
 #function(x) {ifelse(nchar(x)>50, substr(x,1,50),x)},USE.NAMES = FALSE)
+
+# nolint start
 fortify_compareclusterresult <- function(res_cmp, showCategory = 30,
                       by = "geneRatio", split = NULL, includeAll = TRUE) {
   clprof_df <- as.data.frame(res_cmp)
@@ -186,6 +188,9 @@ fortify_compareclusterresult <- function(res_cmp, showCategory = 30,
   }
   return(result)
 }
+# nolint end
+
+# nolint start
 
 ##function plotting.clusteProfile from clusterProfiler pkg
 plotting.clusterProfile <- function(clProf.reshape.df, x = ~Cluster,
@@ -223,6 +228,10 @@ plotting.clusterProfile <- function(clProf.reshape.df, x = ~Cluster,
   return(p)
 }
 
+# nolint end
+
+# nolint start
+
 make_dotplot <- function(res_cmp, ontology) {
 
   dfok <- fortify_compareclusterresult(res_cmp)
@@ -250,6 +259,10 @@ get_cols <- function(input_cols) {
   return(cols)
 }
 
+# nolint end
+
+# nolint start
+
 #to check
 cmp.GO <- function(l, fun = "enrichGO", orgdb, ontology, readable = TRUE) {
   cmpGO <- compareCluster(geneClusters = l,
@@ -271,6 +284,8 @@ check_ids <- function(vector, type) {
     return(grepl(uniprot_pattern, vector))
   }
 }
+
+# nolint end
 
 main <- function() {
 
