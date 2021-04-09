@@ -203,12 +203,12 @@
             <param name="plot" value="dotplot,barplot"/>
             <output name="log" file="log.txt" />
             <output_collection name="text_output">
-                <element name="cluster_profiler_GGO_CC.csv" file="cluster_profiler_GGO_CC.csv" ftype="csv"/>
-                <element name="cluster_profiler_EGO_BP.csv" file="cluster_profiler_GGO_BP.csv" ftype="csv"/>
-                <element name="cluster_profiler_GGO_MF.csv" file="cluster_profiler_GGO_MF.csv" ftype="csv"/>
-                <element name="cluster_profiler_EGO_CC.csv" file="cluster_profiler_EGO_CC.csv" ftype="csv"/>
-                <element name="cluster_profiler_EGO_BP.csv" file="cluster_profiler_EGO_BP.csv" ftype="csv"/>
-                <element name="cluster_profiler_EGO_MF.csv" file="cluster_profiler_EGO_MF.csv" ftype="csv"/>
+                <element name="cluster_profiler_GGO_CC.tsv" file="cluster_profiler_GGO_CC.csv" ftype="tsv"/>
+<!---                <element name="cluster_profiler_GGO_BP.tsv" file="cluster_profiler_GGO_BP.csv" ftype="tsv"/> -->
+                <element name="cluster_profiler_GGO_MF.tsv" file="cluster_profiler_GGO_MF.csv" ftype="tsv"/>
+                <element name="cluster_profiler_EGO_CC.tsv" file="cluster_profiler_EGO_CC.csv" ftype="tsv"/>
+                <element name="cluster_profiler_EGO_BP.tsv" file="cluster_profiler_GGO_BP.csv" ftype="tsv"/>
+                <element name="cluster_profiler_EGO_MF.tsv" file="cluster_profiler_EGO_MF.csv" ftype="tsv"/>
             </output_collection>
             <output_collection name="graph_output">
                 <element name="GGO_CC_bar-plot" file="GGO_CC_bar-plot" ftype="png"/>
