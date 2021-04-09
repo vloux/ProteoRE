@@ -205,11 +205,11 @@ main <- function() { #nolint
 
   # Extract OrgDb
   if (args$species == "org.Hs.eg.db") {
-    orgdb <- org.Hs.eg.db
+    orgdb <- org.Hs.eg.db #nolint
   } else if (args$species == "org.Mm.eg.db") {
-    orgdb <- org.Mm.eg.db
+    orgdb <- org.Mm.eg.db #nolint
   } else if (args$species == "org.Rn.eg.db") {
-    orgdb <- org.Rn.eg.db
+    orgdb <- org.Rn.eg.db #nolint
   }
 
   # Extract input IDs
@@ -322,7 +322,6 @@ main <- function() { #nolint
   ##enrichGO : GO over-representation test
   for (onto in ontology) {
     if (go_represent) {
-
       ggo <- repartition_go(gene, orgdb, onto, level, readable = TRUE)
       if (is.list(ggo)) {
         ggo <- as.data.frame(apply(ggo, c(1, 2),
