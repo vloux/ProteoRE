@@ -61,9 +61,9 @@ repartition_go <- function(geneid, orgdb, ontology,
                 level = level,
                 readable = TRUE)
 
-# nolint start
+
   if (length(ggo@result$ID) > 0) {
-    ggo@result$Description <- sapply(as.vector(ggo@result$Description),
+    ggo@result$Description <- sapply(as.vector(ggo@result$Description), #nolint
                               function(x) {
                                 ifelse(nchar(x) > 50,
                                 substr(x, 1, 50), x)}, USE.NAMES = FALSE)
@@ -97,11 +97,11 @@ enrich_go <- function(geneid, universe, orgdb, ontology, pval_cutoff,
   # Plot bar & dot plots
   #if there are enriched GoTerms
 
-  # nolint start 
-  
+
+
   if (length(ego$ID) > 0) {
 
-    ego@result$Description <- sapply(ego@result$Description, function(x) {
+    ego@result$Description <- sapply(ego@result$Description, function(x) {  #nolint
       ifelse(nchar(x) > 50, substr(x, 1, 50), x)
       }, USE.NAMES = FALSE)
 
@@ -109,7 +109,7 @@ enrich_go <- function(geneid, universe, orgdb, ontology, pval_cutoff,
     if ("dotplot" %in% plot) {
     dot_name <- paste("EGO_", ontology, "_dot-plot", sep = "")
     png(dot_name, height = 720, width = 600)
-    p <- dotplot(ego, showCategory = 10)
+    p <- dotplot(ego, showCategory = 10)  #nolint
     print(p)
     dev.off()
     }
@@ -189,9 +189,7 @@ get_args <- function() {
   return(args)
 }
 
-
-
-main <- function() { #nolint
+main <- function() {  #nolint
   #get args from command
   args <- get_args()
 
