@@ -4,7 +4,8 @@ suppressMessages(library(clusterProfiler, quietly = TRUE))
 # Read file and return file content as data.frame
 read_file <- function(path, header) {
   file <- try(read.csv(path, header = header, sep = "\t",
-  stringsAsFactors = FALSE, quote = "", check.names = F), silent = TRUE)
+                       stringsAsFactors = FALSE, quote = "", check.names = F),
+                      silent = TRUE)
   if (inherits(file, "try-error")) {
     stop("File not found !")
   }else{
@@ -13,14 +14,16 @@ read_file <- function(path, header) {
   }
 }
 
-# return the number of character from the longest
-# description found (from the 10 first)
+
+#return the number of character from the longest description found
+#(from the 10 first)
 max_str_length_10_first <- function(vector) {
   vector <- as.vector(vector)
   nb_description <- length(vector)
   if (nb_description >= 10) {
-      nb_description <- 10
-  }
+    nb_description <- 10
+    }
+
   return(max(nchar(vector[1:nb_description])))
 }
 
@@ -29,7 +32,8 @@ str2bool <- function(x) {
     return(TRUE)
   }else if (any(is.element(c("f", "false"), tolower(x)))) {
     return(FALSE)
-  }else {
+
+  }else{
     return(NULL)
   }
 }
@@ -48,19 +52,22 @@ width_by_max_char <- function(nb_max_char) {
   return(width)
 }
 
-repartition_go <- function(geneid, orgdb, ontology, level=3, readable=TRUE) {
-  ggo <- groupGO(gene = geneid,
-               OrgDb = orgdb,
-               ont = ontology,
-               level = level,
-               readable = TRUE)
 
+repartition_go <- function(geneid, orgdb, ontology,
+                           level = 3, readable = TRUE) {
+  ggo <- groupGO(gene = geneid,
+                OrgDb = orgdb,
+                ont = ontology,
+                level = level,
+                readable = TRUE)
+
+# nolint start
   if (length(ggo@result$ID) > 0) {
-    ggo@result$Description <- sapply(as.vector(ggo@result$Description), #nolint
-    function(x) {
-        ifelse(nchar(x) > 50, substr(x, 1, 50), x)
-        },
-    USE.NAMES = FALSE)
+    ggo@result$Description <- sapply(as.vector(ggo@result$Description),
+                              function(x) {
+                                ifelse(nchar(x) > 50,
+                                substr(x, 1, 50), x)}, USE.NAMES = FALSE)
+
 
     name <- paste("GGO_", ontology, "_bar-plot", sep = "")
     png(name, height = 720, width = 600)
@@ -72,10 +79,13 @@ repartition_go <- function(geneid, orgdb, ontology, level=3, readable=TRUE) {
   }
 }
 
+# nolint end
+
 # GO over-representation test
-enrich_go <- function(geneid, universe, orgdb,
-  ontology, pval_cutoff, qval_cutoff, plot) {
-  ego<-enrichGO(gene=geneid, #nolint
+enrich_go <- function(geneid, universe, orgdb, ontology, pval_cutoff,
+                      qval_cutoff, plot) {
+  ego <- enrichGO(gene = geneid,
+
                 universe = universe,
                 OrgDb = orgdb,
                 ont = ontology,
@@ -85,13 +95,15 @@ enrich_go <- function(geneid, universe, orgdb,
                 readable = TRUE)
 
   # Plot bar & dot plots
-  #if there are enriched GopTerms
+  #if there are enriched GoTerms
+
+  # nolint start 
+  
   if (length(ego$ID) > 0) {
-    ego@result$Description <- sapply(ego@result$Description, #nolint
-    function(x) {
-        ifelse(nchar(x) > 50, substr(x, 1, 50), x)
-    },
-    USE.NAMES = FALSE)
+
+    ego@result$Description <- sapply(ego@result$Description, function(x) {
+      ifelse(nchar(x) > 50, substr(x, 1, 50), x)
+      }, USE.NAMES = FALSE)
 
 
     if ("dotplot" %in% plot) {
@@ -117,6 +129,7 @@ enrich_go <- function(geneid, universe, orgdb,
     ontology, "ontology"), immediate. = TRUE, noBreaks. = TRUE, call. = FALSE)
   }
 }
+
 
 clean_ids <- function(ids) {
   ids <- gsub(" ", "", ids)
@@ -168,20 +181,19 @@ get_args <- function() {
     q(save = "no")
   }
   # Parse arguments
-  parse_args <- function(x) strsplit(sub("^--", "", x), "=")
-  args_df <- as.data.frame(do.call("rbind", parse_args(args)))
-  args <- as.list(as.character(args_df$V2))
-  names(args) <- args_df$V1
 
+  parseargs <- function(x) strsplit(sub("^--", "", x), "=")
+  argsdf <- as.data.frame(do.call("rbind", parseargs(args)))
+  args <- as.list(as.character(argsdf$V2))
+  names(args) <- argsdf$V1
   return(args)
 }
 
 
-main <- function() { #nolint
 
+main <- function() { #nolint
   #get args from command
   args <- get_args()
-
 
   go_represent <- str2bool(args$go_represent)
   go_enrich <- str2bool(args$go_enrich)
@@ -215,10 +227,11 @@ main <- function() { #nolint
     } else {
       ncol <- as.numeric(gsub("c", "", ncol))
     }
-    header <- str2bool(args$header)                  # Get file content
-    file <- read_file(filename, header)              # Extract Protein IDs list
+
+    header <- str2bool(args$header)       # Get file content
+    file <- read_file(filename, header)   # Extract Protein IDs list
     input <-  unlist(sapply(as.character(file[, ncol]),
-    function(x) rapply(strsplit(x, ";"), c), USE.NAMES = FALSE))
+                    function(x) rapply(strsplit(x, ";"), c), USE.NAMES = FALSE))
   }
   input <- clean_ids(input)
 
@@ -228,16 +241,20 @@ main <- function() { #nolint
   #bitr = conversion function from clusterProfiler
   if (id_type == "Uniprot" & any(check_ids(input, "uniprot"))) {
     any(check_ids(input, "uniprot"))
-    id_from <- "UNIPROT"
-    id_to <- "ENTREZID"
-    suppressMessages(gene <- bitr(input, fromType = id_from,
-      toType = id_to, OrgDb = orgdb))
+
+    idfrom <- "UNIPROT"
+    idto <- "ENTREZID"
+    suppressMessages(gene <- bitr(input, fromType = idfrom, toType = idto,
+                                  OrgDb = orgdb))
+
     gene <- unique(gene$ENTREZID)
   } else if (id_type == "Entrez" & any(check_ids(input, "entrez"))) {
     gene <- unique(input)
   } else {
-    stop(paste(id_type, "not found in your ids list, please check your IDs
-    in input or the selected column of your input file"))
+
+    stop(paste(id_type, "not found in your ids list,
+     please check your IDs in input or the selected column of your input file"))
+
   }
 
   ontology <- strsplit(args$onto_opt, ",")[[1]]
@@ -245,7 +262,9 @@ main <- function() { #nolint
   ## Extract GGO/EGO arguments
   if (go_represent) {
     level <- as.numeric(args$level)
-  }
+
+    }
+
   if (go_enrich) {
     pval_cutoff <- as.numeric(args$pval_cutoff)
     qval_cutoff <- as.numeric(args$qval_cutoff)
@@ -268,29 +287,28 @@ main <- function() { #nolint
         universe_file <- read_file(universe_filename, universe_header)
         # Extract Protein IDs list
         universe <- unlist(sapply(universe_file[, universe_ncol],
-        function(x) rapply(strsplit(x, ";"), c), USE.NAMES = FALSE))
+                function(x) rapply(strsplit(x, ";"), c), USE.NAMES = FALSE))
       }
       universe <- clean_ids(input)
       universe_id_type <- args$universe_id_type
-
       ##to initialize
       if (universe_id_type == "Uniprot" & any(check_ids(universe, "uniprot"))) {
-        id_from <- "UNIPROT"
-        id_to <- "ENTREZID"
-        suppressMessages(universe_gene <- bitr(universe,
-          fromType = id_from, toType = id_to, OrgDb = orgdb))
+        idfrom <- "UNIPROT"
+        idto <- "ENTREZID"
+        suppressMessages(universe_gene <- bitr(universe, fromType = idfrom,
+                                               toType = idto, OrgDb = orgdb))
         universe_gene <- unique(universe_gene$ENTREZID)
       } else if (universe_id_type == "Entrez" &
-        any(check_ids(universe, "entrez"))) {
+                 any(check_ids(universe, "entrez"))) {
         universe_gene <- unique(unlist(universe))
       } else {
         if (universe_type == "text") {
-          print(paste(universe_id_type,
-          "not found in your background IDs list", sep = " "))
+          print(paste(universe_id_type, "not found in your background IDs list",
+                      sep = " "))
         } else {
-          print(paste(universe_id_type,
-          "not found in the column", universe_ncol,
-          "of your background IDs file", sep = " "))
+          print(paste(universe_id_type, "not found in the column",
+                      universe_ncol, "of your background IDs file", sep = " "))
+
         }
         universe_gene <- NULL
       }
@@ -304,26 +322,28 @@ main <- function() { #nolint
   ##enrichGO : GO over-representation test
   for (onto in ontology) {
     if (go_represent) {
-      ggo <- go(gene, orgdb, onto, level, readable = TRUE)
+
+      ggo <- repartition_go(gene, orgdb, onto, level, readable = TRUE)
       if (is.list(ggo)) {
         ggo <- as.data.frame(apply(ggo, c(1, 2),
-        function(x) gsub("^$|^ $", NA, x)))   #convert "" and " " to NA
-      }
+              function(x) gsub("^$|^ $", NA, x)))
+      }  #convert "" and " " to NA
       output_path <- paste("cluster_profiler_GGO_", onto, ".tsv", sep = "")
-      write.table(ggo, output_path, sep = "\t", row.names = FALSE,
-      quote = FALSE)
+      write.table(ggo, output_path, sep = "\t",
+                  row.names = FALSE, quote = FALSE)
+
     }
 
     if (go_enrich) {
       ego <- enrich_go(gene, universe_gene, orgdb, onto, pval_cutoff,
-      qval_cutoff, plot)
+                       qval_cutoff, plot)
       if (is.list(ego)) {
         ego <- as.data.frame(apply(ego, c(1, 2),
-        function(x) gsub("^$|^ $", NA, x)))  #convert "" and " " to NA
-      }
+                function(x) gsub("^$|^ $", NA, x)))
+        }  #convert "" and " " to NA
       output_path <- paste("cluster_profiler_EGO_", onto, ".tsv", sep = "")
-      write.table(ego, output_path, sep = "\t", row.names = FALSE,
-      quote = FALSE)
+      write.table(ego, output_path, sep = "\t",
+                  row.names = FALSE, quote = FALSE)
     }
   }
 }
