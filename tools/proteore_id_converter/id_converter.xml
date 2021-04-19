@@ -1,4 +1,4 @@
-<tool id="IDconverter" name="ID Converter" version="2021.04.19.2">
+<tool id="IDconverter" name="ID Converter" version="2021.04.19.3">
     <description>(Human, Mouse, Rat)
     </description>
     <requirements>

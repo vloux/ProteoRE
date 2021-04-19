@@ -1,7 +1,7 @@
 import argparse
 import csv
-import sys
 import itertools
+import sys
 import os  # noqa 401
 import re
 
