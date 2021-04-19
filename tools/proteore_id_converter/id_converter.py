@@ -1,9 +1,9 @@
-import sys
 import argparse
-import os  # noqa 401
+import sys
 import csv
-import re
+import os  # noqa 401
 import itertools
+import re
 
 
 def get_args():
