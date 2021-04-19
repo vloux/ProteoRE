@@ -1,8 +1,8 @@
 import argparse
-import sys
 import csv
-import os  # noqa 401
+import sys
 import itertools
+import os  # noqa 401
 import re
 
 
