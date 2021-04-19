@@ -1,6 +1,6 @@
 import argparse
-import re
 import csv
+import re
 import sys
 
 
