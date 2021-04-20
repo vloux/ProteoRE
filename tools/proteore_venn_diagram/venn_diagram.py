@@ -1,9 +1,9 @@
 #!/usr/bin/env python2.7
 
-import json
 import argparse
-import os
+import json
 import csv
+import os
 import sys  # noqa 401
 import operator  # noqa 401
 import re
