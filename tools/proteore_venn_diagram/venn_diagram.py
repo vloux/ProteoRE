@@ -1,11 +1,11 @@
 #!/usr/bin/env python2.7
 
-import os
 import json
-import sys  # noqa 401
+import os
 import argparse
-import operator  # noqa 401
+import sys  # noqa 401
 import csv
+import operator  # noqa 401
 import re
 from itertools import combinations
 
