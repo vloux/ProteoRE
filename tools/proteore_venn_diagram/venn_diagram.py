@@ -1,10 +1,10 @@
 #!/usr/bin/env python2.7
 
 import json
-import os
 import argparse
-import sys  # noqa 401
+import os
 import csv
+import sys  # noqa 401
 import operator  # noqa 401
 import re
 from itertools import combinations
