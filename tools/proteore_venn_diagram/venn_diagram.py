@@ -1,12 +1,12 @@
 #!/usr/bin/env python2.7
 
 import os
-import sys
 import json
-import operator
+import sys  # noqa 401
 import argparse
-import re
+import operator  # noqa 401
 import csv
+import re
 from itertools import combinations
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
