@@ -1,8 +1,8 @@
 #!/usr/bin/env python2.7
 
 import argparse
-import json
 import csv
+import json
 import os
 import sys  # noqa 401
 import operator  # noqa 401
