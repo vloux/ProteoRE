@@ -1,4 +1,4 @@
-<tool id="reactome_analysis" name="Pathway enrichment analysis" version="2019.01.23">
+<tool id="reactome_analysis" name="Pathway enrichment analysis" version="2021.04.20">
     <description>[Reactome]</description>
     <requirements>
     </requirements>
@@ -65,7 +65,7 @@
                 <param name="ncol" value="c1" />
             </conditional>
             <output name="output" file="Reactome_Analysis_Tools.html" ftype="html" />
-            <!-- <output name="trash" file="Reactome_Analysis_Tools_invalid_ID.txt" ftype="tab" hidden="true" /> -->
+            <output name="trash" file="Reactome_Analysis_Tools_invalid_ID.txt" ftype="tabular"  />
         </test>
     </tests>
     <help><![CDATA[
