@@ -65,7 +65,7 @@
                 <param name="ncol" value="c1" />
             </conditional>
             <output name="output" file="Reactome_Analysis_Tools.html" ftype="html" />
-            <!-- <output name="trash" file="Reactome_Analysis_Tools_invalid_ID.txt" ftype="tab" hidden="true" /> -->
+            <output name="trash" file="Reactome_Analysis_Tools_invalid_ID.txt" ftype="tabular" hidden="true" />
         </test>
     </tests>
     <help><![CDATA[
