@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 
 import argparse
 import csv
@@ -125,11 +125,12 @@ def diagram(comp_dict, title_dict):
 
 def write_text_venn(json_result):
     lines = []
-    result = dict((k, v) for k, v in json_result["data"].iteritems() if v != [])  # noqa 501
+    result = dict((k, v) for k, v in json_result["data"].items() if v != [])  # noqa 501
     for key in result:
         if 'NA' in result[key]:
             result[key].remove("NA")
-    list_names = dict((k, v) for k, v in json_result["name"].iteritems() if v != [])  # noqa 501
+
+    list_names = dict((k, v) for k, v in json_result["name"].items() if v != [])  # noqa 501
     nb_lines_max = max(len(v) for v in result.values())
 
     # get list names associated to each column
@@ -145,7 +146,7 @@ def write_text_venn(json_result):
     for key in result:
         line = result[key]
         if len(line) < nb_lines_max:
-            line.extend(['NA']*(nb_lines_max-len(line)))
+            line.extend(['']*(nb_lines_max-len(line)))
         line = [column_dict[key]] + line     # add header
         lines.append(line)
     # transpose tsv
