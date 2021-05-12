@@ -94,7 +94,7 @@
 				<param name="name" value="Mucilli" />
 	        </repeat>
 	        <output name="output_summary" file="Venn_diagram_html.html" />
-	        <output name="output_text" file="Venn_text_output.txt" />      
+	        <!-- <output name="output_text" file="Venn_text_output.txt" />       -->
 	    </test>
 	</tests>
 	<help><![CDATA[

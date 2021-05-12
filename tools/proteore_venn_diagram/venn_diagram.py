@@ -4,10 +4,9 @@ import argparse
 import csv
 import json
 import os
-import sys  # noqa 401
-import operator  # noqa 401
 import re
 from itertools import combinations
+
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -71,7 +70,6 @@ def input_to_dict(inputs):
 
         # flat list of list of lists, remove empty items
         file_content = [item.strip() for sublist in file_content for item in sublist if item != '']   # noqa 501
-
         ids.update(file_content)
         if 'NA' in ids:
             ids.remove('NA')
@@ -92,7 +90,7 @@ def intersect(comp_dict):
             difference = []
             intersected = set.intersection(*(comp_dict[k] for k in group))
             if len(others) > 0:
-                difference = intersected.difference(set.union(*(comp_dict[k] for k in others)))  # noqa 501
+                difference = intersected.difference(set.union(*(comp_dict[k] for k in others))) # noqa 501
             yield group, list(intersected), list(difference)
 
 
@@ -109,13 +107,13 @@ def diagram(comp_dict, title_dict):
     result["values"] = {}
     for group, intersected, difference in intersect(comp_dict):
         if len(group) == 1:
-            result["data"]["".join(group)] = difference
+            result["data"]["".join(group)] = sorted(difference)
             result["values"]["".join(group)] = len(difference)
         elif len(group) > 1 and len(group) < len(comp_dict):
-            result["data"]["".join(group)] = difference
+            result["data"]["".join(group)] = sorted(difference)
             result["values"]["".join(group)] = len(difference)
         elif len(group) == len(comp_dict):
-            result["data"]["".join(group)] = intersected
+            result["data"]["".join(group)] = sorted(intersected)
             result["values"]["".join(group)] = len(intersected)
 
     return result
