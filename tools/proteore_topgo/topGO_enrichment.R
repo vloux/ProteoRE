@@ -180,10 +180,7 @@ createDotPlot = function(data, onto) {
     count = data$Significant
     
     labely = paste("GO terms", onto, sep = " ")
-    ggplot(data, aes(x = geneRatio, y = goTerms, color = values, size=count))
-    + geom_point( ) + scale_colour_gradientn(
-      colours = c("red", "violet", "blue")) + xlab("Gene Ratio") + 
-      ylab(labely) + labs(color = "p-values\n" ) 
+    ggplot(data, aes(x = geneRatio, y = goTerms, color = values, size=count)) + geom_point( ) + scale_colour_gradientn( colours = c("red", "violet", "blue")) + xlab("Gene Ratio") + ylab(labely) + labs(color = "p-values\n" ) 
     ggsave("dotplot.png", device = "png", dpi = 320, limitsize = TRUE,
            width = 15, height = 15, units = "cm")
 }
@@ -198,12 +195,9 @@ createBarPlot = function(data, onto) {
     count = data$Significant
     
     labely = paste("GO terms", onto, sep=" ")
-    ggplot(data, aes(x = goTerms, y = count, fill = values, scale(scale = 0.5)))
-    + ylab("Gene count") + xlab(labely) + geom_bar(stat = "identity")
-    + scale_fill_gradientn(colours = c("red","violet","blue")) + coord_flip()
-    + labs(fill = "p-values\n") 
+    ggplot(data, aes(x = goTerms, y = count, fill = values, scale(scale = 0.5))) + ylab("Gene count") + xlab(labely) + geom_bar(stat = "identity") + scale_fill_gradientn(colours = c("red","violet","blue")) + coord_flip() + labs(fill = "p-values\n") 
     ggsave("barplot.png", device = "png", dpi = 320, limitsize = TRUE,
-           width = 15, height = 15, units = "cm")
+            width = 15, height = 15, units = "cm")
 }
 
 #nolint end
@@ -228,10 +222,10 @@ createoutputs <- function(result, cut_result, text, barplot, dotplot, onto) {
                 col.names = T, row.names = F)
 
     if (barplot) {
-      createBarPlot(cut_result, onto)
+      createBarPlot(cut_result, onto) #nolint
       }
     if (dotplot) {
-      createDotPlot(cut_result, onto)
+      createDotPlot(cut_result, onto) #nolint
       }
   }
 }
@@ -241,7 +235,7 @@ createoutputs <- function(result, cut_result, text, barplot, dotplot, onto) {
 goenrichment <- function(geneuniverse, sample, background_sample, onto) {
 
   if (is.null(background_sample)) {
-    xx <- annFUN.org(onto, mapping = geneuniverse, ID = "ensembl")
+    xx <- annFUN.org(onto, mapping = geneuniverse, ID = "ensembl")  #nolint
     #get all the GO terms of the corresponding ontology (BP/CC/MF)
     #and all their associated ensembl ids according to the org package
 
@@ -288,7 +282,7 @@ goenrichment <- function(geneuniverse, sample, background_sample, onto) {
                  mapping = geneuniverse, ID = "ensembl")
 
   # Performing enrichment tests
-  result <- runTest(mygodata, algorithm = option, statistic = "fisher")
+  result <- runTest(mygodata, algorithm = option, statistic = "fisher") #nolint
   return(c(result, mygodata))
 }
 
