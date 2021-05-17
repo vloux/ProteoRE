@@ -170,8 +170,6 @@
        <param name="plot" value="dotplot,barplot"/>
        <param name="geneuniverse" value="org.Hs.eg.db"/>
        <output name="outputtext" file="result.tsv"/>
-       <output name="outputbarplot" file="barplot.png"  />
-       <output name="outputdotplot" file="dotplot.png"  />
      </test>
    </tests>
    <help><![CDATA[
