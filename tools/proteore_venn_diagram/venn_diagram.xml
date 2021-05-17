@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
-<tool id="Jvenn" name="Venn diagram" version="2020.01.10">
+<tool id="Jvenn" name="Venn diagram" version="2021.05.12">
 	<description>[JVenn]
 	</description>
+<requirements>
+<requirement type="package" version="3.7.3">python</requirement>
+</requirements>
 	<command><![CDATA[
 		python $__tool_directory__/venn_diagram.py
 
@@ -69,17 +72,8 @@
 	                <param name="file" value="ID_Converter_FKW_Lacombe_et_al_2017_OK.txt" />
 	                <param name="header" value="true" />
 	                <param name="ncol" value="c1" />
-	                <param name="name" value="Lacombe" />
 	            </conditional>
-	        </repeat>
-	        <repeat name="series">
-	            <conditional name="se">
-	                <param name="input" value="file" />
-	                <param name="file" value="Mucilli.txt" />
-	                <param name="header" value="false" />
-	                <param name="ncol" value="c1" />
-	                <param name="name" value="Mucilli" />
-	            </conditional>
+	     		<param name="name" value="Lacombe" />
 	        </repeat>
 	        <repeat name="series">
 	            <conditional name="se">
@@ -87,11 +81,20 @@
 	                <param name="file" value="Bredberg.txt" />
 	                <param name="header" value="false" />
 	                <param name="ncol" value="c1" />
-	                <param name="name" value="Bredberg" />
 	            </conditional>
+		        <param name="name" value="Bredberg" />
+	        </repeat>
+	        <repeat name="series">
+	            <conditional name="se">
+	                <param name="input" value="file" />
+	                <param name="file" value="Mucilli.txt" />
+	                <param name="header" value="false" />
+	                <param name="ncol" value="c1" />
+	            </conditional>
+				<param name="name" value="Mucilli" />
 	        </repeat>
 	        <output name="output_summary" file="Venn_diagram_html.html" />
-	        <output name="output_text" file="Venn_text_output.txt" />      
+	        <!-- <output name="output_text" file="Venn_text_output.txt" />       -->
 	    </test>
 	</tests>
 	<help><![CDATA[

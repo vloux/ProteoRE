@@ -1,19 +1,20 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 
-import os
-import sys
-import json
-import operator
 import argparse
-import re, csv
+import csv
+import json
+import os
+import re
 from itertools import combinations
+
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-##################################################################################################################################################
+########################################################################
 # FUNCTIONS
-##################################################################################################################################################
- 
+########################################################################
+
+
 def isnumber(format, n):
     """
     Check if an element is integer or float
@@ -29,16 +30,17 @@ def isnumber(format, n):
         return True
     else:
         return False
-        
+
+
 def input_to_dict(inputs):
     """
     Parse input and return a dictionary of name and data of each lists/files
     """
     comp_dict = {}
     title_dict = {}
-    c = ["A", "B", "C", "D", "E", "F"]  
+    c = ["A", "B", "C", "D", "E", "F"]
     for i in range(len(inputs)):
-        input_file = inputs[i][0]        
+        input_file = inputs[i][0]
         name = inputs[i][1]
         input_type = inputs[i][2]
         title = c[i]
@@ -47,30 +49,35 @@ def input_to_dict(inputs):
         if input_type == "file":
             header = inputs[i][3]
             ncol = inputs[i][4]
-            with open(input_file,"r") as handle :
-                file_content = csv.reader(handle,delimiter="\t")
-                file_content = list(file_content)   #csv object to list
-            
+            with open(input_file, "r") as handle:
+                file_content = csv.reader(handle, delimiter="\t")
+                file_content = list(file_content)   # csv object to list
+
                 # Check if column number is in right form
                 if isnumber("int", ncol.replace("c", "")):
                     if header == "true":
-                        file_content = [x for x in [line[int(ncol.replace("c", ""))-1].split(";") for line in file_content[1:]]]     # gets ids from defined column
+                        # gets ids from defined column
+                        file_content = [x for x in [line[int(ncol.replace("c", ""))-1].split(";") for line in file_content[1:]]]  # noqa 501
+
                     else:
-                        file_content = [x for x in [line[int(ncol.replace("c", ""))-1].split(";") for line in file_content]] 
+                        file_content = [x for x in [line[int(ncol.replace("c", ""))-1].split(";") for line in file_content]]  # noqa 501
                 else:
-                    raise ValueError("Please fill in the right format of column number")        
+                    raise ValueError("Please fill in the right format of column number")  # noqa 501
         else:
             ids = set()
             file_content = inputs[i][0].split()
             file_content = [x.split(";") for x in file_content]
-            
-        file_content = [item.strip() for sublist in file_content for item in sublist if item != '']   #flat list of list of lists, remove empty items    
+
+        # flat list of list of lists, remove empty items
+        file_content = [item.strip() for sublist in file_content for item in sublist if item != '']   # noqa 501
         ids.update(file_content)
-        if 'NA' in ids : ids.remove('NA')
+        if 'NA' in ids:
+            ids.remove('NA')
         comp_dict[title] = ids
- 
+
     return comp_dict, title_dict
-    
+
+
 def intersect(comp_dict):
     """
     Calculate the intersections of input
@@ -83,8 +90,9 @@ def intersect(comp_dict):
             difference = []
             intersected = set.intersection(*(comp_dict[k] for k in group))
             if len(others) > 0:
-                difference = intersected.difference(set.union(*(comp_dict[k] for k in others)))
-            yield group, list(intersected), list(difference)    
+                difference = intersected.difference(set.union(*(comp_dict[k] for k in others))) # noqa 501
+            yield group, list(intersected), list(difference)
+
 
 def diagram(comp_dict, title_dict):
     """
@@ -94,53 +102,58 @@ def diagram(comp_dict, title_dict):
     result["name"] = {}
     for k in comp_dict.keys():
         result["name"][k] = title_dict[k]
-        
+
     result["data"] = {}
-    result["values"] = {}    
+    result["values"] = {}
     for group, intersected, difference in intersect(comp_dict):
         if len(group) == 1:
-            result["data"]["".join(group)] = difference
+            result["data"]["".join(group)] = sorted(difference)
             result["values"]["".join(group)] = len(difference)
         elif len(group) > 1 and len(group) < len(comp_dict):
-	        result["data"]["".join(group)] = difference
-	        result["values"]["".join(group)] = len(difference)               
+            result["data"]["".join(group)] = sorted(difference)
+            result["values"]["".join(group)] = len(difference)
         elif len(group) == len(comp_dict):
-            result["data"]["".join(group)] = intersected
+            result["data"]["".join(group)] = sorted(intersected)
             result["values"]["".join(group)] = len(intersected)
 
     return result
 
-#Write intersections of input to text output file
+# Write intersections of input to text output file
+
+
 def write_text_venn(json_result):
     lines = []
-    result = dict((k, v) for k, v in json_result["data"].iteritems() if v != [])
-    for key in result :
-        if 'NA' in result[key] : result[key].remove("NA")
-    list_names = dict((k, v) for k, v in json_result["name"].iteritems() if v != [])
+    result = dict((k, v) for k, v in json_result["data"].items() if v != [])  # noqa 501
+    for key in result:
+        if 'NA' in result[key]:
+            result[key].remove("NA")
+
+    list_names = dict((k, v) for k, v in json_result["name"].items() if v != [])  # noqa 501
     nb_lines_max = max(len(v) for v in result.values())
 
-    #get list names associated to each column
+    # get list names associated to each column
     column_dict = {}
-    for key in result :
-        if key in list_names :
+    for key in result:
+        if key in list_names:
             column_dict[key] = list_names[key]
-        else : 
-            keys= list(key)
+        else:
+            keys = list(key)
             column_dict[key] = "_".join([list_names[k] for k in keys])
 
-    #construct tsv
-    for key in result :
+    # construct tsv
+    for key in result:
         line = result[key]
-        if len(line) < nb_lines_max :
-            line.extend(['NA']*(nb_lines_max-len(line)))
-        line = [column_dict[key]] + line                #add header
-        lines.append(line)  
-    #transpose tsv
-    lines=zip(*lines)
-    
+        if len(line) < nb_lines_max:
+            line.extend(['']*(nb_lines_max-len(line)))
+        line = [column_dict[key]] + line     # add header
+        lines.append(line)
+    # transpose tsv
+    lines = zip(*lines)
+
     with open("venn_diagram_text_output.tsv", "w") as output:
         tsv_output = csv.writer(output, delimiter='\t')
         tsv_output.writerows(lines)
+
 
 def write_summary(summary_file, inputs):
     """
@@ -151,37 +164,41 @@ def write_summary(summary_file, inputs):
     write_text_venn(data)
 
     to_replace = {
-    	"series": [data],
-    	"displayStat": "true",
-    	"displaySwitch": "true",
+        "series": [data],
+        "displayStat": "true",
+        "displaySwitch": "true",
         "shortNumber": "true",
     }
 
     FH_summary_tpl = open(os.path.join(CURRENT_DIR, "jvenn_template.html"))
-    FH_summary_out = open(summary_file, "w" )
+    FH_summary_out = open(summary_file, "w")
     for line in FH_summary_tpl:
         if "###JVENN_DATA###" in line:
             line = line.replace("###JVENN_DATA###", json.dumps(to_replace))
         FH_summary_out.write(line)
-    
+
     FH_summary_out.close()
     FH_summary_tpl.close()
-   
+
+
 def process(args):
     write_summary(args.summary, args.input)
 
 
-##################################################################################################################################################
+#####################################################################
 # MAIN
-##################################################################################################################################################
+#####################################################################
 if __name__ == '__main__':
     # Parse parameters
     parser = argparse.ArgumentParser(description='Filters an abundance file')
-    group_input = parser.add_argument_group( 'Inputs' )
-    group_input.add_argument('--input', nargs="+", action="append", required=True, help="The input tabular file.")
-    group_output = parser.add_argument_group( 'Outputs' )
-    group_output.add_argument('--summary', default="summary.html", help="The HTML file containing the graphs. [Default: %(default)s]")
+    group_input = parser.add_argument_group('Inputs')
+    group_input.add_argument('--input', nargs="+", action="append",
+                             required=True, help="The input tabular file.")
+    group_output = parser.add_argument_group('Outputs')
+    group_output.add_argument('--summary', default="summary.html",
+                              help="The HTML file containing the graphs. \
+                                   [Default: %(default)s]")
     args = parser.parse_args()
 
     # Process
-    process( args )
+    process(args)
