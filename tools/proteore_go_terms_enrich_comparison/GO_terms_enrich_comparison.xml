@@ -1,4 +1,4 @@
-<tool id="go_terms_enrich_comparison" name="Biological theme comparison" version="2021.05.21">
+<tool id="go_terms_enrich_comparison" name="Biological theme comparison" version="2021.05.21.1">
     <description>(Human, Mouse, Rat)[clusterProfiler]</description>
     <requirements>
         <requirement type="package">R</requirement>
@@ -122,7 +122,7 @@
 
             <param name="species" value="org.Hs.eg.db"/>
             <param name="ontology" value="BP"/>
-            <output name="log" file="log.txt" />
+          <!--  <output name="log" file="log.txt" /> -->
             <output_collection name="text_output">
                 <element name="GO_enrich_comparison_BP.tsv" file="GO_enrich_comparison_BP.tsv" ftype="tsv"/>
             </output_collection>
