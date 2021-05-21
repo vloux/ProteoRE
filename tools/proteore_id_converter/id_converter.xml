@@ -224,7 +224,7 @@
                 <param name="mapping_file" value="human_id_mapping_file.tsv"/>
                 <param name="idtypein" value="UniProt-AC"/>
                 <section name="idto">
-                    <param name="idtypeout" value="neXtProt,UniProt-ID,GeneID,MIM,Ensembl_Gene" />
+                    <param name="idtypeout" value="neXtProt,UniProt-ID,GeneID,MIM" />
                 </section>
             </conditional>
             <output name="output" value="ID_Converted_FKW_Lacombe_et_al_2017_OK.txt" />
