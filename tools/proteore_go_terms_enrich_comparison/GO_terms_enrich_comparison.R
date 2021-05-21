@@ -257,7 +257,7 @@ get_cols <- function(input_cols) {
 # nolint start
 cmp.GO <- function(l, fun = "enrichGO", orgdb, ontology, readable = TRUE) {
   cmpGO <- compareCluster(geneClusters = l,
-                        fun = fun, 
+                        fun = "enrichGO", 
                         OrgDb = orgdb, 
                         ont = ontology, 
                         readable = TRUE)
