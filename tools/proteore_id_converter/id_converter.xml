@@ -221,7 +221,7 @@
                 <param name="ncol" value="c1"/>
             </conditional>
             <conditional name="species">
-                <param name="mapping_file" value="human_id_mapping"/>
+                <param name="mapping_file" value="human_id_mapping_file.tsv"/>
                 <param name="idtypein" value="UniProt-AC"/>
                 <section name="idto">
                     <param name="idtypeout" value="neXtProt,UniProt-ID,GeneID,MIM,Ensembl_Gene" />
