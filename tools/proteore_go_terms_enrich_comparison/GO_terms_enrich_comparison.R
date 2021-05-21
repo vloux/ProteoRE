@@ -297,6 +297,7 @@ main <- function() {
 
 }
 
+# nolint start
   ont <- strsplit(args$ont, ",")[[1]]
   org <- args$org
 
@@ -311,6 +312,8 @@ main <- function() {
   } else if (args$org == "org.Rn.eg.db") {
     orgdb <- org.Rn.eg.db
   }
+
+# nolint end
 
 # nolint start
   for (ontology in ont) {
