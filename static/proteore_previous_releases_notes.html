@@ -6,9 +6,28 @@
     </head>
     <body style="margin: 0">
         <div class="container" style="text-align:justify">
-            <h2>Previous release notes</h2>
-            <BR>
-            <h3>Release 28th June 2019 (version 2.0)</h3>
+            <h2>ProteoRE : release notes</h2>
+     
+            <h3><font color="0000FF">Release 5th February 2020 (version 2.1)</font></h3>
+            <b>Update/Enhancement:</b>
+                <ul>
+                <li>Tools panel was reorganized (now four sections) and some tools were renamed to make them more explicit (thanks to ProteoRE’s users feedback)</li>
+		<li>Genome wide annotation source files for human, mouse and rat have been updated for all functional analysis (GO) tools</li>  
+		<li>All ID mapping files have been updated (18/12/2019)</li>
+		<li>Expression data source files from HPA (and related tools) have been fully updated</li>
+		<li><b>Build tissue-specific expression dataset [Human Protein Atlas]</b> tool: the interface has been modified to account for additional tissues form the the latest release of HPA, read the UserDoc section of this tool</li>	
+		<li><b>ID converter</b> tool: gene name symbol is now included and mapping files were updated accordingly for <i>Homo sapiens, Mus musculus, Rattus norvegicus</i> (UniProt release 18/12/2019).</li>
+                <li><b>Venn diagram [JVenn]</b> tool: : bug due to one extra-line counting is now fixed</li>
+                <li><b>KEGG pathways mapping and visualization [PathView]</b> tool: fixed bug associated with KEGG map visualization</li></b>
+		</ul>
+             <b>New tools:</b>
+		<ul>
+                <li><b><a target="_blank" href="http://www.proteore.org/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fproteore%2Fproteore_prot_features_3orga%2Fprot_features_3orga%2F2020.01.23">Add protein features [UniProt, Human, Mouse, Rat]</a></b>: This tool retrieves protein features (e.g. subcell location, topological domain, pathway, disease) from the UniProt database (Reference Proteome) to annotate your protein IDs list</li>
+                <li><b><a target="_blank" href="http://www.proteore.org/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fvolcanoplot%2Fvolcanoplot%2F0.0.3">Volcano plot</a></b>: this tool allows to draw a Volcano Plot and to add labels. Very useful for differential analysis to quickly visualize genes/proteins and to identify the most meaningful changes between two conditions</li>
+                <li><b><a target="_blank" href="http://migale.jouy.inra.fr/proteore/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fproteore%2Fproteore_go_terms_enrich_comparison%2Fgo_terms_enrich_comparison%2F2020.02.04">Biological themes comparison (Human, Mouse, Rat)[clusterProfiler]</a></b>: this tool performs biological theme comparison by computing enriched functional categories between different protein/gene lists (e.g. in different conditions)</li>
+		</ul>
+         
+	    <h3><font color="0000FF">Release 28th June 2019 (version 2.0)</font></h3>
 	    <b>Update/Enhancement:</b>
                 <ul>
                 <li><b>Filter by keywords and/or numerical value</b>: addition of new option "keep/discard"</li>
@@ -22,8 +41,8 @@
                 <li><b><a target="_blank" href="http://www.proteore.org/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fproteore%2Fproteore_build_protein_interaction_maps%2Fbuild_protein_interaction_maps%2F2019.03.12.2&version=2019.03.12.2&__identifer=22uwwokghi5i">Build Protein-Protein interaction network [BioGRID, BioPlex, HuMAP]</a></b>: This tool allows building interaction maps by mapping your list of protein/gene identifiers on different public resources; the following PPIs resources are available: BioGRID(Homo sapiens, Mus musculus and Rattus norvegicus species); Human Bioplex (V.2.0) and HuMAP (Human Protein Complex Map). The two result files generated (network and nodes attributes) can be used for viewing and further exploration of the resulting protein interactions network by directly importing those in dedicated software (e.g. Cytoscape).</li>
                 <li><b>Add protein features (Mouse) [UniProt]</a></b>: now deprecated and replaced by <b>Add protein features [UniProt, Human, Mouse, Rat]</b> tool in the next release (see above).</li>
                 </ul>
-
-            <h3>Release 18th December 2018 (version 1.2)</h3>
+	   
+            <h3><font color="0000FF">Release 18th December 2018 (version 1.2)</font></h3>
 
             ProteoRE now comprises 15 tools for:
             <ul>
@@ -34,7 +53,7 @@
                 <li>Graphical representation (Venn diagram, heat map, bar- and dot-plot…)  </li>
             </ul>
 
-            <h3>Release 19th September 2018 (version 1.1)</h3>
+            <h3><font color="0000FF">Release 19th September 2018 (version 1.1)</font></h3>
 
 	    <b>Updates</b>: 
             <ul>
@@ -49,7 +68,7 @@
                 <li>KEGG pathways coverage : this tool reports pathways concern by the proteins entered. Pathways are found with the Keggrest R library, results are sorted by the number of mapping ids on the number of pathway genes (%). </li>
             </ul>
 
-            <h3>Release 7th May 2018 (version 1.0)</h3>
+            <h3><font color="0000FF">Release 7th May 2018 (version 1.0)</font></h3>
 
             ProteoRE comprises tools for:
             <ul>
