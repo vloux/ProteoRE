@@ -111,7 +111,9 @@ one_id_one_line <- function(tab, ncol) {
   if (ncol(tab) > 1) {
 
     tab[, ncol] <- sapply(tab[, ncol], function(x) gsub("[[:blank:]]", "", x))
+#nolint start
     header <- colnames(tab)
+#nolint end
     res <- as.data.frame(matrix(ncol = ncol(tab), nrow = 0))
     for (i in seq_len(nrow(tab))) {
       lines <- split_ids_per_line(tab[i, ], ncol)
