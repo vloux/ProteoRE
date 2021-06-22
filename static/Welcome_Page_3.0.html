@@ -39,7 +39,7 @@
         <div class="container" style="text-align:justify">
             <p class="lead">
         <h2>What is ProteoRE ?</h2>
-                ProteoRE (Proteomics Research Environment) is a Galaxy-based platform for the interpretation and the exploration of proteomics and transcriptomics data in biomedical research; ProteoRE allows researchers to apply a large range of dedicated bioinformatics tools and data analysis workflows on their own data using Galaxy capabilities. ProteoRE comprises <b>21 tools</b> organized into four subsections: i) data manipulation and visualization; ii) get features/annotation; iii ) functional analysis; and iv) pathway analysis along with graphical representation. This version also includes Galaxy generic tools and some tools from the GalaxyP project that should be of great help for (re)processing MS-based proteomics data (e.g. peptide/protein identification). 
+                ProteoRE (Proteomics Research Environment) is a Galaxy-based platform for the functional analysis and the interpretation of proteomics and transcriptomics data in biomedical research; ProteoRE allows researchers to apply a large range of bioinformatics tools and tailored workflows on their own data using Galaxy capabilities. ProteoRE comprises <b>21 tools</b> organized into four subsections: i) data manipulation and visualization; ii) get features/annotation; iii ) functional analysis; and iv) pathway analysis along with graphical representation. This version also includes Galaxy generic tools and some tools from the GalaxyP project that should be of great help for (re)processing MS-based proteomics data (e.g. peptide/protein identification). 
 		<br/>
         
 	<h2>ProteoRE new release (25th June 2021)</h2>
@@ -48,15 +48,18 @@
                 <ul>
                 <li>ProteoRE server: CPU and memory resources have been extended and jobs management configuration revisited to better satisfy user needs</li>
 		        <BR>
-				<li>Update of the following resources used by ProteoRE tools (<a target="_blank href="http://www.proteore.org/static/data_source.html">more details here</a>):</li>
+				<li>Update of resources used by ProteoRE tools (<a target="_blank" href="http://www.proteore.org/static/data_source.html">more details here</a>):</li>
 					<ul>
-					<li>GO terms source files for human, mouse and rat ("Compute functional profiles", "Classification and enrichment analysis", "Biological theme comparison", "Enrichment analysis"(</li>  
+					<li>GO terms source files for human, mouse and rat ("Compute functional profiles", "Classification and enrichment analysis", "Biological theme comparison", "Enrichment analysis")</li>  
 					<li>ID mapping files have been updated ("ID-converter")</li>
-					<li>Expression data sources from Human Protein Atlas ("Get expression profiles", "Add expression data", "Build tissue-specific expression dataset"</li>
+					<li>neXtprot release (March 2021) was added ("Add protein features [neXtProt, Human]")</li>
+					<li>Expression data sources from Human Protein Atlas ("Get expression profiles", "Add expression data", "Build tissue-specific expression dataset")</li>
 					<li>PPI data from BioGRID ("Build Protein interaction network")</li>
 					</ul>
                 <BR>
 				<li>KEGG pathways mapping and visualization [PathView] tool: fixed bug associated with KEGG map visualization</li></b>
+				<BR>
+				<li>New tool: <a target="_blank" href="http://migale.jouy.inra.fr/proteore/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fproteore%2Fproteore_go_terms_enrich_comparison%2Fgo_terms_enrich_comparison%2F2020.02.04">Biological themes comparison (Human, Mouse, Rat)[clusterProfiler]</a>: try it out!</li>
 				<BR>
 				<li>ProteoRE workflows have been updated accordingly:</li>
 					<ul>
@@ -65,32 +68,30 @@
 					<li><a target="_blank" href="http://www.proteore.org/u/proteore/w/imported-workflow-pancreaticcancerbiomarkersselectionstrategyshared">Workflow for the Selection of Pancreatic Cancer Biomarkers</a> (from PMID: <a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/31538697/">31538697</a>)</li>
 					<li><a target="_blank" href="">Annotation and GO Enrichment Analysis of a List of Differentially Expressed Proteins</a> (to appear in <a target="_blank" href="https://www.springer.com/gp/book/9781071616406"</a>Methods Mol Biol</a>)</li>
 					</ul>
-                <BR>
-				<li>New tool: <a target="_blank" href="http://migale.jouy.inra.fr/proteore/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fproteore%2Fproteore_go_terms_enrich_comparison%2Fgo_terms_enrich_comparison%2F2020.02.04">Biological themes comparison (Human, Mouse, Rat)[clusterProfiler]</a>: try it out!</li>
-		</ul>
-		<h4><a target="_blank" href="http://www.proteore.org/static/previous_releases_notes.html">ProteoRE previous Release notes</a></h4>
+              
+						</ul>
+		<h4><a target="_blank" href="http://www.proteore.org/static/previous_releases_notes.html">ProteoRE previous release notes</a></h4>
   
 		<h3>How to access ProteoRE ?</h3>
                 This public site is meant for academic usage;  for commercial usage, <a href="mailto:contact@proteore.org">contact us</a>). ProteoRE can currently be used as:  
 		<li><b>Unregistered user</b>: you can analyze your data (e.g. proteomics identification results in tab format) using the available tools. Allocated storage space is limited to 20 Mb and data/history/analyses are not conserved between sessions.</li>
                 <li><b>Registered user</b> (password-protected access): we highly recommend to create a user account to keep track of and record the analyses and workflows created. Up to 20 Gb storage space is offered to registered users, along with access to shared resources (data, histories, workflows..). To create an account: click on "Account registration or login" on the main menu bar (upper part of the ProteoRE central panel), click on "registration" and fill out the form. Once the form is submitted, your account is created.</li>
         
-		<h3>Tutorials and training materials:</h3>
-                Training materials for ProteoRE are available via the Galaxy Training Network: 
-		<ul>
+		<h3>Tutorials and training materials available at the Galaxy Training Network:</h3>
+        <ul>
                 <li><a href="https://training.galaxyproject.org/training-material/topics/proteomics/tutorials/proteome_annotation/tutorial.html" target="_blank"><b>Annotating a protein list identified by LC-MS/MS experiment</b></a></li>
                 <li><a href="https://training.galaxyproject.org/training-material/topics/proteomics/tutorials/biomarker_selection/tutorial.html" target="_blank"><b>Strategy to select biomarker candidates</b></a></li>
 		</ul>
 	
 		<h3>How to contribute? </h3>
-		        <li><b>As a developper/bioinformatician</b>: ProteoRE welcomes new development via GitHub, please <a href="https://github.com/vloux/ProteoRE" target="_blank">read here</a></li>
-                <li><b>As a biologist/clinician</b>: ProteoRE is designed for and with biologists/clinicians on the basis of case study using real proteomics data; ProteoRE is constantly evolving thanks to your feedbacks and we are grateful to all users for their suggestion that improve ProteoRE usability; for any specific need, wish, idea, do not hesitate to <a href="mailto:contact@proteore.org">contact@proteore.org</a>contact us.</li>
+		<li><b>As a developper/bioinformatician</b>: ProteoRE team welcomes any contribution via GitHub, please <a href="https://github.com/vloux/ProteoRE" target="_blank">read here</a></li>
+                <li><b>As a biologist/clinician</b>: ProteoRE is constantly evolving and we greatly appreciate users feedbacks helping at improving ProteoRE capabilities: <a href="mailto:contact@proteore.org">contact us ! </a></li>
 
-		<h3><a href="http://www.proteore.org/static/communication.html" target="_blank">Training, publication, community links</a></h3>
+		<h4><a href="http://www.proteore.org/static/communication.html" target="_blank">Communication, publication & community links</a></h4>
+ 
+		<h4>Data sources: <a href="http://www.proteore.org/static/data_source.html" target="_blank">public resources used by ProteoRE's tools</a></h4> 
 	
-		<h3>Data sources: <a href="http://www.proteore.org/static/data_source.html" target="_blank">public resources used by ProteoRE's tools</a></h3> 
-	
-		<h3>Support, feedbacks, contribution: <a href="mailto:contact@proteore.org">contact@proteore.org</a></h3>	
+		<h4>Support, feedbacks, contribution: <a href="mailto:contact@proteore.org">contact@proteore.org</a></h4>	
 	
 	</p>
             <footer>
@@ -101,17 +102,15 @@
                 <img src="images/profi.png/" width="100px">
                 <img src="images/anr.png/" width="100px"><br/>
                 <BR>
-                <h3>Project team</h3>
-                Florence Combes, Valentin Loux, Yves Vandenbrouck (Project manager) – <a href="mailto:contact@proteore.org">contact@proteore.org</a>). Alumni: Virginie Brun, Christophe Caron, David Christiany, Benoit Gilquin, Lien Nguyen, Lisa Perus, Maud Lacombe, Marianne Tardif.
-		
-                The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
+		The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
                 is supported in part by <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>,
                 <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>,
                 <a target="_blank" class="reference" href="http://www.huck.psu.edu">The Huck Institutes of the Life Sciences</a>,
                 <a target="_blank" class="reference" href="http://www.ics.psu.edu">The Institute for CyberScience at Penn State</a>,
                 and <a target="_blank" class="reference" href="http://www.jhu.edu/">Johns Hopkins University</a>.<br/>
-                
-                <BR>
+                <h3>Project team</h3>
+                Florence Combes, Valentin Loux, Yves Vandenbrouck. Alumni: we are grateful to Virginie Brun, Christophe Caron, David Christiany, Benoit Gilquin, Lien Nguyen, Lisa Perus, Maud Lacombe, Marianne Tardif, for their contribution and their enthousiasm.
+		        <BR>
             </footer>
         </div>
     </body>
