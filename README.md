@@ -26,7 +26,7 @@ ProteoRE project is a joint national effort between the [French bioinformatics I
  
 Project team
 ------------
-David Christiany (software engineer), Florence Combes (bioinformatician), Lien Nguyen (former software engineer), Lisa Perus (former internship), Virginie Brun, Maud Lacombe, Marianne Tardif & Benoit Gilquin (use-case & beta-testing), Valentin Loux (Bioinformatician , IT Manager), Yves Vandenbrouck (Project manager – yves.vandenbrouck@cea.fr) The Galaxy Project is supported in part by NHGRI, NSF, The Huck Institutes of the Life Sciences, The Institute for CyberScience at Penn State, and Johns Hopkins University.
+David Christiany (former software engineer), Florence Combes (bioinformatician), Lien Nguyen (former software engineer), Lisa Perus (former internship), Virginie Brun, Maud Lacombe, Marianne Tardif & Benoit Gilquin (use-case & beta-testing), Valentin Loux (Bioinformatician , IT Manager), Yves Vandenbrouck (Project manager – yves.vandenbrouck@cea.fr) The Galaxy Project is supported in part by NHGRI, NSF, The Huck Institutes of the Life Sciences, The Institute for CyberScience at Penn State, and Johns Hopkins University.
 
 
 Citations
