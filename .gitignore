@@ -3,3 +3,5 @@ tool_test_output.json
 .vscode
 bioconda_recipes
 .gitignore
+.Rproj.user
+.Rhistory
