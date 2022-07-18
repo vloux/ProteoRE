@@ -5,7 +5,7 @@ With the increased simplicity associated with producing MS-based proteomics data
 
 The ProteoRE (Proteomics Research Environment) aims at fulfilling this need by centrally providing an online research service to assist biologists/clinicians in the interpretation of their proteomics data in a unified framework. Built upon the [Galaxy environment](https://github.com/galaxyproject), this web-based platform for computational biomedical research, allows researchers to apply a large range of dedicated bioinformatics tools and data analysis workflows on their data, share their analyses with others, and enable tiers to repeat the same analysis while keeping tracks of the overall process. 
  
-Currently, ProteoRE implements 21 tools organized into four subsections for: i) data manipulation and visualization; ii) Get features/annotation; iii) functional analysis; and iv) pathway analysis along with graphical representations. Furthermore, we also developed a specialized tool that allow for the management of annotation from external resources upon which some ProteoRE’s tools are based (e.g. Uniprot, Human Protein Atlas, Biogrid, etc.). The ProteoRE platform has been designed in close collaboration with biomedical researchers on the basis of case studies such as functional analysis of a human MS/MS proteomics sample [1] and the selection of candidate proteomics biomarkers of human disease [2,3]. Our platform also provides online support, shared workflows and training materials (shared via the [Galaxy Training Network](https://training.galaxyproject.org), "proteomics" directory) and is in free access: http://www.proteore.org. 
+Currently, ProteoRE implements 21 tools organized into four subsections for: i) data manipulation and visualization; ii) Get features/annotation; iii) functional analysis; and iv) pathway analysis along with graphical representations. Furthermore, we also developed a specialized tool that allow for the management of annotation from external resources upon which some ProteoRE’s tools are based (e.g. Uniprot, Human Protein Atlas, Biogrid, etc.). The ProteoRE platform has been designed in close collaboration with biomedical researchers on the basis of case studies such as functional analysis of a human MS/MS proteomics sample [1] and the selection of candidate proteomics biomarkers of human disease [2,3]. Our platform also provides online support, shared workflows and training materials (shared via the [Galaxy Training Network]- https://training.galaxyproject.org/training-material/topics/proteomics/) and is in free access: https://www.proteore.org. 
 
 How to contribute
 -----------------
@@ -21,18 +21,16 @@ For contributors, please note that any pull request / contribution will be exami
 
 Fundings 
 ---------
-ProteoRE project is a joint national effort between the [French bioinformatics Institute (IFB)](https://www.france-bioinformatique.fr/en) and the [proteomics infrastructure (ProFI)](http://www.profiproteomics.fr) funded by the French Research Agency (ANR-11-INBS-0013).
+ProteoRE project is a joint national effort between the [French bioinformatics Institute (IFB)](https://www.france-bioinformatique.fr/en) and the [proteomics infrastructure (ProFI)](http://www.profiproteomics.fr) funded by the IFB via the French Research Agency (ANR-11-INBS-0013).
 
  
 Project team
 ------------
-David Christiany (former software engineer), Florence Combes (bioinformatician), Lien Nguyen (former software engineer), Lisa Perus (former internship), Virginie Brun, Maud Lacombe, Marianne Tardif & Benoit Gilquin (use-case & beta-testing), Valentin Loux (Bioinformatician , IT Manager), Yves Vandenbrouck (Project manager – yves.vandenbrouck@cea.fr) The Galaxy Project is supported in part by NHGRI, NSF, The Huck Institutes of the Life Sciences, The Institute for CyberScience at Penn State, and Johns Hopkins University.
+David Christiany & Lien Nguyen (software engineers);  Florence Combes (bioinformatician);  Lisa Perus (internship);  Virginie Brun, Maud Lacombe, Marianne Tardif & Benoit Gilquin (use-case & beta-testing); Valentin Loux (Galaxy Manager) ; Yves Vandenbrouck (Project manager – yves.vandenbrouck@cea.fr) The Galaxy Project is supported in part by NHGRI, NSF, The Huck Institutes of the Life Sciences, The Institute for CyberScience at Penn State, and Johns Hopkins University.
 
 
 Citations
 ---------
-[1]	Lacombe M et al. Proteomic characterization of human exhaled breath condensate. J Breath Res. 12(2):021001, 2018. [10.1088/1752-7163/aa9e71](https://doi.org/10.1088/1752-7163/aa9e71)
-
-[2]	Nguyen L. et al., Designing an In Silico Strategy to Select Tissue-Leakage Biomarkers Using the Galaxy Framework. Methods Mol Biol. 1959:275-289, 2019. [10.1007/978-1-4939-9164-8_18](https://doi.org/10.1007/978-1-4939-9164-8_18)
-
-[3] Vandenbrouck Y, Christiany D, Combes F, Loux V, Brun V. Bioinformatics Tools and Workflow to Select Blood Biomarkers for Early Cancer Diagnosis: An Application to Pancreatic Cancer. Proteomics. 2019. (21-22):e1800489. [doi:10.1002/pmic.201800489] (https://www.ncbi.nlm.nih.gov/pubmed/31538697)
+[1]	Combes F, Loux V, Vandenbrouck Y. GO Enrichment Analysis for Differential Proteomics Using ProteoRE. Methods Mol Biol. 2021;2361:179-196. doi: 10.1007/978-1-0716-1641-3_11. PMID: 34236662. 
+[2]	Vandenbrouck Y, Christiany D, Combes F, Loux V, Brun V. Bioinformatics Tools and Workflow to Select Blood Biomarkers for Early Cancer Diagnosis: An Application to Pancreatic Cancer. Proteomics. 2019 Nov;19(21-22):e1800489. [doi:10.1002/pmic.201800489] (https://www.ncbi.nlm.nih.gov/pubmed/31538697).
+[3] Nguyen L, Brun V, Combes F, Loux V, Vandenbrouck Y. Designing an In Silico Strategy to Select Tissue-Leakage Biomarkers Using the Galaxy Framework. Methods Mol Biol. 2019;1959:275-289. doi: 10.1007/978-1-4939-9164-8_18. PMID: 30852829.
