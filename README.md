@@ -31,6 +31,8 @@ David Christiany & Lien Nguyen (software engineers);  Florence Combes (bioinform
 
 Citations
 ---------
-[1]	Combes F, Loux V, Vandenbrouck Y. GO Enrichment Analysis for Differential Proteomics Using ProteoRE. Methods Mol Biol. 2021;2361:179-196. doi: 10.1007/978-1-0716-1641-3_11. PMID: 34236662. 
+[1]	Combes F, Loux V, Vandenbrouck Y. GO Enrichment Analysis for Differential Proteomics Using ProteoRE. Methods Mol Biol. 2021;2361:179-196. [doi: 10.1007/978-1-0716-1641-3_11] (https://www.ncbi.nlm.nih.gov/pubmed/34236662) 
+
 [2]	Vandenbrouck Y, Christiany D, Combes F, Loux V, Brun V. Bioinformatics Tools and Workflow to Select Blood Biomarkers for Early Cancer Diagnosis: An Application to Pancreatic Cancer. Proteomics. 2019 Nov;19(21-22):e1800489. [doi:10.1002/pmic.201800489] (https://www.ncbi.nlm.nih.gov/pubmed/31538697).
-[3] Nguyen L, Brun V, Combes F, Loux V, Vandenbrouck Y. Designing an In Silico Strategy to Select Tissue-Leakage Biomarkers Using the Galaxy Framework. Methods Mol Biol. 2019;1959:275-289. doi: 10.1007/978-1-4939-9164-8_18. PMID: 30852829.
+
+[3] Nguyen L, Brun V, Combes F, Loux V, Vandenbrouck Y. Designing an In Silico Strategy to Select Tissue-Leakage Biomarkers Using the Galaxy Framework. Methods Mol Biol. 2019;1959:275-289. [doi: 10.1007/978-1-4939-9164-8_18] (https://www.ncbi.nlm.nih.gov/pubmed/30852829).
