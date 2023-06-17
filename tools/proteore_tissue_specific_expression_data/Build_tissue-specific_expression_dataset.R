@@ -1,42 +1,54 @@
 
 
-select_HPAimmunohisto<-function(hpa_ref, tissue, level, reliability) {
-  HPA.normal = read.table(hpa_ref,header=TRUE,sep="\t",stringsAsFactors = FALSE)
-  HPA.normal$Tissue = sapply(HPA.normal$Tissue, function(string) gsub('cervix, uterine','cervix_uterine',string),USE.NAMES = F)
+select_hpaimmunohisto <- function(hpa_ref, tissue, level, reliability) {
+  hpa_normal <- read.table(hpa_ref, header = TRUE, sep = "\t",
+                           stringsAsFactors = FALSE)
+  # nolint start
+  hpa_normal$Tissue <- sapply(hpa_normal$Tissue,
+                              function(string) gsub(
+                                "cervix, uterine", "cervix_uterine", string),
+                              USE.NAMES = F)
+  # nolint end
   if (tissue == "tissue") {
-    tissue <- unique(HPA.normal$Tissue) 
+    tissue <- unique(hpa_normal$Tissue)
   }
   if (level == "level") {
-    level <- unique(HPA.normal$Level)
+    level <- unique(hpa_normal$Level)
   }
   if (reliability == "reliability") {
-    reliability <- unique(HPA.normal$Reliability)
+    reliability <- unique(hpa_normal$Reliability)
   }
-  res.imm <- subset(HPA.normal, Tissue%in%tissue & Level%in%level & Reliability%in%reliability)
-  return(res.imm)
+  res_imm <- subset(hpa_normal, Tissue %in% tissue & Level %in% level
+                    & Reliability %in% reliability)
+  return(res_imm)
 }
 
-select_HPARNAseq<-function(hpa_ref, sample) {
-  HPA.rnaTissue = read.table(hpa_ref,header=TRUE,sep="\t",stringsAsFactors = FALSE)
-  names(HPA.rnaTissue) = sapply(names(HPA.rnaTissue), function(string) gsub('Sample','Tissue',string),USE.NAMES = F)
-  HPA.rnaTissue$Tissue = sapply(HPA.rnaTissue$Tissue, function(string) gsub('cervix, uterine','cervix_uterine',string),USE.NAMES = F)
-  res.rna <- subset(HPA.rnaTissue, Tissue%in%sample)
-  if ("Unit" %in% names(res.rna)){
-      res.rna = subset(res.rna, select = -Unit)
-      colnames(res.rna)[which(colnames(res.rna) == 'Value')] <- 'Value (TPM unit)'
+select_hparnaseq <- function(hpa_ref, sample) {
+  hpa_rnatissue <- read.table(hpa_ref, header = TRUE, sep = "\t",
+                              stringsAsFactors = FALSE)
+  names(hpa_rnatissue) <- sapply(names(hpa_rnatissue), function(string)
+    gsub("Sample", "Tissue", string), USE.NAMES = F)
+  # nolint start
+  hpa_rnatissue$Tissue <- sapply(hpa_rnatissue$Tissue, function(string)
+    gsub("cervix, uterine", "cervix_uterine", string), USE.NAMES = F)
+  # nolint end
+  res_rna <- subset(hpa_rnatissue, Tissue %in% sample)
+  if ("Unit" %in% names(res_rna)) {
+    res_rna <- subset(res_rna, select = -Unit)
+    colnames(res_rna)[which(colnames(res_rna) == "Value")] <- "Value (TPM unit)"
   }
-  
-  return(res.rna)
+
+  return(res_rna)
 }
 
 main <- function() {
   args <- commandArgs(TRUE)
-  if(length(args)<1) {
+  if (length(args) < 1) {
     args <- c("--help")
   }
-  
+
   # Help section
-  if("--help" %in% args) {
+  if ("--help" %in% args) {
     cat("Selection and Annotation HPA
     Arguments:
         --data_source: IHC/RNAseq
@@ -46,35 +58,37 @@ main <- function() {
             --level: Not detected, Low, Medium, High
             --reliability: Supported, Approved, Enhanced, Uncertain
           if RNAseq:
-            --sample: Sample tissues 
+            --sample: Sample tissues
         --output: output filename \n")
-    q(save="no")
+
+    q(save = "no")
   }
-  
+
   # Parse arguments
-  parseArgs <- function(x) strsplit(sub("^--", "", x), "=")
-  argsDF <- as.data.frame(do.call("rbind", parseArgs(args)))
-  args <- as.list(as.character(argsDF$V2))
-  names(args) <- argsDF$V1
+  parseargs <- function(x) strsplit(sub("^--", "", x), "=")
+  argsdf <- as.data.frame(do.call("rbind", parseargs(args)))
+  args <- as.list(as.character(argsdf$V2))
+  names(args) <- argsdf$V1
 
   # Extract options
-  data_source = args$data_source
-  hpa_ref = args$hpa_ref
+  data_source <- args$data_source
+  hpa_ref <- args$hpa_ref
   if (data_source == "IHC") {
-    tissue = strsplit(args$tissue, ",")[[1]]
-    level = strsplit(args$level, ",")[[1]]
-    reliability = strsplit(args$reliability, ",")[[1]]
+    tissue <- strsplit(args$tissue, ",")[[1]]
+    level <- strsplit(args$level, ",")[[1]]
+    reliability <- strsplit(args$reliability, ",")[[1]]
     # Calculation
-    res = suppressWarnings(select_HPAimmunohisto(hpa_ref, tissue, level, reliability))
+    res <- suppressWarnings(select_hpaimmunohisto(
+      hpa_ref, tissue, level, reliability))
   }
   else if (data_source == "RNAseq") {
-    sample = strsplit(args$sample, ",")[[1]]
+    sample <- strsplit(args$sample, ",")[[1]]
     # Calculation
-    res = suppressWarnings(select_HPARNAseq(hpa_ref, sample))
+    res <- suppressWarnings(select_hparnaseq(hpa_ref, sample))
   }
 
   # Write output
-  output = args$output
+  output <- args$output
   write.table(res, output, sep = "\t", quote = FALSE, row.names = FALSE)
 }
 
