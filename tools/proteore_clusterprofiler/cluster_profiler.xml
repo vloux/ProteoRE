@@ -1,12 +1,13 @@
-<tool id="cluter_profiler" name="Classification and enrichment analysis" version="2019.01.23">
+<tool id="cluter_profiler" name="Classification and enrichment analysis" version="2021.04.08">
     <description>(Human, Mouse, Rat)[clusterProfiler]</description>
     <requirements>
-        <requirement type="package">R</requirement>
-        <requirement type="package" version="3.8.2">bioconductor-org.hs.eg.db</requirement>
-        <requirement type="package" version="3.8.2">bioconductor-org.mm.eg.db</requirement>
-        <requirement type="package" version="3.8.2">bioconductor-org.Rn.eg.db</requirement>
-        <requirement type="package" version="3.10.2">bioconductor-dose</requirement>
-        <requirement type="package" version="3.12.0">bioconductor-clusterprofiler</requirement>
+        <requirement type="package" version="4.0.3">r-base</requirement>
+        <requirement type="package" version="3.12.0">bioconductor-org.hs.eg.db</requirement>
+        <requirement type="package" version="3.12.0">bioconductor-org.mm.eg.db</requirement>
+        <requirement type="package" version="3.12.0">bioconductor-org.rn.eg.db</requirement>
+        <requirement type="package" version="1.52.0">bioconductor-annotationdbi</requirement>
+        <requirement type="package" version="3.16.0">bioconductor-dose</requirement>
+        <requirement type="package" version="3.18.1">bioconductor-clusterprofiler</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript "$__tool_directory__/GO-enrich.R"
@@ -202,12 +203,12 @@
             <param name="plot" value="dotplot,barplot"/>
             <output name="log" file="log.txt" />
             <output_collection name="text_output">
-                <element name="cluster_profiler_GGO_CC.csv" file="cluster_profiler_GGO_CC.csv" ftype="csv"/>
-                <element name="cluster_profiler_EGO_BP.csv" file="cluster_profiler_GGO_BP.csv" ftype="csv"/>
-                <element name="cluster_profiler_GGO_MF.csv" file="cluster_profiler_GGO_MF.csv" ftype="csv"/>
-                <element name="cluster_profiler_EGO_CC.csv" file="cluster_profiler_EGO_CC.csv" ftype="csv"/>
-                <element name="cluster_profiler_EGO_BP.csv" file="cluster_profiler_EGO_BP.csv" ftype="csv"/>
-                <element name="cluster_profiler_EGO_MF.csv" file="cluster_profiler_EGO_MF.csv" ftype="csv"/>
+                <element name="cluster_profiler_GGO_CC.tsv" file="cluster_profiler_GGO_CC.csv" ftype="tsv"/>
+<!---                <element name="cluster_profiler_GGO_BP.tsv" file="cluster_profiler_GGO_BP.csv" ftype="tsv"/> -->
+                <element name="cluster_profiler_GGO_MF.tsv" file="cluster_profiler_GGO_MF.csv" ftype="tsv"/>
+                <element name="cluster_profiler_EGO_CC.tsv" file="cluster_profiler_EGO_CC.csv" ftype="tsv"/>
+                <element name="cluster_profiler_EGO_BP.tsv" file="cluster_profiler_GGO_BP.csv" ftype="tsv"/>
+                <element name="cluster_profiler_EGO_MF.tsv" file="cluster_profiler_EGO_MF.csv" ftype="tsv"/>
             </output_collection>
             <output_collection name="graph_output">
                 <element name="GGO_CC_bar-plot" file="GGO_CC_bar-plot" ftype="png"/>
@@ -289,11 +290,11 @@ https://bioconductor.org/packages/3.7/bioc/vignettes/clusterProfiler/inst/doc/cl
 
 Bioconductor Packages used:
 
-    - bioconductor-org.hs.eg.db v3.8.2
-    - bioconductor-org.mm.eg.db v3.8.2
-    - bioconductor-org.rn.eg.db v3.8.2
-    - dose v3.10.2
-    - clusterprofiler v 3.12.0
+    - bioconductor-org.hs.eg.db v3.12.0
+    - bioconductor-org.mm.eg.db v3.12.0
+    - bioconductor-org.rn.eg.db v3.12.0
+    - dose v3.16.0
+    - clusterprofiler v 3.18.1
 
 .. class:: infomark
 
@@ -301,7 +302,7 @@ Bioconductor Packages used:
 
 Lien Nguyen, Florence Combes, Yves Vandenbrouck - CEA, INSERM, CNRS, Grenoble-Alpes University, BIG Institute, FR
 
-Sandra Dérozier, Olivier Rué, Christophe Caron, Valentin Loux - INRA, Paris-Saclay University, MAIAGE Unit, Migale Bioinformatics platform, FR
+Christophe Caron, Valentin Loux - INRAE, Paris-Saclay University, MAIAGE Unit, Migale Bioinformatics platform, FR
 
 This work has been partially funded through the French National Agency for Research (ANR) IFB project.
 

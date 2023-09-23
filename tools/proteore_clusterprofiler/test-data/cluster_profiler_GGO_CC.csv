@@ -1,381 +1,980 @@
 ID	Description	Count	GeneRatio	geneID
-GO:0005886	plasma membrane	56	56/153	DSP/DSG1/ANXA2/JUP/MUC5B/ACTG1/FABP5/PIGR/ENO1/AZGP1/PLEC/TGM3/HRNR/ANXA1/HSPA5/TF/CAT/SERPINB12/CSTA/GAPDH/EEF2/MYH9/HSP90AA1/UBA52/FLNB/SOD1/HSPB1/HSPA8/EPPK1/GSTP1/DSC3/C1orf68/CTSV/CAPN1/VCL/YWHAE/IL1RN/SPRR1B/CST6/GSN/IDE/LYPD3/FLG/PERP/RPSA/LAMP1/LAMP2/RPS3/ATP5A1/PIP/MUC7/KRT1/KRT2/KRT10/SERPINA12/SPRR2E
-GO:0005628	prospore membrane	0	0/153	
-GO:0005789	endoplasmic reticulum membrane	2	2/153	HSPA5/UBA52
-GO:0019867	outer membrane	2	2/153	ARG1/UBA52
-GO:0031090	organelle membrane	24	24/153	DSP/DSG1/ANXA2/FABP5/PIGR/LMNA/ANXA1/TF/CAT/SFN/SERPINB12/ARG1/GAPDH/SERPINA1/UBA52/DMBT1/HSPA8/YWHAZ/YWHAE/MDH2/LAMP1/LAMP2/RPS3/ATP5A1
-GO:0034357	photosynthetic membrane	0	0/153	
-GO:0036362	ascus membrane	0	0/153	
-GO:0042175	nuclear outer membrane-endoplasmic reticulum membrane network	2	2/153	HSPA5/UBA52
-GO:0044425	membrane part	29	29/153	DSP/DSG1/ANXA2/JUP/PIGR/TGM3/ANXA1/HSPA5/TF/EEF2/MYH9/TUBA1B/HSP90AA1/CTSD/UBA52/DMBT1/FLNB/HSPA8/EPPK1/DSC3/CTSV/PGK1/LYPD3/PERP/LAMP1/LAMP2/RPS3/ATP5A1/PIP
-GO:0048475	coated membrane	0	0/153	
-GO:0055036	virion membrane	0	0/153	
-GO:0098589	membrane region	7	7/153	ANXA2/TF/EEF2/TUBA1B/CTSD/PGK1/LAMP2
-GO:0098590	plasma membrane region	10	10/153	DSP/DSG1/ANXA2/JUP/ANXA1/TF/HSP90AA1/EPPK1/RPS3/PIP
-GO:0098805	whole membrane	19	19/153	DSP/DSG1/ANXA2/FABP5/PIGR/ANXA1/TF/CAT/SERPINB12/ARG1/EEF2/TUBA1B/CTSD/UBA52/DMBT1/HSPA8/PGK1/LAMP1/LAMP2
-GO:1990578	perinuclear endoplasmic reticulum membrane	0	0/153	
-GO:0043083	synaptic cleft	0	0/153	
-GO:0044421	extracellular region part	141	141/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/TGM3/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/SERPINB7/LYZ/TUBA1B/SERPINA1/HSP90AA1/IL36G/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/CPA4/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EIF4A1/PPIA/YWHAZ/GGH/GSTP1/LCN1/SERPINB4/C1orf68/SBSN/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/A2ML1/HP/SERPINA3/ORM1/IL1RN/SPRR1B/SERPINB1/LCN2/CST6/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/FCGBP/LYPD3/PNP/CSTB/ALDOC/KRT15/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5A1/CALML3/S100A11/CAPG/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/AMY1A/AMY1B/AMY1C/CALML5/PIP/ZG16B/CST4/MUC7/CST1/CST2/KRT1/KRT2/KRT10/FLG2/KPRP/SERPINA12/DCD/DEFA3/KRT85
-GO:0048046	apoplast	0	0/153	
-GO:0098595	perivitelline space	0	0/153	
-GO:0099544	perisynaptic space	0	0/153	
-GO:0044464	cell part	137	137/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/KRT80/TGM3/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/SERPINB7/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/EIF4A1/PPIA/YWHAZ/GGH/ALOX12B/GSTP1/SERPINB4/DSC3/C1orf68/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/HP/SERPINA3/ORM1/IL1RN/SPRR1B/SERPINB1/LCN2/CST6/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/LYPD3/PNP/CSTB/ALDOC/KRT15/FLG/PERP/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/TYMP/PPIB/RPS3/ATP5A1/S100A11/CAPG/HAL/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/CALML5/PIP/MUC7/KRT1/KRT2/KRT10/FLG2/KPRP/SERPINA12/SPRR2E/DEFA3/KRT85
-GO:0039642	virion nucleoid	0	0/153	
-GO:0042645	mitochondrial nucleoid	0	0/153	
-GO:0042646	plastid nucleoid	0	0/153	
-GO:0043590	bacterial nucleoid	0	0/153	
-GO:0044777	single-stranded DNA-binding protein complex	0	0/153	
-GO:0044423	virion part	0	0/153	
-GO:0005911	cell-cell junction	13	13/153	DSP/DSG1/ANXA2/JUP/ANXA1/MYH9/POF1B/ACTN4/EPPK1/DSC3/VCL/PERP/S100A11
-GO:0030055	cell-substrate junction	25	25/153	JUP/ACTG1/PLEC/ANXA1/HSPA5/CAT/S100A7/HSPA1A/HSPA1B/MYH9/ACTN4/FLNB/HSPB1/HSPA8/EPPK1/PPIA/YWHAZ/CAPN1/VCL/YWHAE/GSN/PPIB/RPS3/GDI2/ACTR2
-GO:0061466	plasma membrane part of cell junction	0	0/153	
-GO:0070161	anchoring junction	31	31/153	DSP/DSG1/ANXA2/JUP/ACTG1/PLEC/ANXA1/HSPA5/CAT/S100A7/HSPA1A/HSPA1B/MYH9/POF1B/ACTN4/FLNB/HSPB1/HSPA8/PPIA/YWHAZ/DSC3/CAPN1/VCL/YWHAE/GSN/PERP/PPIB/RPS3/S100A11/GDI2/ACTR2
-GO:0043233	organelle lumen	70	70/153	ALB/ANXA2/JUP/LTF/MUC5B/SERPINB3/FABP5/HRNR/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/PKM/ARG1/HSPA1A/HSPA1B/EEF2/TUBB4B/LYZ/SERPINA1/HSP90AA1/ACTN4/CTSD/UBA52/SOD1/HSPA8/EPPK1/PPIA/YWHAZ/GGH/GSTP1/CTSV/ALDOA/CAPN1/VCL/HBB/HP/SERPINA3/ORM1/SERPINB1/LCN2/S100A14/GSN/IDE/AGA/PSMA3/MDH2/PNP/CSTB/ALDOC/SERPINB13/CTSB/RPSA/LAMP2/PPIB/RPS3/ATP5A1/S100A11/CAPG/PSMB3/GDI2/ACTR2/NPC2/CALML5/MUC7/KRT1/FLG2/DEFA3
-GO:0001114	protein-DNA-RNA complex	0	0/153	
-GO:0005952	cAMP-dependent protein kinase complex	0	0/153	
-GO:0016533	cyclin-dependent protein kinase 5 holoenzyme complex	0	0/153	
-GO:0017053	transcriptional repressor complex	0	0/153	
-GO:0032992	protein-carbohydrate complex	0	0/153	
-GO:0032993	protein-DNA complex	1	1/153	JUP
-GO:0032994	protein-lipid complex	0	0/153	
-GO:0034518	RNA cap binding complex	0	0/153	
-GO:0035003	subapical complex	0	0/153	
-GO:0036125	fatty acid beta-oxidation multienzyme complex	0	0/153	
-GO:0043234	protein complex	33	33/153	ALB/ANXA2/JUP/LTF/ACTG1/ANXA1/HSPA5/GAPDH/HSPA1A/HSPA1B/MYH9/HSP90AA1/ACTN4/SOD1/HSPB1/HSPA8/EIF4A1/GSTP1/VCL/YWHAE/HBB/HP/GSN/IDE/PSMA3/PPIB/RPS3/ATP5A1/CAPG/CAPZB/PSMB3/ARPC4/ACTR2
-GO:0043235	receptor complex	3	3/153	PIGR/TF/MYH9
-GO:0044815	DNA packaging complex	0	0/153	
-GO:0046536	dosage compensation complex	0	0/153	
-GO:0061742	chaperone-mediated autophagy translocation complex	0	0/153	
-GO:0061838	CENP-T-W-S-X complex	0	0/153	
-GO:0061927	TOC-TIC supercomplex I	0	0/153	
-GO:0070864	sperm individualization complex	0	0/153	
-GO:0098636	protein complex involved in cell adhesion	1	1/153	MYH9
-GO:0098774	curli	0	0/153	
-GO:0099023	tethering complex	0	0/153	
-GO:0140007	KICSTOR complex	0	0/153	
-GO:1902494	catalytic complex	9	9/153	ENO1/PKM/HSPA1A/HSPA1B/HSPB1/HSPA8/IDE/PSMA3/PSMB3
-GO:1902695	metallochaperone complex	0	0/153	
-GO:1902773	GTPase activator complex	0	0/153	
-GO:1903269	ornithine carbamoyltransferase inhibitor complex	0	0/153	
-GO:1903502	translation repressor complex	0	0/153	
-GO:1903503	ATPase inhibitor complex	0	0/153	
-GO:1903865	sigma factor antagonist complex	0	0/153	
-GO:1904090	peptidase inhibitor complex	0	0/153	
-GO:1990104	DNA bending complex	0	0/153	
-GO:1990229	iron-sulfur cluster assembly complex	0	0/153	
-GO:1990249	nucleotide-excision repair, DNA damage recognition complex	0	0/153	
-GO:1990351	transporter complex	0	0/153	
-GO:1990391	DNA repair complex	0	0/153	
-GO:1990415	Pex17p-Pex14p docking complex	0	0/153	
-GO:1990684	protein-lipid-RNA complex	0	0/153	
-GO:1990862	nuclear membrane complex Bqt3-Bqt4	0	0/153	
-GO:1990904	ribonucleoprotein complex	10	10/153	GAPDH/HSPA1A/HSPA1B/EEF2/ACTN4/UBA52/HSPA8/APOD/RPSA/RPS3
-GO:1990923	PET complex	0	0/153	
-GO:0005929	cilium	2	2/153	ANXA1/PKM
-GO:0043227	membrane-bounded organelle	136	136/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/TGM3/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/EIF4A1/PPIA/YWHAZ/GGH/GSTP1/LCN1/SERPINB4/C1orf68/SBSN/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/A2ML1/HP/SERPINA3/ORM1/IL1RN/SPRR1B/SERPINB1/LCN2/CST6/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/FCGBP/PNP/CSTB/ALDOC/KRT15/FLG/PERP/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5A1/CALML3/S100A11/CAPG/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/AMY1A/AMY1B/AMY1C/CALML5/PIP/ZG16B/CST4/MUC7/KRT1/KRT2/KRT10/FLG2/KPRP/DCD/DEFA3
-GO:0043228	non-membrane-bounded organelle	51	51/153	DSP/KRT6A/KRT16/ANXA2/JUP/ACTG1/KRT78/KRT17/CASP14/ENO1/PLEC/KRT80/KRT13/KRT6B/LMNA/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/TUBA1B/ACTN4/UBA52/FLNB/HSPB1/HSPA8/EPPK1/ALDOA/VCL/YWHAE/KRT23/GSN/PNP/CSTB/ALDOC/KRT15/FLG/APOD/CTSB/RPSA/RPS3/CAPG/CAPZB/ARPC4/ACTR2/KRT1/KRT2/KRT10/KRT85
-GO:0043229	intracellular organelle	116	116/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/KRT80/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/PPIA/YWHAZ/GGH/GSTP1/CTSV/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/HP/SERPINA3/ORM1/SERPINB1/LCN2/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/MDH2/PNP/CSTB/ALDOC/KRT15/FLG/PERP/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5A1/S100A11/CAPG/CAPZB/PSMB3/GDI2/ARPC4/ACTR2/NPC2/CALML5/PIP/MUC7/KRT1/KRT2/KRT10/FLG2/DEFA3/KRT85
-GO:0043230	extracellular organelle	130	130/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/TGM3/KRT13/HRNR/KRT6B/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/FLNB/SOD1/HSPB1/HSPA8/EIF4A1/PPIA/YWHAZ/GGH/GSTP1/LCN1/SERPINB4/C1orf68/SBSN/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/A2ML1/HP/SERPINA3/ORM1/IL1RN/SPRR1B/SERPINB1/LCN2/CST6/S100A14/GSN/AGA/PSMA3/EEF1G/SERPINB5/MDH2/FCGBP/PNP/CSTB/ALDOC/KRT15/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5A1/CALML3/S100A11/CAPG/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/AMY1A/AMY1B/AMY1C/CALML5/PIP/ZG16B/CST4/MUC7/KRT1/KRT2/KRT10/FLG2/KPRP/DCD/DEFA3
-GO:0044422	organelle part	103	103/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/PLEC/KRT80/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/CTSD/UBA52/DMBT1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/PPIA/YWHAZ/GGH/GSTP1/CTSV/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/HP/SERPINA3/ORM1/SERPINB1/LCN2/S100A14/GSN/IDE/AGA/PSMA3/MDH2/PNP/CSTB/ALDOC/KRT15/FLG/SERPINB13/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5A1/S100A11/CAPG/CAPZB/PSMB3/GDI2/ARPC4/ACTR2/NPC2/CALML5/MUC7/KRT1/KRT2/KRT10/FLG2/DEFA3/KRT85
-GO:0097597	ventral disc	0	0/153	
-GO:0099572	postsynaptic specialization	1	1/153	ACTR2
-GO:0018995	host	2	2/153	UBA52/MUC7
-GO:0044217	other organism part	3	3/153	LTF/UBA52/MUC7
-GO:0033643	host cell part	1	1/153	MUC7
-GO:0043655	extracellular space of host	0	0/153	
-GO:0044216	other organism cell	3	3/153	LTF/UBA52/MUC7
-GO:0044279	other organism membrane	2	2/153	LTF/MUC7
-GO:0085036	extrahaustorial matrix	0	0/153	
-GO:0085040	extra-invasive hyphal space	0	0/153	
-GO:0005577	fibrinogen complex	0	0/153	
-GO:0005601	classical-complement-pathway C3/C5 convertase complex	0	0/153	
-GO:0005602	complement component C1 complex	0	0/153	
-GO:0005615	extracellular space	140	140/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/TGM3/KRT13/HRNR/KRT6B/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/SERPINB7/LYZ/TUBA1B/SERPINA1/HSP90AA1/IL36G/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/CPA4/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EIF4A1/PPIA/YWHAZ/GGH/GSTP1/LCN1/SERPINB4/C1orf68/SBSN/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/A2ML1/HP/SERPINA3/ORM1/IL1RN/SPRR1B/SERPINB1/LCN2/CST6/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/FCGBP/LYPD3/PNP/CSTB/ALDOC/KRT15/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5A1/CALML3/S100A11/CAPG/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/AMY1A/AMY1B/AMY1C/CALML5/PIP/ZG16B/CST4/MUC7/CST1/CST2/KRT1/KRT2/KRT10/FLG2/KPRP/SERPINA12/DCD/DEFA3/KRT85
-GO:0005616	larval serum protein complex	0	0/153	
-GO:0010367	extracellular isoamylase complex	0	0/153	
-GO:0016942	insulin-like growth factor binding protein complex	0	0/153	
-GO:0020004	symbiont-containing vacuolar space	0	0/153	
-GO:0020005	symbiont-containing vacuole membrane	0	0/153	
-GO:0020006	symbiont-containing vacuolar membrane network	0	0/153	
-GO:0031012	extracellular matrix	32	32/153	DSP/DSG1/ANXA2/JUP/ACTG1/CASP14/AZGP1/PLEC/LMNA/HSPA5/S100A7/PKM/PRDX1/CSTA/GAPDH/EEF2/MYH9/TUBB4B/SERPINA1/CTSD/FLNB/SOD1/HSPB1/HSPA8/EIF4A1/SBSN/ORM1/SERPINB1/RPS3/ATP5A1/KRT1/DCD
-GO:0031395	bursicon neuropeptide hormone complex	0	0/153	
-GO:0032311	angiogenin-PRI complex	0	0/153	
-GO:0034358	plasma lipoprotein particle	0	0/153	
-GO:0035182	female germline ring canal outer rim	0	0/153	
-GO:0035183	female germline ring canal inner rim	0	0/153	
-GO:0036117	hyaluranon cable	0	0/153	
-GO:0042571	immunoglobulin complex, circulating	0	0/153	
-GO:0043245	extraorganismal space	0	0/153	
-GO:0043511	inhibin complex	0	0/153	
-GO:0043514	interleukin-12 complex	0	0/153	
-GO:0044420	extracellular matrix component	1	1/153	ANXA2
-GO:0045171	intercellular bridge	0	0/153	
-GO:0048180	activin complex	0	0/153	
-GO:0061696	pituitary gonadotropin complex	0	0/153	
-GO:0070289	extracellular ferritin complex	0	0/153	
-GO:0070701	mucus layer	0	0/153	
-GO:0070743	interleukin-23 complex	0	0/153	
-GO:0070744	interleukin-27 complex	0	0/153	
-GO:0070745	interleukin-35 complex	0	0/153	
-GO:0072562	blood microparticle	13	13/153	ALB/ACTG1/TF/HSPA1A/HSPA1B/HSPA8/YWHAZ/HBB/HP/SERPINA3/ORM1/GSN/KRT1
-GO:0097058	CRLF-CLCF1 complex	0	0/153	
-GO:0097059	CNTFR-CLCF1 complex	0	0/153	
-GO:0097619	PTEX complex	0	0/153	
-GO:1990296	scaffoldin complex	0	0/153	
-GO:1990563	extracellular exosome complex	0	0/153	
-GO:1990903	extracellular ribonucleoprotein complex	0	0/153	
-GO:0000313	organellar ribosome	0	0/153	
-GO:0030094	plasma membrane-derived photosystem I	0	0/153	
-GO:0030096	plasma membrane-derived thylakoid photosystem II	0	0/153	
-GO:0031300	intrinsic component of organelle membrane	1	1/153	LAMP2
-GO:0031676	plasma membrane-derived thylakoid membrane	0	0/153	
-GO:0032420	stereocilium	0	0/153	
-GO:0032426	stereocilium tip	0	0/153	
-GO:0044232	organelle membrane contact site	0	0/153	
-GO:0044441	ciliary part	0	0/153	
-GO:0044446	intracellular organelle part	101	101/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/KRT80/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/CTSD/UBA52/DMBT1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/PPIA/YWHAZ/GGH/GSTP1/CTSV/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/HP/SERPINA3/ORM1/SERPINB1/LCN2/S100A14/GSN/IDE/AGA/PSMA3/MDH2/PNP/CSTB/ALDOC/KRT15/FLG/SERPINB13/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5A1/S100A11/CAPG/CAPZB/PSMB3/GDI2/ARPC4/ACTR2/NPC2/CALML5/MUC7/KRT1/KRT2/KRT10/FLG2/DEFA3/KRT85
-GO:0044449	contractile fiber part	9	9/153	JUP/ENO1/PLEC/ACTN4/FLNB/HSPB1/ALDOA/VCL/CAPZB
-GO:0044461	bacterial-type flagellum part	0	0/153	
-GO:0044695	Dsc E3 ubiquitin ligase complex	0	0/153	
-GO:0048493	plasma membrane-derived thylakoid ribulose bisphosphate carboxylase complex	0	0/153	
-GO:0060091	kinocilium	0	0/153	
-GO:0060171	stereocilium membrane	0	0/153	
-GO:0097591	ventral disc lateral crest	0	0/153	
-GO:0097592	ventral disc overlap zone	0	0/153	
-GO:0097593	ventral disc microtubule array	0	0/153	
-GO:0097594	ventral disc dorsal microribbon	0	0/153	
-GO:0097595	ventral disc crossbridge	0	0/153	
-GO:0097596	ventral disc supernumerary microtubule array	0	0/153	
-GO:0098576	lumenal side of membrane	1	1/153	HSPA8
-GO:0098892	extrinsic component of postsynaptic specialization membrane	0	0/153	
-GO:0098948	intrinsic component of postsynaptic specialization membrane	0	0/153	
-GO:0099091	postsynaptic specialization, intracellular component	0	0/153	
-GO:0099634	postsynaptic specialization membrane	0	0/153	
-GO:0120043	stereocilium shaft	0	0/153	
-GO:0120044	stereocilium base	0	0/153	
-GO:1990070	TRAPPI protein complex	0	0/153	
-GO:1990121	H-NS complex	0	0/153	
-GO:1990177	IHF-DNA complex	0	0/153	
-GO:1990178	HU-DNA complex	0	0/153	
-GO:1990500	eif4e-cup complex	0	0/153	
-GO:0019013	viral nucleocapsid	0	0/153	
-GO:0019015	viral genome	0	0/153	
-GO:0019028	viral capsid	0	0/153	
-GO:0019033	viral tegument	0	0/153	
-GO:0036338	viral membrane	0	0/153	
-GO:0039624	viral outer capsid	0	0/153	
-GO:0039625	viral inner capsid	0	0/153	
-GO:0039626	viral intermediate capsid	0	0/153	
-GO:0046727	capsomere	0	0/153	
-GO:0046729	viral procapsid	0	0/153	
-GO:0046798	viral portal complex	0	0/153	
-GO:0046806	viral scaffold	0	0/153	
-GO:0098015	virus tail	0	0/153	
-GO:0098019	virus tail, major subunit	0	0/153	
-GO:0098020	virus tail, minor subunit	0	0/153	
-GO:0098021	viral capsid, decoration	0	0/153	
-GO:0098023	virus tail, tip	0	0/153	
-GO:0098024	virus tail, fiber	0	0/153	
-GO:0098025	virus tail, baseplate	0	0/153	
-GO:0098026	virus tail, tube	0	0/153	
-GO:0098027	virus tail, sheath	0	0/153	
-GO:0098028	virus tail, shaft	0	0/153	
-GO:0098029	icosahedral viral capsid, spike	0	0/153	
-GO:0098030	icosahedral viral capsid, neck	0	0/153	
-GO:0098031	icosahedral viral capsid, collar	0	0/153	
-GO:0098061	viral capsid, internal space	0	0/153	
-GO:0000136	alpha-1,6-mannosyltransferase complex	0	0/153	
-GO:0019898	extrinsic component of membrane	6	6/153	ANXA2/JUP/TGM3/ANXA1/TF/DMBT1
-GO:0000506	glycosylphosphatidylinositol-N-acetylglucosaminyltransferase (GPI-GnT) complex	0	0/153	
-GO:0000835	ER ubiquitin ligase complex	0	0/153	
-GO:0005640	nuclear outer membrane	0	0/153	
-GO:0005942	phosphatidylinositol 3-kinase complex	0	0/153	
-GO:0008250	oligosaccharyltransferase complex	0	0/153	
-GO:0009654	photosystem II oxygen evolving complex	0	0/153	
-GO:0009923	fatty acid elongase complex	0	0/153	
-GO:0030964	NADH dehydrogenase complex	0	0/153	
-GO:0031211	endoplasmic reticulum palmitoyltransferase complex	0	0/153	
-GO:0031224	intrinsic component of membrane	10	10/153	DSG1/PIGR/HSPA5/MYH9/FLNB/DSC3/LYPD3/PERP/LAMP1/LAMP2
-GO:0031502	dolichyl-phosphate-mannose-protein mannosyltransferase complex	0	0/153	
-GO:0042765	GPI-anchor transamidase complex	0	0/153	
-GO:0044453	nuclear membrane part	0	0/153	
-GO:0044455	mitochondrial membrane part	1	1/153	ATP5A1
-GO:0044459	plasma membrane part	17	17/153	DSP/DSG1/ANXA2/JUP/PIGR/TGM3/ANXA1/TF/MYH9/HSP90AA1/EPPK1/CTSV/LYPD3/PERP/LAMP1/RPS3/PIP
-GO:0045281	succinate dehydrogenase complex	0	0/153	
-GO:0046696	lipopolysaccharide receptor complex	0	0/153	
-GO:0070057	prospore membrane spindle pole body attachment site	0	0/153	
-GO:0070469	respiratory chain	0	0/153	
-GO:0071595	Nem1-Spo7 phosphatase complex	0	0/153	
-GO:0097478	leaflet of membrane bilayer	0	0/153	
-GO:0098552	side of membrane	8	8/153	DSG1/JUP/TGM3/ANXA1/TF/HSPA8/CTSV/LAMP1
-GO:0098796	membrane protein complex	3	3/153	JUP/MYH9/ATP5A1
-GO:1902495	transmembrane transporter complex	0	0/153	
-GO:1990332	Ire1 complex	0	0/153	
-GO:0008021	synaptic vesicle	1	1/153	LAMP1
-GO:0030129	clathrin coat of synaptic vesicle	0	0/153	
-GO:0030672	synaptic vesicle membrane	0	0/153	
-GO:0034592	synaptic vesicle lumen	0	0/153	
-GO:0044326	dendritic spine neck	0	0/153	
-GO:0044327	dendritic spine head	0	0/153	
-GO:0048786	presynaptic active zone	0	0/153	
-GO:0061846	dendritic spine cytoplasm	0	0/153	
-GO:0071212	subsynaptic reticulum	0	0/153	
-GO:0097060	synaptic membrane	0	0/153	
-GO:0097444	spine apparatus	0	0/153	
-GO:0097445	presynaptic active zone dense projection	0	0/153	
-GO:0098563	intrinsic component of synaptic vesicle membrane	0	0/153	
-GO:0098682	arciform density	0	0/153	
-GO:0098793	presynapse	2	2/153	HSPA8/LAMP1
-GO:0098794	postsynapse	1	1/153	ACTR2
-GO:0098830	presynaptic endosome	0	0/153	
-GO:0098831	presynaptic active zone cytoplasmic component	0	0/153	
-GO:0098833	presynaptic endocytic zone	0	0/153	
-GO:0098834	presynaptic endocytic zone cytoplasmic component	0	0/153	
-GO:0098843	postsynaptic endocytic zone	0	0/153	
-GO:0098845	postsynaptic endosome	0	0/153	
-GO:0098850	extrinsic component of synaptic vesicle membrane	0	0/153	
-GO:0098895	postsynaptic endosome membrane	0	0/153	
-GO:0098897	spine apparatus membrane	0	0/153	
-GO:0098899	spine apparatus lumen	0	0/153	
-GO:0098929	extrinsic component of spine apparatus membrane	0	0/153	
-GO:0098949	intrinsic component of postsynaptic endosome membrane	0	0/153	
-GO:0098952	intrinsic component of spine apparatus membrane	0	0/153	
-GO:0098954	presynaptic endosome membrane	0	0/153	
-GO:0098955	intrinsic component of presynaptic endosome membrane	0	0/153	
-GO:0098965	extracellular matrix of synaptic cleft	0	0/153	
-GO:0098999	extrinsic component of postsynaptic endosome membrane	0	0/153	
-GO:0099007	extrinsic component of presynaptic endosome membrane	0	0/153	
-GO:0099240	intrinsic component of synaptic membrane	0	0/153	
-GO:0099243	extrinsic component of synaptic membrane	0	0/153	
-GO:0099523	presynaptic cytosol	0	0/153	
-GO:0099524	postsynaptic cytosol	0	0/153	
-GO:0099569	presynaptic cytoskeleton	0	0/153	
-GO:0099571	postsynaptic cytoskeleton	0	0/153	
-GO:0099631	postsynaptic endocytic zone cytoplasmic component	0	0/153	
-GO:0150004	dendritic spine origin	0	0/153	
-GO:1990013	presynaptic grid	0	0/153	
-GO:1990780	cytoplasmic side of dendritic spine plasma membrane	0	0/153	
-GO:0005622	intracellular	133	133/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/KRT80/TGM3/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/SERPINB7/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/EIF4A1/PPIA/YWHAZ/GGH/ALOX12B/GSTP1/SERPINB4/C1orf68/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/HP/SERPINA3/ORM1/IL1RN/SPRR1B/SERPINB1/LCN2/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/PNP/CSTB/ALDOC/KRT15/FLG/PERP/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/TYMP/PPIB/RPS3/ATP5A1/S100A11/CAPG/HAL/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/CALML5/PIP/MUC7/KRT1/KRT2/KRT10/FLG2/KPRP/SPRR2E/DEFA3/KRT85
-GO:0005642	annulate lamellae	0	0/153	
-GO:0005905	clathrin-coated pit	1	1/153	TF
-GO:0005933	cellular bud	0	0/153	
-GO:0005966	cyclic-nucleotide phosphodiesterase complex	0	0/153	
-GO:0008287	protein serine/threonine phosphatase complex	0	0/153	
-GO:0009344	nitrite reductase complex [NAD(P)H]	0	0/153	
-GO:0009347	aspartate carbamoyltransferase complex	0	0/153	
-GO:0009349	riboflavin synthase complex	0	0/153	
-GO:0009358	polyphosphate kinase complex	0	0/153	
-GO:0009930	longitudinal side of cell surface	0	0/153	
-GO:0009986	cell surface	10	10/153	ANXA2/LTF/ENO1/ANXA1/HSPA5/TF/MYH9/CTSV/IDE/LAMP1
-GO:0012505	endomembrane system	69	69/153	DSP/ALB/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/FABP5/PIGR/HRNR/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SERPINB12/PKM/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/TUBB4B/LYZ/SERPINA1/HSP90AA1/ACTN4/CTSD/UBA52/DMBT1/SOD1/HSPA8/PPIA/GGH/GSTP1/CTSV/ALDOA/CAPN1/VCL/HBB/HP/SERPINA3/ORM1/SERPINB1/LCN2/GSN/AGA/EEF1G/PNP/CSTB/ALDOC/PERP/APOD/CTSB/LAMP1/LAMP2/PPIB/RPS3/S100A11/GDI2/ACTR2/NPC2/CALML5/MUC7/KRT1/FLG2/DEFA3
-GO:0015627	type II protein secretion system complex	0	0/153	
-GO:0019008	molybdopterin synthase complex	0	0/153	
-GO:0020007	apical complex	0	0/153	
-GO:0020008	rhoptry	0	0/153	
-GO:0020031	polar ring of apical complex	0	0/153	
-GO:0020032	basal ring of apical complex	0	0/153	
-GO:0020039	pellicle	0	0/153	
-GO:0030256	type I protein secretion system complex	0	0/153	
-GO:0030257	type III protein secretion system complex	0	0/153	
-GO:0030312	external encapsulating structure	0	0/153	
-GO:0030427	site of polarized growth	1	1/153	YWHAE
-GO:0030428	cell septum	0	0/153	
-GO:0030496	midbody	3	3/153	ANXA2/HSPA5/CAPG
-GO:0030904	retromer complex	0	0/153	
-GO:0030905	retromer, tubulation complex	0	0/153	
-GO:0030906	retromer, cargo-selective complex	0	0/153	
-GO:0031252	cell leading edge	7	7/153	ANXA2/MYH9/HSP90AA1/GSN/RPS3/S100A11/ACTR2
-GO:0031254	cell trailing edge	1	1/153	MYH9
-GO:0031317	tripartite ATP-independent periplasmic transporter complex	0	0/153	
-GO:0031521	spitzenkorper	0	0/153	
-GO:0031522	cell envelope Sec protein transport complex	0	0/153	
-GO:0031912	oral apparatus	0	0/153	
-GO:0031975	envelope	10	10/153	LMNA/ANXA1/CAT/ARG1/GAPDH/UBA52/SOD1/MDH2/RPS3/ATP5A1
-GO:0032126	eisosome	0	0/153	
-GO:0032153	cell division site	1	1/153	MYH9
-GO:0032155	cell division site part	1	1/153	MYH9
-GO:0032179	germ tube	0	0/153	
-GO:0032766	NHE3/E3KARP/ACTN4 complex	0	0/153	
-GO:0033016	rhoptry membrane	0	0/153	
-GO:0033104	type VI protein secretion system complex	0	0/153	
-GO:0033774	basal labyrinth	0	0/153	
-GO:0034591	rhoptry lumen	0	0/153	
-GO:0035748	myelin sheath abaxonal region	0	0/153	
-GO:0035749	myelin sheath adaxonal region	1	1/153	ANXA2
-GO:0036375	Kibra-Ex-Mer complex	0	0/153	
-GO:0042597	periplasmic space	0	0/153	
-GO:0042763	intracellular immature spore	0	0/153	
-GO:0042995	cell projection	20	20/153	ANXA2/ANXA1/PKM/ARG1/MYH9/HSP90AA1/ACTN4/FLNB/SOD1/HSPB1/EPPK1/CTSV/YWHAE/GSN/APOD/LAMP1/RPS3/S100A11/ARPC4/ACTR2
-GO:0043209	myelin sheath	14	14/153	ALB/ANXA2/ACTG1/HSPA5/PKM/PRDX1/TUBB4B/TUBA1B/HSP90AA1/SOD1/HSPA8/GSN/MDH2/ATP5A1
-GO:0043218	compact myelin	1	1/153	ANXA2
-GO:0043219	lateral loop	0	0/153	
-GO:0043220	Schmidt-Lanterman incisure	1	1/153	ANXA2
-GO:0043684	type IV secretion system complex	0	0/153	
-GO:0044099	polar tube	0	0/153	
-GO:0044297	cell body	6	6/153	ARG1/FLNB/SOD1/CTSV/APOD/LAMP1
-GO:0044424	intracellular part	133	133/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/KRT80/TGM3/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/SERPINB7/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/EIF4A1/PPIA/YWHAZ/GGH/ALOX12B/GSTP1/SERPINB4/C1orf68/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/HP/SERPINA3/ORM1/IL1RN/SPRR1B/SERPINB1/LCN2/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/PNP/CSTB/ALDOC/KRT15/FLG/PERP/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/TYMP/PPIB/RPS3/ATP5A1/S100A11/CAPG/HAL/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/CALML5/PIP/MUC7/KRT1/KRT2/KRT10/FLG2/KPRP/SPRR2E/DEFA3/KRT85
-GO:0044457	cell septum part	0	0/153	
-GO:0044462	external encapsulating structure part	0	0/153	
-GO:0044463	cell projection part	5	5/153	HSP90AA1/SOD1/HSPB1/YWHAE/RPS3
-GO:0044697	HICS complex	0	0/153	
-GO:0045177	apical part of cell	5	5/153	DSG1/ANXA1/TF/CTSV/PIP
-GO:0045178	basal part of cell	1	1/153	TF
-GO:0051286	cell tip	0	0/153	
-GO:0060187	cell pole	0	0/153	
-GO:0061835	ventral surface of cell	0	0/153	
-GO:0070056	prospore membrane leading edge	0	0/153	
-GO:0070258	inner membrane complex	0	0/153	
-GO:0070331	CD20-Lck-Fyn complex	0	0/153	
-GO:0070332	CD20-Lck-Lyn-Fyn complex	0	0/153	
-GO:0070938	contractile ring	1	1/153	MYH9
-GO:0071944	cell periphery	59	59/153	DSP/DSG1/ANXA2/JUP/MUC5B/ACTG1/KRT17/FABP5/PIGR/ENO1/AZGP1/PLEC/TGM3/HRNR/ANXA1/HSPA5/TF/CAT/SERPINB12/CSTA/GAPDH/EEF2/MYH9/HSP90AA1/ACTN4/UBA52/FLNB/SOD1/HSPB1/HSPA8/EPPK1/GSTP1/DSC3/C1orf68/CTSV/CAPN1/VCL/YWHAE/IL1RN/SPRR1B/CST6/GSN/IDE/LYPD3/FLG/PERP/RPSA/LAMP1/LAMP2/RPS3/ATP5A1/ACTR2/PIP/MUC7/KRT1/KRT2/KRT10/SERPINA12/SPRR2E
-GO:0072324	ascus epiplasm	0	0/153	
-GO:0090543	Flemming body	1	1/153	CAPG
-GO:0090635	extracellular core region of desmosome	0	0/153	
-GO:0090636	outer dense plaque of desmosome	0	0/153	
-GO:0090637	inner dense plaque of desmosome	0	0/153	
-GO:0097223	sperm part	1	1/153	ALDOA
-GO:0097268	cytoophidium	0	0/153	
-GO:0097458	neuron part	11	11/153	ARG1/ACTN4/FLNB/SOD1/HSPB1/HSPA8/CTSV/YWHAE/APOD/LAMP1/ACTR2
-GO:0097569	lateral shield	0	0/153	
-GO:0097574	lateral part of cell	0	0/153	
-GO:0097610	cell surface furrow	1	1/153	MYH9
-GO:0097613	dinoflagellate epicone	0	0/153	
-GO:0097614	dinoflagellate hypocone	0	0/153	
-GO:0097653	unencapsulated part of cell	0	0/153	
-GO:0097683	dinoflagellate apex	0	0/153	
-GO:0097684	dinoflagellate antapex	0	0/153	
-GO:0098046	type V protein secretion system complex	0	0/153	
-GO:0098862	cluster of actin-based cell projections	4	4/153	PLEC/MYH9/ACTN4/FLNB
-GO:0140022	cnida	0	0/153	
-GO:1990015	ensheathing process	0	0/153	
-GO:1990016	neck portion of tanycyte	0	0/153	
-GO:1990018	tail portion of tanycyte	0	0/153	
-GO:1990065	Dxr protein complex	0	0/153	
-GO:1990204	oxidoreductase complex	0	0/153	
-GO:1990225	rhoptry neck	0	0/153	
-GO:1990455	PTEN phosphatase complex	0	0/153	
-GO:1990722	DAPK1-calmodulin complex	0	0/153	
-GO:1990794	basolateral part of cell	0	0/153	
-GO:0031594	neuromuscular junction	1	1/153	MYH9
-GO:0044456	synapse part	3	3/153	HSPA8/LAMP1/ACTR2
-GO:0060076	excitatory synapse	0	0/153	
-GO:0060077	inhibitory synapse	0	0/153	
-GO:0097470	ribbon synapse	0	0/153	
-GO:0098685	Schaffer collateral - CA1 synapse	0	0/153	
-GO:0098686	hippocampal mossy fiber to CA3 synapse	0	0/153	
-GO:0098690	glycinergic synapse	0	0/153	
-GO:0098691	dopaminergic synapse	0	0/153	
-GO:0098692	noradrenergic synapse	0	0/153	
-GO:0098978	glutamatergic synapse	0	0/153	
-GO:0098979	polyadic synapse	0	0/153	
-GO:0098981	cholinergic synapse	0	0/153	
-GO:0098982	GABA-ergic synapse	0	0/153	
-GO:0098984	neuron to neuron synapse	1	1/153	ACTR2
-GO:0099154	serotonergic synapse	0	0/153	
-GO:0009506	plasmodesma	0	0/153	
-GO:0005818	aster	0	0/153	
-GO:0097740	paraflagellar rod	0	0/153	
-GO:0097741	mastigoneme	0	0/153	
-GO:0098644	complex of collagen trimers	0	0/153	
-GO:0099081	supramolecular polymer	31	31/153	DSP/KRT6A/KRT16/JUP/ACTG1/KRT78/KRT17/CASP14/ENO1/PLEC/KRT80/KRT13/KRT6B/LMNA/TUBB4B/POF1B/TUBA1B/ACTN4/FLNB/HSPB1/EPPK1/ALDOA/VCL/KRT23/KRT15/FLG/CAPZB/KRT1/KRT2/KRT10/KRT85
+GO:0000131	incipient cellular bud site	  0	0/153	NA
+GO:0000151	ubiquitin ligase complex	  0	0/153	NA
+GO:0000159	protein phosphatase type 2A complex	  0	0/153	NA
+GO:0000178	exosome (RNase complex)	  0	0/153	NA
+GO:0000307	cyclin-dependent protein kinase holoenzyme complex	  0	0/153	NA
+GO:0000408	EKC/KEOPS complex	  0	0/153	NA
+GO:0000502	proteasome complex	  4	4/153	HSPB1/IDE/PSMA3/PSMB3
+GO:0005737	cytoplasm	130	130/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/PLEC/KRT80/TGM3/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/SERPINB7/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/EIF4A1/PPIA/YWHAZ/GGH/ALOX12B/GSTP1/SERPINB4/DSC3/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/HP/SERPINA3/ORM1/IL1RN/SPRR1B/SERPINB1/LCN2/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/PNP/CSTB/ALDOC/KRT15/FLG/PERP/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/TYMP/PPIB/RPS3/ATP5F1A/S100A11/CAPG/HAL/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/CALML5/MUC7/KRT1/KRT2/KRT10/FLG2/KPRP/SPRR2E/DEFA3/KRT85
+GO:0005845	mRNA cap binding complex	  0	0/153	NA
+GO:0005846	nuclear cap binding complex	  0	0/153	NA
+GO:0005952	cAMP-dependent protein kinase complex	  0	0/153	NA
+GO:0005953	CAAX-protein geranylgeranyltransferase complex	  0	0/153	NA
+GO:0005954	calcium- and calmodulin-dependent protein kinase c	  0	0/153	NA
+GO:0005955	calcineurin complex	  0	0/153	NA
+GO:0005956	protein kinase CK2 complex	  0	0/153	NA
+GO:0005963	magnesium-dependent protein serine/threonine phosp	  0	0/153	NA
+GO:0008043	intracellular ferritin complex	  0	0/153	NA
+GO:0009318	exodeoxyribonuclease VII complex	  0	0/153	NA
+GO:0009327	NAD(P)+ transhydrogenase complex (AB-specific)	  0	0/153	NA
+GO:0009330	DNA topoisomerase type II (double strand cut, ATP-	  0	0/153	NA
+GO:0009337	sulfite reductase complex (NADPH)	  0	0/153	NA
+GO:0009338	exodeoxyribonuclease V complex	  0	0/153	NA
+GO:0009350	ethanolamine ammonia-lyase complex	  0	0/153	NA
+GO:0009356	aminodeoxychorismate synthase complex	  0	0/153	NA
+GO:0009366	enterobactin synthetase complex	  0	0/153	NA
+GO:0009368	endopeptidase Clp complex	  0	0/153	NA
+GO:0009375	ferredoxin hydrogenase complex	  0	0/153	NA
+GO:0009579	thylakoid	  0	0/153	NA
+GO:0010170	glucose-1-phosphate adenylyltransferase complex	  0	0/153	NA
+GO:0010598	NAD(P)H dehydrogenase complex (plastoquinone)	  0	0/153	NA
+GO:0016234	inclusion body	  3	3/153	HSPA1A/HSPA1B/EEF2
+GO:0016610	nitrogenase complex	  0	0/153	NA
+GO:0017101	aminoacyl-tRNA synthetase multienzyme complex	  0	0/153	NA
+GO:0017122	protein N-acetylglucosaminyltransferase complex	  0	0/153	NA
+GO:0030008	TRAPP complex	  0	0/153	NA
+GO:0030014	CCR4-NOT complex	  0	0/153	NA
+GO:0030076	light-harvesting complex	  0	0/153	NA
+GO:0030289	protein phosphatase 4 complex	  0	0/153	NA
+GO:0030880	RNA polymerase complex	  0	0/153	NA
+GO:0030956	glutamyl-tRNA(Gln) amidotransferase complex	  0	0/153	NA
+GO:0031026	glutamate synthase complex	  0	0/153	NA
+GO:0031074	nucleocytoplasmic transport complex	  0	0/153	NA
+GO:0031234	extrinsic component of cytoplasmic side of plasma 	  1	1/153	TGM3
+GO:0031248	protein acetyltransferase complex	  0	0/153	NA
+GO:0031371	ubiquitin conjugating enzyme complex	  0	0/153	NA
+GO:0031421	invertasome	  0	0/153	NA
+GO:0031431	Dbf4-dependent protein kinase complex	  0	0/153	NA
+GO:0031501	mannosyltransferase complex	  0	0/153	NA
+GO:0031588	nucleotide-activated protein kinase complex	  0	0/153	NA
+GO:0032045	guanyl-nucleotide exchange factor complex	  0	0/153	NA
+GO:0032144	4-aminobutyrate transaminase complex	  0	0/153	NA
+GO:0032299	ribonuclease H2 complex	  0	0/153	NA
+GO:0032300	mismatch repair complex	  0	0/153	NA
+GO:0032517	SOD1-calcineurin complex	  0	0/153	NA
+GO:0032996	Bcl3-Bcl10 complex	  0	0/153	NA
+GO:0033202	DNA helicase complex	  0	0/153	NA
+GO:0033256	I-kappaB/NF-kappaB complex	  0	0/153	NA
+GO:0033588	Elongator holoenzyme complex	  0	0/153	NA
+GO:0033593	BRCA2-MAGE-D1 complex	  0	0/153	NA
+GO:0033607	SOD1-Bcl-2 complex	  0	0/153	NA
+GO:0034615	GCH1 complex	  0	0/153	NA
+GO:0034657	GID complex	  0	0/153	NA
+GO:0034708	methyltransferase complex	  0	0/153	NA
+GO:0034716	Gemin3-Gemin4-Gemin5 complex	  0	0/153	NA
+GO:0034717	Gemin6-Gemin7-unrip complex	  0	0/153	NA
+GO:0034718	SMN-Gemin2 complex	  0	0/153	NA
+GO:0034751	aryl hydrocarbon receptor complex	  0	0/153	NA
+GO:0034977	ABIN2-NFKB1-MAP3K8 complex	  0	0/153	NA
+GO:0035301	Hedgehog signaling complex	  0	0/153	NA
+GO:0038201	TOR complex	  0	0/153	NA
+GO:0042575	DNA polymerase complex	  0	0/153	NA
+GO:0043229	intracellular organelle	116	116/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/KRT80/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/PPIA/YWHAZ/GGH/GSTP1/CTSV/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/HP/SERPINA3/ORM1/SERPINB1/LCN2/GSN/IDE/AGA/PSMA3/EEF1G/MDH2/PNP/CSTB/ALDOC/KRT15/FLG/PERP/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5F1A/S100A11/CAPG/CAPZB/PSMB3/GDI2/ARPC4/ACTR2/NPC2/CALML5/PIP/MUC7/KRT1/KRT2/KRT10/FLG2/DEFA3/KRT85
+GO:0044100	sporoplasm	  0	0/153	NA
+GO:0044609	DBIRD complex	  0	0/153	NA
+GO:0044796	DNA polymerase processivity factor complex	  0	0/153	NA
+GO:0045259	proton-transporting ATP synthase complex	  1	1/153	ATP5F1A
+GO:0045273	respiratory chain complex II	  0	0/153	NA
+GO:0045275	respiratory chain complex III	  0	0/153	NA
+GO:0045277	respiratory chain complex IV	  0	0/153	NA
+GO:0046821	extrachromosomal DNA	  0	0/153	NA
+GO:0048269	methionine adenosyltransferase complex	  0	0/153	NA
+GO:0052718	tRNA-specific adenosine-34 deaminase complex	  0	0/153	NA
+GO:0060171	stereocilium membrane	  0	0/153	NA
+GO:0070090	metaphase plate	  0	0/153	NA
+GO:0070419	nonhomologous end joining complex	  0	0/153	NA
+GO:0070477	endospore core	  0	0/153	NA
+GO:0070725	Yb body	  0	0/153	NA
+GO:0070850	TACC/TOG complex	  0	0/153	NA
+GO:0071141	SMAD protein complex	  0	0/153	NA
+GO:0071147	TEAD-2 multiprotein complex	  0	0/153	NA
+GO:0071152	G-protein alpha(q)-synembrin complex	  0	0/153	NA
+GO:0071153	G-protein alpha(o)-synembrin complex	  0	0/153	NA
+GO:0071154	G-protein alpha(i)1-synembrin complex	  0	0/153	NA
+GO:0071155	G-protein alpha(13)-synembrin complex	  0	0/153	NA
+GO:0071159	NF-kappaB complex	  1	1/153	RPS3
+GO:0072669	tRNA-splicing ligase complex	  0	0/153	NA
+GO:0120123	ubiquitin activating enzyme complex	  0	0/153	NA
+GO:1905348	endonuclease complex	  0	0/153	NA
+GO:1990302	Bre1-Rad6 ubiquitin ligase complex	  0	0/153	NA
+GO:1990303	UBR1-RAD6 ubiquitin ligase complex	  0	0/153	NA
+GO:1990304	MUB1-RAD6-UBR2 ubiquitin ligase complex	  0	0/153	NA
+GO:1990305	RAD6-UBR2 ubiquitin ligase complex	  0	0/153	NA
+GO:1990306	RSP5-BUL ubiquitin ligase complex	  0	0/153	NA
+GO:1990328	RPB4-RPB7 complex	  0	0/153	NA
+GO:0044423	virion part	  0	0/153	NA
+GO:0000133	polarisome	  0	0/153	NA
+GO:0000346	transcription export complex	  0	0/153	NA
+GO:0000347	THO complex	  0	0/153	NA
+GO:0000417	HIR complex	  0	0/153	NA
+GO:0000444	MIS12/MIND type complex	  0	0/153	NA
+GO:0000797	condensin core heterodimer	  0	0/153	NA
+GO:0000808	origin recognition complex	  0	0/153	NA
+GO:0000817	COMA complex	  0	0/153	NA
+GO:0000930	gamma-tubulin complex	  0	0/153	NA
+GO:0000939	condensed chromosome inner kinetochore	  0	0/153	NA
+GO:0000940	condensed chromosome outer kinetochore	  0	0/153	NA
+GO:0000974	Prp19 complex	  1	1/153	HSPA8
+GO:0001114	protein-DNA-RNA complex	  0	0/153	NA
+GO:0001534	radial spoke	  0	0/153	NA
+GO:0001535	radial spoke head	  0	0/153	NA
+GO:0001536	radial spoke stalk	  0	0/153	NA
+GO:0002096	polkadots	  0	0/153	NA
+GO:0002111	BRCA2-BRAF35 complex	  0	0/153	NA
+GO:0002133	polycystin complex	  0	0/153	NA
+GO:0002142	stereocilia ankle link complex	  0	0/153	NA
+GO:0002144	cytosolic tRNA wobble base thiouridylase complex	  0	0/153	NA
+GO:0002167	VRK3/VHR/ERK complex	  0	0/153	NA
+GO:0002193	MAML1-RBP-Jkappa- ICN1 complex	  0	0/153	NA
+GO:0002199	zona pellucida receptor complex	  0	0/153	NA
+GO:0002929	MECO complex	  0	0/153	NA
+GO:0005577	fibrinogen complex	  0	0/153	NA
+GO:0005581	collagen trimer	  0	0/153	NA
+GO:0005601	classical-complement-pathway C3/C5 convertase comp	  0	0/153	NA
+GO:0005602	complement component C1 complex	  0	0/153	NA
+GO:0005616	larval serum protein complex	  0	0/153	NA
+GO:0005643	nuclear pore	  0	0/153	NA
+GO:0005662	DNA replication factor A complex	  0	0/153	NA
+GO:0005663	DNA replication factor C complex	  0	0/153	NA
+GO:0005667	transcription regulator complex	  0	0/153	NA
+GO:0005677	chromatin silencing complex	  0	0/153	NA
+GO:0005831	steroid hormone aporeceptor complex	  0	0/153	NA
+GO:0005833	hemoglobin complex	  1	1/153	HBB
+GO:0005835	fatty acid synthase complex	  0	0/153	NA
+GO:0005838	proteasome regulatory particle	  0	0/153	NA
+GO:0005839	proteasome core complex	  2	2/153	PSMA3/PSMB3
+GO:0005849	mRNA cleavage factor complex	  0	0/153	NA
+GO:0005850	eukaryotic translation initiation factor 2 complex	  0	0/153	NA
+GO:0005851	eukaryotic translation initiation factor 2B comple	  0	0/153	NA
+GO:0005852	eukaryotic translation initiation factor 3 complex	  0	0/153	NA
+GO:0005853	eukaryotic translation elongation factor 1 complex	  0	0/153	NA
+GO:0005854	nascent polypeptide-associated complex	  0	0/153	NA
+GO:0005861	troponin complex	  0	0/153	NA
+GO:0005862	muscle thin filament tropomyosin	  0	0/153	NA
+GO:0005875	microtubule associated complex	  1	1/153	YWHAE
+GO:0005885	Arp2/3 protein complex	  2	2/153	ARPC4/ACTR2
+GO:0005931	axonemal nexin link	  0	0/153	NA
+GO:0008023	transcription elongation factor complex	  0	0/153	NA
+GO:0008074	guanylate cyclase complex, soluble	  0	0/153	NA
+GO:0008091	spectrin	  0	0/153	NA
+GO:0008180	COP9 signalosome	  5	5/153	HSPA5/HSPA1A/HSPA1B/MYH9/ATP5F1A
+GO:0008278	cohesin complex	  0	0/153	NA
+GO:0008290	F-actin capping protein complex	  2	2/153	CAPG/CAPZB
+GO:0008537	proteasome activator complex	  0	0/153	NA
+GO:0008540	proteasome regulatory particle, base subcomplex	  0	0/153	NA
+GO:0008541	proteasome regulatory particle, lid subcomplex	  0	0/153	NA
+GO:0009344	nitrite reductase complex [NAD(P)H]	  0	0/153	NA
+GO:0009346	citrate lyase complex	  0	0/153	NA
+GO:0010316	pyrophosphate-dependent phosphofructokinase comple	  0	0/153	NA
+GO:0010317	pyrophosphate-dependent phosphofructokinase comple	  0	0/153	NA
+GO:0010318	pyrophosphate-dependent phosphofructokinase comple	  0	0/153	NA
+GO:0015627	type II protein secretion system complex	  0	0/153	NA
+GO:0016272	prefoldin complex	  0	0/153	NA
+GO:0016281	eukaryotic translation initiation factor 4F comple	  1	1/153	EIF4A1
+GO:0016459	myosin complex	  1	1/153	MYH9
+GO:0016592	mediator complex	  0	0/153	NA
+GO:0017086	3-methyl-2-oxobutanoate dehydrogenase (lipoamide) 	  0	0/153	NA
+GO:0017102	methionyl glutamyl tRNA synthetase complex	  0	0/153	NA
+GO:0017177	glucosidase II complex	  0	0/153	NA
+GO:0018444	translation release factor complex	  0	0/153	NA
+GO:0019008	molybdopterin synthase complex	  0	0/153	NA
+GO:0019035	viral integration complex	  0	0/153	NA
+GO:0019036	viral transcriptional complex	  0	0/153	NA
+GO:0019197	phosphoenolpyruvate-dependent sugar phosphotransfe	  0	0/153	NA
+GO:0019773	proteasome core complex, alpha-subunit complex	  1	1/153	PSMA3
+GO:0019774	proteasome core complex, beta-subunit complex	  1	1/153	PSMB3
+GO:0019814	immunoglobulin complex	  0	0/153	NA
+GO:0022623	proteasome-activating nucleotidase complex	  0	0/153	NA
+GO:0022624	proteasome accessory complex	  0	0/153	NA
+GO:0030015	CCR4-NOT core complex	  0	0/153	NA
+GO:0030080	B875 antenna complex	  0	0/153	NA
+GO:0030081	B800-820 antenna complex	  0	0/153	NA
+GO:0030082	B800-850 antenna complex	  0	0/153	NA
+GO:0030256	type I protein secretion system complex	  0	0/153	NA
+GO:0030257	type III protein secretion system complex	  0	0/153	NA
+GO:0030314	junctional membrane complex	  0	0/153	NA
+GO:0030689	Noc complex	  0	0/153	NA
+GO:0030870	Mre11 complex	  0	0/153	NA
+GO:0030877	beta-catenin destruction complex	  0	0/153	NA
+GO:0030895	apolipoprotein B mRNA editing enzyme complex	  0	0/153	NA
+GO:0030896	checkpoint clamp complex	  0	0/153	NA
+GO:0030929	ADPG pyrophosphorylase complex	  0	0/153	NA
+GO:0030990	intraciliary transport particle	  0	0/153	NA
+GO:0030991	intraciliary transport particle A	  0	0/153	NA
+GO:0030992	intraciliary transport particle B	  0	0/153	NA
+GO:0030993	axonemal heterotrimeric kinesin-II complex	  0	0/153	NA
+GO:0031080	nuclear pore outer ring	  0	0/153	NA
+GO:0031082	BLOC complex	  0	0/153	NA
+GO:0031105	septin complex	  0	0/153	NA
+GO:0031209	SCAR complex	  0	0/153	NA
+GO:0031250	anaerobic ribonucleoside-triphosphate reductase co	  0	0/153	NA
+GO:0031251	PAN complex	  0	0/153	NA
+GO:0031262	Ndc80 complex	  0	0/153	NA
+GO:0031298	replication fork protection complex	  0	0/153	NA
+GO:0031389	Rad17 RFC-like complex	  0	0/153	NA
+GO:0031390	Ctf18 RFC-like complex	  0	0/153	NA
+GO:0031395	bursicon neuropeptide hormone complex	  0	0/153	NA
+GO:0031422	RecQ family helicase-topoisomerase III complex	  0	0/153	NA
+GO:0031499	TRAMP complex	  0	0/153	NA
+GO:0031511	Mis6-Sim4 complex	  0	0/153	NA
+GO:0031518	CBF3 complex	  0	0/153	NA
+GO:0031519	PcG protein complex	  0	0/153	NA
+GO:0031521	spitzenkorper	  0	0/153	NA
+GO:0031522	cell envelope Sec protein transport complex	  0	0/153	NA
+GO:0031523	Myb complex	  0	0/153	NA
+GO:0031617	NMS complex	  0	0/153	NA
+GO:0031680	G-protein beta/gamma-subunit complex	  0	0/153	NA
+GO:0031838	haptoglobin-hemoglobin complex	  2	2/153	HBB/HP
+GO:0031941	filamentous actin	  1	1/153	ACTG1
+GO:0032039	integrator complex	  0	0/153	NA
+GO:0032116	SMC loading complex	  0	0/153	NA
+GO:0032311	angiogenin-PRI complex	  0	0/153	NA
+GO:0032449	CBM complex	  0	0/153	NA
+GO:0032545	CURI complex	  0	0/153	NA
+GO:0032766	NHE3/E3KARP/ACTN4 complex	  0	0/153	NA
+GO:0032807	DNA ligase IV complex	  0	0/153	NA
+GO:0032992	protein-carbohydrate complex	  0	0/153	NA
+GO:0032993	protein-DNA complex	  1	1/153	JUP
+GO:0032994	protein-lipid complex	  0	0/153	NA
+GO:0033061	DNA recombinase mediator complex	  0	0/153	NA
+GO:0033104	type VI protein secretion system complex	  0	0/153	NA
+GO:0033186	CAF-1 complex	  0	0/153	NA
+GO:0033193	Lsd1/2 complex	  0	0/153	NA
+GO:0033551	monopolin complex	  0	0/153	NA
+GO:0033557	Slx1-Slx4 complex	  0	0/153	NA
+GO:0033596	TSC1-TSC2 complex	  0	0/153	NA
+GO:0033597	mitotic checkpoint complex	  0	0/153	NA
+GO:0034044	exomer complex	  0	0/153	NA
+GO:0034064	Tor2-Mei2-Ste11 complex	  0	0/153	NA
+GO:0034081	polyketide synthase complex	  0	0/153	NA
+GO:0034099	luminal surveillance complex	  0	0/153	NA
+GO:0034270	Cvt complex	  0	0/153	NA
+GO:0034388	Pwp2p-containing subcomplex of 90S preribosome	  0	0/153	NA
+GO:0034455	t-UTP complex	  0	0/153	NA
+GO:0034456	UTP-C complex	  0	0/153	NA
+GO:0034457	Mpp10 complex	  0	0/153	NA
+GO:0034464	BBSome	  0	0/153	NA
+GO:0034518	RNA cap binding complex	  0	0/153	NA
+GO:0034663	endoplasmic reticulum chaperone complex	  2	2/153	HSPA5/PPIB
+GO:0034692	E.F.G complex	  0	0/153	NA
+GO:0034741	APC-tubulin-IQGAP1 complex	  0	0/153	NA
+GO:0034743	APC-IQGAP complex	  0	0/153	NA
+GO:0034744	APC-IQGAP1-Cdc42 complex	  0	0/153	NA
+GO:0034745	APC-IQGAP1-Rac1 complex	  0	0/153	NA
+GO:0034746	APC-IQGAP1-CLIP-170 complex	  0	0/153	NA
+GO:0034748	Par3-APC-KIF3A complex	  0	0/153	NA
+GO:0034749	Scrib-APC complex	  0	0/153	NA
+GO:0034750	Scrib-APC-beta-catenin complex	  0	0/153	NA
+GO:0034973	Sid2-Mob1 complex	  0	0/153	NA
+GO:0034974	Swi5-Swi2 complex	  0	0/153	NA
+GO:0034978	PDX1-PBX1b-MRG1 complex	  0	0/153	NA
+GO:0034996	RasGAP-Fyn-Lyn-Yes complex	  0	0/153	NA
+GO:0035059	RCAF complex	  0	0/153	NA
+GO:0035145	exon-exon junction complex	  0	0/153	NA
+GO:0035649	Nrd1 complex	  0	0/153	NA
+GO:0035658	Mon1-Ccz1 complex	  0	0/153	NA
+GO:0035693	NOS2-CD74 complex	  0	0/153	NA
+GO:0035808	meiotic recombination initiation complex	  0	0/153	NA
+GO:0035859	Seh1-associated complex	  0	0/153	NA
+GO:0036038	MKS complex	  0	0/153	NA
+GO:0036125	fatty acid beta-oxidation multienzyme complex	  0	0/153	NA
+GO:0036284	tubulobulbar complex	  0	0/153	NA
+GO:0036286	eisosome filament	  0	0/153	NA
+GO:0036375	Kibra-Ex-Mer complex	  0	0/153	NA
+GO:0036398	TCR signalosome	  0	0/153	NA
+GO:0036452	ESCRT complex	  0	0/153	NA
+GO:0036454	growth factor complex	  0	0/153	NA
+GO:0036501	UFD1-NPL4 complex	  0	0/153	NA
+GO:0038045	large latent transforming growth factor-beta compl	  0	0/153	NA
+GO:0038059	IKKalpha-IKKalpha complex	  0	0/153	NA
+GO:0039658	TBK1-IKKE-DDX3 complex	  0	0/153	NA
+GO:0042272	nuclear RNA export factor complex	  0	0/153	NA
+GO:0042555	MCM complex	  0	0/153	NA
+GO:0043235	receptor complex	  2	2/153	PIGR/TF
+GO:0043240	Fanconi anaemia nuclear complex	  0	0/153	NA
+GO:0043256	laminin complex	  0	0/153	NA
+GO:0043291	RAVE complex	  0	0/153	NA
+GO:0043293	apoptosome	  0	0/153	NA
+GO:0043493	viral terminase complex	  0	0/153	NA
+GO:0043511	inhibin complex	  0	0/153	NA
+GO:0043514	interleukin-12 complex	  0	0/153	NA
+GO:0043529	GET complex	  0	0/153	NA
+GO:0043564	Ku70:Ku80 complex	  0	0/153	NA
+GO:0043684	type IV secretion system complex	  0	0/153	NA
+GO:0043845	DNA polymerase III, proofreading complex	  0	0/153	NA
+GO:0043846	DNA polymerase III, clamp loader complex	  0	0/153	NA
+GO:0043847	DNA polymerase III, clamp loader chi/psi subcomple	  0	0/153	NA
+GO:0043850	RecFOR complex	  0	0/153	NA
+GO:0044611	nuclear pore inner ring	  0	0/153	NA
+GO:0044612	nuclear pore linkers	  0	0/153	NA
+GO:0044613	nuclear pore central transport channel	  0	0/153	NA
+GO:0044614	nuclear pore cytoplasmic filaments	  0	0/153	NA
+GO:0044615	nuclear pore nuclear basket	  0	0/153	NA
+GO:0044672	acetyl-CoA decarbonylase/synthase-carbon monoxide 	  0	0/153	NA
+GO:0044675	formyl-methanofuran dehydrogenase (tungsten enzyme	  0	0/153	NA
+GO:0044676	formyl-methanofuran dehydrogenase (molybdenum enzy	  0	0/153	NA
+GO:0044677	methyl-tetrahydromethanopterin:coenzyme M methyltr	  0	0/153	NA
+GO:0044697	HICS complex	  0	0/153	NA
+GO:0044776	DNA polymerase III, core complex	  0	0/153	NA
+GO:0044777	single-stranded DNA-binding protein complex	  0	0/153	NA
+GO:0044815	DNA packaging complex	  0	0/153	NA
+GO:0044816	Nsk1-Dlc1 complex	  0	0/153	NA
+GO:0045239	tricarboxylic acid cycle enzyme complex	  0	0/153	NA
+GO:0045293	mRNA editing complex	  0	0/153	NA
+GO:0045298	tubulin complex	  0	0/153	NA
+GO:0046536	dosage compensation complex	  0	0/153	NA
+GO:0046798	viral portal complex	  0	0/153	NA
+GO:0046806	viral scaffold	  0	0/153	NA
+GO:0048180	activin complex	  0	0/153	NA
+GO:0048189	Lid2 complex	  0	0/153	NA
+GO:0055087	Ski complex	  0	0/153	NA
+GO:0061574	ASAP complex	  0	0/153	NA
+GO:0061576	acyl-CoA ceramide synthase complex	  0	0/153	NA
+GO:0061671	Cbp3p-Cbp6 complex	  0	0/153	NA
+GO:0061696	pituitary gonadotropin complex	  0	0/153	NA
+GO:0061700	GATOR2 complex	  0	0/153	NA
+GO:0061702	inflammasome complex	  0	0/153	NA
+GO:0061703	pyroptosome complex	  0	0/153	NA
+GO:0061838	CENP-T-W-S-X complex	  0	0/153	NA
+GO:0061927	TOC-TIC supercomplex I	  0	0/153	NA
+GO:0061957	NVT complex	  0	0/153	NA
+GO:0062048	lymphotoxin complex	  0	0/153	NA
+GO:0062049	protein phosphatase inhibitor complex	  0	0/153	NA
+GO:0062073	histone mRNA stem-loop binding complex	  0	0/153	NA
+GO:0062092	Yae1-Lto1 complex	  0	0/153	NA
+GO:0062119	LinE complex	  0	0/153	NA
+GO:0062128	MutSgamma complex	  0	0/153	NA
+GO:0062141	nuclear exosome targeting complex	  0	0/153	NA
+GO:0062167	complement component C1q complex	  0	0/153	NA
+GO:0070069	cytochrome complex	  0	0/153	NA
+GO:0070209	ASTRA complex	  0	0/153	NA
+GO:0070214	CSK-GAP-A.p62 complex	  0	0/153	NA
+GO:0070274	RES complex	  0	0/153	NA
+GO:0070288	ferritin complex	  0	0/153	NA
+GO:0070310	ATR-ATRIP complex	  0	0/153	NA
+GO:0070313	RGS6-DNMT1-DMAP1 complex	  0	0/153	NA
+GO:0070331	CD20-Lck-Fyn complex	  0	0/153	NA
+GO:0070332	CD20-Lck-Lyn-Fyn complex	  0	0/153	NA
+GO:0070353	GATA1-TAL1-TCF3-Lmo2 complex	  0	0/153	NA
+GO:0070354	GATA2-TAL1-TCF3-Lmo2 complex	  0	0/153	NA
+GO:0070385	egasyn-beta-glucuronidase complex	  0	0/153	NA
+GO:0070390	transcription export complex 2	  0	0/153	NA
+GO:0070421	DNA ligase III-XRCC1 complex	  0	0/153	NA
+GO:0070422	G-protein beta/gamma-Raf-1 complex	  0	0/153	NA
+GO:0070441	G-protein beta/gamma-Btk complex	  0	0/153	NA
+GO:0070467	RC-1 DNA recombination complex	  0	0/153	NA
+GO:0070516	CAK-ERCC2 complex	  0	0/153	NA
+GO:0070517	DNA replication factor C core complex	  0	0/153	NA
+GO:0070531	BRCA1-A complex	  0	0/153	NA
+GO:0070532	BRCA1-B complex	  0	0/153	NA
+GO:0070533	BRCA1-C complex	  0	0/153	NA
+GO:0070545	PeBoW complex	  0	0/153	NA
+GO:0070552	BRISC complex	  0	0/153	NA
+GO:0070557	PCNA-p21 complex	  0	0/153	NA
+GO:0070559	lysosomal multienzyme complex	  0	0/153	NA
+GO:0070693	P-TEFb-cap methyltransferase complex	  0	0/153	NA
+GO:0070695	FHF complex	  0	0/153	NA
+GO:0070743	interleukin-23 complex	  0	0/153	NA
+GO:0070744	interleukin-27 complex	  0	0/153	NA
+GO:0070745	interleukin-35 complex	  0	0/153	NA
+GO:0070762	nuclear pore transmembrane ring	  0	0/153	NA
+GO:0070767	BRCA1-Rad51 complex	  0	0/153	NA
+GO:0070826	paraferritin complex	  0	0/153	NA
+GO:0070864	sperm individualization complex	  0	0/153	NA
+GO:0070876	SOSS complex	  0	0/153	NA
+GO:0070937	CRD-mediated mRNA stability complex	  0	0/153	NA
+GO:0071075	CUGBP1-eIF2 complex	  0	0/153	NA
+GO:0071175	MAML2-RBP-Jkappa-ICN1 complex	  0	0/153	NA
+GO:0071176	MAML2-RBP-Jkappa-ICN2 complex	  0	0/153	NA
+GO:0071177	MAML2-RBP-Jkappa-ICN3 complex	  0	0/153	NA
+GO:0071178	MAML2-RBP-Jkappa-ICN4 complex	  0	0/153	NA
+GO:0071179	MAML3-RBP-Jkappa-ICN1 complex	  0	0/153	NA
+GO:0071180	MAML3-RBP-Jkappa-ICN2 complex	  0	0/153	NA
+GO:0071181	MAML3-RBP-Jkappa-ICN3 complex	  0	0/153	NA
+GO:0071182	MAML3-RBP-Jkappa-ICN4 complex	  0	0/153	NA
+GO:0071203	WASH complex	  1	1/153	CAPZB
+GO:0071521	Cdc42 GTPase complex	  0	0/153	NA
+GO:0071563	Myo2p-Vac17p-Vac8p transport complex	  0	0/153	NA
+GO:0071664	catenin-TCF7L2 complex	  1	1/153	JUP
+GO:0071817	MMXD complex	  0	0/153	NA
+GO:0071819	DUBm complex	  0	0/153	NA
+GO:0071821	FANCM-MHF complex	  0	0/153	NA
+GO:0072379	ER membrane insertion complex	  0	0/153	NA
+GO:0089701	U2AF complex	  0	0/153	NA
+GO:0089713	Cbf1-Met4-Met28 complex	  0	0/153	NA
+GO:0090443	FAR/SIN/STRIPAK complex	  0	0/153	NA
+GO:0090665	glycoprotein complex	  0	0/153	NA
+GO:0097057	TRAF2-GSTP1 complex	  1	1/153	GSTP1
+GO:0097058	CRLF-CLCF1 complex	  0	0/153	NA
+GO:0097059	CNTFR-CLCF1 complex	  0	0/153	NA
+GO:0097071	interferon regulatory factor complex	  0	0/153	NA
+GO:0097076	transforming growth factor beta activated kinase 1	  0	0/153	NA
+GO:0097078	FAL1-SGD1 complex	  0	0/153	NA
+GO:0097136	Bcl-2 family protein complex	  0	0/153	NA
+GO:0097149	centralspindlin complex	  0	0/153	NA
+GO:0097255	R2TP complex	  0	0/153	NA
+GO:0097344	Rix1 complex	  0	0/153	NA
+GO:0097347	TAM protein secretion complex	  0	0/153	NA
+GO:0097361	CIA complex	  0	0/153	NA
+GO:0097373	MCM core complex	  0	0/153	NA
+GO:0097452	GAIT complex	  1	1/153	GAPDH
+GO:0097495	H-NS-Hha complex	  0	0/153	NA
+GO:0097537	Y-shaped link	  0	0/153	NA
+GO:0097539	ciliary transition fiber	  0	0/153	NA
+GO:0097619	PTEX complex	  0	0/153	NA
+GO:0097710	viral terminase, small subunit	  0	0/153	NA
+GO:0098046	type V protein secretion system complex	  0	0/153	NA
+GO:0098561	methyl accepting chemotaxis protein complex	  0	0/153	NA
+GO:0098636	protein complex involved in cell adhesion	  0	0/153	NA
+GO:0098654	CENP-A recruiting complex	  0	0/153	NA
+GO:0098733	hemidesmosome associated protein complex	  0	0/153	NA
+GO:0098774	curli	  0	0/153	NA
+GO:0098796	membrane protein complex	  3	3/153	JUP/TF/ATP5F1A
+GO:0098798	mitochondrial protein complex	  1	1/153	ATP5F1A
+GO:0098820	trans-synaptic protein complex	  0	0/153	NA
+GO:0099023	vesicle tethering complex	  0	0/153	NA
+GO:0099078	BORC complex	  0	0/153	NA
+GO:0099126	transforming growth factor beta complex	  0	0/153	NA
+GO:0099128	mitochondrial iron-sulfur cluster assembly complex	  0	0/153	NA
+GO:0101031	chaperone complex	  1	1/153	HSPA8
+GO:0106002	mCRD-mediated mRNA stability complex	  0	0/153	NA
+GO:0106003	amyloid-beta complex	  0	0/153	NA
+GO:0106093	EDS1 disease-resistance complex	  0	0/153	NA
+GO:0106249	Nicalin-NOMO complex	  0	0/153	NA
+GO:0110078	TTT complex	  0	0/153	NA
+GO:0110131	Aim21-Tda2 complex	  0	0/153	NA
+GO:0110142	ubiquinone biosynthesis complex	  0	0/153	NA
+GO:0110157	reelin complex	  0	0/153	NA
+GO:0120099	procentriole replication complex	  0	0/153	NA
+GO:0120103	centriolar subdistal appendage	  0	0/153	NA
+GO:0120114	Sm-like protein family complex	  0	0/153	NA
+GO:0120124	membrane fusion priming complex	  0	0/153	NA
+GO:0120155	MIH complex	  0	0/153	NA
+GO:0120171	Cdc24p-Far1p-Gbetagamma complex	  0	0/153	NA
+GO:0120216	matrilin complex	  0	0/153	NA
+GO:0120228	outer dynein arm docking complex	  0	0/153	NA
+GO:0140007	KICSTOR complex	  0	0/153	NA
+GO:0140224	SLAC complex	  0	0/153	NA
+GO:0140225	DNA topoisomerase III-beta-TDRD3 complex	  0	0/153	NA
+GO:0140451	counting factor complex	  0	0/153	NA
+GO:0150005	enzyme activator complex	  0	0/153	NA
+GO:1902494	catalytic complex	  6	6/153	ENO1/PKM/HSPB1/IDE/PSMA3/PSMB3
+GO:1902695	metallochaperone complex	  0	0/153	NA
+GO:1903269	ornithine carbamoyltransferase inhibitor complex	  0	0/153	NA
+GO:1903502	translation repressor complex	  0	0/153	NA
+GO:1903503	ATPase inhibitor complex	  0	0/153	NA
+GO:1904090	peptidase inhibitor complex	  0	0/153	NA
+GO:1990062	RPAP3/R2TP/prefoldin-like complex	  0	0/153	NA
+GO:1990065	Dxr protein complex	  0	0/153	NA
+GO:1990078	replication inhibiting complex	  0	0/153	NA
+GO:1990100	DnaB-DnaC complex	  0	0/153	NA
+GO:1990104	DNA bending complex	  0	0/153	NA
+GO:1990112	RQC complex	  0	0/153	NA
+GO:1990125	DiaA complex	  0	0/153	NA
+GO:1990130	GATOR1 complex	  0	0/153	NA
+GO:1990131	Gtr1-Gtr2 GTPase complex	  0	0/153	NA
+GO:1990143	CoA-synthesizing protein complex	  0	0/153	NA
+GO:1990200	SsuD-SsuE complex	  0	0/153	NA
+GO:1990221	L-cysteine desulfurase complex	  0	0/153	NA
+GO:1990229	iron-sulfur cluster assembly complex	  0	0/153	NA
+GO:1990249	nucleotide-excision repair, DNA damage recognition	  0	0/153	NA
+GO:1990252	Syp1 complex	  0	0/153	NA
+GO:1990298	bub1-bub3 complex	  0	0/153	NA
+GO:1990315	Mcs4 RR-MAPKKK complex	  0	0/153	NA
+GO:1990333	mitotic checkpoint complex, CDC20-MAD2 subcomplex	  0	0/153	NA
+GO:1990341	thrombospondin complex	  0	0/153	NA
+GO:1990346	BID-BCL-xl complex	  0	0/153	NA
+GO:1990351	transporter complex	  0	0/153	NA
+GO:1990356	sumoylated E2 ligase complex	  0	0/153	NA
+GO:1990391	DNA repair complex	  0	0/153	NA
+GO:1990393	3M complex	  0	0/153	NA
+GO:1990415	Pex17p-Pex14p docking complex	  0	0/153	NA
+GO:1990423	RZZ complex	  0	0/153	NA
+GO:1990453	nucleosome disassembly/reassembly complex	  0	0/153	NA
+GO:1990463	lateral cortical node	  0	0/153	NA
+GO:1990469	Rhino-Deadlock-Cutoff Complex	  0	0/153	NA
+GO:1990477	NURS complex	  0	0/153	NA
+GO:1990499	raps-insc complex	  0	0/153	NA
+GO:1990509	PYM-mago-Y14 complex	  0	0/153	NA
+GO:1990526	Ste12p-Dig1p-Dig2p complex	  0	0/153	NA
+GO:1990527	Tec1p-Ste12p-Dig1p complex	  0	0/153	NA
+GO:1990528	Rvs161p-Rvs167p complex	  0	0/153	NA
+GO:1990533	Dom34-Hbs1 complex	  0	0/153	NA
+GO:1990563	extracellular exosome complex	  0	0/153	NA
+GO:1990586	divisome complex	  0	0/153	NA
+GO:1990597	AIP1-IRE1 complex	  0	0/153	NA
+GO:1990615	Kelch-containing formin regulatory complex	  0	0/153	NA
+GO:1990622	CHOP-ATF3 complex	  0	0/153	NA
+GO:1990630	IRE1-RACK1-PP2A complex	  0	0/153	NA
+GO:1990660	calprotectin complex	  0	0/153	NA
+GO:1990661	S100A8 complex	  0	0/153	NA
+GO:1990665	AnxA2-p11 complex	  1	1/153	ANXA2
+GO:1990666	PCSK9-LDLR complex	  0	0/153	NA
+GO:1990667	PCSK9-AnxA2 complex	  1	1/153	ANXA2
+GO:1990682	CSF1-CSF1R complex	  0	0/153	NA
+GO:1990684	protein-lipid-RNA complex	  0	0/153	NA
+GO:1990696	USH2 complex	  0	0/153	NA
+GO:1990706	MAD1 complex	  0	0/153	NA
+GO:1990713	survivin complex	  0	0/153	NA
+GO:1990727	tubulin folding cofactor complex	  0	0/153	NA
+GO:1990728	mitotic spindle assembly checkpoint MAD1-MAD2 comp	  0	0/153	NA
+GO:1990730	VCP-NSFL1C complex	  0	0/153	NA
+GO:1990733	titin-telethonin complex	  0	0/153	NA
+GO:1990745	EARP complex	  0	0/153	NA
+GO:1990788	GLI-SUFU complex	  0	0/153	NA
+GO:1990811	MWP complex	  0	0/153	NA
+GO:1990861	Ubp3-Bre5 deubiquitination complex	  0	0/153	NA
+GO:1990871	Vma12-Vma22 assembly complex	  0	0/153	NA
+GO:1990904	ribonucleoprotein complex	  9	9/153	GAPDH/HSPA1A/HSPA1B/EEF2/ACTN4/UBA52/HSPA8/RPSA/RPS3
+GO:1990909	Wnt signalosome	  0	0/153	NA
+GO:1990923	PET complex	  0	0/153	NA
+GO:1990957	NPHP complex	  0	0/153	NA
+GO:1990964	actin cytoskeleton-regulatory complex	  0	0/153	NA
+GO:0044216	other organism cell	  0	0/153	NA
+GO:0044218	other organism cell membrane	  0	0/153	NA
+GO:0106139	symbiont cell surface	  0	0/153	NA
+GO:0019013	viral nucleocapsid	  0	0/153	NA
+GO:0019028	viral capsid	  0	0/153	NA
+GO:0019033	viral tegument	  0	0/153	NA
+GO:0036338	viral membrane	  0	0/153	NA
+GO:0039624	viral outer capsid	  0	0/153	NA
+GO:0039625	viral inner capsid	  0	0/153	NA
+GO:0039626	viral intermediate capsid	  0	0/153	NA
+GO:0039642	virion nucleoid	  0	0/153	NA
+GO:0046727	capsomere	  0	0/153	NA
+GO:0046729	viral procapsid	  0	0/153	NA
+GO:0055036	virion membrane	  0	0/153	NA
+GO:0098015	virus tail	  0	0/153	NA
+GO:0098021	viral capsid, decoration	  0	0/153	NA
+GO:0098023	virus tail, tip	  0	0/153	NA
+GO:0098024	virus tail, fiber	  0	0/153	NA
+GO:0098025	virus tail, baseplate	  0	0/153	NA
+GO:0098026	virus tail, tube	  0	0/153	NA
+GO:0098027	virus tail, sheath	  0	0/153	NA
+GO:0098028	virus tail, shaft	  0	0/153	NA
+GO:0098029	icosahedral viral capsid, spike	  0	0/153	NA
+GO:0098030	icosahedral viral capsid, neck	  0	0/153	NA
+GO:0098031	icosahedral viral capsid, collar	  0	0/153	NA
+GO:0098061	viral capsid, internal space	  0	0/153	NA
+GO:0000242	pericentriolar material	  0	0/153	NA
+GO:0000399	cellular bud neck septin structure	  0	0/153	NA
+GO:0000407	phagophore assembly site	  0	0/153	NA
+GO:0000785	chromatin	  0	0/153	NA
+GO:0000800	lateral element	  0	0/153	NA
+GO:0000801	central element	  0	0/153	NA
+GO:0000802	transverse filament	  0	0/153	NA
+GO:0000922	spindle pole	  0	0/153	NA
+GO:0000943	retrotransposon nucleocapsid	  0	0/153	NA
+GO:0001400	mating projection base	  0	0/153	NA
+GO:0001650	fibrillar center	  0	0/153	NA
+GO:0001651	dense fibrillar component	  0	0/153	NA
+GO:0001652	granular component	  0	0/153	NA
+GO:0001750	photoreceptor outer segment	  0	0/153	NA
+GO:0001772	immunological synapse	  1	1/153	MYH9
+GO:0001891	phagocytic cup	  1	1/153	ANXA1
+GO:0001917	photoreceptor inner segment	  0	0/153	NA
+GO:0002139	stereocilia coupling link	  0	0/153	NA
+GO:0002177	manchette	  0	0/153	NA
+GO:0005576	extracellular region	136	136/153	DSP/KRT6A/ALB/KRT16/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/FABP5/PIGR/ENO1/AZGP1/PLEC/TGM3/KRT13/HRNR/KRT6B/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/SERPINB7/LYZ/SERPINA1/HSP90AA1/IL36G/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/CPA4/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EIF4A1/PPIA/YWHAZ/GGH/GSTP1/LCN1/SERPINB4/DSC3/SBSN/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/A2ML1/HP/SERPINA3/ORM1/IL1RN/SERPINB1/LCN2/CST6/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/FCGBP/LYPD3/PNP/CSTB/ALDOC/KRT15/FLG/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5F1A/CALML3/S100A11/CAPG/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/AMY1A/AMY1B/AMY1C/CALML5/PIP/ZG16B/CST4/MUC7/CST1/CST2/KRT1/KRT2/KRT10/FLG2/KPRP/SERPINA12/DCD/DEFA3/KRT85
+GO:0005615	extracellular space	132	132/153	DSP/KRT6A/ALB/KRT16/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/FABP5/PIGR/ENO1/AZGP1/PLEC/TGM3/KRT13/HRNR/KRT6B/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/SERPINB7/LYZ/SERPINA1/HSP90AA1/IL36G/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/CPA4/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EIF4A1/PPIA/YWHAZ/GGH/GSTP1/LCN1/SERPINB4/SBSN/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/A2ML1/HP/SERPINA3/ORM1/IL1RN/SERPINB1/LCN2/CST6/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/SERPINB5/MDH2/FCGBP/LYPD3/PNP/CSTB/ALDOC/KRT15/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5F1A/CALML3/S100A11/CAPG/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/AMY1A/AMY1B/AMY1C/PIP/ZG16B/CST4/MUC7/CST1/CST2/KRT1/KRT2/KRT10/KPRP/SERPINA12/DCD/DEFA3/KRT85
+GO:0005621	cellular bud scar	  0	0/153	NA
+GO:0005630	dityrosine layer of spore wall	  0	0/153	NA
+GO:0005631	chitosan layer of spore wall	  0	0/153	NA
+GO:0005632	inner layer of spore wall	  0	0/153	NA
+GO:0005652	nuclear lamina	  1	1/153	LMNA
+GO:0005654	nucleoplasm	 21	21/153	FABP5/CASP14/LMNA/ANXA1/CSTA/HSPA1A/HSPA1B/HSP90AA1/ACTN4/UBA52/TXN/SOD1/HSPA8/YWHAZ/PSMA3/SERPINB13/RPSA/PPIB/RPS3/CAPG/PSMB3
+GO:0005657	replication fork	  0	0/153	NA
+GO:0005702	polytene chromosome weak point	  0	0/153	NA
+GO:0005706	polytene chromosome ectopic fiber	  0	0/153	NA
+GO:0005712	chiasma	  0	0/153	NA
+GO:0005713	recombination nodule	  0	0/153	NA
+GO:0005726	perichromatin fibrils	  0	0/153	NA
+GO:0005727	extrachromosomal circular DNA	  0	0/153	NA
+GO:0005815	microtubule organizing center	  3	3/153	HSPA1A/HSPA1B/CAPG
+GO:0005821	intermediate layer of spindle pole body	  0	0/153	NA
+GO:0005822	inner plaque of spindle pole body	  0	0/153	NA
+GO:0005823	central plaque of spindle pole body	  0	0/153	NA
+GO:0005824	outer plaque of spindle pole body	  0	0/153	NA
+GO:0005825	half bridge of spindle pole body	  0	0/153	NA
+GO:0005829	cytosol	 87	87/153	KRT6A/KRT16/DSG1/ANXA2/JUP/ACTG1/KRT78/KRT17/FABP5/CASP14/ENO1/PLEC/KRT80/KRT13/KRT6B/LMNA/ANXA1/HSPA5/CAT/S100A7/SFN/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/HSP90AA1/ACTN4/GGCT/LDHA/UBA52/TXN/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EIF4A1/PPIA/YWHAZ/GGH/ALOX12B/GSTP1/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/SPRR1B/LCN2/GSN/IDE/PSMA3/EEF1G/PNP/CSTB/ALDOC/KRT15/FLG/SERPINB13/APOD/RPSA/LAMP1/TYMP/RPS3/HAL/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/KRT1/KRT2/KRT10/SPRR2E/KRT85
+GO:0005930	axoneme	  0	0/153	NA
+GO:0005933	cellular bud	  0	0/153	NA
+GO:0009295	nucleoid	  0	0/153	NA
+GO:0009418	pilus shaft	  0	0/153	NA
+GO:0009419	pilus tip	  0	0/153	NA
+GO:0009420	bacterial-type flagellum filament	  0	0/153	NA
+GO:0009421	bacterial-type flagellum filament cap	  0	0/153	NA
+GO:0009422	bacterial-type flagellum hook-filament junction	  0	0/153	NA
+GO:0009424	bacterial-type flagellum hook	  0	0/153	NA
+GO:0009425	bacterial-type flagellum basal body	  0	0/153	NA
+GO:0009426	bacterial-type flagellum basal body, distal rod	  0	0/153	NA
+GO:0009427	bacterial-type flagellum basal body, distal rod, L	  0	0/153	NA
+GO:0009428	bacterial-type flagellum basal body, distal rod, P	  0	0/153	NA
+GO:0009429	bacterial-type flagellum basal body, proximal rod	  0	0/153	NA
+GO:0009431	bacterial-type flagellum basal body, MS ring	  0	0/153	NA
+GO:0009433	bacterial-type flagellum basal body, C ring	  0	0/153	NA
+GO:0009504	cell plate	  0	0/153	NA
+GO:0009510	plasmodesmatal desmotubule	  0	0/153	NA
+GO:0009524	phragmoplast	  0	0/153	NA
+GO:0009525	phragmosome	  0	0/153	NA
+GO:0009532	plastid stroma	  0	0/153	NA
+GO:0009541	etioplast prolamellar body	  0	0/153	NA
+GO:0009542	granum	  0	0/153	NA
+GO:0009546	plasmodesmatal cytoplasmic sleeve	  0	0/153	NA
+GO:0009548	plasmodesmatal plasma membrane	  0	0/153	NA
+GO:0009549	cellulose microfibril	  0	0/153	NA
+GO:0009574	preprophase band	  0	0/153	NA
+GO:0009930	longitudinal side of cell surface	  0	0/153	NA
+GO:0009986	cell surface	 13	13/153	ANXA2/LTF/ENO1/AZGP1/ANXA1/HSPA5/TF/HSP90AA1/CTSV/IDE/CTSB/LAMP1/KRT10
+GO:0010287	plastoglobule	  0	0/153	NA
+GO:0010319	stromule	  0	0/153	NA
+GO:0010339	external side of cell wall	  0	0/153	NA
+GO:0012505	endomembrane system	 70	70/153	DSP/ALB/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/FABP5/PIGR/HRNR/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SERPINB12/PKM/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/TUBB4B/LYZ/SERPINA1/HSP90AA1/ACTN4/CTSD/UBA52/DMBT1/SOD1/HSPA8/PPIA/GGH/GSTP1/CTSV/ALDOA/CAPN1/VCL/HBB/HP/SERPINA3/ORM1/SERPINB1/LCN2/GSN/AGA/EEF1G/PNP/CSTB/ALDOC/PERP/APOD/KLK1/CTSB/LAMP1/LAMP2/PPIB/RPS3/S100A11/GDI2/ACTR2/NPC2/CALML5/MUC7/KRT1/FLG2/DEFA3
+GO:0014705	C zone	  0	0/153	NA
+GO:0014801	longitudinal sarcoplasmic reticulum	  0	0/153	NA
+GO:0016020	membrane	 77	77/153	DSP/KRT6A/DSG1/ANXA2/JUP/LTF/MUC5B/ACTG1/FABP5/PIGR/ENO1/AZGP1/PLEC/TGM3/HRNR/LMNA/ANXA1/HSPA5/TF/CAT/SERPINB12/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBA1B/SERPINA1/HSP90AA1/LDHA/CTSD/UBA52/DMBT1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/EIF4A1/PPIA/GSTP1/DSC3/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/IL1RN/SPRR1B/SERPINB1/CST6/GSN/IDE/EEF1G/MDH2/LYPD3/FLG/PERP/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5F1A/GDI2/ACTR2/MUC7/KRT1/KRT2/KRT10/FLG2/SERPINA12/SPRR2E
+GO:0016328	lateral plasma membrane	  3	3/153	DSG1/JUP/ANXA1
+GO:0016363	nuclear matrix	  0	0/153	NA
+GO:0016604	nuclear body	  5	5/153	LMNA/HSPA1A/HSPA1B/ACTN4/SERPINB13
+GO:0018995	host cellular component	  1	1/153	UBA52
+GO:0019037	viral assembly intermediate	  0	0/153	NA
+GO:0019898	extrinsic component of membrane	  6	6/153	ANXA2/JUP/TGM3/ANXA1/TF/DMBT1
+GO:0020007	apical complex	  0	0/153	NA
+GO:0020008	rhoptry	  0	0/153	NA
+GO:0020010	conoid	  0	0/153	NA
+GO:0020016	ciliary pocket	  0	0/153	NA
+GO:0020023	kinetoplast	  0	0/153	NA
+GO:0020031	polar ring of apical complex	  0	0/153	NA
+GO:0020032	basal ring of apical complex	  0	0/153	NA
+GO:0020038	subpellicular network	  0	0/153	NA
+GO:0020039	pellicle	  0	0/153	NA
+GO:0030017	sarcomere	  7	7/153	JUP/ENO1/ACTN4/FLNB/HSPB1/ALDOA/CAPZB
+GO:0030018	Z disc	  4	4/153	JUP/ACTN4/FLNB/HSPB1
+GO:0030054	cell junction	 36	36/153	DSP/DSG1/ANXA2/JUP/ACTG1/FABP5/PLEC/ANXA1/HSPA5/CAT/S100A7/HSPA1A/HSPA1B/EEF2/MYH9/POF1B/ACTN4/FLNB/HSPB1/HSPA8/EPPK1/PPIA/YWHAZ/DSC3/CAPN1/VCL/YWHAE/GSN/PSMA3/PERP/LAMP1/PPIB/RPS3/S100A11/GDI2/ACTR2
+GO:0030061	mitochondrial crista	  0	0/153	NA
+GO:0030312	external encapsulating structure	  0	0/153	NA
+GO:0030315	T-tubule	  0	0/153	NA
+GO:0030427	site of polarized growth	  2	2/153	HSP90AA1/YWHAE
+GO:0030428	cell septum	  0	0/153	NA
+GO:0030478	actin cap	  2	2/153	GSN/ACTR2
+GO:0030486	smooth muscle dense body	  0	0/153	NA
+GO:0030496	midbody	  3	3/153	ANXA2/HSPA5/CAPG
+GO:0030694	bacterial-type flagellum basal body, rod	  0	0/153	NA
+GO:0030874	nucleolar chromatin	  0	0/153	NA
+GO:0030875	rDNA protrusion	  0	0/153	NA
+GO:0031012	extracellular matrix	 19	19/153	ANXA2/MUC5B/AZGP1/HRNR/ANXA1/S100A7/SERPINB12/PKM/SERPINA1/CTSD/DMBT1/SERPINA3/ORM1/SERPINB1/FCGBP/CSTB/FLG/CTSB/KRT1
+GO:0031224	intrinsic component of membrane	  9	9/153	DSG1/PIGR/HSPA5/FLNB/DSC3/LYPD3/PERP/LAMP1/LAMP2
+GO:0031252	cell leading edge	  7	7/153	ANXA2/MYH9/GSN/RPS3/S100A11/CAPG/ACTR2
+GO:0031254	cell trailing edge	  1	1/153	MYH9
+GO:0031256	leading edge membrane	  1	1/153	RPS3
+GO:0031257	cell trailing edge membrane	  0	0/153	NA
+GO:0031430	M band	  2	2/153	ENO1/ALDOA
+GO:0031592	centrosomal corona	  0	0/153	NA
+GO:0031672	A band	  2	2/153	ENO1/ALDOA
+GO:0031673	H zone	  0	0/153	NA
+GO:0031674	I band	  5	5/153	JUP/ACTN4/FLNB/HSPB1/ALDOA
+GO:0031910	cytostome	  0	0/153	NA
+GO:0031911	cytoproct	  0	0/153	NA
+GO:0031912	oral apparatus	  0	0/153	NA
+GO:0031974	membrane-enclosed lumen	 72	72/153	ALB/ANXA2/JUP/LTF/MUC5B/SERPINB3/FABP5/CASP14/HRNR/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/PKM/CSTA/ARG1/HSPA1A/HSPA1B/EEF2/TUBB4B/LYZ/SERPINA1/HSP90AA1/ACTN4/CTSD/UBA52/TXN/SOD1/HSPA8/EPPK1/PPIA/YWHAZ/GGH/GSTP1/CTSV/ALDOA/CAPN1/VCL/HBB/HP/SERPINA3/ORM1/SERPINB1/LCN2/GSN/IDE/AGA/PSMA3/MDH2/PNP/CSTB/ALDOC/SERPINB13/CTSB/RPSA/LAMP2/PPIB/RPS3/ATP5F1A/S100A11/CAPG/PSMB3/GDI2/ACTR2/NPC2/CALML5/MUC7/KRT1/FLG2/DEFA3
+GO:0031975	envelope	  9	9/153	LMNA/ANXA1/CAT/ARG1/GAPDH/UBA52/SOD1/RPS3/ATP5F1A
+GO:0031977	thylakoid lumen	  0	0/153	NA
+GO:0031984	organelle subcompartment	  0	0/153	NA
+GO:0032123	deep fiber	  0	0/153	NA
+GO:0032126	eisosome	  0	0/153	NA
+GO:0032153	cell division site	  1	1/153	MYH9
+GO:0032158	septin band	  0	0/153	NA
+GO:0032161	cleavage apparatus septin structure	  0	0/153	NA
+GO:0032178	medial membrane band	  0	0/153	NA
+GO:0032179	germ tube	  0	0/153	NA
+GO:0032426	stereocilium tip	  0	0/153	NA
+GO:0032432	actin filament bundle	  3	3/153	MYH9/ACTN4/FLNB
+GO:0032433	filopodium tip	  0	0/153	NA
+GO:0032437	cuticular plate	  0	0/153	NA
+GO:0032579	apical lamina of hyaline layer	  0	0/153	NA
+GO:0032584	growth cone membrane	  0	0/153	NA
+GO:0033012	porosome	  0	0/153	NA
+GO:0033101	cellular bud membrane	  0	0/153	NA
+GO:0033150	cytoskeletal calyx	  0	0/153	NA
+GO:0033172	gas vesicle shell	  0	0/153	NA
+GO:0033268	node of Ranvier	  0	0/153	NA
+GO:0033269	internode region of axon	  0	0/153	NA
+GO:0033270	paranode region of axon	  0	0/153	NA
+GO:0033774	basal labyrinth	  0	0/153	NA
+GO:0034399	nuclear periphery	  1	1/153	LMNA
+GO:0034451	centriolar satellite	  0	0/153	NA
+GO:0034646	organelle-enclosing lipid monolayer	  0	0/153	NA
+GO:0034992	microtubule organizing center attachment site	  0	0/153	NA
+GO:0035182	female germline ring canal outer rim	  0	0/153	NA
+GO:0035183	female germline ring canal inner rim	  0	0/153	NA
+GO:0035253	ciliary rootlet	  0	0/153	NA
+GO:0035686	sperm fibrous sheath	  0	0/153	NA
+GO:0035748	myelin sheath abaxonal region	  0	0/153	NA
+GO:0035749	myelin sheath adaxonal region	  1	1/153	ANXA2
+GO:0035843	endonuclear canal	  0	0/153	NA
+GO:0035869	ciliary transition zone	  0	0/153	NA
+GO:0036007	scintillon	  0	0/153	NA
+GO:0036063	acroblast	  0	0/153	NA
+GO:0036117	hyaluranon cable	  0	0/153	NA
+GO:0036224	pairing center	  0	0/153	NA
+GO:0036379	myofilament	  0	0/153	NA
+GO:0036457	keratohyalin granule	  3	3/153	HRNR/FLG/FLG2
+GO:0036477	somatodendritic compartment	  8	8/153	ARG1/HSP90AA1/FLNB/SOD1/HSPA8/CTSV/APOD/LAMP1
+GO:0042587	glycogen granule	  0	0/153	NA
+GO:0042597	periplasmic space	  0	0/153	NA
+GO:0042641	actomyosin	  3	3/153	MYH9/ACTN4/FLNB
+GO:0042716	plasma membrane-derived chromatophore	  0	0/153	NA
+GO:0042718	yolk granule	  0	0/153	NA
+GO:0042763	intracellular immature spore	  0	0/153	NA
+GO:0042995	cell projection	 23	23/153	ANXA2/ACTG1/ANXA1/PKM/ARG1/MYH9/HSP90AA1/ACTN4/FLNB/SOD1/HSPB1/HSPA8/EPPK1/CTSV/YWHAE/GSN/APOD/LAMP1/RPS3/S100A11/CAPG/ARPC4/ACTR2
+GO:0043034	costamere	  2	2/153	PLEC/VCL
+GO:0043036	starch grain	  0	0/153	NA
+GO:0043159	acrosomal matrix	  0	0/153	NA
+GO:0043188	cell septum edging	  0	0/153	NA
+GO:0043194	axon initial segment	  0	0/153	NA
+GO:0043196	varicosity	  0	0/153	NA
+GO:0043198	dendritic shaft	  0	0/153	NA
+GO:0043203	axon hillock	  0	0/153	NA
+GO:0043204	perikaryon	  1	1/153	CTSV
+GO:0043209	myelin sheath	  3	3/153	ANXA2/HSP90AA1/GSN
+GO:0043218	compact myelin	  1	1/153	ANXA2
+GO:0043219	lateral loop	  0	0/153	NA
+GO:0043220	Schmidt-Lanterman incisure	  1	1/153	ANXA2
+GO:0043226	organelle	135	135/153	DSP/KRT6A/ALB/KRT16/DSG1/ANXA2/JUP/LTF/MUC5B/SERPINB3/ACTG1/KRT78/KRT17/FABP5/CASP14/PIGR/ENO1/AZGP1/PLEC/KRT80/TGM3/KRT13/HRNR/KRT6B/LMNA/ANXA1/HSPA5/TF/CAT/S100A7/SFN/SERPINB12/PKM/TPI1/PRDX1/CSTA/ARG1/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/TUBB4B/POF1B/LYZ/TUBA1B/SERPINA1/HSP90AA1/ACTN4/GGCT/LDHA/CTSD/UBA52/TXN/DMBT1/LGALS7B/BLMH/PLBD1/FLNB/SOD1/HSPB1/HSPA8/EPPK1/EIF4A1/PPIA/YWHAZ/GGH/GSTP1/SBSN/CTSV/PGK1/ALDOA/CAPN1/VCL/YWHAE/HBB/KRT23/A2ML1/HP/SERPINA3/ORM1/IL1RN/SERPINB1/LCN2/CST6/S100A14/GSN/IDE/AGA/PSMA3/EEF1G/MDH2/FCGBP/PNP/CSTB/ALDOC/KRT15/FLG/PERP/SERPINB13/APOD/KLK1/CTSB/RPSA/LAMP1/LAMP2/PPIB/RPS3/ATP5F1A/CALML3/S100A11/CAPG/CAPZB/GSS/PSMB3/GDI2/ARPC4/ACTR2/NPC2/AMY1A/AMY1B/AMY1C/CALML5/PIP/ZG16B/CST4/MUC7/KRT1/KRT2/KRT10/FLG2/KPRP/DCD/DEFA3/KRT85
+GO:0043245	extraorganismal space	  0	0/153	NA
+GO:0043265	ectoplasm	  0	0/153	NA
+GO:0043592	exosporium	  0	0/153	NA
+GO:0043593	endospore coat	  0	0/153	NA
+GO:0043595	endospore cortex	  0	0/153	NA
+GO:0043662	peribacteroid fluid	  0	0/153	NA
+GO:0043668	exine	  0	0/153	NA
+GO:0043669	ectexine	  0	0/153	NA
+GO:0043670	foot layer	  0	0/153	NA
+GO:0043671	endexine	  0	0/153	NA
+GO:0043672	nexine	  0	0/153	NA
+GO:0043673	sexine	  0	0/153	NA
+GO:0043674	columella	  0	0/153	NA
+GO:0043675	sculpture element	  0	0/153	NA
+GO:0043676	tectum	  0	0/153	NA
+GO:0043678	intine	  0	0/153	NA
+GO:0043680	filiform apparatus	  0	0/153	NA
+GO:0044099	polar tube	  0	0/153	NA
+GO:0044195	nucleoplasmic reticulum	  0	0/153	NA
+GO:0044224	juxtaparanode region of axon	  0	0/153	NA
+GO:0044232	organelle membrane contact site	  0	0/153	NA
+GO:0044280	subplasmalemmal coating	  0	0/153	NA
+GO:0044290	mitochondrial intracristal space	  0	0/153	NA
+GO:0044292	dendrite terminus	  1	1/153	HSP90AA1
+GO:0044297	cell body	  7	7/153	ARG1/HSP90AA1/FLNB/SOD1/CTSV/APOD/LAMP1
+GO:0044298	cell body membrane	  0	0/153	NA
+GO:0044303	axon collateral	  0	0/153	NA
+GO:0044304	main axon	  0	0/153	NA
+GO:0044306	neuron projection terminus	  2	2/153	ACTG1/HSPA8
+GO:0044322	endoplasmic reticulum quality control compartment	  0	0/153	NA
+GO:0044326	dendritic spine neck	  0	0/153	NA
+GO:0044327	dendritic spine head	  0	0/153	NA
+GO:0045169	fusome	  0	0/153	NA
+GO:0045171	intercellular bridge	  0	0/153	NA
+GO:0045177	apical part of cell	  5	5/153	DSG1/ANXA1/TF/CTSV/CTSB
+GO:0045178	basal part of cell	  1	1/153	TF
+GO:0046691	intracellular canaliculus	  0	0/153	NA
+GO:0046808	assemblon	  0	0/153	NA
+GO:0046818	dense nuclear body	  0	0/153	NA
+GO:0046868	mesosome	  0	0/153	NA
+GO:0048217	pectic matrix	  0	0/153	NA
+GO:0048222	glycoprotein network	  0	0/153	NA
+GO:0048223	hemicellulose network	  0	0/153	NA
+GO:0048224	lignin network	  0	0/153	NA
+GO:0048225	suberin network	  0	0/153	NA
+GO:0048226	Casparian strip	  0	0/153	NA
+GO:0048471	perinuclear region of cytoplasm	 17	17/153	ANXA2/PLEC/HRNR/TF/GAPDH/HSPA1A/HSPA1B/HSP90AA1/ACTN4/HSPA8/ALOX12B/S100A14/GSN/APOD/CTSB/LAMP1/PPIB
+GO:0048786	presynaptic active zone	  0	0/153	NA
+GO:0051233	spindle midzone	  0	0/153	NA
+GO:0055044	symplast	  0	0/153	NA
+GO:0055120	striated muscle dense body	  0	0/153	NA
+GO:0060104	surface coat of collagen and cuticulin-based cutic	  0	0/153	NA
+GO:0060105	epicuticle of collagen and cuticulin-based cuticle	  0	0/153	NA
+GO:0060106	cortical layer of collagen and cuticulin-based cut	  0	0/153	NA
+GO:0060107	annuli extracellular matrix	  0	0/153	NA
+GO:0060108	annular furrow extracellular matrix	  0	0/153	NA
+GO:0060109	medial layer of collagen and cuticulin-based cutic	  0	0/153	NA
+GO:0060110	basal layer of collagen and cuticulin-based cuticl	  0	0/153	NA
+GO:0060111	alae of collagen and cuticulin-based cuticle extra	  0	0/153	NA
+GO:0060187	cell pole	  0	0/153	NA
+GO:0060417	yolk	  0	0/153	NA
+GO:0060418	yolk plasma	  0	0/153	NA
+GO:0061645	endocytic patch	  0	0/153	NA
+GO:0061822	ciliary cap	  0	0/153	NA
+GO:0061823	ring centriole	  0	0/153	NA
+GO:0061825	podosome core	  1	1/153	ACTR2
+GO:0061826	podosome ring	  0	0/153	NA
+GO:0061827	sperm head	  1	1/153	ALDOA
+GO:0061830	concave side of sperm head	  0	0/153	NA
+GO:0061834	actin filament branch point	  0	0/153	NA
+GO:0061835	ventral surface of cell	  0	0/153	NA
+GO:0061845	neuron projection branch point	  0	0/153	NA
+GO:0061908	phagophore	  0	0/153	NA
+GO:0062074	pollen aperture	  0	0/153	NA
+GO:0062160	spongiome	  0	0/153	NA
+GO:0062201	actin wave	  0	0/153	NA
+GO:0070057	prospore membrane spindle pole body attachment sit	  0	0/153	NA
+GO:0070115	organellar chromatophore intermembrane space	  0	0/153	NA
+GO:0070258	inner membrane pellicle complex	  0	0/153	NA
+GO:0070469	respirasome	  0	0/153	NA
+GO:0070645	Ubisch body	  0	0/153	NA
+GO:0070687	macropinocytic cup cytoskeleton	  0	0/153	NA
+GO:0070701	mucus layer	  0	0/153	NA
+GO:0070825	micropyle	  0	0/153	NA
+GO:0070865	investment cone	  0	0/153	NA
+GO:0070938	contractile ring	  1	1/153	MYH9
+GO:0070971	endoplasmic reticulum exit site	  0	0/153	NA
+GO:0071341	medial cortical node	  0	0/153	NA
+GO:0071597	cellular birth scar	  0	0/153	NA
+GO:0071808	satellite fibril	  0	0/153	NA
+GO:0071944	cell periphery	 62	62/153	DSP/DSG1/ANXA2/JUP/LTF/MUC5B/ACTG1/KRT17/FABP5/PIGR/ENO1/AZGP1/PLEC/TGM3/HRNR/ANXA1/HSPA5/TF/CAT/SERPINB12/CSTA/GAPDH/HSPA1A/HSPA1B/EEF2/MYH9/HSP90AA1/ACTN4/UBA52/FLNB/SOD1/HSPB1/HSPA8/EPPK1/GSTP1/DSC3/CTSV/CAPN1/VCL/YWHAE/IL1RN/SPRR1B/CST6/GSN/IDE/LYPD3/FLG/PERP/CTSB/RPSA/LAMP1/LAMP2/RPS3/ATP5F1A/ACTR2/MUC7/KRT1/KRT2/KRT10/FLG2/SERPINA12/SPRR2E
+GO:0072324	ascus epiplasm	  0	0/153	NA
+GO:0072562	blood microparticle	 13	13/153	ALB/ACTG1/TF/HSPA1A/HSPA1B/HSPA8/YWHAZ/HBB/HP/SERPINA3/ORM1/GSN/KRT1
+GO:0085036	extrahaustorial matrix	  0	0/153	NA
+GO:0090405	unicellular trichome branch	  0	0/153	NA
+GO:0090543	Flemming body	  1	1/153	CAPG
+GO:0090552	unicellular trichome apex	  0	0/153	NA
+GO:0090553	unicellular trichome tip	  0	0/153	NA
+GO:0090635	extracellular core region of desmosome	  0	0/153	NA
+GO:0090636	outer dense plaque of desmosome	  0	0/153	NA
+GO:0090637	inner dense plaque of desmosome	  0	0/153	NA
+GO:0090641	microsporidian-type endospore	  0	0/153	NA
+GO:0090642	microsporidian-type exospore	  0	0/153	NA
+GO:0090651	apical cytoplasm	  0	0/153	NA
+GO:0090652	basolateral cytoplasm	  0	0/153	NA
+GO:0090658	cone matrix sheath	  0	0/153	NA
+GO:0090688	cleavage furrow rim	  0	0/153	NA
+GO:0090689	cleavage furrow leading edge	  0	0/153	NA
+GO:0090692	mitochondrial membrane scission site	  0	0/153	NA
+GO:0090724	central region of growth cone	  1	1/153	YWHAE
+GO:0090725	peripheral region of growth cone	  0	0/153	NA
+GO:0090726	cortical dynamic polarity patch	  0	0/153	NA
+GO:0090734	site of DNA damage	  2	2/153	ARPC4/ACTR2
+GO:0097002	mitochondrial inner boundary membrane	  0	0/153	NA
+GO:0097038	perinuclear endoplasmic reticulum	  0	0/153	NA
+GO:0097047	DNA replication termination region	  0	0/153	NA
+GO:0097197	tetraspanin-enriched microdomain	  0	0/153	NA
+GO:0097203	phagocytic cup lip	  0	0/153	NA
+GO:0097204	phagocytic cup base	  0	0/153	NA
+GO:0097217	sieve area	  0	0/153	NA
+GO:0097218	sieve plate	  0	0/153	NA
+GO:0097224	sperm connecting piece	  0	0/153	NA
+GO:0097225	sperm midpiece	  0	0/153	NA
+GO:0097226	sperm mitochondrial sheath	  0	0/153	NA
+GO:0097227	sperm annulus	  0	0/153	NA
+GO:0097228	sperm principal piece	  0	0/153	NA
+GO:0097229	sperm end piece	  0	0/153	NA
+GO:0097268	cytoophidium	  0	0/153	NA
+GO:0097313	bacterial biofilm matrix surface	  0	0/153	NA
+GO:0097356	perinucleolar compartment	  1	1/153	EPPK1
+GO:0097422	tubular endosome	  0	0/153	NA
+GO:0097423	mitochondrion-associated adherens complex	  0	0/153	NA
+GO:0097427	microtubule bundle	  0	0/153	NA
+GO:0097433	dense body	  1	1/153	ACTG1
+GO:0097445	presynaptic active zone dense projection	  0	0/153	NA
+GO:0097448	spine mat	  0	0/153	NA
+GO:0097478	leaflet of membrane bilayer	  0	0/153	NA
+GO:0097540	axonemal central pair	  0	0/153	NA
+GO:0097541	axonemal basal plate	  0	0/153	NA
+GO:0097542	ciliary tip	  0	0/153	NA
+GO:0097543	ciliary inversin compartment	  0	0/153	NA
+GO:0097544	ciliary shaft	  0	0/153	NA
+GO:0097545	axonemal outer doublet	  0	0/153	NA
+GO:0097546	ciliary base	  0	0/153	NA
+GO:0097562	left lateral basal body pair	  0	0/153	NA
+GO:0097563	left middle basal body pair	  0	0/153	NA
+GO:0097564	right lateral basal body pair	  0	0/153	NA
+GO:0097565	right middle basal body pair	  0	0/153	NA
+GO:0097566	left tetrad	  0	0/153	NA
+GO:0097567	right tetrad	  0	0/153	NA
+GO:0097568	median body	  0	0/153	NA
+GO:0097569	lateral shield	  0	0/153	NA
+GO:0097574	lateral part of cell	  0	0/153	NA
+GO:0097591	ventral disc lateral crest	  0	0/153	NA
+GO:0097592	ventral disc overlap zone	  0	0/153	NA
+GO:0097593	ventral disc microtubule array	  0	0/153	NA
+GO:0097594	ventral disc dorsal microribbon	  0	0/153	NA
+GO:0097595	ventral disc crossbridge	  0	0/153	NA
+GO:0097596	ventral disc supernumerary microtubule array	  0	0/153	NA
+GO:0097610	cell surface furrow	  0	0/153	NA
+GO:0097613	dinoflagellate epicone	  0	0/153	NA
+GO:0097614	dinoflagellate hypocone	  0	0/153	NA
+GO:0097653	unencapsulated part of cell	  0	0/153	NA
+GO:0097683	dinoflagellate apex	  0	0/153	NA
+GO:0097684	dinoflagellate antapex	  0	0/153	NA
+GO:0097735	DIM/DIP cell wall layer	  0	0/153	NA
+GO:0098552	side of membrane	 11	11/153	DSG1/JUP/AZGP1/TGM3/ANXA1/TF/HSPA8/CTSV/IDE/CTSB/LAMP1
+GO:0098687	chromosomal region	  0	0/153	NA
+GO:0098793	presynapse	  3	3/153	ACTG1/HSPA8/LAMP1
+GO:0098794	postsynapse	  4	4/153	FABP5/HSPA8/RPS3/ACTR2
+GO:0098833	presynaptic endocytic zone	  0	0/153	NA
+GO:0098843	postsynaptic endocytic zone	  0	0/153	NA
+GO:0098862	cluster of actin-based cell projections	  4	4/153	PLEC/MYH9/ACTN4/FLNB
+GO:0099079	actin body	  0	0/153	NA
+GO:0099080	supramolecular complex	 34	34/153	DSP/KRT6A/KRT16/JUP/ACTG1/KRT78/KRT17/CASP14/ENO1/PLEC/KRT80/KRT13/KRT6B/LMNA/ANXA1/MYH9/TUBB4B/POF1B/TUBA1B/ACTN4/FLNB/HSPB1/EPPK1/ALDOA/VCL/KRT23/SERPINB1/KRT15/FLG/CAPZB/KRT1/KRT2/KRT10/KRT85
+GO:0099086	synaptonemal structure	  0	0/153	NA
+GO:0106124	reservosome lumen	  0	0/153	NA
+GO:0106125	reservosome matrix	  0	0/153	NA
+GO:0106126	reservosome membrane	  0	0/153	NA
+GO:0110071	cellularization cleavage furrow invagination front	  0	0/153	NA
+GO:0110092	nucleus leading edge	  0	0/153	NA
+GO:0110093	nucleus lagging edge	  0	0/153	NA
+GO:0120043	stereocilium shaft	  0	0/153	NA
+GO:0120044	stereocilium base	  0	0/153	NA
+GO:0120082	smooth endoplasmic reticulum cisterna	  0	0/153	NA
+GO:0120083	rough endoplasmic reticulum cisterna	  0	0/153	NA
+GO:0120098	procentriole	  0	0/153	NA
+GO:0120100	bacterial-type flagellum motor	  0	0/153	NA
+GO:0120102	bacterial-type flagellum secretion apparatus	  0	0/153	NA
+GO:0120104	mitotic actomyosin contractile ring, proximal laye	  0	0/153	NA
+GO:0120105	mitotic actomyosin contractile ring, intermediate 	  0	0/153	NA
+GO:0120106	mitotic actomyosin contractile ring, distal actin 	  0	0/153	NA
+GO:0120107	bacterial-type flagellum rotor complex	  0	0/153	NA
+GO:0120120	bilobe structure	  0	0/153	NA
+GO:0120121	tripartite attachment complex	  0	0/153	NA
+GO:0120134	proximal portion of axoneme	  0	0/153	NA
+GO:0120135	distal portion of axoneme	  0	0/153	NA
+GO:0120205	photoreceptor proximal connecting cilium	  0	0/153	NA
+GO:0120206	photoreceptor distal connecting cilium	  0	0/153	NA
+GO:0120212	sperm head-tail coupling apparatus	  0	0/153	NA
+GO:0120219	subapical part of cell	  0	0/153	NA
+GO:0120220	basal body patch	  0	0/153	NA
+GO:0140022	cnida	  0	0/153	NA
+GO:0140510	mitotic nuclear bridge	  0	0/153	NA
+GO:0140511	mitotic nuclear bridge stalk	  0	0/153	NA
+GO:0140512	mitotic nuclear bridge midzone	  0	0/153	NA
+GO:0150004	dendritic spine origin	  0	0/153	NA
+GO:0150034	distal axon	  4	4/153	ACTG1/HSP90AA1/HSPA8/YWHAE
+GO:1990013	presynaptic grid	  0	0/153	NA
+GO:1990014	orthogonal array	  0	0/153	NA
+GO:1990015	ensheathing process	  0	0/153	NA
+GO:1990016	neck portion of tanycyte	  0	0/153	NA
+GO:1990018	tail portion of tanycyte	  0	0/153	NA
+GO:1990030	pericellular basket	  0	0/153	NA
+GO:1990031	pinceau fiber	  0	0/153	NA
+GO:1990037	Lewy body core	  0	0/153	NA
+GO:1990038	Lewy body corona	  0	0/153	NA
+GO:1990047	spindle matrix	  0	0/153	NA
+GO:1990073	perforation plate	  0	0/153	NA
+GO:1990225	rhoptry neck	  0	0/153	NA
+GO:1990295	post-anaphase microtubule array	  0	0/153	NA
+GO:1990427	stereocilia tip-link density	  0	0/153	NA
+GO:1990716	axonemal central apparatus	  0	0/153	NA
+GO:1990717	axonemal central bridge	  0	0/153	NA
+GO:1990718	axonemal central pair projection	  0	0/153	NA
+GO:1990752	microtubule end	  0	0/153	NA
+GO:1990783	periphagosomal region of cytoplasm	  0	0/153	NA
+GO:1990794	basolateral part of cell	  0	0/153	NA
+GO:1990805	central cylinder	  0	0/153	NA
+GO:1990819	actin fusion focus	  0	0/153	NA
+GO:1990826	nucleoplasmic periphery of the nuclear pore comple	  0	0/153	NA
+GO:1990836	lysosomal matrix	  1	1/153	LAMP2
+GO:1990875	nucleoplasmic side of nuclear pore	  0	0/153	NA
+GO:1990876	cytoplasmic side of nuclear pore	  0	0/153	NA
+GO:1990900	ciliary pocket collar	  0	0/153	NA
+GO:1990916	Isp3 layer of spore wall	  0	0/153	NA
