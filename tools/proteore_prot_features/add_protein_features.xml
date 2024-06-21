@@ -1,4 +1,4 @@
-<tool id="prot_features" name="Add protein features" version="2020.08.17">
+<tool id="prot_features" name="Add protein features" version="2021.04.06">
 <description>[neXtProt, Human]
 </description>
 <requirements>
