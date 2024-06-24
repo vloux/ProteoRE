@@ -7,8 +7,29 @@
     <body style="margin: 0">
         <div class="container" style="text-align:justify">
             <h2>ProteoRE : release notes</h2>
-     
-            <h3><font color="0000FF">Release 5th February 2020 (version 2.1)</font></h3>
+     		<h3><font color="0000FF">Release 25th June 2021</font></h3>
+            	<ul>
+                <li>ProteoRE server: CPU and memory resources have been extended and jobs management configuration revisited to better satisfy user needs</li>
+		     
+				<li>Update of resources used by ProteoRE tools (<a target="_blank" href="https://proteore.org/static/data_source.html">more details here</a>):</li>
+					<ul>
+					<li>GO terms source files for human, mouse and rat ("Compute functional profiles", "Classification and enrichment analysis", "Biological theme comparison", "Enrichment analysis")</li>  
+					<li>ID mapping files have been updated ("ID-converter")</li>
+					<li>neXtprot annotations were updated ("Add protein features [neXtProt, Human]")</li>
+					<li>Expression data sources from Human Protein Atlas ("Get expression profiles", "Add expression data", "Build tissue-specific expression dataset")</li>
+					<li>PPI data from BioGRID ("Build Protein interaction network")</li>
+					</ul>
+                <li>KEGG pathways mapping and visualization [PathView] tool: fixed bug associated with KEGG map visualization</li></b>
+				<li>New tool: <a target="_blank" href="https://proteore.org/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fproteore%2Fproteore_go_terms_enrich_comparison%2Fgo_terms_enrich_comparison%2F2020.02.04">Biological themes comparison (Human, Mouse, Rat)[clusterProfiler]</a>: try it out!</li>
+				<li>ProteoRE workflows have been updated accordingly:</li>
+					<ul>
+					<li>Tutorial 1: <a target="_blank" href="https://proteore.org/u/proteore/w/proteoreproteomeannotationtutorial-release-20">Annotating a protein list identified by LC-MS/MS experiments (release 2.0)</a> (from PMID: <a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/29189203/">29189203</a>)</li>
+					<li>Tutorial 2: <a target="_blank" href="https://proteore.org/u/proteore/w/workflow-constructed-from-history-proteorebiomarkerscandidatetutorial">Biomarkers candidate identification</a> (from PMID: <a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/30852829/">30852829</a>)</li>
+					<li><a target="_blank" href="https://proteore.org/u/proteore/w/imported-workflow-pancreaticcancerbiomarkersselectionstrategyshared">Workflow for the Selection of Pancreatic Cancer Biomarkers</a> (from PMID: <a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/31538697/">31538697</a>)</li>
+					<li><a target="_blank" href="https://proteore.org/u/yvdb/w/workflow-constructed-from-history-mimbgoprotocolproteore2021">Annotation and GO Enrichment Analysis of a List of Differentially Expressed Proteins</a> (from PMID: <a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/34236662/"</a>34236662</a>)</li>
+					</ul>
+              	</ul>
+		<h3><font color="0000FF">Release 5th February 2020 (version 2.1)</font></h3>
             <b>Update/Enhancement:</b>
                 <ul>
                 <li>Tools panel was reorganized (now four sections) and some tools were renamed to make them more explicit (thanks to ProteoRE’s users feedback)</li>
