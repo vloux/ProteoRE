@@ -1,19 +1,16 @@
-<tool id="prot_features_3orga" name="Add protein features" version="2020.01.23">
+<tool id="prot_features_3orga" name="add protein features" version="2021.06.03">
 <description>[UniProt, Human, Mouse, Rat]
 </description>
 <requirements>
   <requirement type="package" version="3.4.1">R</requirement>
 </requirements>
-<stdio>
-  <exit_code range="1:" />
-</stdio>
-<command><![CDATA[
+<command detect_errors="agressive"><![CDATA[
 
-  Rscript $__tool_directory__/add_protein_features_3orga.R 
-  --inputtype="$inputtype.filetype"
+  Rscript '$__tool_directory__/add_protein_features_3orga.R'
+  --inputtype='$inputtype.filetype'
   --input='$inputtype.genelist'
   
-  #if $inputtype.filetype == "file" 
+  #if $inputtype.filetype == 'file'
     --column='$inputtype.column' 
     --header=$inputtype.header
     --output='$output' 
@@ -23,9 +20,9 @@
 
   --org='$org'
   --pc_features='$pc_features'   
-  --uniprot_file_mouse=$__tool_directory__/tool-data/uniprot_features_mouse-OK.tsv 
-  --uniprot_file_human=$__tool_directory__/tool-data/uniprot_features_human-OK.tsv  
-  --uniprot_file_rat=$__tool_directory__/tool-data/uniprot_features_rat-OK.tsv
+  --uniprot_file_mouse='$__tool_directory__/tool-data/uniprot_features_mouse-OK.tsv'
+  --uniprot_file_human='$__tool_directory__/tool-data/uniprot_features_human-OK.tsv'
+  --uniprot_file_rat='$__tool_directory__/tool-data/uniprot_features_rat-OK.tsv'
 
 
 ]]></command>

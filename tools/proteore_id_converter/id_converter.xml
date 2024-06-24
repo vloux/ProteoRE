@@ -1,29 +1,26 @@
-<tool id="IDconverter" name="ID Converter" version="2020.01.09">
+<tool id="idconverter" name="id converter" version="2021.06.03">
     <description>(Human, Mouse, Rat)
     </description>
     <requirements>
     </requirements>
-    <stdio>
-        <exit_code range="1:" />
-    </stdio>
-    <command><![CDATA[
-        python $__tool_directory__/id_converter.py 
-        --id_type="$species.idtypein"
-        #if $input.ids == "text"
-            --input="$input.txt"
-            --input_type="list"
+    <command detect_errors="aggressive"><![CDATA[
+        python '$__tool_directory__/id_converter.py'
+        --id_type='$species.idtypein'
+        #if $input.ids == 'text'
+            --input='$input.txt'
+            --input_type='list'
         #else
-            --input="$input.file"
-            --column_number="$input.ncol"
-            --header="$input.header"
-            --input_type="file"
+            --input='$input.file'
+            --column_number='$input.ncol'
+            --header='$input.header'
+            --input_type='file'
         #end if
-        --target_ids="$species.idto.idtypeout"
-        --output="$output"
-        #if "id_mapping" in str($species.mapping_file).split("/")
-            --ref_file="$species.mapping_file"
+        --target_ids='$species.idto.idtypeout'
+        --output='$output'
+        #if 'id_mapping' in str($species.mapping_file).split("/")
+            --ref_file='$species.mapping_file'
         #else 
-            --ref_file="$__tool_directory__/$species.mapping_file"
+            --ref_file='$__tool_directory__/$species.mapping_file'
         #end if 
     ]]></command>
     <inputs>
@@ -216,12 +213,12 @@
         <test>
             <conditional name="input" >
                 <param name="ids" value="file"/>
-                <param name="file" value="FKW_Lacombe_et_al_2017_OK.txt" />
+                <param name="file" value='FKW_Lacombe_et_al_2017_OK.txt' />
                 <param name="header" value="true" />
                 <param name="ncol" value="c1"/>
             </conditional>
             <conditional name="species">
-                <param name="mapping_file" value="human_id_mapping"/>
+                <param name="mapping_file" value='human_id_mapping_file.tsv'/>
                 <param name="idtypein" value="UniProt-AC"/>
                 <section name="idto">
                     <param name="idtypeout" value="neXtProt,UniProt-ID,GeneID,MIM,Ensembl_Gene" />
