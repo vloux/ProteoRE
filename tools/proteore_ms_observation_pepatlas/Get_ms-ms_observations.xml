@@ -1,4 +1,4 @@
-<tool id="retr_pepatlas1" name="Get MS/MS observations in tissue/fluid" version="2020.04.30">
+<tool id="retr_pepatlas1" name="Get MS/MS observations in tissue/fluid" version="2021.04.06">
     <description>[Human Peptide Atlas]</description>
     <requirements>
         <requirement type="package" version="3.6.1">r-base</requirement>
@@ -68,7 +68,7 @@
         </conditional>
 
         <!--${__HERE__} does not work here, you must put absolute path here and in test-data/peptide_atlas.loc -->
-        <param name="atlas" value="${__HERE__}/test-data/Human_Brain_18-07-2018.tsv"/>
+        <param name="atlas" value="./test-data/Human_Brain_25-07-2018.tsv"/>
 
         <output name="output" file="PeptideAtlas_output.txt"/>
         </test>
