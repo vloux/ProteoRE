@@ -1,4 +1,4 @@
-<tool id="rna_abbased_data" name="Add expression data" version="2020.04.06">
+<tool id="rna_abbased_data" name="Add expression data" version="2021.04.06">
 <description> (RNAseq or Immuno-assays)[Human Protein Atlas]
 </description>
 <requirements>
@@ -154,7 +154,7 @@ Release date 23/10/2018: data are based on the Human Protein Atlas version 18.1 
 Release date 21/01/2020: a subset of the data in the Human Protein Atlas version 19.1
 
 downloaded from:  http://www.proteinatlas.org/download/proteinatlas.tab.gz
-
+#should be https://www.proteinatlas.org/download/proteinatlas.tsv.zip
 -----
 
 .. class:: infomark
